@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4851803675899093685}
   - component: {fileID: -4425819554744587357}
   m_Layer: 0
-  m_Name: Rayo
+  m_Name: Ataque2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
