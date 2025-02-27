@@ -35,7 +35,7 @@ public class CanvaManager : MonoBehaviour
     {
         foreach (Sprite sprite in SpritesTemp)
         {
-            if (Time.time >= sprite.attS.LastCast + sprite.attS.CoolDown)
+            if (Time.time >= sprite.attS.LastCast1 + sprite.attS.CoolDown)
             {
                 sprite.texto.text = "";
                 sprite.indicator.SetActive(false);
@@ -43,7 +43,7 @@ public class CanvaManager : MonoBehaviour
             else
             {
                 sprite.indicator.SetActive(true);
-                var tiempoC = sprite.attS.LastCast + sprite.attS.CoolDown - Time.time;
+                var tiempoC = sprite.attS.LastCast1 + sprite.attS.CoolDown - Time.time;
                 sprite.texto.text = (tiempoC).ToString("F2");
             }
             

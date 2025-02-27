@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicator: {fileID: 1844538074409306590}
-  attS: {fileID: 0}
+  attS: {fileID: -4425819554744587357, guid: 42afd05c5a3be8c44a1e36b47444798f, type: 3}
   texto: {fileID: 268046937880272349}
 --- !u!1 &1844538074409306590
 GameObject:
