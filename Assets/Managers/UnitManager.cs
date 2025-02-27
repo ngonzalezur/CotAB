@@ -57,6 +57,7 @@ public class UnitManager : MonoBehaviour
         _attackE = Resources.Load<ScriptableAttack>("Units/Attacks/BasicAttackEnemy");
         _attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack1"));
         _attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack2"));
+        _attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack3"));
 
 
         //Seteo que este tiempo no demore nada para que pueda tirar poderes inemdiatamente
@@ -173,33 +174,79 @@ public class UnitManager : MonoBehaviour
     //    //AttackHero(Highlight);
     //}
 
-    private void AttackHero(BaseUnit hero)
+    private void AttackHero(BaseUnit hero, int player)
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            var randomPrefab = _attack.AttackPrefab;
-            var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
-            var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(hero.OccupiedTile.x + 1, hero.OccupiedTile.y));
 
-            randomSpawnTile.SetAttack(attackSpawned);
-            Attacks.Add(attackSpawned);
+        if(player == 0)
+        {
+            if (Input.GetKey(KeyCode.Y))
+            {
+                var randomPrefab = _attack.AttackPrefab;
+                var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
+                var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(hero.OccupiedTile.x + 1, hero.OccupiedTile.y));
+
+                randomSpawnTile.SetAttack(attackSpawned);
+                Attacks.Add(attackSpawned);
+            }
+
+            //ataues especiales de los heroes uno con Q otro con E
+
+            if (Input.GetKey(KeyCode.U) && Time.time >= _attackS[0].AttackPrefab.LastCast + _attackS[0].AttackPrefab.CoolDown)
+            {
+                SpecialAttack(_attackS[0], hero.GetHighlightHero());
+                _attackS[0].AttackPrefab.LastCast = Time.time;
+
+            }
+
+            if (Input.GetKey(KeyCode.I) && Time.time >= _attackS[1].AttackPrefab.LastCast + _attackS[1].AttackPrefab.CoolDown)
+            {
+                SpecialAttack(_attackS[1], hero.GetHighlightHero());
+                _attackS[1].AttackPrefab.LastCast = Time.time;
+            }
+
+            if (Input.GetKey(KeyCode.O) && Time.time >= _attackS[1].AttackPrefab.LastCast + _attackS[1].AttackPrefab.CoolDown)
+            {
+                SpecialAttack(_attackS[2], hero.GetHighlightHero());
+                _attackS[2].AttackPrefab.LastCast = Time.time;
+            }
         }
 
-        //ataues especiales de los heroes uno con Q otro con E
-
-        if (Input.GetKey(KeyCode.Q) && Time.time >= _attackS[0].AttackPrefab.LastCast + _attackS[0].AttackPrefab.CoolDown)
+        if (player == 1)
         {
-            SpecialAttack(_attackS[0], hero.GetHighlightHero());
-            _attackS[0].AttackPrefab.LastCast = Time.time;
+            if (Input.GetKey(KeyCode.V))
+            {
+                var randomPrefab = _attack.AttackPrefab;
+                var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
+                var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(hero.OccupiedTile.x + 1, hero.OccupiedTile.y));
 
+                randomSpawnTile.SetAttack(attackSpawned);
+                Attacks.Add(attackSpawned);
+            }
+
+            //ataues especiales de los heroes uno con Q otro con E
+
+            if (Input.GetKey(KeyCode.B) && Time.time >= _attackS[0].AttackPrefab.LastCast + _attackS[0].AttackPrefab.CoolDown)
+            {
+                SpecialAttack(_attackS[0], hero.GetHighlightHero());
+                _attackS[0].AttackPrefab.LastCast = Time.time;
+
+            }
+
+            if (Input.GetKey(KeyCode.N) && Time.time >= _attackS[1].AttackPrefab.LastCast + _attackS[1].AttackPrefab.CoolDown)
+            {
+                SpecialAttack(_attackS[1], hero.GetHighlightHero());
+                _attackS[1].AttackPrefab.LastCast = Time.time;
+            }
+
+            if (Input.GetKey(KeyCode.M) && Time.time >= _attackS[1].AttackPrefab.LastCast + _attackS[1].AttackPrefab.CoolDown)
+            {
+                SpecialAttack(_attackS[2], hero.GetHighlightHero());
+                _attackS[2].AttackPrefab.LastCast = Time.time;
+            }
         }
 
-        if (Input.GetKey(KeyCode.E) && Time.time >= _attackS[1].AttackPrefab.LastCast + _attackS[1].AttackPrefab.CoolDown)
-        {
-            SpecialAttack(_attackS[1], hero.GetHighlightHero());
-            _attackS[1].AttackPrefab.LastCast = Time.time;
-        }
     }
+
     //codigo para que los ataques basicos se muevan de por la cuadricula
     IEnumerator AttackMove()
     {
@@ -324,7 +371,7 @@ public class UnitManager : MonoBehaviour
 
 
             //Aqui esta el ataque de heroe, separarlo (ya se separó)
-            AttackHero(hero1);
+            //AttackHero(hero1);
         }else if (player == 1)
         {
             var newTile = hero1.OccupiedTile;
@@ -357,7 +404,7 @@ public class UnitManager : MonoBehaviour
 
 
             //Aqui esta el ataque de heroe, separarlo (ya se separó)
-            AttackHero(hero1);
+            //AttackHero(hero1);
         }
 
         yield return new WaitForSeconds(2f);
@@ -458,9 +505,11 @@ public class UnitManager : MonoBehaviour
             if (Time.time - tiempoUltimaEjecucion3 >= TimeMoveHero)
             {
                 StartCoroutine(MoverHeroeSlow(Heroes[0],0));
+                AttackHero(Heroes[0],0);
                 if (SecondPlayer)
                 {
                     StartCoroutine(MoverHeroeSlow(Heroes[1], 1));
+                    AttackHero(Heroes[1],1);
                 }
                 tiempoUltimaEjecucion3 = Time.time;
             }

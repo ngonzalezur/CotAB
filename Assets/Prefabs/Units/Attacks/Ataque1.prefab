@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6963777909673359466}
   - component: {fileID: -2625447814709381683}
   m_Layer: 0
-  m_Name: BolaDeFuego
+  m_Name: Ataque1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
