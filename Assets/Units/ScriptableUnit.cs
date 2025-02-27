@@ -13,5 +13,5 @@ public enum Faction
 {
     Hero = 0,
     Enemy = 1,
-    None = 2
+    Neutral = 2
 }

@@ -8,6 +8,7 @@ public abstract class Tile : MonoBehaviour
     [SerializeField] private MeshRenderer _renderer;
     [SerializeField] public GameObject _highlight;
     [SerializeField] private bool _isWalkable;
+    public Faction Faction;
 
     public int x, y;
 

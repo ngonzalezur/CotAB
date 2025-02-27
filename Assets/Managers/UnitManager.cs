@@ -63,7 +63,8 @@ public class UnitManager : MonoBehaviour
         //Seteo que este tiempo no demore nada para que pueda tirar poderes inemdiatamente
         foreach (ScriptableAttack attack in _attackS)
         {
-            attack.AttackPrefab.LastCast = -100f;
+            attack.AttackPrefab.LastCast1 = -100f;
+            attack.AttackPrefab.LastCast2 = -100f;
         }
          //los tiempos de cada cuanto puede pasar cierta corrutina
         tiempoUltimaEjecucion = Time.time;
@@ -191,23 +192,23 @@ public class UnitManager : MonoBehaviour
 
             //ataues especiales de los heroes uno con Q otro con E
 
-            if (Input.GetKey(KeyCode.U) && Time.time >= _attackS[0].AttackPrefab.LastCast + _attackS[0].AttackPrefab.CoolDown)
+            if (Input.GetKey(KeyCode.U) && Time.time >= _attackS[0].AttackPrefab.LastCast1 + _attackS[0].AttackPrefab.CoolDown)
             {
                 SpecialAttack(_attackS[0], hero.GetHighlightHero());
-                _attackS[0].AttackPrefab.LastCast = Time.time;
+                _attackS[0].AttackPrefab.LastCast1 = Time.time;
 
             }
 
-            if (Input.GetKey(KeyCode.I) && Time.time >= _attackS[1].AttackPrefab.LastCast + _attackS[1].AttackPrefab.CoolDown)
+            if (Input.GetKey(KeyCode.I) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
             {
                 SpecialAttack(_attackS[1], hero.GetHighlightHero());
-                _attackS[1].AttackPrefab.LastCast = Time.time;
+                _attackS[1].AttackPrefab.LastCast1 = Time.time;
             }
 
-            if (Input.GetKey(KeyCode.O) && Time.time >= _attackS[1].AttackPrefab.LastCast + _attackS[1].AttackPrefab.CoolDown)
+            if (Input.GetKey(KeyCode.O) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
             {
                 SpecialAttack(_attackS[2], hero.GetHighlightHero());
-                _attackS[2].AttackPrefab.LastCast = Time.time;
+                _attackS[2].AttackPrefab.LastCast1 = Time.time;
             }
         }
 
@@ -225,23 +226,23 @@ public class UnitManager : MonoBehaviour
 
             //ataues especiales de los heroes uno con Q otro con E
 
-            if (Input.GetKey(KeyCode.B) && Time.time >= _attackS[0].AttackPrefab.LastCast + _attackS[0].AttackPrefab.CoolDown)
+            if (Input.GetKey(KeyCode.B) && Time.time >= _attackS[0].AttackPrefab.LastCast2 + _attackS[0].AttackPrefab.CoolDown)
             {
                 SpecialAttack(_attackS[0], hero.GetHighlightHero());
-                _attackS[0].AttackPrefab.LastCast = Time.time;
+                _attackS[0].AttackPrefab.LastCast2 = Time.time;
 
             }
 
-            if (Input.GetKey(KeyCode.N) && Time.time >= _attackS[1].AttackPrefab.LastCast + _attackS[1].AttackPrefab.CoolDown)
+            if (Input.GetKey(KeyCode.N) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown)
             {
                 SpecialAttack(_attackS[1], hero.GetHighlightHero());
-                _attackS[1].AttackPrefab.LastCast = Time.time;
+                _attackS[1].AttackPrefab.LastCast2 = Time.time;
             }
 
-            if (Input.GetKey(KeyCode.M) && Time.time >= _attackS[1].AttackPrefab.LastCast + _attackS[1].AttackPrefab.CoolDown)
+            if (Input.GetKey(KeyCode.M) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown)
             {
                 SpecialAttack(_attackS[2], hero.GetHighlightHero());
-                _attackS[2].AttackPrefab.LastCast = Time.time;
+                _attackS[2].AttackPrefab.LastCast2 = Time.time;
             }
         }
 

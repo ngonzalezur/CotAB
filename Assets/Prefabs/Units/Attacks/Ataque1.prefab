@@ -126,4 +126,5 @@ MonoBehaviour:
   Faction: 2
   AreaOfEffect: 2
   CoolDown: 5
-  LastCast: -100
+  LastCast1: -100
+  LastCast2: -100

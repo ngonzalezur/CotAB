@@ -12,7 +12,8 @@ public class BaseAttack : MonoBehaviour
     public Faction Faction;
     public int AreaOfEffect;
     public float CoolDown;
-    public float LastCast;
+    public float LastCast1;
+    public float LastCast2;
     //public TMP_InputField inputDmg;
     //public TMP_InputField inputCool;
 
