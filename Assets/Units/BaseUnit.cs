@@ -25,4 +25,14 @@ public class BaseUnit : MonoBehaviour
         if (this != null) Destroy(gameObject);
     }
 
+    public Tile GetHighlightHero()
+    {
+        return this.OccupiedTile.RightTile().RightTile().RightTile().RightTile().RightTile().RightTile();
+    }
+
+    public Tile GetHighlightEnemy()
+    {
+        return this.OccupiedTile.LeftTile().LeftTile().LeftTile().LeftTile().LeftTile().LeftTile();
+    }
+
 }
