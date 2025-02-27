@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.Rendering; // Necesario para Task.Delay
+using UnityEngine.InputSystem;
 
 
 public class UnitManager : MonoBehaviour
@@ -47,6 +48,8 @@ public class UnitManager : MonoBehaviour
     //public float lastAtt1 = -100f;
     //public float lastAtt2 = -100f;
 
+    Gamepad Mando = null;
+
     void Awake()
     {
         Instance = this;
@@ -80,6 +83,8 @@ public class UnitManager : MonoBehaviour
 
         _attack.AttackPrefab.Damage = DmgAttHero;
         _heroes[0].UnitPrefab.MaxHealth = HealthHero;
+
+        Mando = InputSystem.GetDevice<Gamepad>();
     }
 
     //codigo que hace aparecer los personajes
@@ -180,7 +185,7 @@ public class UnitManager : MonoBehaviour
 
         if(player == 0)
         {
-            if (Input.GetKey(KeyCode.Y))
+            if ((Input.GetKey(KeyCode.Y) || (Mando != null && Mando.buttonSouth.ReadValue() > 0)))
             {
                 var randomPrefab = _attack.AttackPrefab;
                 var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
@@ -192,20 +197,20 @@ public class UnitManager : MonoBehaviour
 
             //ataues especiales de los heroes uno con Q otro con E
 
-            if (Input.GetKey(KeyCode.U) && Time.time >= _attackS[0].AttackPrefab.LastCast1 + _attackS[0].AttackPrefab.CoolDown)
+            if ((Input.GetKey(KeyCode.U) || (Mando != null && Mando.buttonNorth.ReadValue() > 0)) && Time.time >= _attackS[0].AttackPrefab.LastCast1 + _attackS[0].AttackPrefab.CoolDown)
             {
                 SpecialAttack(_attackS[0], hero.GetHighlightHero());
                 _attackS[0].AttackPrefab.LastCast1 = Time.time;
 
             }
 
-            if (Input.GetKey(KeyCode.I) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
+            if ((Input.GetKey(KeyCode.I) || (Mando != null && Mando.buttonEast.ReadValue() > 0)) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
             {
                 SpecialAttack(_attackS[1], hero.GetHighlightHero());
                 _attackS[1].AttackPrefab.LastCast1 = Time.time;
             }
 
-            if (Input.GetKey(KeyCode.O) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
+            if ((Input.GetKey(KeyCode.O) || (Mando != null && Mando.buttonWest.ReadValue() > 0)) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
             {
                 SpecialAttack(_attackS[2], hero.GetHighlightHero());
                 _attackS[2].AttackPrefab.LastCast1 = Time.time;
@@ -348,20 +353,20 @@ public class UnitManager : MonoBehaviour
 
 
 
-            if (Input.GetKey(KeyCode.W) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
+            if ((Input.GetKey(KeyCode.W) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
             {
                 newTile = hero1.OccupiedTile.UpTile();
                 //Debug.Log("entra arriba?");
             }
-            if (Input.GetKey(KeyCode.A) && hero1.OccupiedTile.x > 0)
+            if ((Input.GetKey(KeyCode.A) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
             {
                 newTile = hero1.OccupiedTile.LeftTile();
             }
-            if (Input.GetKey(KeyCode.S) && hero1.OccupiedTile.y > 0)
+            if ((Input.GetKey(KeyCode.S) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
             {
                 newTile = hero1.OccupiedTile.DownTile();
             }
-            if (Input.GetKey(KeyCode.D) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
+            if ((Input.GetKey(KeyCode.D) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
             {
                 newTile = hero1.OccupiedTile.RightTile();
             }
