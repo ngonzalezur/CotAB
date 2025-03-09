@@ -21,4 +21,9 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene("Level hard");
     }
+
+    public void SecondPlayer()
+    {
+        SceneManager.LoadScene("SecondPlayer");
+    }
 }
