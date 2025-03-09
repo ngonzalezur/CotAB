@@ -25,13 +25,16 @@ public class UnitManager : MonoBehaviour
     [SerializeField] private int DmgAttHero = 0;
     [SerializeField] private int HealthHero = 1;
 
+    public List<int> movimientos = new List<int>();
+    private List<int> movimientos2 = new List<int>();
+
 
     //private BaseUnit Hero1;
     //private BaseUnit Hero2;
     private List<BaseUnit> Heroes = new List<BaseUnit>();
 
     private List<BaseUnit> Enemies = new List<BaseUnit>();
-    public List<BaseAttack> Attacks = new List<BaseAttack>();
+    private List<BaseAttack> Attacks = new List<BaseAttack>();
 
     private float tiempoUltimaEjecucion = 1f;
     private float tiempoUltimaEjecucion2 = 1f;
@@ -185,13 +188,11 @@ public class UnitManager : MonoBehaviour
 
         if(player == 0)
         {
-            if ((Input.GetKeyDown(KeyCode.Y) || (Mando != null && Mando.buttonSouth.ReadValue() > 0)))
+            if ((Input.GetKey(KeyCode.Y) || (Mando != null && Mando.buttonSouth.ReadValue() > 0)))
             {
                 var randomPrefab = _attack.AttackPrefab;
-                //var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
-                var attackSpawned = ObjectPool.instance.GetObjectInPool();
-                attackSpawned.gameObject.SetActive(true);
-                var randomSpawnTile = hero.OccupiedTile.RightTile();
+                var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
+                var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(hero.OccupiedTile.x + 1, hero.OccupiedTile.y));
 
                 randomSpawnTile.SetAttack(attackSpawned);
                 Attacks.Add(attackSpawned);
@@ -224,9 +225,8 @@ public class UnitManager : MonoBehaviour
             if (Input.GetKey(KeyCode.V))
             {
                 var randomPrefab = _attack.AttackPrefab;
-                //var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
-                var attackSpawned = ObjectPool.instance.GetObjectInPool();
-                var randomSpawnTile = hero.OccupiedTile.RightTile();
+                var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
+                var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(hero.OccupiedTile.x + 1, hero.OccupiedTile.y));
 
                 randomSpawnTile.SetAttack(attackSpawned);
                 Attacks.Add(attackSpawned);
@@ -346,26 +346,143 @@ public class UnitManager : MonoBehaviour
 
     //version de mover heores pero con con restriccion
 
-    IEnumerator MoverHeroeSlow(BaseUnit hero1, int player)
+    //IEnumerator MoverHeroeSlowOG(BaseUnit hero1, int player)
+    //{
+    //    if(player == 0)
+    //    {
+    //        //var newTile = hero1.OccupiedTile;
+    //        var mc = movimientos.Count;
+    //        var Highlight = hero1.GetHighlightHero();
+    //        Highlight._highlight.SetActive(false);
+
+
+    //        if (mc < 2)
+    //        {
+    //            if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
+    //            {
+    //                movimientos.Add(0);
+    //            }
+    //            if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
+    //            {
+    //                movimientos.Add(1);
+    //            }
+    //            if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
+    //            {
+    //                movimientos.Add(2);
+    //            }
+    //            if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
+    //            {
+    //                movimientos.Add(3);
+    //            }
+    //        }
+
+    //        //newTile.SetUnit(hero1);
+    //        Highlight = hero1.GetHighlightHero();
+    //        Highlight._highlight.SetActive(true);
+
+
+    //        //Aqui esta el ataque de heroe, separarlo (ya se separó)
+    //        //AttackHero(hero1);
+    //    }else if (player == 1)
+    //    {
+    //        var newTile = hero1.OccupiedTile;
+    //        var Highlight = hero1.GetHighlightHero();
+    //        Highlight._highlight.SetActive(false);
+
+
+
+    //        if (Input.GetKey(KeyCode.UpArrow) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
+    //        {
+    //            newTile = hero1.OccupiedTile.UpTile();
+    //            //Debug.Log("entra arriba?");
+    //        }
+    //        if (Input.GetKey(KeyCode.LeftArrow) && hero1.OccupiedTile.x > 0)
+    //        {
+    //            newTile = hero1.OccupiedTile.LeftTile();
+    //        }
+    //        if (Input.GetKey(KeyCode.DownArrow) && hero1.OccupiedTile.y > 0)
+    //        {
+    //            newTile = hero1.OccupiedTile.DownTile();
+    //        }
+    //        if (Input.GetKey(KeyCode.RightArrow) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
+    //        {
+    //            newTile = hero1.OccupiedTile.RightTile();
+    //        }
+
+    //        newTile.SetUnit(hero1);
+    //        Highlight = hero1.GetHighlightHero();
+    //        Highlight._highlight.SetActive(true);
+
+
+    //        //Aqui esta el ataque de heroe, separarlo (ya se separó)
+    //        //AttackHero(hero1);
+    //    }
+
+    //    yield return new WaitForSeconds(2f);
+    //}
+
+
+    public void  MoverHeroeSlow(BaseUnit hero1, int player)
     {
-        if(player == 0)
+        if (player == 0)
         {
-            var newTile = hero1.OccupiedTile;
+            //var newTile = hero1.OccupiedTile;
+            var mc = movimientos.Count;
             var Highlight = hero1.GetHighlightHero();
             Highlight._highlight.SetActive(false);
 
 
+            if (mc == 2)
+            {
+                if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
+                {
+                    movimientos[1] = 0;
+                }
+                if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
+                {
+                    movimientos[1] = 1;
+                }
+                if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
+                {
+                    movimientos[1] = 2;
+                }
+                if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
+                {
+                    movimientos[1] = 3;
+                }
+            }
 
-            
+            if (mc < 2)
+            {
+                if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
+                {
+                    movimientos.Add(0);
+                }
+                if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
+                {
+                    movimientos.Add(1);
+                }
+                if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
+                {
+                    movimientos.Add(2);
+                }
+                if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
+                {
+                    movimientos.Add(3);
+                }
+            }
 
-            newTile.SetUnit(hero1);
+
+
+            //newTile.SetUnit(hero1);
             Highlight = hero1.GetHighlightHero();
             Highlight._highlight.SetActive(true);
 
 
             //Aqui esta el ataque de heroe, separarlo (ya se separó)
             //AttackHero(hero1);
-        }else if (player == 1)
+        }
+        else if (player == 1)
         {
             var newTile = hero1.OccupiedTile;
             var Highlight = hero1.GetHighlightHero();
@@ -376,6 +493,7 @@ public class UnitManager : MonoBehaviour
             if (Input.GetKey(KeyCode.UpArrow) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
             {
                 newTile = hero1.OccupiedTile.UpTile();
+                //Debug.Log("entra arriba?");
             }
             if (Input.GetKey(KeyCode.LeftArrow) && hero1.OccupiedTile.x > 0)
             {
@@ -399,10 +517,10 @@ public class UnitManager : MonoBehaviour
             //AttackHero(hero1);
         }
 
-        yield return new WaitForSeconds(2f);
+        
     }
 
-   
+
 
     //Codigo de movimiento que SI se esta suando ahorita para mover y atacar del enemigo
     IEnumerator MoverEnemigo()
@@ -476,6 +594,8 @@ public class UnitManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
     }
 
+
+
     public void Update()
     {
         //Debug.Log(CanPlay);
@@ -483,6 +603,11 @@ public class UnitManager : MonoBehaviour
         {
             TakeDamage();
             //MoveHeroes();
+            MoverHeroeSlow(Heroes[0], 0);
+                if (SecondPlayer)
+            {
+                MoverHeroeSlow(Heroes[1], 1);
+            }
 
             if (Time.time - tiempoUltimaEjecucion >= TimeMoveEne)
             {
@@ -496,11 +621,12 @@ public class UnitManager : MonoBehaviour
             }
             if (Time.time - tiempoUltimaEjecucion3 >= TimeMoveHero)
             {
-                StartCoroutine(MoverHeroeSlow(Heroes[0],0));                
+                StartCoroutine(LecturaMovimientos(Heroes[0],0));
                 if (SecondPlayer)
                 {
-                    StartCoroutine(MoverHeroeSlow(Heroes[1], 1));
+                    StartCoroutine(LecturaMovimientos(Heroes[1], 1));
                 }
+                
                 tiempoUltimaEjecucion3 = Time.time;
             }
             AttackHero(Heroes[0], 0);
@@ -563,17 +689,13 @@ public class UnitManager : MonoBehaviour
             {
                 if(unit.Faction != unit.OccupiedTile.OccupiedAttack.Faction)
                 {
-                    unit.OccupiedTile.OccupiedAttack.DoDamage(unit);                    
+                    unit.OccupiedTile.OccupiedAttack.DoDamage(unit);
                     unit.OccupiedTile.OccupiedAttack.Destroy();
                 }
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Hero)
             {
                 unit.Destroy();
-                if (Heroes.Count == 0)
-                {
-                    GameManager.Instance.ChangeState(GameState.EndFight);
-                }
                 GameManager.Instance.ChangeState(GameState.EndFight);
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Enemy)
@@ -616,5 +738,61 @@ public class UnitManager : MonoBehaviour
             }
             //Destruir(attackSpawned);
         }
+    }
+
+    IEnumerator LecturaMovimientos(BaseUnit hero, int jugador)
+    {
+        if(jugador == 0)
+        {
+            var newTile = hero.OccupiedTile;
+            if (movimientos.Count != 0)
+            {
+                if (movimientos[0] == 0)
+                {
+                    newTile = hero.OccupiedTile.UpTile();
+                }
+                if (movimientos[0] == 1)
+                {
+                    newTile = hero.OccupiedTile.LeftTile();
+                }
+                if (movimientos[0] == 2)
+                {
+                    newTile = hero.OccupiedTile.DownTile();
+                }
+                if (movimientos[0] == 3)
+                {
+                    newTile = hero.OccupiedTile.RightTile();
+                }
+                movimientos.RemoveAt(0);
+            }
+            newTile.SetUnit(hero);
+        }
+
+        if (jugador == 1)
+        {
+            var newTile = hero.OccupiedTile;
+            if (movimientos2.Count != 0)
+            {
+                if (movimientos2[0] == 0)
+                {
+                    newTile = hero.OccupiedTile.UpTile();
+                }
+                if (movimientos2[0] == 1)
+                {
+                    newTile = hero.OccupiedTile.LeftTile();
+                }
+                if (movimientos2[0] == 2)
+                {
+                    newTile = hero.OccupiedTile.DownTile();
+                }
+                if (movimientos2[0] == 3)
+                {
+                    newTile = hero.OccupiedTile.RightTile();
+                }
+                movimientos2.RemoveAt(0);
+            }
+            newTile.SetUnit(hero);
+        }
+        yield return new WaitForSeconds(2f);
     }
 }
