@@ -8,7 +8,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private ScriptableAttack BasicAtt;
 
     private List<BaseAttack> pool = new List<BaseAttack>();
-    private int poolCount = 100;
+    [SerializeField] int poolCount = 50;
 
     private void Awake()
     {
