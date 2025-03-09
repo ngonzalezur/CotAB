@@ -31,7 +31,7 @@ public class UnitManager : MonoBehaviour
     private List<BaseUnit> Heroes = new List<BaseUnit>();
 
     private List<BaseUnit> Enemies = new List<BaseUnit>();
-    private List<BaseAttack> Attacks = new List<BaseAttack>();
+    public List<BaseAttack> Attacks = new List<BaseAttack>();
 
     private float tiempoUltimaEjecucion = 1f;
     private float tiempoUltimaEjecucion2 = 1f;
@@ -185,11 +185,13 @@ public class UnitManager : MonoBehaviour
 
         if(player == 0)
         {
-            if ((Input.GetKey(KeyCode.Y) || (Mando != null && Mando.buttonSouth.ReadValue() > 0)))
+            if ((Input.GetKeyDown(KeyCode.Y) || (Mando != null && Mando.buttonSouth.ReadValue() > 0)))
             {
                 var randomPrefab = _attack.AttackPrefab;
-                var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
-                var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(hero.OccupiedTile.x + 1, hero.OccupiedTile.y));
+                //var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
+                var attackSpawned = ObjectPool.instance.GetObjectInPool();
+                attackSpawned.gameObject.SetActive(true);
+                var randomSpawnTile = hero.OccupiedTile.RightTile();
 
                 randomSpawnTile.SetAttack(attackSpawned);
                 Attacks.Add(attackSpawned);
@@ -222,8 +224,9 @@ public class UnitManager : MonoBehaviour
             if (Input.GetKey(KeyCode.V))
             {
                 var randomPrefab = _attack.AttackPrefab;
-                var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
-                var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(hero.OccupiedTile.x + 1, hero.OccupiedTile.y));
+                //var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
+                var attackSpawned = ObjectPool.instance.GetObjectInPool();
+                var randomSpawnTile = hero.OccupiedTile.RightTile();
 
                 randomSpawnTile.SetAttack(attackSpawned);
                 Attacks.Add(attackSpawned);
@@ -356,7 +359,6 @@ public class UnitManager : MonoBehaviour
             if ((Input.GetKey(KeyCode.W) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
             {
                 newTile = hero1.OccupiedTile.UpTile();
-                //Debug.Log("entra arriba?");
             }
             if ((Input.GetKey(KeyCode.A) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
             {
@@ -389,7 +391,6 @@ public class UnitManager : MonoBehaviour
             if (Input.GetKey(KeyCode.UpArrow) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
             {
                 newTile = hero1.OccupiedTile.UpTile();
-                //Debug.Log("entra arriba?");
             }
             if (Input.GetKey(KeyCode.LeftArrow) && hero1.OccupiedTile.x > 0)
             {
@@ -577,13 +578,17 @@ public class UnitManager : MonoBehaviour
             {
                 if(unit.Faction != unit.OccupiedTile.OccupiedAttack.Faction)
                 {
-                    unit.OccupiedTile.OccupiedAttack.DoDamage(unit);
+                    unit.OccupiedTile.OccupiedAttack.DoDamage(unit);                    
                     unit.OccupiedTile.OccupiedAttack.Destroy();
                 }
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Hero)
             {
                 unit.Destroy();
+                if (Heroes.Count == 0)
+                {
+                    GameManager.Instance.ChangeState(GameState.EndFight);
+                }
                 GameManager.Instance.ChangeState(GameState.EndFight);
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Enemy)

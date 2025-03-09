@@ -83,7 +83,7 @@ public abstract class Tile : MonoBehaviour
     }
     public Tile DownTile()
     {
-        if (this != null && this.x > 0)
+        if (this != null && this.y > 0)
         {
             return GridManager.Instance.GetTileAtPosition(new Vector2(this.x, this.y - 1));
         }
