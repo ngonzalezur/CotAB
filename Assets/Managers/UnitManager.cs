@@ -356,22 +356,7 @@ public class UnitManager : MonoBehaviour
 
 
 
-            if ((Input.GetKey(KeyCode.W) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
-            {
-                newTile = hero1.OccupiedTile.UpTile();
-            }
-            if ((Input.GetKey(KeyCode.A) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
-            {
-                newTile = hero1.OccupiedTile.LeftTile();
-            }
-            if ((Input.GetKey(KeyCode.S) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
-            {
-                newTile = hero1.OccupiedTile.DownTile();
-            }
-            if ((Input.GetKey(KeyCode.D) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
-            {
-                newTile = hero1.OccupiedTile.RightTile();
-            }
+            
 
             newTile.SetUnit(hero1);
             Highlight = hero1.GetHighlightHero();
