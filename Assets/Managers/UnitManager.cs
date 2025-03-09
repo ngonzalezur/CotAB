@@ -510,17 +510,14 @@ public class UnitManager : MonoBehaviour
             }
             if (Time.time - tiempoUltimaEjecucion3 >= TimeMoveHero)
             {
-                StartCoroutine(MoverHeroeSlow(Heroes[0],0));                
+                StartCoroutine(MoverHeroeSlow(Heroes[0],0));
+                AttackHero(Heroes[0],0);
                 if (SecondPlayer)
                 {
                     StartCoroutine(MoverHeroeSlow(Heroes[1], 1));
+                    AttackHero(Heroes[1],1);
                 }
                 tiempoUltimaEjecucion3 = Time.time;
-            }
-            AttackHero(Heroes[0], 0);
-            if (SecondPlayer)
-            {
-                AttackHero(Heroes[1], 1);
             }
         }
         
