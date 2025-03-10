@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using static UnityEngine.UI.CanvasScaler;
 //using TMPro;
 
 public class BaseAttack : MonoBehaviour
@@ -14,14 +15,19 @@ public class BaseAttack : MonoBehaviour
     public float CoolDown;
     public float LastCast1;
     public float LastCast2;
+    //public bool activeInHierarchy;
     //public TMP_InputField inputDmg;
     //public TMP_InputField inputCool;
 
+  
 
 
     public void Destroy()
     {
-        if(this != null) Destroy(gameObject);
+        //if(this != null) Destroy(gameObject);
+        UnitManager.Instance.Attacks.Remove(this);
+        this.gameObject.SetActive(false);
+        this.OccupiedTile.OccupiedAttack = null;
     }
 
     public void DoDamage(BaseUnit unit)
@@ -34,7 +40,7 @@ public class BaseAttack : MonoBehaviour
     }
     //public void Update()
     //{
-        
+
     //    if (int.TryParse(inputDmg.text, out var dmg) && inputDmg != null && inputDmg.text != "")
     //    {
     //        Damage = dmg;
@@ -44,4 +50,6 @@ public class BaseAttack : MonoBehaviour
     //        CoolDown = cool;
     //    }            
     //}
+
+    
 }
