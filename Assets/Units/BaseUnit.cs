@@ -16,7 +16,7 @@ public class BaseUnit : MonoBehaviour
     public BaseEnemy EnemyType;
     public BaseHero HeroType;
 
-    public ScriptableAttack[] Attacks = new ScriptableAttack[4];
+    public BaseAttack[] Attacks = new BaseAttack[4];
 
     public int veneno = 0;
 

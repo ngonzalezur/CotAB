@@ -2192,7 +2192,7 @@ MonoBehaviour:
   velEnemy: 1
   velAttack: 1
   pobAtt: 10
-  HealthEnemy: 20
+  HealthEnemy: 100
   DmgAttEnemy: 1
   NumEnemies: 1
   DmgAttHero: 1
