@@ -43,12 +43,14 @@ public class UnitManager : MonoBehaviour
     private float tiempoUltimaEjecucion = 1f;
     private float tiempoUltimaEjecucion2 = 1f;
     private float tiempoUltimaEjecucion3 = 0.5f;
+    private float tiempoUltimaEjecucion4 = 0.5f;
 
     public bool CanPlay = false;
 
     public float TimeMoveEne = 2f;
     public float TimeAttEne = 0.5f;
     public float TimeMoveHero = 0.5f;
+    public float TimeVeneno = 1f;
 
     public bool SecondPlayer = false;
 
@@ -208,20 +210,20 @@ public class UnitManager : MonoBehaviour
 
             if ((Input.GetKeyDown(KeyCode.U) || (Mando != null && Mando.buttonNorth.ReadValue() > 0)) && Time.time >= _attackS[0].AttackPrefab.LastCast1 + _attackS[0].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[0], hero.GetHighlightHero());
+                SpecialAttack(hero, _attackS[0], hero.GetHighlightHero());
                 _attackS[0].AttackPrefab.LastCast1 = Time.time;
 
             }
 
             if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonEast.ReadValue() > 0)) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[1], hero.GetHighlightHero());
+                SpecialAttack(hero ,_attackS[1], hero.GetHighlightHero());
                 _attackS[1].AttackPrefab.LastCast1 = Time.time;
             }
 
             if ((Input.GetKeyDown(KeyCode.O) || (Mando != null && Mando.buttonWest.ReadValue() > 0)) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[2], hero.GetHighlightHero());
+                SpecialAttack(hero ,_attackS[2], hero.GetHighlightHero());
                 _attackS[2].AttackPrefab.LastCast1 = Time.time;
             }
         }
@@ -243,20 +245,20 @@ public class UnitManager : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.B) && Time.time >= _attackS[0].AttackPrefab.LastCast2 + _attackS[0].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[0], hero.GetHighlightHero());
+                SpecialAttack(hero,_attackS[0], hero.GetHighlightHero());
                 _attackS[0].AttackPrefab.LastCast2 = Time.time;
 
             }
 
             if (Input.GetKeyDown(KeyCode.N) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[1], hero.GetHighlightHero());
+                SpecialAttack(hero, _attackS[1], hero.GetHighlightHero());
                 _attackS[1].AttackPrefab.LastCast2 = Time.time;
             }
 
             if (Input.GetKeyDown(KeyCode.M) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[2], hero.GetHighlightHero());
+                SpecialAttack(hero, _attackS[2], hero.GetHighlightHero());
                 _attackS[2].AttackPrefab.LastCast2 = Time.time;
             }
         }
@@ -609,6 +611,12 @@ public class UnitManager : MonoBehaviour
         //Debug.Log(CanPlay);
         if (CanPlay)
         {
+            if (Time.time - tiempoUltimaEjecucion4 >= TimeVeneno)
+            {
+                StartCoroutine(VenenoDoDamage());
+                tiempoUltimaEjecucion4 = Time.time;
+            }
+            
             TakeDamage();
             //MoveHeroes();
             MoverHeroeSlow(Heroes[0], 0);
@@ -648,32 +656,59 @@ public class UnitManager : MonoBehaviour
 
     //codigo para tirar un poder especial
 
-    public void SpecialAttack(ScriptableAttack att, Tile tile)
+    public void SpecialAttack(BaseUnit unit, ScriptableAttack att, Tile tile)
     {
         if (att != null && tile != null)
         {
-            var area = new List<Tile>();
-            var atts = new List<BaseAttack>();
-            area.Add(tile);
-            if(att.AttackPrefab.AreaOfEffect == 2)
+            if (att.AttackPrefab.attackType == 0)
             {
-                area.Add(tile.DownTile());
-                area.Add(tile.LeftTile());
-                area.Add(tile.LeftTile().DownTile());
-            }
-            //luego hacer un codigo para pegar en area
-            foreach (Tile t in area)
-            {
-                if (t != null)
+                var area = new List<Tile>();
+                var atts = new List<BaseAttack>();
+                area.Add(tile);
+                if (att.AttackPrefab.AreaOfEffect == 2)
                 {
-                    var attackSpawned = Instantiate(att.AttackPrefab, Vector3.zero, Quaternion.identity);
-                    t.SetAttack(attackSpawned);
-                    Destruir(attackSpawned);
+                    area.Add(tile.DownTile());
+                    area.Add(tile.LeftTile());
+                    area.Add(tile.LeftTile().DownTile());
                 }
-                
+                //luego hacer un codigo para pegar en area
+                foreach (Tile t in area)
+                {
+                    if (t != null)
+                    {
+                        var attackSpawned = Instantiate(att.AttackPrefab, Vector3.zero, Quaternion.identity);
+                        t.SetAttack(attackSpawned);
+                        Destruir(attackSpawned);
+                    }
+
+                }
+
+                //Destruir(attackSpawned);
             }
-            
-            //Destruir(attackSpawned);
+            if(att.AttackPrefab.attackType == 1)
+            {
+                var area = new List<Tile>();
+                for (int i = 1; i < GridManager.Instance._width - unit.OccupiedTile.x; i++)
+                {
+                    area.Add(GridManager.Instance.GetTileAtPosition(new Vector2(unit.OccupiedTile.x + i, unit.OccupiedTile.y)));
+                }
+                foreach (Tile t in area)
+                {
+                    if (t != null)
+                    {
+                        var attackSpawned = Instantiate(att.AttackPrefab, Vector3.zero, Quaternion.identity);
+                        t.SetAttack(attackSpawned);
+                        Destruir(attackSpawned);
+                    }
+
+                }
+            }
+            if(att.AttackPrefab.attackType == 2)
+            {
+                var attackSpawned = Instantiate(att.AttackPrefab, Vector3.zero, Quaternion.identity);
+                unit.OccupiedTile.RightTile().SetAttack(attackSpawned);
+                Attacks.Add(attackSpawned);
+            }
         }
         
     }
@@ -801,6 +836,15 @@ public class UnitManager : MonoBehaviour
                 movimientos2.RemoveAt(0);
             }
             newTile.SetUnit(hero);
+        }
+        yield return new WaitForSeconds(2f);
+    }
+
+    IEnumerator VenenoDoDamage()
+    {
+        foreach (BaseUnit unit in AllUnits)
+        {
+           unit.VenenoDamage();
         }
         yield return new WaitForSeconds(2f);
     }

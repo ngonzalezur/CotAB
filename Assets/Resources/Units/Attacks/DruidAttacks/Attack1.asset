@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e003f4627c463bc4eb585c86231d15ba, type: 3}
-  m_Name: BasicAttackHero
+  m_Name: Attack1
   m_EditorClassIdentifier: 
-  AttackPrefab: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
+  AttackPrefab: {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6,
     type: 3}
   Faction: 0

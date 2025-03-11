@@ -11,12 +11,17 @@ PrefabInstance:
     - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
         type: 3}
       propertyPath: Damage
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
         type: 3}
       propertyPath: Faction
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
+        type: 3}
+      propertyPath: DoVeneno
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
         type: 3}
@@ -80,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5628646505787274529, guid: f5c1e3ca2062df64a8a30f42d73670aa,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 09597fcef5acddd4fa92ee5977ec13ad, type: 2}
     m_RemovedComponents: []
