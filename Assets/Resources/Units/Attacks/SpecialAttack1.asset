@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e003f4627c463bc4eb585c86231d15ba, type: 3}
   m_Name: SpecialAttack1
   m_EditorClassIdentifier: 
-  AttackPrefab: {fileID: -4425819554744587357, guid: 42afd05c5a3be8c44a1e36b47444798f,
+  AttackPrefab: {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6,
     type: 3}
   Faction: 0

@@ -19,8 +19,8 @@ public class BaseAttack : MonoBehaviour
     //public TMP_InputField inputDmg;
     //public TMP_InputField inputCool;
 
-  
-
+    public int DoVeneno = 0;
+    public int attackType; //0 para lazar en casilla highlight, 1 para ataque en linea, 2 skillshot , 3 ataque meelee, por ahora va asi, se modifica en el unit manager
 
     public void Destroy()
     {
@@ -30,14 +30,21 @@ public class BaseAttack : MonoBehaviour
         this.OccupiedTile.OccupiedAttack = null;
     }
 
-    public void DoDamage(BaseUnit unit)
+    public virtual void DoDamage(BaseUnit unit)
     {
         if (unit.Faction != Faction)
         {
+            if (DoVeneno > 0)
+            {
+                unit.veneno += DoVeneno;
+            }
+            //Debug.Log("soy normal");
             unit.Health -= Math.Abs(Damage);
             unit.ActualHeath.text = Math.Max(unit.Health,0) + " / " + unit.MaxHealth;
+            
         }
     }
+
     //public void Update()
     //{
 

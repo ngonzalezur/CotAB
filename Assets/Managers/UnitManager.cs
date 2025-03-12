@@ -43,12 +43,14 @@ public class UnitManager : MonoBehaviour
     private float tiempoUltimaEjecucion = 1f;
     private float tiempoUltimaEjecucion2 = 1f;
     private float tiempoUltimaEjecucion3 = 0.5f;
+    private float tiempoUltimaEjecucion4 = 0.5f;
 
     public bool CanPlay = false;
 
     public float TimeMoveEne = 2f;
     public float TimeAttEne = 0.5f;
     public float TimeMoveHero = 0.5f;
+    public float TimeVeneno = 1f;
 
     public bool SecondPlayer = false;
 
@@ -208,21 +210,39 @@ public class UnitManager : MonoBehaviour
 
             if ((Input.GetKeyDown(KeyCode.U) || (Mando != null && Mando.buttonNorth.ReadValue() > 0)) && Time.time >= _attackS[0].AttackPrefab.LastCast1 + _attackS[0].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[0], hero.GetHighlightHero());
-                _attackS[0].AttackPrefab.LastCast1 = Time.time;
+                if (hero.Attacks[0] != null)
+                {
+                    SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
+                    hero.Attacks[0].LastCast1 = Time.time;
+                }
 
             }
 
             if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonEast.ReadValue() > 0)) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[1], hero.GetHighlightHero());
-                _attackS[1].AttackPrefab.LastCast1 = Time.time;
+                if (hero.Attacks[1] != null)
+                {
+                    SpecialAttack(hero, hero.Attacks[1], hero.GetHighlightHero());
+                    hero.Attacks[1].LastCast1 = Time.time;
+                }
             }
 
             if ((Input.GetKeyDown(KeyCode.O) || (Mando != null && Mando.buttonWest.ReadValue() > 0)) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[2], hero.GetHighlightHero());
-                _attackS[2].AttackPrefab.LastCast1 = Time.time;
+                if (hero.Attacks[2] != null)
+                {
+                    SpecialAttack(hero, hero.Attacks[2], hero.GetHighlightHero());
+                    hero.Attacks[2].LastCast1 = Time.time;
+                }
+            }
+
+            if ((Input.GetKeyDown(KeyCode.P) || (Mando != null && Mando.buttonWest.ReadValue() > 0)) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
+            {
+                if (hero.Attacks[3] != null)
+                {
+                    SpecialAttack(hero, hero.Attacks[3], hero.GetHighlightHero());
+                    hero.Attacks[3].LastCast1 = Time.time;
+                }
             }
         }
 
@@ -241,23 +261,40 @@ public class UnitManager : MonoBehaviour
 
             //ataues especiales de los heroes uno con Q otro con E
 
-            if (Input.GetKeyDown(KeyCode.B) && Time.time >= _attackS[0].AttackPrefab.LastCast2 + _attackS[0].AttackPrefab.CoolDown)
+            if (Input.GetKeyDown(KeyCode.V) && Time.time >= _attackS[0].AttackPrefab.LastCast2 + _attackS[0].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[0], hero.GetHighlightHero());
-                _attackS[0].AttackPrefab.LastCast2 = Time.time;
+                if (hero.Attacks[0] != null)
+                {
+                    SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
+                    hero.Attacks[0].LastCast1 = Time.time;
+                }
+            }
 
+            if (Input.GetKeyDown(KeyCode.B) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown)
+            {
+                if (hero.Attacks[1] != null)
+                {
+                    SpecialAttack(hero, hero.Attacks[1], hero.GetHighlightHero());
+                    hero.Attacks[1].LastCast1 = Time.time;
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.N) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[1], hero.GetHighlightHero());
-                _attackS[1].AttackPrefab.LastCast2 = Time.time;
+                if (hero.Attacks[2] != null)
+                {
+                    SpecialAttack(hero, hero.Attacks[2], hero.GetHighlightHero());
+                    hero.Attacks[2].LastCast1 = Time.time;
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.M) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown)
             {
-                SpecialAttack(_attackS[2], hero.GetHighlightHero());
-                _attackS[2].AttackPrefab.LastCast2 = Time.time;
+                if (hero.Attacks[3] != null)
+                {
+                    SpecialAttack(hero, hero.Attacks[3], hero.GetHighlightHero());
+                    hero.Attacks[3].LastCast1 = Time.time;
+                }
             }
         }
 
@@ -491,31 +528,51 @@ public class UnitManager : MonoBehaviour
         }
         else if (player == 1)
         {
-            var newTile = hero1.OccupiedTile;
+            //var newTile = hero1.OccupiedTile;
+            var mc = movimientos.Count;
             var Highlight = hero1.GetHighlightHero();
             Highlight._highlight.SetActive(false);
 
 
+            if (mc == 2)
+            {
+                if ((Input.GetKeyDown(KeyCode.UpArrow) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
+                {
+                    movimientos2[1] = 0;
+                }
+                if ((Input.GetKeyDown(KeyCode.LeftArrow) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
+                {
+                    movimientos2[1] = 1;
+                }
+                if ((Input.GetKeyDown(KeyCode.DownArrow) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
+                {
+                    movimientos2[1] = 2;
+                }
+                if ((Input.GetKeyDown(KeyCode.RightArrow) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
+                {
+                    movimientos2[1] = 3;
+                }
+            }
 
-            if (Input.GetKey(KeyCode.UpArrow) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
+            if (mc < 2)
             {
-                newTile = hero1.OccupiedTile.UpTile();
-                //Debug.Log("entra arriba?");
+                if ((Input.GetKeyDown(KeyCode.UpArrow) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
+                {
+                    movimientos2.Add(0);
+                }
+                if ((Input.GetKeyDown(KeyCode.LeftArrow) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
+                {
+                    movimientos2.Add(1);
+                }
+                if ((Input.GetKeyDown(KeyCode.DownArrow) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
+                {
+                    movimientos2.Add(2);
+                }
+                if ((Input.GetKeyDown(KeyCode.RightArrow) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
+                {
+                    movimientos2.Add(3);
+                }
             }
-            if (Input.GetKey(KeyCode.LeftArrow) && hero1.OccupiedTile.x > 0)
-            {
-                newTile = hero1.OccupiedTile.LeftTile();
-            }
-            if (Input.GetKey(KeyCode.DownArrow) && hero1.OccupiedTile.y > 0)
-            {
-                newTile = hero1.OccupiedTile.DownTile();
-            }
-            if (Input.GetKey(KeyCode.RightArrow) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
-            {
-                newTile = hero1.OccupiedTile.RightTile();
-            }
-
-            newTile.SetUnit(hero1);
             Highlight = hero1.GetHighlightHero();
             Highlight._highlight.SetActive(true);
 
@@ -609,6 +666,12 @@ public class UnitManager : MonoBehaviour
         //Debug.Log(CanPlay);
         if (CanPlay)
         {
+            if (Time.time - tiempoUltimaEjecucion4 >= TimeVeneno)
+            {
+                StartCoroutine(VenenoDoDamage());
+                tiempoUltimaEjecucion4 = Time.time;
+            }
+            
             TakeDamage();
             //MoveHeroes();
             MoverHeroeSlow(Heroes[0], 0);
@@ -648,32 +711,59 @@ public class UnitManager : MonoBehaviour
 
     //codigo para tirar un poder especial
 
-    public void SpecialAttack(ScriptableAttack att, Tile tile)
+    public void SpecialAttack(BaseUnit unit, BaseAttack att, Tile tile)
     {
         if (att != null && tile != null)
         {
-            var area = new List<Tile>();
-            var atts = new List<BaseAttack>();
-            area.Add(tile);
-            if(att.AttackPrefab.AreaOfEffect == 2)
+            if (att.attackType == 0)
             {
-                area.Add(tile.DownTile());
-                area.Add(tile.LeftTile());
-                area.Add(tile.LeftTile().DownTile());
-            }
-            //luego hacer un codigo para pegar en area
-            foreach (Tile t in area)
-            {
-                if (t != null)
+                var area = new List<Tile>();
+                var atts = new List<BaseAttack>();
+                area.Add(tile);
+                if (att.AreaOfEffect == 2)
                 {
-                    var attackSpawned = Instantiate(att.AttackPrefab, Vector3.zero, Quaternion.identity);
-                    t.SetAttack(attackSpawned);
-                    Destruir(attackSpawned);
+                    area.Add(tile.DownTile());
+                    area.Add(tile.LeftTile());
+                    area.Add(tile.LeftTile().DownTile());
                 }
-                
+                //luego hacer un codigo para pegar en area
+                foreach (Tile t in area)
+                {
+                    if (t != null)
+                    {
+                        var attackSpawned = Instantiate(att, Vector3.zero, Quaternion.identity);
+                        t.SetAttack(attackSpawned);
+                        Destruir(attackSpawned);
+                    }
+
+                }
+
+                //Destruir(attackSpawned);
             }
-            
-            //Destruir(attackSpawned);
+            if(att.attackType == 1)
+            {
+                var area = new List<Tile>();
+                for (int i = 1; i < GridManager.Instance._width - unit.OccupiedTile.x; i++)
+                {
+                    area.Add(GridManager.Instance.GetTileAtPosition(new Vector2(unit.OccupiedTile.x + i, unit.OccupiedTile.y)));
+                }
+                foreach (Tile t in area)
+                {
+                    if (t != null)
+                    {
+                        var attackSpawned = Instantiate(att, Vector3.zero, Quaternion.identity);
+                        t.SetAttack(attackSpawned);
+                        Destruir(attackSpawned);
+                    }
+
+                }
+            }
+            if(att.attackType == 2)
+            {
+                var attackSpawned = Instantiate(att, Vector3.zero, Quaternion.identity);
+                unit.OccupiedTile.RightTile().SetAttack(attackSpawned);
+                Attacks.Add(attackSpawned);
+            }
         }
         
     }
@@ -758,18 +848,22 @@ public class UnitManager : MonoBehaviour
             {
                 if (movimientos[0] == 0 && hero.OccupiedTile.y < GridManager.Instance._height - 1)
                 {
+                    hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.UpTile();
                 }
                 if (movimientos[0] == 1 && hero.OccupiedTile.x > 0)
                 {
+                    hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.LeftTile();
                 }
                 if (movimientos[0] == 2 && hero.OccupiedTile.y > 0)
                 {
+                    hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.DownTile();
                 }
                 if (movimientos[0] == 3 && hero.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
                 {
+                    hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.RightTile();
                 }
                 movimientos.RemoveAt(0);
@@ -784,23 +878,36 @@ public class UnitManager : MonoBehaviour
             {
                 if (movimientos2[0] == 0)
                 {
+                    hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.UpTile();
                 }
                 if (movimientos2[0] == 1)
                 {
+                    hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.LeftTile();
                 }
                 if (movimientos2[0] == 2)
                 {
+                    hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.DownTile();
                 }
                 if (movimientos2[0] == 3)
                 {
+                    hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.RightTile();
                 }
                 movimientos2.RemoveAt(0);
             }
             newTile.SetUnit(hero);
+        }
+        yield return new WaitForSeconds(2f);
+    }
+
+    IEnumerator VenenoDoDamage()
+    {
+        foreach (BaseUnit unit in AllUnits)
+        {
+           unit.VenenoDamage();
         }
         yield return new WaitForSeconds(2f);
     }

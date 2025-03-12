@@ -7,6 +7,7 @@ namespace CotA.Configuration
     {
         public UnitData robot;
         public UnitData nina;
+        public UnitData artificer;
 
         [Serializable]
         public class UnitData
