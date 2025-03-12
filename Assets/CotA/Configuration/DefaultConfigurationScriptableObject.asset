@@ -14,6 +14,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     robot:
-      movementCoolDown: 5
+      prefab: {fileID: 7735570308767223746, guid: d966dd1f6a21bca478f2fe7ca2c24d1f,
+        type: 3}
+      MaxHealth: 10
+      Faction: 0
+      Attacks:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
     nina:
-      movementCoolDown: 1
+      prefab: {fileID: 0}
+      MaxHealth: 10
+      Faction: 0
+      Attacks:
+      - {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6, type: 3}
+      - {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d, type: 3}
+      - {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5, type: 3}
+      - {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6, type: 3}
+    artificer:
+      prefab: {fileID: 0}
+      MaxHealth: 10
+      Faction: 0
+      Attacks:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    basicEnemy:
+      prefab: {fileID: 0}
+      MaxHealth: 10
+      Faction: 0
+      Attacks:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    basickAttack:
+    - prefab: {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6,
+        type: 3}
+      Damage: 10
+      AreaOfEffect: 1
+      Cooldown: 1
+      DoVeneno: 10
