@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6811442fc79aed84884aa7c97a3645a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: 
+  UnitName: Druida
   OccupiedTile: {fileID: 0}
   Faction: 0
   MaxHealth: 10
@@ -307,7 +307,7 @@ MonoBehaviour:
   EnemyType: {fileID: 0}
   HeroType: {fileID: 0}
   Attacks:
-  - {fileID: -2625447814709381683, guid: 7f8f1d0571649644391621d074c03c10, type: 3}
-  - {fileID: -4425819554744587357, guid: 42afd05c5a3be8c44a1e36b47444798f, type: 3}
-  - {fileID: -3784054876470396803, guid: 1c089f386d8444e458788f8c01e49211, type: 3}
+  - {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6, type: 3}
+  - {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d, type: 3}
+  - {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5, type: 3}
   veneno: 0
