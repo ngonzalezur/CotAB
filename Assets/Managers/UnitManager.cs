@@ -4,22 +4,25 @@ using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.Rendering; // Necesario para Task.Delay
 using UnityEngine.InputSystem;
+using CotA.Configuration;
+using System.Reflection;
+//using System;
 
 
 public class UnitManager : MonoBehaviour
 {
+    public ConfigurationData configuration;
+
     public static UnitManager Instance;
-    private List<ScriptableUnit> _heroes = new List<ScriptableUnit>();
-    private ScriptableUnit _enemies;
+    private List<BaseUnit> _heroes = new List<BaseUnit>();
+    private BaseUnit _enemies;
     private ScriptableAttack _attack;
     private ScriptableAttack _attackE;
     public List<ScriptableAttack> _attackS = new List<ScriptableAttack>();
     public List<BaseUnit> AllUnits = new List<BaseUnit>();
-    [SerializeField] private float velEnemy;
-    [SerializeField] private float velAttack;
+
     [SerializeField] private float pobAtt = 50;
     [SerializeField] private int HealthEnemy = 0;
-    [SerializeField] private int DmgAttEnemy = 0;
     [SerializeField] private int NumEnemies = 1;
 
     [SerializeField] private int DmgAttHero = 0;
@@ -29,7 +32,7 @@ public class UnitManager : MonoBehaviour
     public ObjectPool poolHero2;
     public ObjectPool poolEnemies;
 
-    public List<int> movimientos = new List<int>();
+    private List<int> movimientos = new List<int>();
     private List<int> movimientos2 = new List<int>();
 
 
@@ -62,13 +65,36 @@ public class UnitManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        
+        TimeMoveEne = configuration.setup1.TimeMoveEne;
+        TimeAttEne = configuration.setup1.TimeAttEne;
+        TimeMoveHero = configuration.setup1.TimeMoveHero;
+        TimeVeneno = configuration.setup1.TimeVeneno;
+
+        foreach (ConfigurationData.AttData  att in configuration.basickAttack)
+        {
+            att.prefab.Damage = att.Damage;
+            att.prefab.DoVeneno = att.DoVeneno;
+            att.prefab.CoolDown = att.Cooldown;
+            att.prefab.AreaOfEffect = att.AreaOfEffect;
+        }
+
         //Busco todos los prefabs que necesito
-        _heroes = new List<ScriptableUnit>(Resources.LoadAll<ScriptableUnit>("Units/Heroes"));
-        _enemies = Resources.Load<ScriptableUnit>("Units/Enemies/Enemy1");
+
+        //_heroes = new List<ScriptableUnit>(Resources.LoadAll<ScriptableUnit>("Units/Heroes"));
+        _heroes.Add(configuration.nina.prefab);
+        _heroes.Add(configuration.robot.prefab);
+
+        //_enemies = Resources.Load<ScriptableUnit>("Units/Enemies/Enemy1");
+        _enemies = configuration.basicEnemy.prefab;
         _attack = Resources.Load<ScriptableAttack>("Units/Attacks/BasicAttackHero");
         _attackE = Resources.Load<ScriptableAttack>("Units/Attacks/BasicAttackEnemy");
+
+        //_attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack1"));
         _attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack1"));
+        //_attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack2"));
         _attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack2"));
+        //_attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack3"));
         _attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack3"));
 
 
@@ -83,15 +109,15 @@ public class UnitManager : MonoBehaviour
         tiempoUltimaEjecucion2 = Time.time;
         tiempoUltimaEjecucion3 = Time.time;
         //la formula inicial para calcular las velocidades de los enemigos y proyectiles
-        TimeMoveEne = 1 / velEnemy;
-        TimeAttEne = 1 / velAttack;
+        //TimeMoveEne = 1 / velEnemy;
+        //TimeAttEne = 1 / velAttack;
 
         //obtengo als variales para las vidas de heroes y enemigos y poder mostarlas encima de ellos
-        _attackE.AttackPrefab.Damage = DmgAttEnemy;
-        _enemies.UnitPrefab.MaxHealth = HealthEnemy;
+        
+        _enemies.MaxHealth = HealthEnemy;
 
-        _attack.AttackPrefab.Damage = DmgAttHero;
-        _heroes[0].UnitPrefab.MaxHealth = HealthHero;
+       
+        _heroes[0].MaxHealth = HealthHero;
 
         Mando = InputSystem.GetDevice<Gamepad>();
     }
@@ -107,7 +133,7 @@ public class UnitManager : MonoBehaviour
 
         for (int i = 0; i < heroCount; i++)
         {
-            var heroPrefab = _heroes[i].UnitPrefab;
+            var heroPrefab = _heroes[i];
             var Hero1 = Instantiate(heroPrefab,Vector3.zero, Quaternion.identity);
             var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(0,0));
             while (randomSpawnTile.OccupiedUnit != null)
@@ -130,7 +156,7 @@ public class UnitManager : MonoBehaviour
         for (int i = 0; i < enemyCount; i++)
         {
             
-            var enemyPrefab = _enemies.UnitPrefab;
+            var enemyPrefab = _enemies;
             var enemy = Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
             var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(8, 3));
             while (randomSpawnTile.OccupiedUnit != null)
@@ -208,17 +234,18 @@ public class UnitManager : MonoBehaviour
 
             //ataues especiales de los heroes uno con Q otro con E
 
-            if ((Input.GetKeyDown(KeyCode.U) || (Mando != null && Mando.buttonNorth.ReadValue() > 0)) && Time.time >= _attackS[0].AttackPrefab.LastCast1 + _attackS[0].AttackPrefab.CoolDown)
+            if ((Input.GetKeyDown(KeyCode.U) || (Mando != null && Mando.buttonNorth.ReadValue() > 0)) && Time.time >= hero.Attacks[0].LastCast1 + _attackS[0].AttackPrefab.CoolDown)
             {
                 if (hero.Attacks[0] != null)
                 {
-                    SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
+                    //SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
+                    SpecialAttack(hero, configuration.basickAttack[0].prefab, hero.GetHighlightHero());
                     hero.Attacks[0].LastCast1 = Time.time;
                 }
 
             }
 
-            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonEast.ReadValue() > 0)) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
+            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonEast.ReadValue() > 0)) && Time.time >= hero.Attacks[1].LastCast1 + _attackS[1].AttackPrefab.CoolDown)
             {
                 if (hero.Attacks[1] != null)
                 {
@@ -227,7 +254,7 @@ public class UnitManager : MonoBehaviour
                 }
             }
 
-            if ((Input.GetKeyDown(KeyCode.O) || (Mando != null && Mando.buttonWest.ReadValue() > 0)) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
+            if ((Input.GetKeyDown(KeyCode.O) || (Mando != null && Mando.buttonWest.ReadValue() > 0)) && Time.time >= hero.Attacks[2].LastCast1 + _attackS[1].AttackPrefab.CoolDown)
             {
                 if (hero.Attacks[2] != null)
                 {
@@ -236,7 +263,7 @@ public class UnitManager : MonoBehaviour
                 }
             }
 
-            if ((Input.GetKeyDown(KeyCode.P) || (Mando != null && Mando.buttonWest.ReadValue() > 0)) && Time.time >= _attackS[1].AttackPrefab.LastCast1 + _attackS[1].AttackPrefab.CoolDown)
+            if ((Input.GetKeyDown(KeyCode.P) || (Mando != null && Mando.buttonWest.ReadValue() > 0)) && Time.time >= hero.Attacks[3].LastCast1 + _attackS[1].AttackPrefab.CoolDown)
             {
                 if (hero.Attacks[3] != null)
                 {
@@ -248,7 +275,7 @@ public class UnitManager : MonoBehaviour
 
         if (player == 1)
         {
-            if (Input.GetKeyDown(KeyCode.V))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 var randomPrefab = _attack.AttackPrefab;
                 var attackSpawned = poolHero2.GetObjectInPool();
@@ -307,7 +334,7 @@ public class UnitManager : MonoBehaviour
         {
             if( Attacks[i].Faction == Faction.Hero)
             {
-                if (Attacks[i] != null && Attacks[i].OccupiedTile.x + 1 >= GridManager.Instance._width)
+                if (Attacks[i] != null && Attacks[i].OccupiedTile.x >= GridManager.Instance._width - 1)
                 {
                     //Attacks.Remove(Attacks[i]);
                     Attacks[i].Destroy();
@@ -322,16 +349,20 @@ public class UnitManager : MonoBehaviour
 
             if (Attacks[i].Faction == Faction.Enemy)
             {
-                if (Attacks[i] != null && Attacks[i].OccupiedTile.x <= 0)
-                {
-                    //Attacks.Remove(Attacks[i]);
-                    Attacks[i].Destroy();
+                //if (Attacks[i] != null && Attacks[i].OccupiedTile.x <= 0)
+                //{
+                //    //Attacks.Remove(Attacks[i]);
+                //    Attacks[i].Destroy();
 
-                }
+                //}
                 if (Attacks[i] != null && Attacks[i].OccupiedTile.x > 0)
                 {
                     var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(Attacks[i].OccupiedTile.x - 1, Attacks[i].OccupiedTile.y));
                     nextTile.SetAttack(Attacks[i]);
+                }
+                else
+                {
+                    Attacks[i].Destroy();
                 }
             }
 
