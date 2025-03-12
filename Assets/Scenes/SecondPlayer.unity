@@ -2254,7 +2254,7 @@ MonoBehaviour:
       MaxHealth: 10
       Faction: 0
       Attacks:
-      - {fileID: 0}
+      - {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa, type: 3}
       - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
@@ -2265,20 +2265,21 @@ MonoBehaviour:
       AreaOfEffect: 1
       Cooldown: 1
       DoVeneno: 50
+    setup1:
+      TimeMoveEne: 2
+      TimeAttEne: 0.5
+      TimeMoveHero: 0.5
+      TimeVeneno: 1
   _attackS: []
   AllUnits: []
-  velEnemy: 1
-  velAttack: 1
   pobAtt: 10
   HealthEnemy: 100
-  DmgAttEnemy: 1
   NumEnemies: 1
   DmgAttHero: 1
   HealthHero: 25
   poolHero1: {fileID: 750076039}
   poolHero2: {fileID: 750076039}
   poolEnemies: {fileID: 2011988049}
-  movimientos: 
   Attacks: []
   CanPlay: 0
   TimeMoveEne: 1
