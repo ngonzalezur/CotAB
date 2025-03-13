@@ -229,7 +229,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795505103305552182}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -245,7 +245,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e21f72c1311f5f443af767b4a4c8a1a6, type: 2}
+  - {fileID: 2100000, guid: 1b0ab28e4a09ebe4eabe41ac6ebbf9eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -330,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2601393400007500117
 Transform:
   m_ObjectHideFlags: 0
@@ -355,7 +355,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8409889974607844650}
-  - component: {fileID: 5995211081801061965}
+  - component: {fileID: 5405707425769630926}
+  - component: {fileID: 5390025172868788967}
   m_Layer: 0
   m_Name: sprite
   m_TagString: Untagged
@@ -372,13 +373,26 @@ Transform:
   m_GameObject: {fileID: 8712430138129165748}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5127173, y: 0, z: 0, w: 0.8585575}
-  m_LocalPosition: {x: 0.204, y: 0, z: -0.143}
-  m_LocalScale: {x: 3.4042, y: 3.4042, z: 3.4042}
+  m_LocalPosition: {x: 0.457, y: 0, z: 0}
+  m_LocalScale: {x: 4.2696896, y: 4.2696896, z: 4.2696896}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3605444132268156730}
   m_LocalEulerAnglesHint: {x: -61.69, y: 0, z: 0}
---- !u!212 &5995211081801061965
+--- !u!114 &5405707425769630926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712430138129165748}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a1b48af9d150647910de9cdc22369a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+--- !u!212 &5390025172868788967
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

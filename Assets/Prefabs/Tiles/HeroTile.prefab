@@ -112,6 +112,7 @@ MonoBehaviour:
   _renderer: {fileID: 2747413214153197740}
   _highlight: {fileID: 3834381840647834703}
   _isWalkable: 0
+  Faction: 0
   x: 0
   y: 0
   OccupiedUnit: {fileID: 0}
@@ -176,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 390371759bcc09040989ce924edd907a,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fe7058d02efa569448ffdd8d43b3d265, type: 2}
     - target: {fileID: 919132149155446097, guid: 390371759bcc09040989ce924edd907a,
