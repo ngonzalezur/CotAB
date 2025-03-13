@@ -1,0 +1,78 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "468347874",
+    "Type": "User",
+    "GUID": "{45E9040E-956B-4B99-A17B-ADED9627D21E}",
+    "Language": "SFX",
+    "Hash": "{A9ACB262-F29F-1105-5A65-E8A5D253B818}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combate",
+    "ShortName": "Combate",
+    "Path": "Combate.bnk",
+    "Media": [
+     {
+      "Id": "12622098",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BaseCombate.wav",
+      "CachePath": "1C/{1CA8F4A2-2C4D-D58E-F357-8987119F140B}.wem"
+     },
+     {
+      "Id": "132334913",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CapaViolinBaseCombate.wav",
+      "CachePath": "4E/{4E3B0BA7-0E5E-D50E-D498-0F5036AF046C}.wem"
+     },
+     {
+      "Id": "685547897",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UghDaño.wav",
+      "CachePath": "AE/{AE2A55DC-D846-DD99-77C5-E9D3554839B8}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "11415363",
+      "Name": "Play_CombatMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_CombatMusic",
+      "GUID": "{D0D12819-B4CE-4127-A287-25B3CFF34B51}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "12622098"
+       },
+       {
+        "Id": "132334913"
+       }
+      ]
+     },
+     {
+      "Id": "3184303605",
+      "Name": "Play_DamageHero",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_DamageHero",
+      "GUID": "{579DF8BD-686A-42E7-BFBA-383D9660E67B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.4199093",
+      "DurationMax": "0.4199093",
+      "MediaRefs": [
+       {
+        "Id": "685547897"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{3FE6639A-5391-F4D6-6984-9DD1A489760D}"
+ }
+}
