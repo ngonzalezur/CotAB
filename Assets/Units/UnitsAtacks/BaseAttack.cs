@@ -25,7 +25,7 @@ public class BaseAttack : MonoBehaviour
     public void Destroy()
     {
         //if(this != null) Destroy(gameObject);
-        UnitManager.Instance.Attacks.Remove(this);
+        UnitManager.Instance.att.Remove(this);
         this.gameObject.SetActive(false);
         this.OccupiedTile.OccupiedAttack = null;
     }

@@ -41,7 +41,7 @@ public class UnitManager : MonoBehaviour
     private List<BaseUnit> Heroes = new List<BaseUnit>();
 
     private List<BaseUnit> Enemies = new List<BaseUnit>();
-    public List<BaseAttack> Attacks = new List<BaseAttack>();
+    public List<BaseAttack> att = new List<BaseAttack>();
 
     private float tiempoUltimaEjecucion = 1f;
     private float tiempoUltimaEjecucion2 = 1f;
@@ -229,7 +229,7 @@ public class UnitManager : MonoBehaviour
                 var randomSpawnTile = hero.OccupiedTile.RightTile();
 
                 randomSpawnTile.SetAttack(attackSpawned);
-                Attacks.Add(attackSpawned);
+                att.Add(attackSpawned);
             }
 
             //ataues especiales de los heroes uno con Q otro con E
@@ -283,7 +283,7 @@ public class UnitManager : MonoBehaviour
                 var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(hero.OccupiedTile.x + 1, hero.OccupiedTile.y));
 
                 randomSpawnTile.SetAttack(attackSpawned);
-                Attacks.Add(attackSpawned);
+                att.Add(attackSpawned);
             }
 
             //ataues especiales de los heroes uno con Q otro con E
@@ -330,9 +330,9 @@ public class UnitManager : MonoBehaviour
     //codigo para que los ataques basicos se muevan de por la cuadricula
     IEnumerator AttackMove()
     {
-        for(int i = Attacks.Count - 1; i >= 0; i--)
+        foreach(BaseAttack att in att)
         {
-            if( Attacks[i].Faction == Faction.Hero)
+            if( att.Faction == Faction.Hero)
             {
                 //if (Attacks[i] != null && Attacks[i].OccupiedTile.x >= GridManager.Instance._width - 1)
                 //{
@@ -340,18 +340,18 @@ public class UnitManager : MonoBehaviour
                 //    Attacks[i].Destroy();
 
                 //}
-                if (Attacks[i] != null && Attacks[i].OccupiedTile.x < GridManager.Instance._width - 2)
+                if (att != null && att.OccupiedTile.x < GridManager.Instance._width - 1)
                 {
-                    var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(Attacks[i].OccupiedTile.x + 1, Attacks[i].OccupiedTile.y));
-                    nextTile.SetAttack(Attacks[i]);
+                    var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(att.OccupiedTile.x + 1, att.OccupiedTile.y));
+                    nextTile.SetAttack(att);
                 }
                 else
                 {
-                    Attacks[i].Destroy();
+                    att.Destroy();
                 }
             }
 
-            if (Attacks[i].Faction == Faction.Enemy)
+            if (att.Faction == Faction.Enemy)
             {
                 //if (Attacks[i] != null && Attacks[i].OccupiedTile.x <= 0)
                 //{
@@ -359,14 +359,14 @@ public class UnitManager : MonoBehaviour
                 //    Attacks[i].Destroy();
 
                 //}
-                if (Attacks[i] != null && Attacks[i].OccupiedTile.x > 0)
+                if (att != null && att.OccupiedTile.x > 0)
                 {
-                    var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(Attacks[i].OccupiedTile.x - 1, Attacks[i].OccupiedTile.y));
-                    nextTile.SetAttack(Attacks[i]);
+                    var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(att.OccupiedTile.x - 1, att.OccupiedTile.y));
+                    nextTile.SetAttack(att);
                 }
                 else
                 {
-                    Attacks[i].Destroy();
+                    att.Destroy();
                 }
             }
 
@@ -680,7 +680,7 @@ public class UnitManager : MonoBehaviour
                 var spawnTileAtt = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x - 1, Enemy1.OccupiedTile.y));
 
                 spawnTileAtt.SetAttack(attackSpawned);
-                Attacks.Add(attackSpawned);
+                att.Add(attackSpawned);
             }
             // ataque especial
             if (Enemy1.EnemyType.Special && randomAtt < 5)
@@ -797,7 +797,7 @@ public class UnitManager : MonoBehaviour
             {
                 var attackSpawned = Instantiate(att, Vector3.zero, Quaternion.identity);
                 unit.OccupiedTile.RightTile().SetAttack(attackSpawned);
-                Attacks.Add(attackSpawned);
+                this.att.Add(attackSpawned);
             }
         }
         
