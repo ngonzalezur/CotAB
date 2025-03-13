@@ -60,6 +60,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -122,9 +125,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: BolaDeFuego
   OccupiedTile: {fileID: 0}
-  Damage: 7
+  Damage: 8
   Faction: 2
   AreaOfEffect: 2
   CoolDown: 5
   LastCast1: -100
   LastCast2: -100
+  DoVeneno: 0
+  attackType: 0
