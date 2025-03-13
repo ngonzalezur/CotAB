@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 3456131180108919756}
   - component: {fileID: 1986455870599452599}
   - component: {fileID: 7735570308767223746}
+  - component: {fileID: -7416394345458290610}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -280,7 +281,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -306,9 +307,37 @@ MonoBehaviour:
   ActualHeath: {fileID: 2869813721422711052}
   EnemyType: {fileID: 0}
   HeroType: {fileID: 0}
+  efecto: {fileID: 0}
   Attacks:
   - {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6, type: 3}
   - {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d, type: 3}
   - {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5, type: 3}
   - {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6, type: 3}
   veneno: 0
+--- !u!54 &-7416394345458290610
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795505103305552182}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
