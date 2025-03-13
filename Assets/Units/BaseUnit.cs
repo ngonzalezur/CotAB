@@ -16,6 +16,8 @@ public class BaseUnit : MonoBehaviour
     public BaseEnemy EnemyType;
     public BaseHero HeroType;
 
+    public GameObject efecto;
+
     public BaseAttack[] Attacks = new BaseAttack[4];
 
     public int veneno = 0;
@@ -49,6 +51,11 @@ public class BaseUnit : MonoBehaviour
             Health -= 1;
             ActualHeath.text = Math.Max(Health, 0) + " / " + MaxHealth;
             veneno--;
+            efecto?.SetActive(true);
+        }
+        else
+        {
+            efecto?.SetActive(false);
         }
     }
 }
