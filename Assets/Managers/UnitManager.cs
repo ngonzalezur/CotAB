@@ -334,16 +334,20 @@ public class UnitManager : MonoBehaviour
         {
             if( Attacks[i].Faction == Faction.Hero)
             {
-                if (Attacks[i] != null && Attacks[i].OccupiedTile.x >= GridManager.Instance._width - 1)
-                {
-                    //Attacks.Remove(Attacks[i]);
-                    Attacks[i].Destroy();
+                //if (Attacks[i] != null && Attacks[i].OccupiedTile.x >= GridManager.Instance._width - 1)
+                //{
+                //    //Attacks.Remove(Attacks[i]);
+                //    Attacks[i].Destroy();
 
-                }
-                if (Attacks[i] != null && Attacks[i].OccupiedTile.x < GridManager.Instance._width - 1)
+                //}
+                if (Attacks[i] != null && Attacks[i].OccupiedTile.x < GridManager.Instance._width - 2)
                 {
                     var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(Attacks[i].OccupiedTile.x + 1, Attacks[i].OccupiedTile.y));
                     nextTile.SetAttack(Attacks[i]);
+                }
+                else
+                {
+                    Attacks[i].Destroy();
                 }
             }
 
