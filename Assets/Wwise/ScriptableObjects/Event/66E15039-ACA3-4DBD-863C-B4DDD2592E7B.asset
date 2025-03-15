@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9bff95454e27ea4f8604ed0caa33a7d, type: 3}
+  m_Name: 66E15039-ACA3-4DBD-863C-B4DDD2592E7B
+  m_EditorClassIdentifier: 
+  objectName: Play_DamageHero
+  id: 3184303605
+  guid: 66E15039-ACA3-4DBD-863C-B4DDD2592E7B
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0
