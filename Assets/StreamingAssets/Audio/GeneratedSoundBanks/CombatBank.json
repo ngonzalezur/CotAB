@@ -1,0 +1,78 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "804029015",
+    "Type": "User",
+    "GUID": "{B9F6FE99-A427-45D9-A9A7-B55E040317FD}",
+    "Language": "SFX",
+    "Hash": "{420B69C7-C780-D6CF-C8EC-747682A7C605}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\CombatBank",
+    "ShortName": "CombatBank",
+    "Path": "CombatBank.bnk",
+    "Media": [
+     {
+      "Id": "683288447",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BaseCombate.wav",
+      "CachePath": "1C/{1CA8F4A2-2C4D-D58E-F357-8987119F140B}.wem"
+     },
+     {
+      "Id": "777114465",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageHero.wav",
+      "CachePath": "AE/{AE2A55DC-D846-DD99-77C5-E9D3554839B8}.wem"
+     },
+     {
+      "Id": "807925184",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CapaViolinBaseCombate.wav",
+      "CachePath": "4E/{4E3B0BA7-0E5E-D50E-D498-0F5036AF046C}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "712810567",
+      "Name": "Play_CombatMusicPL",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_CombatMusicPL",
+      "GUID": "{1D462032-8597-4120-8C0F-DC147AF27B26}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "683288447"
+       },
+       {
+        "Id": "807925184"
+       }
+      ]
+     },
+     {
+      "Id": "3184303605",
+      "Name": "Play_DamageHero",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_DamageHero",
+      "GUID": "{66E15039-ACA3-4DBD-863C-B4DDD2592E7B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.4199093",
+      "DurationMax": "0.4199093",
+      "MediaRefs": [
+       {
+        "Id": "777114465"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{2F050E3C-1799-EC34-173E-D6B028B1A7B9}"
+ }
+}
