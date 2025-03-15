@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4447961927163866491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6549328101955580874}
+  - component: {fileID: 1544890186074902800}
+  m_Layer: 0
+  m_Name: UnitManager hard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6549328101955580874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447961927163866491}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 329.17862, y: 207.81468, z: -132.05498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1544890186074902800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447961927163866491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405964a9d9e7be040a017c76318164c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configuration:
+    robot:
+      prefab: {fileID: 7735570308767223746, guid: d966dd1f6a21bca478f2fe7ca2c24d1f,
+        type: 3}
+      MaxHealth: 10
+      Faction: 0
+      Attacks:
+      - {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6, type: 3}
+      - {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d, type: 3}
+      - {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5, type: 3}
+      - {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6, type: 3}
+    nina:
+      prefab: {fileID: 7735570308767223746, guid: d966dd1f6a21bca478f2fe7ca2c24d1f,
+        type: 3}
+      MaxHealth: 50
+      Faction: 0
+      Attacks:
+      - {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6, type: 3}
+      - {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d, type: 3}
+      - {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5, type: 3}
+      - {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6, type: 3}
+    artificer:
+      prefab: {fileID: 0}
+      MaxHealth: 10
+      Faction: 0
+      Attacks:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    basicEnemy:
+      prefab: {fileID: 5695376190236047481, guid: 9a17851b516091345af1271df4df2ca7,
+        type: 3}
+      MaxHealth: 10
+      Faction: 0
+      Attacks:
+      - {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa, type: 3}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    basickAttack:
+    - prefab: {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6,
+        type: 3}
+      Damage: 10
+      AreaOfEffect: 1
+      Cooldown: 1
+      DoVeneno: 10
+    setup1:
+      TimeMoveEne: 0.5
+      TimeAttEne: 0.5
+      TimeMoveHero: 0.1
+      TimeVeneno: 1
+  _attackS: []
+  AllUnits: []
+  pobAtt: 50
+  HealthEnemy: 40
+  NumEnemies: 3
+  HealthHero: 25
+  poolHero1: {fileID: 0}
+  poolHero2: {fileID: 0}
+  poolEnemies: {fileID: 0}
+  Attacks: []
+  CanPlay: 0
+  TimeMoveEne: 1
+  TimeAttEne: 0.5
+  TimeMoveHero: 0.5
+  TimeVeneno: 1
+  SecondPlayer: 0

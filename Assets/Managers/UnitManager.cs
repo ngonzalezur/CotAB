@@ -25,7 +25,7 @@ public class UnitManager : MonoBehaviour
     [SerializeField] private int HealthEnemy = 0;
     [SerializeField] private int NumEnemies = 1;
 
-    [SerializeField] private int DmgAttHero = 0;
+    //[SerializeField] private int DmgAttHero = 0;
     [SerializeField] private int HealthHero = 1;
 
     public ObjectPool poolHero1;
