@@ -14,7 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_COMBATMUSICPL = 712810567U;
-        static const AkUniqueID PLAY_HERODAMAGE = 2120868177U;
+        static const AkUniqueID PLAY_DAMAGEHERO = 3184303605U;
     } // namespace EVENTS
 
     namespace BANKS
