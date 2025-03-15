@@ -1,9 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	712810567	Play_CombatMusicPL			\Default Work Unit\Play_CombatMusicPL	
-	2120868177	Play_HeroDamage			\Default Work Unit\Play_HeroDamage	
-
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	9032513	BaseCombate	E:\CotaB\CotaB_WwiseProject\.cache\1C\{1CA8F4A2-2C4D-D58E-F357-8987119F140B}.wem		\Interactive Music Hierarchy\Default Work Unit\CombatMusicPL\CombatMusic\BaseCombate		2258016
-	187673123	CapaViolinBaseCombate	E:\CotaB\CotaB_WwiseProject\.cache\4E\{4E3B0BA7-0E5E-D50E-D498-0F5036AF046C}.wem		\Interactive Music Hierarchy\Default Work Unit\CombatMusicPL\CombatMusic\CapaViolinBaseCombate		2258016
-	1037839458	DamageHero	E:\CotaB\CotaB_WwiseProject\.cache\AE\{AE2A55DC-D846-DD99-77C5-E9D3554839B8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\DamageHero		74168
-
