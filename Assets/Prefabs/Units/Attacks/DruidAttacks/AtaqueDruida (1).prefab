@@ -124,11 +124,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: EstadoEnemigos
   OccupiedTile: {fileID: 0}
-  Damage: 0
+  Damage: 5
   Faction: 0
   AreaOfEffect: 1
-  CoolDown: 3
-  LastCast1: 0
+  CoolDown: 1
+  LastCast1: -100
   LastCast2: 0
   DoVeneno: 10
   attackType: 0
