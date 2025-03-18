@@ -9928,7 +9928,7 @@ MonoBehaviour:
   Faction: 0
   AreaOfEffect: 1
   CoolDown: 1
-  LastCast1: 0
+  LastCast1: -100
   LastCast2: -100
   DoVeneno: 0
   attackType: 1

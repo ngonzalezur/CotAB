@@ -32,6 +32,7 @@ public class BaseAttack : MonoBehaviour
 
     public virtual void DoDamage(BaseUnit unit)
     {
+        if (unit == null) return;
         if (unit.Faction != Faction)
         {
             if (DoVeneno > 0)
@@ -41,6 +42,8 @@ public class BaseAttack : MonoBehaviour
             //Debug.Log("soy normal");
             unit.Health -= Math.Abs(Damage);
             unit.ActualHeath.text = Math.Max(unit.Health,0) + " / " + unit.MaxHealth;
+            var audio = unit?.GetComponent<AudioSource>();
+            audio?.Play();
             
         }
     }
