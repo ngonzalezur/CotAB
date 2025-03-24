@@ -22,6 +22,10 @@ public class BaseUnit : MonoBehaviour
 
     public int veneno = 0;
 
+    public float MaxStamina = 3;
+    public float MoveCooldown = 0;
+    public float CastMana = 0;
+
     public void Awake()
     {
         Health = MaxHealth;
