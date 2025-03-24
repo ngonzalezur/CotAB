@@ -15,6 +15,8 @@ public class BaseAttack : MonoBehaviour
     public float CoolDown;
     public float LastCast1;
     public float LastCast2;
+
+    public float ManaCost = 0.5f;
     //public bool activeInHierarchy;
     //public TMP_InputField inputDmg;
     //public TMP_InputField inputCool;
