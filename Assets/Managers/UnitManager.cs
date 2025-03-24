@@ -25,7 +25,7 @@ public class UnitManager : MonoBehaviour
     [SerializeField] private int HealthEnemy = 0;
     [SerializeField] private int NumEnemies = 1;
 
-    [SerializeField] private int DmgAttHero = 0;
+    //[SerializeField] private int DmgAttHero = 0;
     [SerializeField] private int HealthHero = 1;
 
     public ObjectPool poolHero1;
@@ -77,6 +77,7 @@ public class UnitManager : MonoBehaviour
             att.prefab.DoVeneno = att.DoVeneno;
             att.prefab.CoolDown = att.Cooldown;
             att.prefab.AreaOfEffect = att.AreaOfEffect;
+            att.prefab.LastCast1 = -100;
         }
 
         //Busco todos los prefabs que necesito
@@ -120,6 +121,17 @@ public class UnitManager : MonoBehaviour
         _heroes[0].MaxHealth = HealthHero;
 
         Mando = InputSystem.GetDevice<Gamepad>();
+        //Debug.Log(Mando);
+
+        foreach(BaseHero hero in _heroes)
+        {
+            foreach(BaseAttack att in hero.Attacks)
+            {
+                att.LastCast1 = -100;
+                att.LastCast2 = -100;
+            }
+            
+        }
     }
 
     //codigo que hace aparecer los personajes
@@ -220,8 +232,9 @@ public class UnitManager : MonoBehaviour
 
         if(player == 0)
         {
-            if ((Input.GetKeyDown(KeyCode.Y) || (Mando != null && Mando.buttonSouth.ReadValue() > 0)))
+            if ((Input.GetKeyDown(KeyCode.Y) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && hero.CastMana- _attack.AttackPrefab.ManaCost> 0)
             {
+                hero.CastMana -= _attack.AttackPrefab.ManaCost;
                 var randomPrefab = _attack.AttackPrefab;
                 //var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
                 var attackSpawned = poolHero1.GetObjectInPool();
@@ -234,19 +247,21 @@ public class UnitManager : MonoBehaviour
 
             //ataues especiales de los heroes uno con Q otro con E
 
-            if ((Input.GetKeyDown(KeyCode.U) || (Mando != null && Mando.buttonNorth.ReadValue() > 0)) && Time.time >= hero.Attacks[0].LastCast1 + _attackS[0].AttackPrefab.CoolDown)
+            if ((Input.GetKeyDown(KeyCode.U) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && Time.time >= hero.Attacks[0].LastCast1 + _attackS[0].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[0].ManaCost > 0)
             {
+                hero.CastMana -= hero.Attacks[0].ManaCost;
                 if (hero.Attacks[0] != null)
                 {
                     //SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
-                    SpecialAttack(hero, configuration.basickAttack[0].prefab, hero.GetHighlightHero());
+                    SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
                     hero.Attacks[0].LastCast1 = Time.time;
                 }
 
             }
 
-            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonEast.ReadValue() > 0)) && Time.time >= hero.Attacks[1].LastCast1 + _attackS[1].AttackPrefab.CoolDown)
+            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && Time.time >= hero.Attacks[1].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[1].ManaCost > 0)
             {
+                hero.CastMana -= hero.Attacks[1].ManaCost;
                 if (hero.Attacks[1] != null)
                 {
                     SpecialAttack(hero, hero.Attacks[1], hero.GetHighlightHero());
@@ -254,8 +269,9 @@ public class UnitManager : MonoBehaviour
                 }
             }
 
-            if ((Input.GetKeyDown(KeyCode.O) || (Mando != null && Mando.buttonWest.ReadValue() > 0)) && Time.time >= hero.Attacks[2].LastCast1 + _attackS[1].AttackPrefab.CoolDown)
+            if ((Input.GetKeyDown(KeyCode.O) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && Time.time >= hero.Attacks[2].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[2].ManaCost > 0)
             {
+                hero.CastMana -= hero.Attacks[2].ManaCost;
                 if (hero.Attacks[2] != null)
                 {
                     SpecialAttack(hero, hero.Attacks[2], hero.GetHighlightHero());
@@ -263,14 +279,15 @@ public class UnitManager : MonoBehaviour
                 }
             }
 
-            if ((Input.GetKeyDown(KeyCode.P) || (Mando != null && Mando.buttonWest.ReadValue() > 0)) && Time.time >= hero.Attacks[3].LastCast1 + _attackS[1].AttackPrefab.CoolDown)
-            {
-                if (hero.Attacks[3] != null)
-                {
-                    SpecialAttack(hero, hero.Attacks[3], hero.GetHighlightHero());
-                    hero.Attacks[3].LastCast1 = Time.time;
-                }
-            }
+            //if ((Input.GetKeyDown(KeyCode.P) || (Mando != null && Mando.buttonSouth.ReadValue() > 0)) && Time.time >= hero.Attacks[3].LastCast1 + _attackS[1].AttackPrefab.CoolDown&& hero.CastMana - hero.Attacks[3].ManaCost > 0)
+            //{
+            //    hero.CastMana -= hero.Attacks[3].ManaCost;
+            //    if (hero.Attacks[3] != null)
+            //    {
+            //        SpecialAttack(hero, hero.Attacks[3], hero.GetHighlightHero());
+            //        hero.Attacks[3].LastCast1 = Time.time;
+            //    }
+            //}
         }
 
         if (player == 1)
@@ -288,8 +305,9 @@ public class UnitManager : MonoBehaviour
 
             //ataues especiales de los heroes uno con Q otro con E
 
-            if (Input.GetKeyDown(KeyCode.V) && Time.time >= _attackS[0].AttackPrefab.LastCast2 + _attackS[0].AttackPrefab.CoolDown)
+            if (Input.GetKeyDown(KeyCode.V) && Time.time >= _attackS[0].AttackPrefab.LastCast2 + _attackS[0].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[0].ManaCost > 0)
             {
+                hero.CastMana -= hero.Attacks[0].ManaCost;
                 if (hero.Attacks[0] != null)
                 {
                     SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
@@ -297,8 +315,9 @@ public class UnitManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.B) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown)
+            if (Input.GetKeyDown(KeyCode.B) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[1].ManaCost > 0)
             {
+                hero.CastMana -= hero.Attacks[1].ManaCost;
                 if (hero.Attacks[1] != null)
                 {
                     SpecialAttack(hero, hero.Attacks[1], hero.GetHighlightHero());
@@ -306,8 +325,9 @@ public class UnitManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.N) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown)
+            if (Input.GetKeyDown(KeyCode.N) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[2].ManaCost > 0)
             {
+                hero.CastMana -= hero.Attacks[2].ManaCost;
                 if (hero.Attacks[2] != null)
                 {
                     SpecialAttack(hero, hero.Attacks[2], hero.GetHighlightHero());
@@ -315,8 +335,9 @@ public class UnitManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.M) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown)
+            if (Input.GetKeyDown(KeyCode.M) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[3].ManaCost > 0)
             {
+                hero.CastMana -= hero.Attacks[3].ManaCost;
                 if (hero.Attacks[3] != null)
                 {
                     SpecialAttack(hero, hero.Attacks[3], hero.GetHighlightHero());
@@ -513,19 +534,19 @@ public class UnitManager : MonoBehaviour
 
             if (mc == 2)
             {
-                if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
+                if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.wasPressedThisFrame)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
                 {
                     movimientos[1] = 0;
                 }
-                if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
+                if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.wasPressedThisFrame)) && hero1.OccupiedTile.x > 0)
                 {
                     movimientos[1] = 1;
                 }
-                if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
+                if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.wasPressedThisFrame)) && hero1.OccupiedTile.y > 0)
                 {
                     movimientos[1] = 2;
                 }
-                if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
+                if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.wasPressedThisFrame)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
                 {
                     movimientos[1] = 3;
                 }
@@ -533,19 +554,19 @@ public class UnitManager : MonoBehaviour
 
             if (mc < 2)
             {
-                if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
+                if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.wasPressedThisFrame)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
                 {
                     movimientos.Add(0);
                 }
-                if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
+                if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.wasPressedThisFrame)) && hero1.OccupiedTile.x > 0)
                 {
                     movimientos.Add(1);
                 }
-                if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
+                if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.wasPressedThisFrame)) && hero1.OccupiedTile.y > 0)
                 {
                     movimientos.Add(2);
                 }
-                if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
+                if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.wasPressedThisFrame)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
                 {
                     movimientos.Add(3);
                 }
@@ -695,6 +716,29 @@ public class UnitManager : MonoBehaviour
     }
 
 
+    public void Start()
+    {
+        StartCoroutine(RestoreStamina(Heroes[0]));
+        StartCoroutine(RestoreMana(Heroes[0]));
+        if (SecondPlayer)
+        {
+            StartCoroutine(RestoreStamina(Heroes[1]));
+            StartCoroutine(RestoreMana(Heroes[1]));
+        }
+    }
+
+    IEnumerator RestoreMana(BaseUnit hero)
+    {
+        while (true)
+        {
+            if (10 > hero.CastMana)
+            {
+                hero.CastMana += 1;
+            }
+            
+            yield return new WaitForSeconds(1f);
+        }
+    }
 
     public void Update()
     {
@@ -708,10 +752,11 @@ public class UnitManager : MonoBehaviour
             }
             
             TakeDamage();
-            //MoveHeroes();
+            //MoveHeroes();            
             MoverHeroeSlow(Heroes[0], 0);
                 if (SecondPlayer)
             {
+                
                 MoverHeroeSlow(Heroes[1], 1);
             }
 
@@ -727,9 +772,11 @@ public class UnitManager : MonoBehaviour
             }
             if (Time.time - tiempoUltimaEjecucion3 >= TimeMoveHero)
             {
+                
                 StartCoroutine(LecturaMovimientos(Heroes[0],0));
                 if (SecondPlayer)
                 {
+                    
                     StartCoroutine(LecturaMovimientos(Heroes[1], 1));
                 }
                 
@@ -740,6 +787,7 @@ public class UnitManager : MonoBehaviour
             {
                 AttackHero(Heroes[1], 1);
             }
+            //Debug.Log(Mando.dpad.up.ReadValue());
         }
         
     }
@@ -832,10 +880,10 @@ public class UnitManager : MonoBehaviour
                 GameManager.Instance.ChangeState(GameState.EndFight);
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Enemy)
-            {
-                unit.Destroy();
+            {                
                 Enemies.Remove(unit);
-                if(Enemies.Count == 0)
+                unit.Destroy();
+                if (Enemies.Count == 0)
                 {
                     GameManager.Instance.ChangeState(GameState.EndFight);
                 }
@@ -873,6 +921,18 @@ public class UnitManager : MonoBehaviour
         }
     }
 
+    IEnumerator RestoreStamina(BaseUnit hero)
+    {
+        while (true)
+        {
+            if(hero.MaxStamina > hero.MoveCooldown)
+            {
+                hero.MoveCooldown += 1;
+            }            
+            yield return new WaitForSeconds(1f);
+        }        
+    }
+
     IEnumerator LecturaMovimientos(BaseUnit hero, int jugador)
     {
 
@@ -881,23 +941,27 @@ public class UnitManager : MonoBehaviour
             var newTile = hero.OccupiedTile;
             if (movimientos.Count != 0)
             {
-                if (movimientos[0] == 0 && hero.OccupiedTile.y < GridManager.Instance._height - 1)
+                if (movimientos[0] == 0 && hero.OccupiedTile.y < GridManager.Instance._height - 1 && hero.MoveCooldown > 0)
                 {
+                    hero.MoveCooldown -= 1;
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.UpTile();
                 }
-                if (movimientos[0] == 1 && hero.OccupiedTile.x > 0)
+                if (movimientos[0] == 1 && hero.OccupiedTile.x > 0 && hero.MoveCooldown > 0)
                 {
+                    hero.MoveCooldown -= 1;
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.LeftTile();
                 }
-                if (movimientos[0] == 2 && hero.OccupiedTile.y > 0)
+                if (movimientos[0] == 2 && hero.OccupiedTile.y > 0 && hero.MoveCooldown > 0)
                 {
+                    hero.MoveCooldown -= 1;
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.DownTile();
                 }
-                if (movimientos[0] == 3 && hero.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
+                if (movimientos[0] == 3 && hero.OccupiedTile.x < GridManager.Instance._width / 2 - 1 && hero.MoveCooldown > 0)
                 {
+                    hero.MoveCooldown -= 1;
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.RightTile();
                 }
@@ -911,23 +975,27 @@ public class UnitManager : MonoBehaviour
             var newTile = hero.OccupiedTile;
             if (movimientos2.Count != 0)
             {
-                if (movimientos2[0] == 0)
+                if (movimientos2[0] == 0 && hero.MoveCooldown>0)
                 {
+                    hero.MoveCooldown -= 1;
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.UpTile();
                 }
-                if (movimientos2[0] == 1)
+                if (movimientos2[0] == 1 && hero.MoveCooldown > 0)
                 {
+                    hero.MoveCooldown -= 1;
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.LeftTile();
                 }
-                if (movimientos2[0] == 2)
+                if (movimientos2[0] == 2 && hero.MoveCooldown > 0)
                 {
+                    hero.MoveCooldown -= 1;
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.DownTile();
                 }
-                if (movimientos2[0] == 3)
+                if (movimientos2[0] == 3 && hero.MoveCooldown > 0)
                 {
+                    hero.MoveCooldown -= 1;
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.RightTile();
                 }
