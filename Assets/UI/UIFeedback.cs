@@ -1,132 +1,55 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class UIFeedback : MonoBehaviour
 {
-    [Header("Ability 1")]
-    public Image abilityImage1;
-    public float cooldown1 = 5;
-    bool isCooldown = false;
-    public KeyCode ability1;
+    [System.Serializable]
+    public class Ability
+    {
+        public Image abilityImage;
+        public float cooldown;
+        public KeyCode key;
+        [HideInInspector] public bool isCooldown = false;
+    }
 
-    [Header("Ability 2")]
-    public Image abilityImage2;
-    public float cooldown2 = 5;
-    bool isCooldown2 = false;
-    public KeyCode ability2;
+    public Ability[] abilities;
 
-    [Header("Ability 3")]
-    public Image abilityImage3;
-    public float cooldown3 = 5;
-    bool isCooldown3 = false;
-    public KeyCode ability3;
-
-    [Header("Ability 4")]
-    public Image abilityImage4;
-    public float cooldown4 = 5;
-    bool isCooldown4 = false;
-    public KeyCode ability4;
-
-    // Start is called once before the first e xecution of Update after the MonoBehaviour is created
     void Start()
     {
-        abilityImage1.fillAmount = 0;
-        abilityImage2.fillAmount = 0;
-        abilityImage3.fillAmount = 0;
-        abilityImage4.fillAmount = 0;
+        // Inicializar los sprites de las habilidades en 0
+        foreach (var ability in abilities)
+        {
+            ability.abilityImage.fillAmount = 0;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Ability1();
-        
-        Ability2();
-        Ability3();
-        Ability4();
-        
-    }
-
-    void Ability1()
-    {
-        if(Input.GetKey(ability1)&& isCooldown == false)
+        for (int i = 0; i < abilities.Length; i++)
         {
-            isCooldown = true;
-            abilityImage1.fillAmount = 1;
-        }
-
-        if (isCooldown)
-        {
-            abilityImage1.fillAmount -= 1 / cooldown1 * Time.deltaTime;
-
-            if(abilityImage1.fillAmount <= 0)
+            if (Input.GetKey(abilities[i].key) && !abilities[i].isCooldown)
             {
-                abilityImage1.fillAmount = 0;
-                isCooldown = false;
+                StartCoroutine(HandleCooldown(abilities[i]));
             }
         }
-        
     }
-    
-    void Ability2()
+
+    IEnumerator HandleCooldown(Ability ability)
     {
-        if (Input.GetKey(ability2) && isCooldown2 == false)
+        ability.isCooldown = true;
+        ability.abilityImage.fillAmount = 1;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < ability.cooldown)
         {
-            isCooldown2 = true;
-            abilityImage2.fillAmount = 1;
+            elapsedTime += Time.deltaTime;
+            ability.abilityImage.fillAmount = 1 - (elapsedTime / ability.cooldown);
+            yield return null;
         }
 
-        if (isCooldown2)
-        {
-            abilityImage2.fillAmount -= 1 / cooldown2 * Time.deltaTime;
-
-            if (abilityImage2.fillAmount <= 0)
-            {
-                abilityImage2.fillAmount = 0;
-                isCooldown2 = false;
-            }
-        }
-
+        ability.abilityImage.fillAmount = 0;
+        ability.isCooldown = false;
     }
-    void Ability3()
-    {
-        if (Input.GetKey(ability3) && isCooldown3 == false)
-        {
-            isCooldown3 = true;
-            abilityImage3.fillAmount = 1;
-        }
-
-        if (isCooldown3)
-        {
-            abilityImage3.fillAmount -= 1 / cooldown3 * Time.deltaTime;
-
-            if (abilityImage3.fillAmount <= 0)
-            {
-                abilityImage3.fillAmount = 0;
-                isCooldown3 = false;
-            }
-        }
-
-    }
-    void Ability4()
-    {
-        if (Input.GetKey(ability4) && isCooldown4 == false)
-        {
-            isCooldown4 = true;
-            abilityImage4.fillAmount = 1;
-        }
-
-        if (isCooldown4)
-        {
-            abilityImage4.fillAmount -= 1 / cooldown4 * Time.deltaTime;
-
-            if (abilityImage4.fillAmount <= 0)
-            {
-                abilityImage4.fillAmount = 0;
-                isCooldown4 = false;
-            }
-        }
-
-    }
-    
 }
