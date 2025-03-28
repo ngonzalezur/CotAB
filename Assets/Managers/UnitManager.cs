@@ -157,6 +157,15 @@ public class UnitManager : MonoBehaviour
 
             randomSpawnTile.SetUnit(Hero1);
         }
+
+        StartCoroutine(RestoreStamina(Heroes[0]));
+        StartCoroutine(RestoreMana(Heroes[0]));
+        if (SecondPlayer)
+        {
+            StartCoroutine(RestoreStamina(Heroes[1]));
+            StartCoroutine(RestoreMana(Heroes[1]));
+        }
+
         GameManager.Instance.ChangeState(GameState.SpawnEnemies);
     }
 
@@ -718,13 +727,7 @@ public class UnitManager : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(RestoreStamina(Heroes[0]));
-        StartCoroutine(RestoreMana(Heroes[0]));
-        if (SecondPlayer)
-        {
-            StartCoroutine(RestoreStamina(Heroes[1]));
-            StartCoroutine(RestoreMana(Heroes[1]));
-        }
+        
     }
 
     IEnumerator RestoreMana(BaseUnit hero)
