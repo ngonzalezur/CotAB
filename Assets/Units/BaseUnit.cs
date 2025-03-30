@@ -62,4 +62,9 @@ public class BaseUnit : MonoBehaviour
             efecto?.SetActive(false);
         }
     }
+
+    public void Attack()
+    {
+        UnitManager.Instance.AttackEnemy(this);
+    }
 }

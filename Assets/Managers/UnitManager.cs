@@ -192,40 +192,7 @@ public class UnitManager : MonoBehaviour
         GameManager.Instance.ChangeState(GameState.GenerateUI);
     }
 
-    //public void MoveHeroes()
-    //{
-    //    //Debug.Log(Hero1.OccupiedTile.y < GridManager.Instance._height);
-    //    var newTile = Hero1.OccupiedTile;
-    //    var Highlight = GridManager.Instance.GetTileAtPosition(new Vector2(Hero1.OccupiedTile.x + 6, Hero1.OccupiedTile.y));
-    //    Highlight._highlight.SetActive(false);
-
-
-
-    //    if (Input.GetKeyDown(KeyCode.W) && Hero1.OccupiedTile.y < GridManager.Instance._height - 1)
-    //    {
-    //        newTile = Hero1.OccupiedTile.UpTile();
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.A) && Hero1.OccupiedTile.x > 0)
-    //    {
-    //        newTile = Hero1.OccupiedTile.LeftTile();
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.S) && Hero1.OccupiedTile.y > 0)
-    //    {
-    //        newTile = Hero1.OccupiedTile.DownTile();
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.D) && Hero1.OccupiedTile.x < GridManager.Instance._width/2 - 1)
-    //    {
-    //        newTile = Hero1.OccupiedTile.RightTile();
-    //    }
-
-    //    newTile.SetUnit(Hero1);
-    //    Highlight = GridManager.Instance.GetTileAtPosition(new Vector2(Hero1.OccupiedTile.x + 6, Hero1.OccupiedTile.y));
-    //    Highlight._highlight.SetActive(true);
-
-
-    //    //Aqui esta el ataque de heroe, separarlo (ya se separó)
-    //    //AttackHero(Highlight);
-    //}
+    
 
     private void AttackHero(BaseUnit hero, int player)
     {
@@ -398,53 +365,7 @@ public class UnitManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
     }
 
-    //primer intento de mover enemigos, NO se esta usando ahorita porque no esta en corrutinas
-    //public void MoveEnemies()
-    //{
-    //    foreach(BaseUnit Enemy1 in Enemies)
-    //    {
-    //        var randomMove = Random.Range(1, 5);
-    //        if (randomMove == 1 && Enemy1.OccupiedTile.y < GridManager.Instance._height - 1)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x, Enemy1.OccupiedTile.y + 1));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-    //        if (randomMove == 2 && Enemy1.OccupiedTile.x > GridManager.Instance._width / 2)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x - 1, Enemy1.OccupiedTile.y));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-    //        if (randomMove == 3 && Enemy1.OccupiedTile.y > 0)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x, Enemy1.OccupiedTile.y - 1));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-    //        if (randomMove == 4 && Enemy1.OccupiedTile.x < GridManager.Instance._width - 1)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x + 1, Enemy1.OccupiedTile.y));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-
-    //        var randomMove2 = Random.Range(0, 6);
-
-    //        if (randomMove2 < 3)
-    //        {
-    //            Debug.Log("disparo");
-    //            //Debug.Log(_attack);
-    //            //Debug.Log(_attack.AttackPrefab);
-    //            var randomPrefab = _attackE.AttackPrefab;
-    //            var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
-    //            var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x - 1, Enemy1.OccupiedTile.y));
-
-    //            randomSpawnTile.SetAttack(attackSpawned);
-    //            Attacks.Add(attackSpawned);
-    //        }
-    //    }
-        
-    //}
-
-
-    //version de mover heores pero con con restriccion
+    
 
     //IEnumerator MoverHeroeSlowOG(BaseUnit hero1, int player)
     //{
@@ -713,6 +634,19 @@ public class UnitManager : MonoBehaviour
 
         }
         yield return new WaitForSeconds(2f);
+    }
+
+    public void AttackEnemy(BaseUnit enemy)
+    {
+        
+            var prefab = _attackE.AttackPrefab;
+            var attackSpawned = poolEnemies.GetObjectInPool();
+            attackSpawned.gameObject.SetActive(true);
+            var spawnTileAtt = GridManager.Instance.GetTileAtPosition(new Vector2(enemy.OccupiedTile.x - 1, enemy.OccupiedTile.y));
+
+            spawnTileAtt.SetAttack(attackSpawned);
+            Attacks.Add(attackSpawned);
+               
     }
 
 
