@@ -625,7 +625,7 @@ public class UnitManager : MonoBehaviour
 
             if (randomAtt < pobAtt)
             {
-                AttackEnemy(Enemy1);
+                //AttackEnemy(Enemy1);
             }
             // ataque especial
             if (Enemy1.EnemyType.Special && randomAtt < 5)
@@ -641,14 +641,13 @@ public class UnitManager : MonoBehaviour
 
     public void AttackEnemy(BaseUnit enemy)
     {
-        
-            var prefab = _attackE.AttackPrefab;
-            var attackSpawned = poolEnemies.GetObjectInPool();
-            attackSpawned.gameObject.SetActive(true);
-            var spawnTileAtt = GridManager.Instance.GetTileAtPosition(new Vector2(enemy.OccupiedTile.x - 1, enemy.OccupiedTile.y));
-
-            spawnTileAtt.SetAttack(attackSpawned);
-            Attacks.Add(attackSpawned);
+        //Ataque basico enemigo
+        var prefab = enemy.Attacks[0];
+        var attackSpawned = poolEnemies.GetObjectInPool();
+        attackSpawned.gameObject.SetActive(true);
+        var spawnTileAtt = GridManager.Instance.GetTileAtPosition(new Vector2(enemy.OccupiedTile.x - 1, enemy.OccupiedTile.y));
+        spawnTileAtt.SetAttack(attackSpawned);
+        Attacks.Add(attackSpawned);
                
     }
 

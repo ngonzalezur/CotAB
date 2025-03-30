@@ -26,11 +26,14 @@ public class BaseUnit : MonoBehaviour
     public float MoveCooldown = 0;
     public float CastMana = 0;
 
+    public float lastCastBA = 0;
+
     public void Awake()
     {
         Health = MaxHealth;
         this.ActualHeath.text = this.Health + " / " + this.MaxHealth;
         veneno = 0;
+        lastCastBA = 0;
     }
 
     public void Destroy()
@@ -85,6 +88,11 @@ public class BaseUnit : MonoBehaviour
 
     public void Attack()
     {
-        UnitManager.Instance.AttackEnemy(this);
+        //basic attack
+        if(Time.time - lastCastBA > Attacks[0].CoolDown)
+        {
+            UnitManager.Instance.AttackEnemy(this);
+            lastCastBA = Time.time;
+        }
     }
 }
