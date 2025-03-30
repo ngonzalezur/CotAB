@@ -16,6 +16,7 @@ public partial class CompareYAxisCondition : Condition
 
     public override void OnStart()
     {
+        TargetY.Value = GameObject.FindFirstObjectByType<BaseHero>();
     }
 
     public override void OnEnd()

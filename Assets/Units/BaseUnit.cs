@@ -48,6 +48,26 @@ public class BaseUnit : MonoBehaviour
         return this.OccupiedTile.LeftTile().LeftTile().LeftTile().LeftTile().LeftTile().LeftTile();
     }
 
+    public void MoveUp()
+    {
+        var newTile = this.OccupiedTile;
+        if(newTile.UpTile() != null)
+        {
+            newTile = newTile.UpTile();
+        }
+        newTile.SetUnit(this);
+    }
+
+    public void MoveDown()
+    {
+        var newTile = this.OccupiedTile;
+        if (newTile.DownTile() != null)
+        {
+            newTile = newTile.DownTile();
+        }
+        newTile.SetUnit(this);
+    }
+
     public void VenenoDamage()
     {
         if (veneno > 0)
