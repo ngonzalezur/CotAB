@@ -241,7 +241,7 @@ public class UnitManager : MonoBehaviour
 
         if(player == 0)
         {
-            if ((Input.GetKeyDown(KeyCode.Y) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && hero.CastMana- _attack.AttackPrefab.ManaCost> 0)
+            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && hero.CastMana- _attack.AttackPrefab.ManaCost> 0 && Time.time >= _attack.AttackPrefab.LastCast1 + _attack.AttackPrefab.CoolDown)
             {
                 hero.CastMana -= _attack.AttackPrefab.ManaCost;
                 var randomPrefab = _attack.AttackPrefab;
@@ -252,11 +252,12 @@ public class UnitManager : MonoBehaviour
 
                 randomSpawnTile.SetAttack(attackSpawned);
                 Attacks.Add(attackSpawned);
+                _attack.AttackPrefab.LastCast1 = Time.time;
             }
 
             //ataues especiales de los heroes uno con Q otro con E
 
-            if ((Input.GetKeyDown(KeyCode.U) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && Time.time >= hero.Attacks[0].LastCast1 + _attackS[0].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[0].ManaCost > 0)
+            if ((Input.GetKeyDown(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && Time.time >= hero.Attacks[0].LastCast1 + _attackS[0].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[0].ManaCost > 0)
             {
                 hero.CastMana -= hero.Attacks[0].ManaCost;
                 if (hero.Attacks[0] != null)
@@ -268,7 +269,7 @@ public class UnitManager : MonoBehaviour
 
             }
 
-            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && Time.time >= hero.Attacks[1].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[1].ManaCost > 0)
+            if ((Input.GetKeyDown(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && Time.time >= hero.Attacks[1].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[1].ManaCost > 0)
             {
                 hero.CastMana -= hero.Attacks[1].ManaCost;
                 if (hero.Attacks[1] != null)
@@ -278,7 +279,7 @@ public class UnitManager : MonoBehaviour
                 }
             }
 
-            if ((Input.GetKeyDown(KeyCode.O) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && Time.time >= hero.Attacks[2].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[2].ManaCost > 0)
+            if ((Input.GetKeyDown(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && Time.time >= hero.Attacks[2].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[2].ManaCost > 0)
             {
                 hero.CastMana -= hero.Attacks[2].ManaCost;
                 if (hero.Attacks[2] != null)
@@ -407,128 +408,7 @@ public class UnitManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
     }
 
-    //primer intento de mover enemigos, NO se esta usando ahorita porque no esta en corrutinas
-    //public void MoveEnemies()
-    //{
-    //    foreach(BaseUnit Enemy1 in Enemies)
-    //    {
-    //        var randomMove = Random.Range(1, 5);
-    //        if (randomMove == 1 && Enemy1.OccupiedTile.y < GridManager.Instance._height - 1)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x, Enemy1.OccupiedTile.y + 1));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-    //        if (randomMove == 2 && Enemy1.OccupiedTile.x > GridManager.Instance._width / 2)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x - 1, Enemy1.OccupiedTile.y));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-    //        if (randomMove == 3 && Enemy1.OccupiedTile.y > 0)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x, Enemy1.OccupiedTile.y - 1));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-    //        if (randomMove == 4 && Enemy1.OccupiedTile.x < GridManager.Instance._width - 1)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x + 1, Enemy1.OccupiedTile.y));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-
-    //        var randomMove2 = Random.Range(0, 6);
-
-    //        if (randomMove2 < 3)
-    //        {
-    //            Debug.Log("disparo");
-    //            //Debug.Log(_attack);
-    //            //Debug.Log(_attack.AttackPrefab);
-    //            var randomPrefab = _attackE.AttackPrefab;
-    //            var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
-    //            var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x - 1, Enemy1.OccupiedTile.y));
-
-    //            randomSpawnTile.SetAttack(attackSpawned);
-    //            Attacks.Add(attackSpawned);
-    //        }
-    //    }
-        
-    //}
-
-
-    //version de mover heores pero con con restriccion
-
-    //IEnumerator MoverHeroeSlowOG(BaseUnit hero1, int player)
-    //{
-    //    if(player == 0)
-    //    {
-    //        //var newTile = hero1.OccupiedTile;
-    //        var mc = movimientos.Count;
-    //        var Highlight = hero1.GetHighlightHero();
-    //        Highlight._highlight.SetActive(false);
-
-
-    //        if (mc < 2)
-    //        {
-    //            if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
-    //            {
-    //                movimientos.Add(0);
-    //            }
-    //            if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
-    //            {
-    //                movimientos.Add(1);
-    //            }
-    //            if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
-    //            {
-    //                movimientos.Add(2);
-    //            }
-    //            if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
-    //            {
-    //                movimientos.Add(3);
-    //            }
-    //        }
-
-    //        //newTile.SetUnit(hero1);
-    //        Highlight = hero1.GetHighlightHero();
-    //        Highlight._highlight.SetActive(true);
-
-
-    //        //Aqui esta el ataque de heroe, separarlo (ya se separó)
-    //        //AttackHero(hero1);
-    //    }else if (player == 1)
-    //    {
-    //        var newTile = hero1.OccupiedTile;
-    //        var Highlight = hero1.GetHighlightHero();
-    //        Highlight._highlight.SetActive(false);
-
-
-
-    //        if (Input.GetKey(KeyCode.UpArrow) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
-    //        {
-    //            newTile = hero1.OccupiedTile.UpTile();
-    //            //Debug.Log("entra arriba?");
-    //        }
-    //        if (Input.GetKey(KeyCode.LeftArrow) && hero1.OccupiedTile.x > 0)
-    //        {
-    //            newTile = hero1.OccupiedTile.LeftTile();
-    //        }
-    //        if (Input.GetKey(KeyCode.DownArrow) && hero1.OccupiedTile.y > 0)
-    //        {
-    //            newTile = hero1.OccupiedTile.DownTile();
-    //        }
-    //        if (Input.GetKey(KeyCode.RightArrow) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
-    //        {
-    //            newTile = hero1.OccupiedTile.RightTile();
-    //        }
-
-    //        newTile.SetUnit(hero1);
-    //        Highlight = hero1.GetHighlightHero();
-    //        Highlight._highlight.SetActive(true);
-
-
-    //        //Aqui esta el ataque de heroe, separarlo (ya se separó)
-    //        //AttackHero(hero1);
-    //    }
-
-    //    yield return new WaitForSeconds(2f);
-    //}
+    
 
 
     public void  MoverHeroeSlow(BaseUnit hero1, int player)
@@ -736,7 +616,7 @@ public class UnitManager : MonoBehaviour
         {
             if (10 > hero.CastMana)
             {
-                hero.CastMana += 1;
+                hero.CastMana += 100;
             }
             
             yield return new WaitForSeconds(1f);

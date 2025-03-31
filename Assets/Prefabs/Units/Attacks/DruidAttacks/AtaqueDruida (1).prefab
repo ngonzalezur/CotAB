@@ -127,8 +127,8 @@ MonoBehaviour:
   Damage: 5
   Faction: 0
   AreaOfEffect: 1
-  CoolDown: 1
-  LastCast1: -100
+  CoolDown: 2
+  LastCast1: 4.4619446
   LastCast2: -100
   ManaCost: 5
   DoVeneno: 10

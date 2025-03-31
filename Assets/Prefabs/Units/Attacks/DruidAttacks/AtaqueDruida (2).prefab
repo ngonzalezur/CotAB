@@ -9927,9 +9927,10 @@ MonoBehaviour:
   Damage: 1
   Faction: 0
   AreaOfEffect: 1
-  CoolDown: 1
+  CoolDown: 2
   LastCast1: -100
   LastCast2: -100
+  ManaCost: 0.5
   DoVeneno: 0
   attackType: 1
 --- !u!1 &3713141160072462006

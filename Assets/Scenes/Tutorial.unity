@@ -487,6 +487,27 @@ PrefabInstance:
       propertyPath: configuration.setup1.TimeMoveHero
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.basickAttack.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.basickAttack.Array.data[0].Damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.basickAttack.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
+        type: 3}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.basickAttack.Array.data[0].Cooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7036947522115616583, guid: e61e16ebd2fc2324794ff4e51371baad,
         type: 3}
       propertyPath: m_Name
@@ -567,6 +588,28 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 156226629114004347, guid: a671c067d9aa1e74b9accc32fa210bd1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1555533735, guid: 069a00c4a21d8654bbe27600f3ba7103,
+        type: 3}
+    - target: {fileID: 584863106186081729, guid: a671c067d9aa1e74b9accc32fa210bd1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1072175574, guid: 069a00c4a21d8654bbe27600f3ba7103,
+        type: 3}
+    - target: {fileID: 2314665563345831507, guid: a671c067d9aa1e74b9accc32fa210bd1,
+        type: 3}
+      propertyPath: m_Name
+      value: Tecla ataque 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423587466006124541, guid: a671c067d9aa1e74b9accc32fa210bd1,
+        type: 3}
+      propertyPath: m_Name
+      value: Tecla ataque 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
         type: 3}
       propertyPath: abilities.Array.size
@@ -575,27 +618,27 @@ PrefabInstance:
     - target: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
         type: 3}
       propertyPath: abilities.Array.data[0].key
-      value: 273
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
         type: 3}
       propertyPath: abilities.Array.data[1].key
-      value: 276
+      value: 106
       objectReference: {fileID: 0}
     - target: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
         type: 3}
       propertyPath: abilities.Array.data[2].key
-      value: 275
+      value: 107
       objectReference: {fileID: 0}
     - target: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
         type: 3}
       propertyPath: abilities.Array.data[3].key
-      value: 274
+      value: 108
       objectReference: {fileID: 0}
     - target: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
         type: 3}
       propertyPath: abilities.Array.data[0].cooldown
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
         type: 3}
@@ -605,12 +648,12 @@ PrefabInstance:
     - target: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
         type: 3}
       propertyPath: abilities.Array.data[2].cooldown
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
         type: 3}
       propertyPath: abilities.Array.data[3].cooldown
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
         type: 3}
@@ -632,6 +675,12 @@ PrefabInstance:
       propertyPath: abilities.Array.data[3].abilityImage
       value: 
       objectReference: {fileID: 815750013}
+    - target: {fileID: 2889532532795014939, guid: a671c067d9aa1e74b9accc32fa210bd1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1195002773, guid: 069a00c4a21d8654bbe27600f3ba7103,
+        type: 3}
     - target: {fileID: 3239058164984873172, guid: a671c067d9aa1e74b9accc32fa210bd1,
         type: 3}
       propertyPath: m_Pivot.x
@@ -737,6 +786,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvaP1 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4513900807640071734, guid: a671c067d9aa1e74b9accc32fa210bd1,
+        type: 3}
+      propertyPath: m_Name
+      value: Tecla ataque 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7690423467732422046, guid: a671c067d9aa1e74b9accc32fa210bd1,
+        type: 3}
+      propertyPath: m_Name
+      value: Tecla ataque 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019454633252030605, guid: a671c067d9aa1e74b9accc32fa210bd1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -202709270, guid: 069a00c4a21d8654bbe27600f3ba7103,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
