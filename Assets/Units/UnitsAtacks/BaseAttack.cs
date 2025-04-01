@@ -46,6 +46,10 @@ public class BaseAttack : MonoBehaviour
             unit.ActualHeath.text = Math.Max(unit.Health,0) + " / " + unit.MaxHealth;
             var audio = unit?.GetComponent<AudioSource>();
             audio?.Play();
+            if(unit.animator != null)
+            {
+                unit.animator?.SetTrigger("TakeDamage");
+            }
             
         }
     }

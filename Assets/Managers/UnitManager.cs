@@ -157,6 +157,15 @@ public class UnitManager : MonoBehaviour
 
             randomSpawnTile.SetUnit(Hero1);
         }
+
+        StartCoroutine(RestoreStamina(Heroes[0]));
+        StartCoroutine(RestoreMana(Heroes[0]));
+        if (SecondPlayer)
+        {
+            StartCoroutine(RestoreStamina(Heroes[1]));
+            StartCoroutine(RestoreMana(Heroes[1]));
+        }
+
         GameManager.Instance.ChangeState(GameState.SpawnEnemies);
     }
 
@@ -243,6 +252,7 @@ public class UnitManager : MonoBehaviour
 
                 randomSpawnTile.SetAttack(attackSpawned);
                 Attacks.Add(attackSpawned);
+                hero.animator.SetTrigger("Attack");
             }
 
             //ataues especiales de los heroes uno con Q otro con E
@@ -255,6 +265,7 @@ public class UnitManager : MonoBehaviour
                     //SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
                     SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
                     hero.Attacks[0].LastCast1 = Time.time;
+                    hero.animator.SetTrigger("Attack");
                 }
 
             }
@@ -266,6 +277,7 @@ public class UnitManager : MonoBehaviour
                 {
                     SpecialAttack(hero, hero.Attacks[1], hero.GetHighlightHero());
                     hero.Attacks[1].LastCast1 = Time.time;
+                    hero.animator.SetTrigger("Attack");
                 }
             }
 
@@ -276,6 +288,7 @@ public class UnitManager : MonoBehaviour
                 {
                     SpecialAttack(hero, hero.Attacks[2], hero.GetHighlightHero());
                     hero.Attacks[2].LastCast1 = Time.time;
+                    hero.animator.SetTrigger("Attack");
                 }
             }
 
@@ -718,13 +731,13 @@ public class UnitManager : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(RestoreStamina(Heroes[0]));
-        StartCoroutine(RestoreMana(Heroes[0]));
-        if (SecondPlayer)
-        {
-            StartCoroutine(RestoreStamina(Heroes[1]));
-            StartCoroutine(RestoreMana(Heroes[1]));
-        }
+        //StartCoroutine(RestoreStamina(Heroes[0]));
+        //StartCoroutine(RestoreMana(Heroes[0]));
+        //if (SecondPlayer)
+        //{
+        //    StartCoroutine(RestoreStamina(Heroes[1]));
+        //    StartCoroutine(RestoreMana(Heroes[1]));
+        //}
     }
 
     IEnumerator RestoreMana(BaseUnit hero)
@@ -950,6 +963,7 @@ public class UnitManager : MonoBehaviour
                 if (movimientos[0] == 1 && hero.OccupiedTile.x > 0 && hero.MoveCooldown > 0)
                 {
                     hero.MoveCooldown -= 1;
+                    hero.animator?.SetTrigger("MoveBack");
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.LeftTile();
                 }
@@ -962,6 +976,7 @@ public class UnitManager : MonoBehaviour
                 if (movimientos[0] == 3 && hero.OccupiedTile.x < GridManager.Instance._width / 2 - 1 && hero.MoveCooldown > 0)
                 {
                     hero.MoveCooldown -= 1;
+                    hero.animator?.SetTrigger("MoveFoward");
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.RightTile();
                 }

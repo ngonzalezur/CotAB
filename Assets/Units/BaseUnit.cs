@@ -26,6 +26,8 @@ public class BaseUnit : MonoBehaviour
     public float MoveCooldown = 0;
     public float CastMana = 0;
 
+    public Animator animator;
+
     public void Awake()
     {
         Health = MaxHealth;
