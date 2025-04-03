@@ -146,7 +146,7 @@ public class UnitManager : MonoBehaviour
         for (int i = 0; i < heroCount; i++)
         {
             var heroPrefab = _heroes[i];
-            var Hero1 = Instantiate(heroPrefab,Vector3.zero, Quaternion.identity);
+            var Hero1 = Instantiate(heroPrefab,Vector3.zero + new Vector3(0, 0, -1), Quaternion.identity);
             var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(0,0));
             while (randomSpawnTile.OccupiedUnit != null)
             {
@@ -156,6 +156,7 @@ public class UnitManager : MonoBehaviour
             AllUnits.Add(Hero1);
 
             randomSpawnTile.SetUnit(Hero1);
+            Hero1.OccupiedTile = randomSpawnTile;
         }
 
         StartCoroutine(RestoreStamina(Heroes[0]));
@@ -874,10 +875,10 @@ public class UnitManager : MonoBehaviour
     {
         foreach (BaseUnit unit in AllUnits)
         {
-            
+            if(unit == null || unit.OccupiedTile == null) continue;
             if (unit.OccupiedTile.OccupiedAttack == null)
             {
-
+                
             }
             else if (unit.OccupiedTile.OccupiedAttack != null)
             {
@@ -981,8 +982,9 @@ public class UnitManager : MonoBehaviour
                     newTile = hero.OccupiedTile.RightTile();
                 }
                 movimientos.RemoveAt(0);
+                newTile.SetUnit(hero);
             }
-            newTile.SetUnit(hero);
+            
         }
 
         if (jugador == 1)
@@ -1015,10 +1017,11 @@ public class UnitManager : MonoBehaviour
                     newTile = hero.OccupiedTile.RightTile();
                 }
                 movimientos2.RemoveAt(0);
+                newTile.SetUnit(hero);
             }
-            newTile.SetUnit(hero);
+            
         }
-        yield return new WaitForSeconds(2f);
+        yield return null;
     }
 
     IEnumerator VenenoDoDamage()
