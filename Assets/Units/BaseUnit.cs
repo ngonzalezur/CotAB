@@ -26,14 +26,13 @@ public class BaseUnit : MonoBehaviour
     public float MoveCooldown = 0;
     public float CastMana = 0;
 
-    public float lastCastBA = 0;
+    public Animator animator;
 
     public void Awake()
     {
         Health = MaxHealth;
         this.ActualHeath.text = this.Health + " / " + this.MaxHealth;
         veneno = 0;
-        lastCastBA = 0;
     }
 
     public void Destroy()
@@ -51,26 +50,6 @@ public class BaseUnit : MonoBehaviour
         return this.OccupiedTile.LeftTile().LeftTile().LeftTile().LeftTile().LeftTile().LeftTile();
     }
 
-    public void MoveUp()
-    {
-        var newTile = this.OccupiedTile;
-        if(newTile.UpTile() != null)
-        {
-            newTile = newTile.UpTile();
-        }
-        newTile.SetUnit(this);
-    }
-
-    public void MoveDown()
-    {
-        var newTile = this.OccupiedTile;
-        if (newTile.DownTile() != null)
-        {
-            newTile = newTile.DownTile();
-        }
-        newTile.SetUnit(this);
-    }
-
     public void VenenoDamage()
     {
         if (veneno > 0)
@@ -83,16 +62,6 @@ public class BaseUnit : MonoBehaviour
         else
         {
             efecto?.SetActive(false);
-        }
-    }
-
-    public void Attack()
-    {
-        //basic attack
-        if(Time.time - lastCastBA > Attacks[0].CoolDown)
-        {
-            UnitManager.Instance.AttackEnemy(this);
-            lastCastBA = Time.time;
         }
     }
 }

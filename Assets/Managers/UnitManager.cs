@@ -146,7 +146,7 @@ public class UnitManager : MonoBehaviour
         for (int i = 0; i < heroCount; i++)
         {
             var heroPrefab = _heroes[i];
-            var Hero1 = Instantiate(heroPrefab,Vector3.zero, Quaternion.identity);
+            var Hero1 = Instantiate(heroPrefab,Vector3.zero + new Vector3(0, 0, -1), Quaternion.identity);
             var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(0,0));
             while (randomSpawnTile.OccupiedUnit != null)
             {
@@ -156,6 +156,7 @@ public class UnitManager : MonoBehaviour
             AllUnits.Add(Hero1);
 
             randomSpawnTile.SetUnit(Hero1);
+            Hero1.OccupiedTile = randomSpawnTile;
         }
 
         StartCoroutine(RestoreStamina(Heroes[0]));
@@ -219,6 +220,7 @@ public class UnitManager : MonoBehaviour
 
                 randomSpawnTile.SetAttack(attackSpawned);
                 Attacks.Add(attackSpawned);
+                hero.animator.SetTrigger("Attack");
             }
 
             //ataues especiales de los heroes uno con Q otro con E
@@ -231,6 +233,7 @@ public class UnitManager : MonoBehaviour
                     //SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
                     SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
                     hero.Attacks[0].LastCast1 = Time.time;
+                    hero.animator.SetTrigger("Attack");
                 }
 
             }
@@ -242,6 +245,7 @@ public class UnitManager : MonoBehaviour
                 {
                     SpecialAttack(hero, hero.Attacks[1], hero.GetHighlightHero());
                     hero.Attacks[1].LastCast1 = Time.time;
+                    hero.animator.SetTrigger("Attack");
                 }
             }
 
@@ -252,6 +256,7 @@ public class UnitManager : MonoBehaviour
                 {
                     SpecialAttack(hero, hero.Attacks[2], hero.GetHighlightHero());
                     hero.Attacks[2].LastCast1 = Time.time;
+                    hero.animator.SetTrigger("Attack");
                 }
             }
 
@@ -797,10 +802,10 @@ public class UnitManager : MonoBehaviour
     {
         foreach (BaseUnit unit in AllUnits)
         {
-            
+            if(unit == null || unit.OccupiedTile == null) continue;
             if (unit.OccupiedTile.OccupiedAttack == null)
             {
-
+                
             }
             else if (unit.OccupiedTile.OccupiedAttack != null)
             {
@@ -886,6 +891,7 @@ public class UnitManager : MonoBehaviour
                 if (movimientos[0] == 1 && hero.OccupiedTile.x > 0 && hero.MoveCooldown > 0)
                 {
                     hero.MoveCooldown -= 1;
+                    hero.animator?.SetTrigger("MoveBack");
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.LeftTile();
                 }
@@ -898,12 +904,14 @@ public class UnitManager : MonoBehaviour
                 if (movimientos[0] == 3 && hero.OccupiedTile.x < GridManager.Instance._width / 2 - 1 && hero.MoveCooldown > 0)
                 {
                     hero.MoveCooldown -= 1;
+                    hero.animator?.SetTrigger("MoveFoward");
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.RightTile();
                 }
                 movimientos.RemoveAt(0);
+                newTile.SetUnit(hero);
             }
-            newTile.SetUnit(hero);
+            
         }
 
         if (jugador == 1)
@@ -936,10 +944,11 @@ public class UnitManager : MonoBehaviour
                     newTile = hero.OccupiedTile.RightTile();
                 }
                 movimientos2.RemoveAt(0);
+                newTile.SetUnit(hero);
             }
-            newTile.SetUnit(hero);
+            
         }
-        yield return new WaitForSeconds(2f);
+        yield return null;
     }
 
     IEnumerator VenenoDoDamage()
