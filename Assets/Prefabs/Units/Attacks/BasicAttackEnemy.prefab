@@ -20,13 +20,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
         type: 3}
+      propertyPath: CoolDown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
+        type: 3}
       propertyPath: DoVeneno
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
+        type: 3}
+      propertyPath: ManaCost
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
         type: 3}
       propertyPath: UnitName
       value: BasicoEnemigo
+      objectReference: {fileID: 0}
+    - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
+        type: 3}
+      propertyPath: LastCast1
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
+        type: 3}
+      propertyPath: LastCast2
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 4154415029462157613, guid: f5c1e3ca2062df64a8a30f42d73670aa,
         type: 3}
