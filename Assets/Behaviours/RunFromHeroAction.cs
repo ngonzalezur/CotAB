@@ -19,7 +19,7 @@ public partial class RunFromHeroAction : Action
 
     protected override Status OnUpdate()
     {
-        if (Enemy.Value.OccupiedTile.PositionYTile() == Target.Value.OccupiedTile.PositionYTile())
+        if (Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionYTile() == Target.Value.OccupiedTile.PositionYTile())
         {
             var r = UnityEngine.Random.Range(0, 100);
             if (r > 50)
@@ -32,11 +32,11 @@ public partial class RunFromHeroAction : Action
             }
             
         }
-        else if (Enemy.Value.OccupiedTile.PositionYTile() > Target.Value.OccupiedTile.PositionYTile())
+        else if (Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionYTile() > Target.Value.OccupiedTile.PositionYTile())
         {
             Enemy.Value.MoveUp();
         }
-        else if (Enemy.Value.OccupiedTile.PositionYTile() < Target.Value.OccupiedTile.PositionYTile())
+        else if (Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionYTile() < Target.Value.OccupiedTile.PositionYTile())
         {
             Enemy.Value.MoveDown();
         }

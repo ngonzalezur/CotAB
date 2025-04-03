@@ -51,7 +51,7 @@ public abstract class Tile : MonoBehaviour
     IEnumerator SetUnitCoroutine(float delay, float duration, Vector3 from, Vector3 to, BaseUnit unit)
     {
         yield return new WaitForSeconds(delay);
-        Debug.Log(this);
+        //Debug.Log(this);
         float startTime = Time.time;
         float elapsedTime = 0f;
 

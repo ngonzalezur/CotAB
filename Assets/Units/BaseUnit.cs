@@ -77,4 +77,14 @@ public class BaseUnit : MonoBehaviour
     {
         this.OccupiedTile.UpTile().SetUnit(this);
     }
+
+    public void Attack()
+    {
+        //basic attack
+        if (Time.time - lastCastBA > Attacks[0].CoolDown)
+        {
+            UnitManager.Instance.AttackEnemy(this);
+            lastCastBA = Time.time;
+        }
+    }
 }
