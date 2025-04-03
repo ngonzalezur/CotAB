@@ -26,6 +26,8 @@ public class BaseUnit : MonoBehaviour
     public float MoveCooldown = 0;
     public float CastMana = 0;
 
+    public float lastCastBA = 0;
+
     public Animator animator;
 
     public void Awake()
@@ -33,6 +35,7 @@ public class BaseUnit : MonoBehaviour
         Health = MaxHealth;
         this.ActualHeath.text = this.Health + " / " + this.MaxHealth;
         veneno = 0;
+        lastCastBA = 0;
     }
 
     public void Destroy()
@@ -63,5 +66,15 @@ public class BaseUnit : MonoBehaviour
         {
             efecto?.SetActive(false);
         }
+    }
+
+    public void MoveDown()
+    {
+        this.OccupiedTile.DownTile().SetUnit(this);
+    }
+
+    public void MoveUp()
+    {
+        this.OccupiedTile.UpTile().SetUnit(this);
     }
 }
