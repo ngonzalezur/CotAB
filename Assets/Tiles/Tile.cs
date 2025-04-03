@@ -70,6 +70,7 @@ public abstract class Tile : MonoBehaviour
         // Actualizar referencias
         if (unit.OccupiedTile != null)
         {
+            ChangeHighlight(unit);
             unit.OccupiedTile.OccupiedUnit = null;
         }
 
@@ -89,6 +90,11 @@ public abstract class Tile : MonoBehaviour
             StopCoroutine(moveUnitCoroutine);
             moveUnitCoroutine = null;
         }
+    }
+
+    public void ChangeHighlight(BaseUnit unit)
+    {
+        unit.GetHighlightHero()._highlight.SetActive(false);
     }
 
 
