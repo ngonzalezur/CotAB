@@ -179,12 +179,12 @@ public class UnitManager : MonoBehaviour
         {
             
             var enemyPrefab = _enemies;
-            var enemy = Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
+            var enemy = Instantiate(enemyPrefab, Vector3.zero + new Vector3(0,0,-1), Quaternion.identity);
             var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(8, 3));
-            while (randomSpawnTile.OccupiedUnit != null)
-            {
+            //while (randomSpawnTile.OccupiedUnit != null)
+            //{
                 randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(Random.Range(6, 11), Random.Range(0, 5)));
-            }
+            //}
 
             randomSpawnTile.SetUnit(enemy);
             if(i == 2)

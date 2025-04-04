@@ -11,7 +11,11 @@ public partial class CompareYAxisCondition : Condition
 
     public override bool IsTrue()
     {
-        return SelfY.Value.OccupiedTile.PositionYTile() == TargetY.Value.OccupiedTile.PositionYTile();
+        if (SelfY.Value.OccupiedTile != null && TargetY.Value.OccupiedTile != null)
+        {
+            return SelfY.Value.OccupiedTile.PositionYTile() == TargetY.Value.OccupiedTile.PositionYTile();
+        }
+        return false;
     }
 
     public override void OnStart()
