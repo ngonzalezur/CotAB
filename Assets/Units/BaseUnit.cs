@@ -26,11 +26,16 @@ public class BaseUnit : MonoBehaviour
     public float MoveCooldown = 0;
     public float CastMana = 0;
 
+    public float lastCastBA = 0;
+
+    public Animator animator;
+
     public void Awake()
     {
         Health = MaxHealth;
         this.ActualHeath.text = this.Health + " / " + this.MaxHealth;
         veneno = 0;
+        lastCastBA = 0;
     }
 
     public void Destroy()
@@ -50,6 +55,7 @@ public class BaseUnit : MonoBehaviour
 
     public void VenenoDamage()
     {
+        if(this == null) return;
         if (veneno > 0)
         {
             Health -= 1;
@@ -60,6 +66,26 @@ public class BaseUnit : MonoBehaviour
         else
         {
             efecto?.SetActive(false);
+        }
+    }
+
+    public void MoveDown()
+    {
+        this.OccupiedTile.DownTile().SetUnit(this);
+    }
+
+    public void MoveUp()
+    {
+        this.OccupiedTile.UpTile().SetUnit(this);
+    }
+
+    public void Attack()
+    {
+        //basic attack
+        if (Time.time - lastCastBA > Attacks[0].CoolDown)
+        {
+            UnitManager.Instance.AttackEnemy(this);
+            lastCastBA = Time.time;
         }
     }
 }

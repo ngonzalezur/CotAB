@@ -146,7 +146,7 @@ public class UnitManager : MonoBehaviour
         for (int i = 0; i < heroCount; i++)
         {
             var heroPrefab = _heroes[i];
-            var Hero1 = Instantiate(heroPrefab,Vector3.zero, Quaternion.identity);
+            var Hero1 = Instantiate(heroPrefab,Vector3.zero + new Vector3(0, 0, -1), Quaternion.identity);
             var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(0,0));
             while (randomSpawnTile.OccupiedUnit != null)
             {
@@ -156,7 +156,17 @@ public class UnitManager : MonoBehaviour
             AllUnits.Add(Hero1);
 
             randomSpawnTile.SetUnit(Hero1);
+            Hero1.OccupiedTile = randomSpawnTile;
         }
+
+        StartCoroutine(RestoreStamina(Heroes[0]));
+        StartCoroutine(RestoreMana(Heroes[0]));
+        if (SecondPlayer)
+        {
+            StartCoroutine(RestoreStamina(Heroes[1]));
+            StartCoroutine(RestoreMana(Heroes[1]));
+        }
+
         GameManager.Instance.ChangeState(GameState.SpawnEnemies);
     }
 
@@ -169,12 +179,12 @@ public class UnitManager : MonoBehaviour
         {
             
             var enemyPrefab = _enemies;
-            var enemy = Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
+            var enemy = Instantiate(enemyPrefab, Vector3.zero + new Vector3(0,0,-1), Quaternion.identity);
             var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(8, 3));
-            while (randomSpawnTile.OccupiedUnit != null)
-            {
+            //while (randomSpawnTile.OccupiedUnit != null)
+            //{
                 randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(Random.Range(6, 11), Random.Range(0, 5)));
-            }
+            //}
 
             randomSpawnTile.SetUnit(enemy);
             if(i == 2)
@@ -192,47 +202,14 @@ public class UnitManager : MonoBehaviour
         GameManager.Instance.ChangeState(GameState.GenerateUI);
     }
 
-    //public void MoveHeroes()
-    //{
-    //    //Debug.Log(Hero1.OccupiedTile.y < GridManager.Instance._height);
-    //    var newTile = Hero1.OccupiedTile;
-    //    var Highlight = GridManager.Instance.GetTileAtPosition(new Vector2(Hero1.OccupiedTile.x + 6, Hero1.OccupiedTile.y));
-    //    Highlight._highlight.SetActive(false);
-
-
-
-    //    if (Input.GetKeyDown(KeyCode.W) && Hero1.OccupiedTile.y < GridManager.Instance._height - 1)
-    //    {
-    //        newTile = Hero1.OccupiedTile.UpTile();
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.A) && Hero1.OccupiedTile.x > 0)
-    //    {
-    //        newTile = Hero1.OccupiedTile.LeftTile();
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.S) && Hero1.OccupiedTile.y > 0)
-    //    {
-    //        newTile = Hero1.OccupiedTile.DownTile();
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.D) && Hero1.OccupiedTile.x < GridManager.Instance._width/2 - 1)
-    //    {
-    //        newTile = Hero1.OccupiedTile.RightTile();
-    //    }
-
-    //    newTile.SetUnit(Hero1);
-    //    Highlight = GridManager.Instance.GetTileAtPosition(new Vector2(Hero1.OccupiedTile.x + 6, Hero1.OccupiedTile.y));
-    //    Highlight._highlight.SetActive(true);
-
-
-    //    //Aqui esta el ataque de heroe, separarlo (ya se separó)
-    //    //AttackHero(Highlight);
-    //}
+    
 
     private void AttackHero(BaseUnit hero, int player)
     {
 
         if(player == 0)
         {
-            if ((Input.GetKeyDown(KeyCode.Y) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && hero.CastMana- _attack.AttackPrefab.ManaCost> 0)
+            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && hero.CastMana- _attack.AttackPrefab.ManaCost> 0)
             {
                 hero.CastMana -= _attack.AttackPrefab.ManaCost;
                 var randomPrefab = _attack.AttackPrefab;
@@ -243,11 +220,12 @@ public class UnitManager : MonoBehaviour
 
                 randomSpawnTile.SetAttack(attackSpawned);
                 Attacks.Add(attackSpawned);
+                hero.animator.SetTrigger("Attack");
             }
 
             //ataues especiales de los heroes uno con Q otro con E
 
-            if ((Input.GetKeyDown(KeyCode.U) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && Time.time >= hero.Attacks[0].LastCast1 + _attackS[0].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[0].ManaCost > 0)
+            if ((Input.GetKeyDown(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && Time.time >= hero.Attacks[0].LastCast1 + _attackS[0].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[0].ManaCost > 0)
             {
                 hero.CastMana -= hero.Attacks[0].ManaCost;
                 if (hero.Attacks[0] != null)
@@ -255,27 +233,30 @@ public class UnitManager : MonoBehaviour
                     //SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
                     SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
                     hero.Attacks[0].LastCast1 = Time.time;
+                    hero.animator.SetTrigger("Attack");
                 }
 
             }
 
-            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && Time.time >= hero.Attacks[1].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[1].ManaCost > 0)
+            if ((Input.GetKeyDown(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && Time.time >= hero.Attacks[1].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[1].ManaCost > 0)
             {
                 hero.CastMana -= hero.Attacks[1].ManaCost;
                 if (hero.Attacks[1] != null)
                 {
                     SpecialAttack(hero, hero.Attacks[1], hero.GetHighlightHero());
                     hero.Attacks[1].LastCast1 = Time.time;
+                    hero.animator.SetTrigger("Attack");
                 }
             }
 
-            if ((Input.GetKeyDown(KeyCode.O) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && Time.time >= hero.Attacks[2].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[2].ManaCost > 0)
+            if ((Input.GetKeyDown(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && Time.time >= hero.Attacks[2].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[2].ManaCost > 0)
             {
                 hero.CastMana -= hero.Attacks[2].ManaCost;
                 if (hero.Attacks[2] != null)
                 {
                     SpecialAttack(hero, hero.Attacks[2], hero.GetHighlightHero());
                     hero.Attacks[2].LastCast1 = Time.time;
+                    hero.animator.SetTrigger("Attack");
                 }
             }
 
@@ -366,7 +347,7 @@ public class UnitManager : MonoBehaviour
                     var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(Attacks[i].OccupiedTile.x + 1, Attacks[i].OccupiedTile.y));
                     nextTile.SetAttack(Attacks[i]);
                 }
-                else
+                else if (Attacks[i] != null)
                 {
                     Attacks[i].Destroy();
                 }
@@ -385,7 +366,7 @@ public class UnitManager : MonoBehaviour
                     var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(Attacks[i].OccupiedTile.x - 1, Attacks[i].OccupiedTile.y));
                     nextTile.SetAttack(Attacks[i]);
                 }
-                else
+                else if(Attacks[i] != null)
                 {
                     Attacks[i].Destroy();
                 }
@@ -398,53 +379,7 @@ public class UnitManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
     }
 
-    //primer intento de mover enemigos, NO se esta usando ahorita porque no esta en corrutinas
-    //public void MoveEnemies()
-    //{
-    //    foreach(BaseUnit Enemy1 in Enemies)
-    //    {
-    //        var randomMove = Random.Range(1, 5);
-    //        if (randomMove == 1 && Enemy1.OccupiedTile.y < GridManager.Instance._height - 1)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x, Enemy1.OccupiedTile.y + 1));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-    //        if (randomMove == 2 && Enemy1.OccupiedTile.x > GridManager.Instance._width / 2)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x - 1, Enemy1.OccupiedTile.y));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-    //        if (randomMove == 3 && Enemy1.OccupiedTile.y > 0)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x, Enemy1.OccupiedTile.y - 1));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-    //        if (randomMove == 4 && Enemy1.OccupiedTile.x < GridManager.Instance._width - 1)
-    //        {
-    //            var newTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x + 1, Enemy1.OccupiedTile.y));
-    //            newTile.SetUnit(Enemy1);
-    //        }
-
-    //        var randomMove2 = Random.Range(0, 6);
-
-    //        if (randomMove2 < 3)
-    //        {
-    //            Debug.Log("disparo");
-    //            //Debug.Log(_attack);
-    //            //Debug.Log(_attack.AttackPrefab);
-    //            var randomPrefab = _attackE.AttackPrefab;
-    //            var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
-    //            var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x - 1, Enemy1.OccupiedTile.y));
-
-    //            randomSpawnTile.SetAttack(attackSpawned);
-    //            Attacks.Add(attackSpawned);
-    //        }
-    //    }
-        
-    //}
-
-
-    //version de mover heores pero con con restriccion
+    
 
     //IEnumerator MoverHeroeSlowOG(BaseUnit hero1, int player)
     //{
@@ -652,42 +587,42 @@ public class UnitManager : MonoBehaviour
             int randomMove = Random.Range(1, 6);
             //Vector2 nuevaPosicion = new Vector2(Enemy1.OccupiedTile.x, Enemy1.OccupiedTile.y);
 
-            if (randomMove == 1 && Enemy1.OccupiedTile.y < GridManager.Instance._height - 1)
-            {
-                if(Enemy1.OccupiedTile.UpTile().OccupiedUnit == null)
-                {
-                    newTile = Enemy1.OccupiedTile.UpTile();
-                }
+            //if (randomMove == 1 && Enemy1.OccupiedTile.y < GridManager.Instance._height - 1)
+            //{
+            //    if(Enemy1.OccupiedTile.UpTile().OccupiedUnit == null)
+            //    {
+            //        newTile = Enemy1.OccupiedTile.UpTile();
+            //    }
                 
-            }
-            else if (randomMove == 2 && Enemy1.OccupiedTile.x > GridManager.Instance._width / 2)
-            {
-                if (Enemy1.OccupiedTile.LeftTile().OccupiedUnit == null)
-                {
-                    newTile = Enemy1.OccupiedTile.LeftTile();
-                }                
-            }
-            else if (randomMove == 3 && Enemy1.OccupiedTile.y > 0)
-            {
-                if (Enemy1.OccupiedTile.DownTile().OccupiedUnit == null)
-                {
-                    newTile = Enemy1.OccupiedTile.DownTile();
-                }
+            //}
+            //else if (randomMove == 2 && Enemy1.OccupiedTile.x > GridManager.Instance._width / 2)
+            //{
+            //    if (Enemy1.OccupiedTile.LeftTile().OccupiedUnit == null)
+            //    {
+            //        newTile = Enemy1.OccupiedTile.LeftTile();
+            //    }                
+            //}
+            //else if (randomMove == 3 && Enemy1.OccupiedTile.y > 0)
+            //{
+            //    if (Enemy1.OccupiedTile.DownTile().OccupiedUnit == null)
+            //    {
+            //        newTile = Enemy1.OccupiedTile.DownTile();
+            //    }
                 
-            }
-            else if (randomMove == 4 && Enemy1.OccupiedTile.x < GridManager.Instance._width - 1)
-            {
-                if(Enemy1.OccupiedTile.RightTile().OccupiedUnit == null)
-                {
-                    newTile = Enemy1.OccupiedTile.RightTile();
-                }
-            }
+            //}
+            //else if (randomMove == 4 && Enemy1.OccupiedTile.x < GridManager.Instance._width - 1)
+            //{
+            //    if(Enemy1.OccupiedTile.RightTile().OccupiedUnit == null)
+            //    {
+            //        newTile = Enemy1.OccupiedTile.RightTile();
+            //    }
+            //}
 
             
-            if (newTile != null)
-            {
-                newTile.SetUnit(Enemy1);
-            }
+            //if (newTile != null)
+            //{
+            //    newTile.SetUnit(Enemy1);
+            //}
             
 
             //Aqui esta codigo de ataque enemigo
@@ -695,13 +630,7 @@ public class UnitManager : MonoBehaviour
 
             if (randomAtt < pobAtt)
             {
-                var prefab = _attackE.AttackPrefab;
-                var attackSpawned = poolEnemies.GetObjectInPool();
-                attackSpawned.gameObject.SetActive(true);
-                var spawnTileAtt = GridManager.Instance.GetTileAtPosition(new Vector2(Enemy1.OccupiedTile.x - 1, Enemy1.OccupiedTile.y));
-
-                spawnTileAtt.SetAttack(attackSpawned);
-                Attacks.Add(attackSpawned);
+                //AttackEnemy(Enemy1);
             }
             // ataque especial
             if (Enemy1.EnemyType.Special && randomAtt < 5)
@@ -715,16 +644,28 @@ public class UnitManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
     }
 
+    public void AttackEnemy(BaseUnit enemy)
+    {
+        //Ataque basico enemigo
+        var prefab = enemy.Attacks[0];
+        var attackSpawned = poolEnemies.GetObjectInPool();
+        attackSpawned.gameObject.SetActive(true);
+        var spawnTileAtt = GridManager.Instance.GetTileAtPosition(new Vector2(enemy.OccupiedTile.x - 1, enemy.OccupiedTile.y));
+        spawnTileAtt.SetAttack(attackSpawned);
+        Attacks.Add(attackSpawned);
+               
+    }
+
 
     public void Start()
     {
-        StartCoroutine(RestoreStamina(Heroes[0]));
-        StartCoroutine(RestoreMana(Heroes[0]));
-        if (SecondPlayer)
-        {
-            StartCoroutine(RestoreStamina(Heroes[1]));
-            StartCoroutine(RestoreMana(Heroes[1]));
-        }
+        //StartCoroutine(RestoreStamina(Heroes[0]));
+        //StartCoroutine(RestoreMana(Heroes[0]));
+        //if (SecondPlayer)
+        //{
+        //    StartCoroutine(RestoreStamina(Heroes[1]));
+        //    StartCoroutine(RestoreMana(Heroes[1]));
+        //}
     }
 
     IEnumerator RestoreMana(BaseUnit hero)
@@ -861,10 +802,10 @@ public class UnitManager : MonoBehaviour
     {
         foreach (BaseUnit unit in AllUnits)
         {
-            
+            if(unit == null || unit.OccupiedTile == null) continue;
             if (unit.OccupiedTile.OccupiedAttack == null)
             {
-
+                
             }
             else if (unit.OccupiedTile.OccupiedAttack != null)
             {
@@ -950,6 +891,7 @@ public class UnitManager : MonoBehaviour
                 if (movimientos[0] == 1 && hero.OccupiedTile.x > 0 && hero.MoveCooldown > 0)
                 {
                     hero.MoveCooldown -= 1;
+                    hero.animator?.SetTrigger("MoveBack");
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.LeftTile();
                 }
@@ -962,12 +904,14 @@ public class UnitManager : MonoBehaviour
                 if (movimientos[0] == 3 && hero.OccupiedTile.x < GridManager.Instance._width / 2 - 1 && hero.MoveCooldown > 0)
                 {
                     hero.MoveCooldown -= 1;
+                    hero.animator?.SetTrigger("MoveFoward");
                     hero.GetHighlightHero()._highlight.SetActive(false);
                     newTile = hero.OccupiedTile.RightTile();
                 }
                 movimientos.RemoveAt(0);
+                newTile.SetUnit(hero);
             }
-            newTile.SetUnit(hero);
+            
         }
 
         if (jugador == 1)
@@ -1000,10 +944,11 @@ public class UnitManager : MonoBehaviour
                     newTile = hero.OccupiedTile.RightTile();
                 }
                 movimientos2.RemoveAt(0);
+                newTile.SetUnit(hero);
             }
-            newTile.SetUnit(hero);
+            
         }
-        yield return new WaitForSeconds(2f);
+        yield return null;
     }
 
     IEnumerator VenenoDoDamage()

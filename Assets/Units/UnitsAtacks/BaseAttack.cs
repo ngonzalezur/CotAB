@@ -26,7 +26,7 @@ public class BaseAttack : MonoBehaviour
 
     public void Destroy()
     {
-        //if(this != null) Destroy(gameObject);
+        if (this == null) return;
         UnitManager.Instance.Attacks.Remove(this);
         this.gameObject.SetActive(false);
         this.OccupiedTile.OccupiedAttack = null;
@@ -46,6 +46,10 @@ public class BaseAttack : MonoBehaviour
             unit.ActualHeath.text = Math.Max(unit.Health,0) + " / " + unit.MaxHealth;
             var audio = unit?.GetComponent<AudioSource>();
             audio?.Play();
+            if(unit.animator != null)
+            {
+                unit.animator?.SetTrigger("TakeDamage");
+            }
             
         }
     }
