@@ -347,7 +347,7 @@ public class UnitManager : MonoBehaviour
                     var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(Attacks[i].OccupiedTile.x + 1, Attacks[i].OccupiedTile.y));
                     nextTile.SetAttack(Attacks[i]);
                 }
-                else
+                else if (Attacks[i] != null)
                 {
                     Attacks[i].Destroy();
                 }
@@ -366,7 +366,7 @@ public class UnitManager : MonoBehaviour
                     var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(Attacks[i].OccupiedTile.x - 1, Attacks[i].OccupiedTile.y));
                     nextTile.SetAttack(Attacks[i]);
                 }
-                else
+                else if(Attacks[i] != null)
                 {
                     Attacks[i].Destroy();
                 }

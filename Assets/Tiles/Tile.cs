@@ -50,6 +50,7 @@ public abstract class Tile : MonoBehaviour
 
     IEnumerator SetUnitCoroutine(float delay, float duration, Vector3 from, Vector3 to, BaseUnit unit)
     {
+        
         yield return new WaitForSeconds(delay);
         //Debug.Log(this);
         float startTime = Time.time;
@@ -61,6 +62,11 @@ public abstract class Tile : MonoBehaviour
             float normalizedTime = elapsedTime / duration;
             unit.transform.position = Vector3.Lerp(from, to, Mathf.Clamp01(normalizedTime));
 
+            yield return null;
+        }
+        if (unit == null)
+        {
+            StopCoroutine(moveUnitCoroutine);
             yield return null;
         }
 
