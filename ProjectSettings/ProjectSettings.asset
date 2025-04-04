@@ -958,11 +958,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 33744b37-73f4-4216-9aa7-aeabd0c0e2dd
+  cloudProjectId: 539e50b9-7cf3-4b83-aa5a-e4d4dabf1db2
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: My project 2025-02-06_10-19-12
-  organizationId: morgreta
+  projectName: child-of-the-aftermath
+  organizationId: mlab4
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
