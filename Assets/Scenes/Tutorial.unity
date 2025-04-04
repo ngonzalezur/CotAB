@@ -479,9 +479,19 @@ PrefabInstance:
       objectReference: {fileID: 911059268}
     - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
         type: 3}
+      propertyPath: HealthHero
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
       propertyPath: poolEnemies
       value: 
       objectReference: {fileID: 751970009}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: TimeMoveHero
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
         type: 3}
       propertyPath: configuration.nina.prefab
@@ -496,8 +506,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
         type: 3}
-      propertyPath: configuration.setup1.TimeMoveHero
+      propertyPath: configuration.nina.MaxHealth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.robot.MaxHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.setup1.TimeMoveHero
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
         type: 3}

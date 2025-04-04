@@ -19,6 +19,7 @@ public partial class EnemyPursuitAction : Action
 
     protected override Status OnUpdate()
     {
+        if(Target.Value == null) return Status.Success;
         if(Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionYTile() < Target.Value.OccupiedTile.PositionYTile())
         {
             Enemy.Value.MoveUp();

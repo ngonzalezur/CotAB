@@ -506,9 +506,19 @@ PrefabInstance:
       objectReference: {fileID: 546541056}
     - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
         type: 3}
+      propertyPath: HealthHero
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
+        type: 3}
       propertyPath: poolEnemies
       value: 
       objectReference: {fileID: 1064770965}
+    - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
+        type: 3}
+      propertyPath: TimeMoveHero
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
         type: 3}
       propertyPath: configuration.nina.prefab
@@ -524,7 +534,7 @@ PrefabInstance:
     - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
         type: 3}
       propertyPath: configuration.setup1.TimeMoveHero
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4447961927163866491, guid: 82a3b4bd038f134409a8d985d7fca9b9,
         type: 3}

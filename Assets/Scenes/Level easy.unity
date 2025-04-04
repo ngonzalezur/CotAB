@@ -212,6 +212,11 @@ PrefabInstance:
       objectReference: {fileID: 691810129}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
+      propertyPath: TimeMoveHero
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
       propertyPath: configuration.nina.prefab
       value: 
       objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
@@ -225,7 +230,7 @@ PrefabInstance:
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: configuration.setup1.TimeMoveHero
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5256982853360289166, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}

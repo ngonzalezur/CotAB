@@ -11,6 +11,7 @@ public partial class CompareYAxisCondition : Condition
 
     public override bool IsTrue()
     {
+        if (TargetY.Value == null) return false;
         if (SelfY.Value.OccupiedTile != null && TargetY.Value.OccupiedTile != null)
         {
             return SelfY.Value.OccupiedTile.PositionYTile() == TargetY.Value.OccupiedTile.PositionYTile();
@@ -21,6 +22,7 @@ public partial class CompareYAxisCondition : Condition
     public override void OnStart()
     {
         TargetY.Value = GameObject.FindFirstObjectByType<BaseHero>();
+        
     }
 
     public override void OnEnd()
