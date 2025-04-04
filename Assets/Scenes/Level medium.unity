@@ -586,6 +586,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
         type: 3}
+    - target: {fileID: 1689863207902188443, guid: 1b767c47a93b61c4a93cdce22e0c7bcc,
+        type: 3}
+      propertyPath: configuration.setup1.TimeMoveHero
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1739486436713516490, guid: 1b767c47a93b61c4a93cdce22e0c7bcc,
         type: 3}
       propertyPath: m_Name

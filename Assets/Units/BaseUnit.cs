@@ -55,6 +55,7 @@ public class BaseUnit : MonoBehaviour
 
     public void VenenoDamage()
     {
+        if(this == null) return;
         if (veneno > 0)
         {
             Health -= 1;

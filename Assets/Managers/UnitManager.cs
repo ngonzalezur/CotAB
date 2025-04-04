@@ -209,7 +209,7 @@ public class UnitManager : MonoBehaviour
 
         if(player == 0)
         {
-            if ((Input.GetKeyDown(KeyCode.Y) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && hero.CastMana- _attack.AttackPrefab.ManaCost> 0)
+            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && hero.CastMana- _attack.AttackPrefab.ManaCost> 0)
             {
                 hero.CastMana -= _attack.AttackPrefab.ManaCost;
                 var randomPrefab = _attack.AttackPrefab;
@@ -225,7 +225,7 @@ public class UnitManager : MonoBehaviour
 
             //ataues especiales de los heroes uno con Q otro con E
 
-            if ((Input.GetKeyDown(KeyCode.U) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && Time.time >= hero.Attacks[0].LastCast1 + _attackS[0].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[0].ManaCost > 0)
+            if ((Input.GetKeyDown(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && Time.time >= hero.Attacks[0].LastCast1 + _attackS[0].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[0].ManaCost > 0)
             {
                 hero.CastMana -= hero.Attacks[0].ManaCost;
                 if (hero.Attacks[0] != null)
@@ -238,7 +238,7 @@ public class UnitManager : MonoBehaviour
 
             }
 
-            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && Time.time >= hero.Attacks[1].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[1].ManaCost > 0)
+            if ((Input.GetKeyDown(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && Time.time >= hero.Attacks[1].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[1].ManaCost > 0)
             {
                 hero.CastMana -= hero.Attacks[1].ManaCost;
                 if (hero.Attacks[1] != null)
@@ -249,7 +249,7 @@ public class UnitManager : MonoBehaviour
                 }
             }
 
-            if ((Input.GetKeyDown(KeyCode.O) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && Time.time >= hero.Attacks[2].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[2].ManaCost > 0)
+            if ((Input.GetKeyDown(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && Time.time >= hero.Attacks[2].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[2].ManaCost > 0)
             {
                 hero.CastMana -= hero.Attacks[2].ManaCost;
                 if (hero.Attacks[2] != null)

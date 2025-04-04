@@ -497,7 +497,7 @@ PrefabInstance:
     - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
         type: 3}
       propertyPath: configuration.setup1.TimeMoveHero
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
         type: 3}

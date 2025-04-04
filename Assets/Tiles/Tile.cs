@@ -55,7 +55,7 @@ public abstract class Tile : MonoBehaviour
         float startTime = Time.time;
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < duration && unit != null)
         {
             elapsedTime = Time.time - startTime;
             float normalizedTime = elapsedTime / duration;
