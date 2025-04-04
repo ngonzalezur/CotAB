@@ -8,8 +8,9 @@ using static UnityEngine.UI.CanvasScaler;
 public class BaseAttack : MonoBehaviour
 {
     public string UnitName;
+    public static event System.Action OnHeroHit;
     public Tile OccupiedTile;
-    public int Damage;
+    public int Damage; 
     public Faction Faction;
     public int AreaOfEffect;
     public float CoolDown;
@@ -44,9 +45,10 @@ public class BaseAttack : MonoBehaviour
             //Debug.Log("soy normal");
             unit.Health -= Math.Abs(Damage);
             unit.ActualHeath.text = Math.Max(unit.Health,0) + " / " + unit.MaxHealth;
-            var audio = unit?.GetComponent<AudioSource>();
-            audio?.Play();
-            
+            if (unit.Faction == Faction.Hero)
+            {
+                OnHeroHit?.Invoke();
+            }
         }
     }
 

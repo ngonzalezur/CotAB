@@ -6,11 +6,11 @@
    "Generator": "2024.1.0.8669"
   },
   "RootPaths": {
-   "ProjectRoot": "../CotaB_WwiseProject",
-   "SourceFilesRoot": "../CotaB_WwiseProject/.cache",
+   "ProjectRoot": "../../Wwise Cota/CotaB",
+   "SourceFilesRoot": "../../Wwise Cota/CotaB/.cache",
    "SoundBanksRoot": ".",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "../CotaB_WwiseProject/GeneratedSoundBanks/Windows"
+   "ExternalSourcesOutputRoot": "../../Wwise Cota/CotaB/GeneratedSoundBanks/Windows"
   },
   "DefaultAlign": "16",
   "Settings": {
@@ -19,7 +19,7 @@
    "SubFoldersForGeneratedFiles": "false",
    "RemoveUnusedGeneratedFiles": "true",
    "SourceControlGeneratedFiles": "false",
-   "GenerateHeaderFile": "true",
+   "GenerateHeaderFile": "false",
    "GenerateContentTxtFile": "true",
    "GenerateMetadataXML": "false",
    "GenerateMetadataJSON": "true",
@@ -32,6 +32,6 @@
    "PrintObjectGuid": "true",
    "PrintObjectPath": "true"
   },
-  "FileHash": "{769E6398-4144-A80B-09D6-6273194F77EE}"
+  "FileHash": "{21854DBE-9B3C-143B-8D0F-9AF673E8351C}"
  }
 }

@@ -1,0 +1,89 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2264177337",
+    "Type": "User",
+    "GUID": "{4B3A05C5-79CD-49FA-80FC-55624EBFE325}",
+    "Language": "SFX",
+    "Hash": "{E014BE26-60BC-27AC-1D73-D99C2E58A828}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SBank",
+    "ShortName": "Combat_SBank",
+    "Path": "Combat_SBank.bnk",
+    "Media": [
+     {
+      "Id": "251058791",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BaseCombate.wav",
+      "CachePath": "1C/{1CA8F4A2-2C4D-D58E-F357-8987119F140B}.wem"
+     },
+     {
+      "Id": "537308945",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageHero.wav",
+      "CachePath": "AE/{AE2A55DC-D846-DD99-77C5-E9D3554839B8}.wem"
+     },
+     {
+      "Id": "721554303",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageHero02.wav",
+      "CachePath": "5B/{5B990BFE-99ED-7F53-00D0-C02015E02801}.wem"
+     },
+     {
+      "Id": "1024435436",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CapaViolinBaseCombate.wav",
+      "CachePath": "4E/{4E3B0BA7-0E5E-D50E-D498-0F5036AF046C}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "1462092269",
+      "Name": "Play_CombatMusicPlaylist",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_CombatMusicPlaylist",
+      "GUID": "{61BDE7DF-AC28-4121-9C65-D064DD4B687B}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "251058791"
+       },
+       {
+        "Id": "1024435436"
+       }
+      ]
+     },
+     {
+      "Id": "3446409770",
+      "Name": "Play_Damage_Hero_Randomizer",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Damage_Hero_Randomizer",
+      "GUID": "{DC8E1906-F6CE-4C14-B04F-B9A981E605FD}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.22462586",
+      "DurationMax": "0.4199093",
+      "MediaRefs": [
+       {
+        "Id": "537308945"
+       },
+       {
+        "Id": "721554303"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{51F91466-9A41-D68B-1997-3A948ECBC4E9}"
+ }
+}

@@ -1,36 +1,29 @@
 {
  "ProjectInfo": {
   "Project": {
-   "Name": "CotaB_WwiseProject",
-   "GUID": "{5969290C-6272-49F2-AA62-8A3D7858A7FF}",
+   "Name": "CotaB",
+   "GUID": "{D38F2394-51CF-446A-9238-102C88F2B0AC}",
    "Generator": "2024.1.0.8669"
   },
-  "CacheRoot": "../../../../CotaB_WwiseProject/.cache",
+  "CacheRoot": "../../../../../Wwise Cota/CotaB/.cache",
   "Platforms": [
    {
-    "Name": "Mac",
-    "GUID": "{59AA6B30-30F7-4828-A410-17882ECBDFAC}",
-    "BasePlatform": "Mac",
-    "BasePlatformGUID": "{9C6217D5-DD11-4795-87C1-6CE02853C540}",
-    "Path": "../../../../CotaB_WwiseProject/GeneratedSoundBanks/Mac"
-   },
-   {
     "Name": "Windows",
-    "GUID": "{C8998E71-CD2D-4718-BD97-C91FB387F76C}",
+    "GUID": "{8BC33370-F97B-4A81-B458-B6020F5063EA}",
     "BasePlatform": "Windows",
     "BasePlatformGUID": "{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}",
-    "Path": "../../../../CotaBSoundbanks"
+    "Path": "."
    }
   ],
   "Languages": [
    {
     "Name": "English(US)",
     "Id": "684519430",
-    "GUID": "{83B6A605-4538-42B3-B3E8-BC248B28ED6D}",
+    "GUID": "{CB518EE1-DF1C-47FF-ADF8-3DCA09F60FFC}",
     "Default": "true",
     "UseAsStandIn": "true"
    }
   ],
-  "FileHash": "{AB672DB8-7335-0D7D-A0C5-B87EEFC6A82A}"
+  "FileHash": "{EA8E3927-267A-DD34-CDBC-36ACB64D8C48}"
  }
 }
