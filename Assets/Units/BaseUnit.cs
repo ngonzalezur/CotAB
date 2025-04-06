@@ -30,6 +30,10 @@ public class BaseUnit : MonoBehaviour
 
     public Animator animator;
 
+    public bool parry = false;
+
+    //public BaseUnit invocacion;
+
     public void Awake()
     {
         Health = MaxHealth;

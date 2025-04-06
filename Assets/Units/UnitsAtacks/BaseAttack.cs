@@ -17,6 +17,8 @@ public class BaseAttack : MonoBehaviour
     public float LastCast2; //era para el segundo jugador peor y ano sera necesario, lo dejo por ahor apara no generar errores
 
     public float ManaCost = 0.5f;
+
+    public BaseUnit invocacion;
     //public bool activeInHierarchy;
     //public TMP_InputField inputDmg;
     //public TMP_InputField inputCool;
@@ -61,14 +63,19 @@ public class BaseAttack : MonoBehaviour
                 unit.veneno += DoVeneno;
             }
             //Debug.Log("soy normal");
-            unit.Health -= Math.Abs(Damage);
-            unit.ActualHeath.text = Math.Max(unit.Health,0) + " / " + unit.MaxHealth;
-            var audio = unit?.GetComponent<AudioSource>();
-            audio?.Play();
-            if(unit.animator != null)
+            if (!unit.parry)
             {
-                unit.animator?.SetTrigger("TakeDamage");
+                unit.Health -= Math.Abs(Damage);
+                unit.ActualHeath.text = Math.Max(unit.Health, 0) + " / " + unit.MaxHealth;
+                var audio = unit?.GetComponent<AudioSource>();
+                audio?.Play();
+                if (unit.animator != null)
+                {
+                    unit.animator?.SetTrigger("TakeDamage");
+                }
             }
+            
+            
             
         }
     }

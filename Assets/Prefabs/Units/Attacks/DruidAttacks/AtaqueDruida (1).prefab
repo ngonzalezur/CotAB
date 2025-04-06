@@ -133,7 +133,7 @@ MonoBehaviour:
   ManaCost: 5
   DoVeneno: 10
   attackType: 0
-  type: 9
+  type: 10
 --- !u!1 &1636329195985070217
 GameObject:
   m_ObjectHideFlags: 0

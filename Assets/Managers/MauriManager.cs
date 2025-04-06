@@ -21,6 +21,8 @@ public class MauriManager : MonoBehaviour
     private List<BaseUnit> Heroes = new List<BaseUnit>();
     private List<BaseUnit> Enemies = new List<BaseUnit>();
 
+    private List<BaseUnit> Invocaciones = new List<BaseUnit>();
+
 
     public ObjectPool poolHero1;
     public ObjectPool poolHero2;
@@ -106,6 +108,7 @@ public class MauriManager : MonoBehaviour
             var hero = Heroes[i];
             hero.OccupiedTile = randomSpawnTile;            
             randomSpawnTile.SetUnit(hero);
+            hero.GetHighlightHero()._highlight.SetActive(true);
         }
 
         StartCoroutine(RestoreStamina(Heroes[0]));
@@ -311,6 +314,18 @@ public class MauriManager : MonoBehaviour
     public void Invocacion(BaseUnit unit, BaseAttack attack)
     {
         if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        target.Add(unit.OccupiedTile.RightTile());
+        InstanciarInvocacion(attack, target);
+    }
+
+    public void InstanciarInvocacion(BaseAttack attack ,List<Tile> target)
+    {
+        if (target == null || target[0] == null || attack.invocacion == null) return;
+        var tile = target[0];
+        var invocacion = Instantiate(attack.invocacion,new Vector3(tile.x, tile.y,-1 ), Quaternion.identity);
+        tile.SetUnit(invocacion);
+        Invocaciones.Add(invocacion);
     }
     public void DashMelee(BaseUnit unit, BaseAttack attack)
     {
@@ -331,6 +346,15 @@ public class MauriManager : MonoBehaviour
     public void Parry(BaseUnit unit, BaseAttack attack)
     {
         if (unit == null || attack == null) return;
+        StartCoroutine(ActivateParry(unit));
+        //algo visaul del parry, una corrutina con while true depronto y que al finalizar activate parry se detenga
+    }
+
+    IEnumerator ActivateParry(BaseUnit unit)
+    {
+        unit.parry = true;
+        yield return new WaitForSeconds(2);
+        unit.parry = false;
     }
     public void CambiarFaccion(BaseUnit unit, BaseAttack attack)
     {
@@ -497,6 +521,7 @@ public class MauriManager : MonoBehaviour
             FalseHighlight(unit);
             //moverse
             MoveUnit(unit, unit.OccupiedTile.LeftTile());
+            unit.animator.SetTrigger("MoveBack");
             //TrueHighlight(unit);
         }
         if (direction == 2 && CheckFaction(unit, unit.OccupiedTile.DownTile()))
@@ -511,6 +536,7 @@ public class MauriManager : MonoBehaviour
             FalseHighlight(unit);
             //moverse
             MoveUnit(unit, unit.OccupiedTile.RightTile());
+            unit.animator.SetTrigger("MoveFoward");
             //TrueHighlight(unit);
         }
     }
@@ -519,6 +545,7 @@ public class MauriManager : MonoBehaviour
     {
         if (unit == null || tile == null) return;
         tile.SetUnit(unit);
+        tile.OccupiedUnit.GetHighlightHero()._highlight.SetActive(true);
     }
 
     public bool CheckFaction(BaseUnit unit, Tile tile)
@@ -646,7 +673,7 @@ public class MauriManager : MonoBehaviour
         {
             MoveHero(Heroes[0],0);
             AttackHero2(Heroes[0], 0);
-            TrueHighlight(Heroes[0]);
+            //TrueHighlight(Heroes[0]);
             //StartCoroutine(AttackMove());
             TakeDamage();
         }

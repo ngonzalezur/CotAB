@@ -46,6 +46,14 @@ public abstract class Tile : MonoBehaviour
 
         // Iniciar la nueva animación
         moveUnitCoroutine = StartCoroutine(SetUnitCoroutine(0.2f, 0.5f, unit.transform.position, transform.position + new Vector3(0, 0, -1), unit));
+        if (unit.OccupiedTile != null)
+        {
+            ChangeHighlight(unit);
+            unit.OccupiedTile.OccupiedUnit = null;
+        }
+
+        OccupiedUnit = unit;
+        unit.OccupiedTile = this;
     }
 
     IEnumerator SetUnitCoroutine(float delay, float duration, Vector3 from, Vector3 to, BaseUnit unit)
@@ -74,14 +82,14 @@ public abstract class Tile : MonoBehaviour
         unit.transform.position = to;
 
         // Actualizar referencias
-        if (unit.OccupiedTile != null)
-        {
-            ChangeHighlight(unit);
-            unit.OccupiedTile.OccupiedUnit = null;
-        }
+        //if (unit.OccupiedTile != null)
+        //{
+        //    ChangeHighlight(unit);
+        //    unit.OccupiedTile.OccupiedUnit = null;
+        //}
 
-        OccupiedUnit = unit;
-        unit.OccupiedTile = this;
+        //OccupiedUnit = unit;
+        //unit.OccupiedTile = this;
 
         StopMovingCoroutine();
 
