@@ -10,11 +10,12 @@ public class BaseAttack : MonoBehaviour
     public string UnitName;
     public Tile OccupiedTile;
     public int Damage;
+    public int Heal;
     public Faction Faction;
     public int AreaOfEffect;
     public float CoolDown;
     public float LastCast1;
-    public float LastCast2; //era para el segundo jugador peor y ano sera necesario, lo dejo por ahor apara no generar errores
+    public float LastCast2; //era para el segundo jugador peto ya no sera necesario, lo dejo por ahor apara no generar errores
 
     public float ManaCost = 0.5f;
 
@@ -24,6 +25,8 @@ public class BaseAttack : MonoBehaviour
     //public TMP_InputField inputCool;
 
     public int DoVeneno = 0;
+    public int DoBurn = 0;
+    public bool stun = false;
     public int attackType;
     public AttType type;
     public enum AttType
@@ -39,7 +42,8 @@ public class BaseAttack : MonoBehaviour
         invocacion = 8,
         dashMelee = 9,
         parry = 10,
-        cambiarFaction = 11
+        cambiarFaction = 11,
+        allHeros = 12
     }
 
 
@@ -58,9 +62,17 @@ public class BaseAttack : MonoBehaviour
         if (unit == null) return;
         if (unit.Faction != Faction)
         {
+            if (stun)
+            {
+                unit.stun = stun;
+            }
             if (DoVeneno > 0)
             {
                 unit.veneno += DoVeneno;
+            }
+            if (DoBurn > 0)
+            {
+                unit.burn += DoBurn;
             }
             //Debug.Log("soy normal");
             if (!unit.parry)
@@ -80,6 +92,26 @@ public class BaseAttack : MonoBehaviour
         }
     }
 
+    public virtual void DoHeal(BaseUnit unit)
+    {
+        if (unit == null) return;
+        if (unit.Faction == Faction)
+        {
+            unit.Health += Math.Abs(Heal);
+            unit.ActualHeath.text = Math.Min(unit.Health, unit.MaxHealth) + " / " + unit.MaxHealth;
+            if(unit.Health > unit.MaxHealth)
+            {
+                unit.Health = unit.MaxHealth;
+            }
+            //var audio = unit?.GetComponent<AudioSource>();
+            //audio?.Play();
+            //if (unit.animator != null)
+            //{
+            //    unit.animator?.SetTrigger("TakeDamage");
+            //}
+        }
+    }
+
     //public void Update()
     //{
 
@@ -93,5 +125,5 @@ public class BaseAttack : MonoBehaviour
     //    }            
     //}
 
-    
+
 }

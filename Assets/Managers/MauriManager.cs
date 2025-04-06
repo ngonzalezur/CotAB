@@ -113,6 +113,7 @@ public class MauriManager : MonoBehaviour
 
         StartCoroutine(RestoreStamina(Heroes[0]));
         StartCoroutine(RestoreMana(Heroes[0]));
+        StartCoroutine(AtaqueInvocaciones());
         if (SecondPlayer)
         {
             StartCoroutine(RestoreStamina(Heroes[1]));
@@ -170,6 +171,7 @@ public class MauriManager : MonoBehaviour
         Ataque[9] = DashMelee;
         Ataque[10] = Parry;
         Ataque[11] = CambiarFaccion;
+        Ataque[12] = AllHerosDamage;
 
     }
 
@@ -296,6 +298,19 @@ public class MauriManager : MonoBehaviour
         }
         SetAttacksInTiles(target, attack);
     }
+
+    public void AllHerosDamage(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        foreach (BaseUnit hero in Heroes)
+        {
+            var tempTile = hero.OccupiedTile;
+            AgregarSiNoNull(target, tempTile);
+        }
+        SetAttacksInTiles(target, attack);
+    }
+
     public void RandomCast(BaseUnit unit, BaseAttack attack)
     {
         if (unit == null || attack == null) return;
@@ -324,8 +339,24 @@ public class MauriManager : MonoBehaviour
         if (target == null || target[0] == null || attack.invocacion == null) return;
         var tile = target[0];
         var invocacion = Instantiate(attack.invocacion,new Vector3(tile.x, tile.y,-1 ), Quaternion.identity);
+        var ataqueInvocacion = Instantiate(invocacion.Attacks[0], new Vector3(tile.x, tile.y, -1), Quaternion.identity);
+        ataqueInvocacion.gameObject.SetActive(false);
+        invocacion.Attacks[0] = ataqueInvocacion;
         tile.SetUnit(invocacion);
         Invocaciones.Add(invocacion);
+    }
+
+    IEnumerator AtaqueInvocaciones()
+    {
+        while (true)
+        {
+            foreach(BaseUnit unit in Invocaciones)
+            {
+                if (unit == null || unit.Attacks[0] == null) break;
+                CanCastAttack(unit, 0);
+            }
+            yield return new WaitForSeconds(2);
+        }
     }
     public void DashMelee(BaseUnit unit, BaseAttack attack)
     {
@@ -699,6 +730,7 @@ public class MauriManager : MonoBehaviour
         var AllUnits = new List<BaseUnit>();
         AllUnits.AddRange(Heroes);
         AllUnits.AddRange(Enemies);
+        AllUnits.AddRange(Invocaciones);
         foreach (BaseUnit unit in AllUnits)
         {
             if (unit == null || unit.OccupiedTile == null) continue;
@@ -711,6 +743,11 @@ public class MauriManager : MonoBehaviour
                 if (unit.Faction != unit.OccupiedTile.OccupiedAttack.Faction)
                 {
                     unit.OccupiedTile.OccupiedAttack.DoDamage(unit);
+                    unit.OccupiedTile.OccupiedAttack.Destroy();
+                }
+                else if(unit.OccupiedTile.OccupiedAttack.Faction == unit.Faction && unit.OccupiedTile.OccupiedAttack.Heal > 0)
+                {
+                    unit.OccupiedTile.OccupiedAttack.DoHeal(unit);
                     unit.OccupiedTile.OccupiedAttack.Destroy();
                 }
             }
