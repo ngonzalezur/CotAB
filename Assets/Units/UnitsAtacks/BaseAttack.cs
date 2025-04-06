@@ -14,7 +14,7 @@ public class BaseAttack : MonoBehaviour
     public int AreaOfEffect;
     public float CoolDown;
     public float LastCast1;
-    public float LastCast2;
+    public float LastCast2; //era para el segundo jugador peor y ano sera necesario, lo dejo por ahor apara no generar errores
 
     public float ManaCost = 0.5f;
     //public bool activeInHierarchy;
@@ -22,12 +22,31 @@ public class BaseAttack : MonoBehaviour
     //public TMP_InputField inputCool;
 
     public int DoVeneno = 0;
-    public int attackType; //0 para lazar en casilla highlight, 1 para ataque en linea, 2 skillshot , 3 ataque meelee, por ahora va asi, se modifica en el unit manager
+    public int attackType;
+    public AttType type;
+    public enum AttType
+    {
+        proyectil = 0,
+        cast = 1,
+        area = 2,
+        muro = 3,
+        fila = 4,
+        allEnemies = 5,
+        randomCast = 6,
+        melee = 7,
+        invocacion = 8,
+        dashMelee = 9,
+        parry = 10,
+        cambiarFaction = 11
+    }
+
+
 
     public void Destroy()
     {
-        if (this == null) return;
-        UnitManager.Instance.Attacks.Remove(this);
+        if (this == null || this.OccupiedTile == null) return;
+        //UnitManager.Instance.Attacks.Remove(this);
+        MauriManager.Instance.AttacksinPlay.Remove(this);
         this.gameObject.SetActive(false);
         this.OccupiedTile.OccupiedAttack = null;
     }

@@ -84,7 +84,8 @@ public class BaseUnit : MonoBehaviour
         //basic attack
         if (Time.time - lastCastBA > Attacks[0].CoolDown)
         {
-            UnitManager.Instance.AttackEnemy(this);
+            //UnitManager.Instance.AttackEnemy(this);
+            MauriManager.Instance.AttackEnemy(this);
             lastCastBA = Time.time;
         }
     }

@@ -21,15 +21,15 @@ public class CanvaManager : MonoBehaviour
 
         SpritesAtt = new List<Sprite>(Resources.LoadAll<Sprite>("Sprites/AttSprites"));
     }
-    public void AssignAttack()
-    {
-        var i = UnitManager.Instance._attackS.Count;
-        foreach (Sprite sprite in SpritesAtt)
-        {
-            sprite.attS = UnitManager.Instance._attackS[i-1].AttackPrefab;
-            i--;
-        }
-    }
+    //public void AssignAttack()
+    //{
+    //    var i = UnitManager.Instance._attackS.Count;
+    //    foreach (Sprite sprite in SpritesAtt)
+    //    {
+    //        sprite.attS = UnitManager.Instance._attackS[i-1].AttackPrefab;
+    //        i--;
+    //    }
+    //}
 
     public void Cooldowns()
     {

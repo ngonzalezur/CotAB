@@ -100,7 +100,16 @@ public abstract class Tile : MonoBehaviour
 
     public void ChangeHighlight(BaseUnit unit)
     {
-        unit.GetHighlightHero()._highlight.SetActive(false);
+       // unit.GetHighlightHero()._highlight.SetActive(false);
+    }
+
+    public void InstantSetUnit(BaseUnit unit)
+    {
+        if(moveUnitCoroutine != null)
+        {
+            StopCoroutine(moveUnitCoroutine);
+        }        
+        unit.transform.position = transform.position + new Vector3(0, 0, -1);
     }
 
 
@@ -175,7 +184,7 @@ public abstract class Tile : MonoBehaviour
 
     public Tile RightTile()
     {
-        if (this != null && this.x < GridManager.Instance._width - 1)
+        if (this != null && this.x < GridManager.Instance._width - 1 && GridManager.Instance.GetTileAtPosition(new Vector2(this.x + 1, this.y)) != null)
         {
             return GridManager.Instance.GetTileAtPosition(new Vector2(this.x + 1, this.y));
         }
@@ -183,7 +192,7 @@ public abstract class Tile : MonoBehaviour
     }
     public Tile LeftTile()
     {
-        if (this != null && this.x > 0)
+        if (this != null && this.x > 0 && GridManager.Instance.GetTileAtPosition(new Vector2(this.x - 1, this.y)) != null)
         {
             return GridManager.Instance.GetTileAtPosition(new Vector2(this.x - 1, this.y));
         }
@@ -191,7 +200,7 @@ public abstract class Tile : MonoBehaviour
     }
     public Tile UpTile()
     {
-        if (this != null && this.y < GridManager.Instance._height- 1)
+        if (this != null && this.y < GridManager.Instance._height- 1 && GridManager.Instance.GetTileAtPosition(new Vector2(this.x, this.y+1)) != null)
         {
             return GridManager.Instance.GetTileAtPosition(new Vector2(this.x, this.y + 1));
         }
@@ -199,7 +208,7 @@ public abstract class Tile : MonoBehaviour
     }
     public Tile DownTile()
     {
-        if (this != null && this.y > 0)
+        if (this != null && this.y > 0 && GridManager.Instance.GetTileAtPosition(new Vector2(this.x, this.y-1)) != null)
         {
             return GridManager.Instance.GetTileAtPosition(new Vector2(this.x, this.y - 1));
         }

@@ -126,10 +126,12 @@ MonoBehaviour:
   UnitName: BolaDeFuego
   OccupiedTile: {fileID: 0}
   Damage: 8
-  Faction: 2
+  Faction: 0
   AreaOfEffect: 2
   CoolDown: 5
   LastCast1: -100
   LastCast2: -100
+  ManaCost: 0.5
   DoVeneno: 0
   attackType: 0
+  type: 0

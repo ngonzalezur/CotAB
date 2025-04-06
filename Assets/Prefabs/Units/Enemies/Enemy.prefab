@@ -5041,7 +5041,7 @@ Transform:
   m_GameObject: {fileID: 5965117142991503595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6, y: 2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5139,7 +5139,7 @@ MonoBehaviour:
   UnitName: Basic Enemy
   OccupiedTile: {fileID: 0}
   Faction: 1
-  MaxHealth: 100
+  MaxHealth: 30
   Health: 10
   ActualHeath: {fileID: 1570463510335372378}
   EnemyType: {fileID: 1128217994411323301, guid: 39b651769be7cd847a5b4f71953170f8,
@@ -5155,6 +5155,8 @@ MonoBehaviour:
   MaxStamina: 3
   MoveCooldown: 0
   CastMana: 0
+  lastCastBA: 0
+  animator: {fileID: 0}
   Special: 0
 --- !u!82 &5653083602591302278
 AudioSource:
