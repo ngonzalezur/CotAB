@@ -37,6 +37,8 @@ public class UnitManager : MonoBehaviour
 
     Gamepad Mando = null;
 
+    private Coroutine corrutinaInvocaciones;
+
     public void SetHeroUnit(BaseUnit unit)
     {
         //Agrego una intancia y esa sera quien se modifique en escena
@@ -340,7 +342,7 @@ public class UnitManager : MonoBehaviour
 
     public void InstanciarInvocacion(BaseAttack attack, List<Tile> target)
     {
-        if (target == null || target[0] == null || attack.invocacion == null) return;
+        if (target == null || target[0] == null || attack.invocacion == null || target[0].OccupiedUnit != null) return;
         var tile = target[0];
         var invocacion = Instantiate(attack.invocacion, new Vector3(tile.x, tile.y, -1), Quaternion.identity);
         var ataqueInvocacion = Instantiate(invocacion.Attacks[0], new Vector3(tile.x, tile.y, -1), Quaternion.identity);
@@ -353,6 +355,11 @@ public class UnitManager : MonoBehaviour
 
     IEnumerator AtaqueInvocaciones(List<BaseUnit> inovocaciones)
     {
+        if(inovocaciones == null)
+        {
+            corrutinaInvocaciones = null;
+            yield break;
+        }
         foreach (BaseUnit unit in Invocaciones)
         {
             if (unit == null || unit.Attacks[0] == null)
@@ -366,11 +373,17 @@ public class UnitManager : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(2f);
+        corrutinaInvocaciones = null;
     }
 
     public void AtaqueInvoacion()
     {
         //llamar corrutina si se puede
+        if(corrutinaInvocaciones == null)
+        {
+            corrutinaInvocaciones = StartCoroutine(AtaqueInvocaciones(Invocaciones));
+        }
+        
     }
     public void DashMelee(BaseUnit unit, BaseAttack attack)
     {
@@ -608,32 +621,40 @@ public class UnitManager : MonoBehaviour
         //para direccion tendremos 0 arriba, 1 izquierda, 2 abajo, 3 derecha
         if (direction == 0 && CheckFaction(unit, unit.OccupiedTile.UpTile()))
         {
-            FalseHighlight(unit);
+            //FalseHighlight(unit);
             //moverse
             MoveUnit(unit, unit.OccupiedTile.UpTile());
             //TrueHighlight(unit);
         }
         if (direction == 1 && CheckFaction(unit, unit.OccupiedTile.LeftTile()))
         {
-            FalseHighlight(unit);
+            //FalseHighlight(unit);
             //moverse
             MoveUnit(unit, unit.OccupiedTile.LeftTile());
-            unit.animator.SetTrigger("MoveBack");
+            if(unit.MoveCooldown > 0)
+            {
+                unit.animator.SetTrigger("MoveBack");
+            }
+            //unit.animator.SetTrigger("MoveBack");
             //TrueHighlight(unit);
         }
         if (direction == 2 && CheckFaction(unit, unit.OccupiedTile.DownTile()))
         {
-            FalseHighlight(unit);
+            //FalseHighlight(unit);
             //moverse
             MoveUnit(unit, unit.OccupiedTile.DownTile());
             //TrueHighlight(unit);
         }
         if (direction == 3 && CheckFaction(unit, unit.OccupiedTile.RightTile()))
         {
-            FalseHighlight(unit);
+            //FalseHighlight(unit);
             //moverse
             MoveUnit(unit, unit.OccupiedTile.RightTile());
-            unit.animator.SetTrigger("MoveFoward");
+            if (unit.MoveCooldown > 0)
+            {
+                unit.animator.SetTrigger("MoveFoward");
+            }
+            //unit.animator.SetTrigger("MoveFoward");
             //TrueHighlight(unit);
         }
     }
@@ -641,8 +662,13 @@ public class UnitManager : MonoBehaviour
     public void MoveUnit(BaseUnit unit, Tile tile)
     {
         if (unit == null || tile == null) return;
-        tile.SetUnit(unit);
-        tile.OccupiedUnit.GetHighlightHero()._highlight.SetActive(true);
+        if(unit.MoveCooldown > 0)
+        {
+            FalseHighlight(unit);
+            unit.MoveCooldown--;
+            tile.SetUnit(unit);
+            tile.OccupiedUnit.GetHighlightHero()._highlight.SetActive(true);
+        }        
     }
 
     public bool CheckFaction(BaseUnit unit, Tile tile)
@@ -778,6 +804,7 @@ public class UnitManager : MonoBehaviour
             //TrueHighlight(Heroes[0]);
             //StartCoroutine(AttackMove());
             TakeDamage();
+            AtaqueInvoacion();
         }
 
     }

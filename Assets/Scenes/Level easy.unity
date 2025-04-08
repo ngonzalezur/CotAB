@@ -246,7 +246,7 @@ PrefabInstance:
         type: 3}
       propertyPath: configuration.Heroes.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 7735570308767223746, guid: 2e475f0b150a10f45a8a20fbff88c12a,
+      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
@@ -256,7 +256,40 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
+      propertyPath: configuration.Enemies.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 5695376190236047481, guid: 9a17851b516091345af1271df4df2ca7,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 5695376190236047481, guid: 9a17851b516091345af1271df4df2ca7,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[3].prefab
+      value: 
+      objectReference: {fileID: 5695376190236047481, guid: 9a17851b516091345af1271df4df2ca7,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
       propertyPath: configuration.Enemies.Array.data[0].Faction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[1].Faction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[2].Faction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[3].Faction
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
@@ -271,12 +304,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
+      propertyPath: configuration.Enemies.Array.data[1].MaxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[2].MaxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[3].MaxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
       propertyPath: configuration.Heroes.Array.data[0].Attacks.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: configuration.Enemies.Array.data[0].Attacks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[1].Attacks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[2].Attacks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[3].Attacks.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
@@ -312,6 +375,42 @@ PrefabInstance:
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: 'configuration.Enemies.Array.data[0].Attacks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: 'configuration.Enemies.Array.data[1].Attacks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: 'configuration.Enemies.Array.data[1].Attacks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: 'configuration.Enemies.Array.data[2].Attacks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: 'configuration.Enemies.Array.data[2].Attacks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: 'configuration.Enemies.Array.data[3].Attacks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: 'configuration.Enemies.Array.data[3].Attacks.Array.data[1]'
       value: 
       objectReference: {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1,
         type: 3}

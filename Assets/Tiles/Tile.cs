@@ -69,7 +69,7 @@ public abstract class Tile : MonoBehaviour
         moveUnitCoroutine = StartCoroutine(SetUnitCoroutine(0.2f, 0.2f, unit.transform.position, transform.position + new Vector3(0, 0, -1), unit));
         if (unit.OccupiedTile != null)
         {
-            ChangeHighlight(unit);
+            //ChangeHighlight(unit);
             unit.OccupiedTile.OccupiedUnit = null;
         }
 
