@@ -985,6 +985,23 @@ PrefabInstance:
       propertyPath: poolEnemies
       value: 
       objectReference: {fileID: 2011988049}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
+      propertyPath: configuration.nina.prefab
+      value: 
+      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+        type: 3}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
+      propertyPath: configuration.robot.prefab
+      value: 
+      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+        type: 3}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
+      propertyPath: configuration.setup1.TimeMoveHero
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8339046422228571747, guid: dd2eda7d0c727664daf6cf62bc878f8b,
         type: 3}
       propertyPath: m_Name

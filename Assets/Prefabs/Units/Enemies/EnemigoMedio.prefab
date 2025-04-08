@@ -5023,8 +5023,10 @@ GameObject:
   - component: {fileID: 8122697935626722913}
   - component: {fileID: 5695376190236047481}
   - component: {fileID: 5653083602591302278}
+  - component: {fileID: 5815935350131301778}
+  - component: {fileID: 5624694123657003747}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemigoMedio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5039,7 +5041,7 @@ Transform:
   m_GameObject: {fileID: 5965117142991503595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6, y: 2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5134,10 +5136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ffc177a1ba4c93469b36339c4af5151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: 
+  UnitName: Basic Enemy
   OccupiedTile: {fileID: 0}
   Faction: 1
-  MaxHealth: 100
+  MaxHealth: 30
   Health: 10
   ActualHeath: {fileID: 1570463510335372378}
   EnemyType: {fileID: 1128217994411323301, guid: 39b651769be7cd847a5b4f71953170f8,
@@ -5145,11 +5147,16 @@ MonoBehaviour:
   HeroType: {fileID: 0}
   efecto: {fileID: 1005906517160525336}
   Attacks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1, type: 3}
+  - {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1, type: 3}
+  - {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1, type: 3}
+  - {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1, type: 3}
   veneno: 0
+  MaxStamina: 3
+  MoveCooldown: 0
+  CastMana: 0
+  lastCastBA: 0
+  animator: {fileID: 0}
   Special: 0
 --- !u!82 &5653083602591302278
 AudioSource:
@@ -5248,6 +5255,57 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!195 &5815935350131301778
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5965117142991503595}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5624694123657003747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5965117142991503595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: 9169206349268469263, guid: b5cecbdaa95eb1b43bfb4a4c34f78615, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 160817464568971552
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 160817464568971552
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 5965117142991503595}
 --- !u!1 &6690111647505926650
 GameObject:
   m_ObjectHideFlags: 0

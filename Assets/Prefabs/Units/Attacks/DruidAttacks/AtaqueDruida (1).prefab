@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1374163352546055282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -1}
+  m_LocalPosition: {x: 10, y: 5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -125,14 +125,19 @@ MonoBehaviour:
   UnitName: EstadoEnemigos
   OccupiedTile: {fileID: 0}
   Damage: 5
+  Heal: 0
   Faction: 0
   AreaOfEffect: 1
   CoolDown: 1
-  LastCast1: -100
+  LastCast1: 0
   LastCast2: -100
   ManaCost: 5
-  DoVeneno: 10
+  invocacion: {fileID: 0}
+  DoVeneno: 0
+  DoBurn: 0
+  stun: 0
   attackType: 0
+  type: 9
 --- !u!1 &1636329195985070217
 GameObject:
   m_ObjectHideFlags: 0

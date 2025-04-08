@@ -5083,10 +5083,16 @@ MonoBehaviour:
   UnitName: "Da\xF1o por estado"
   OccupiedTile: {fileID: 0}
   Damage: 1
+  Heal: 0
   Faction: 0
   AreaOfEffect: 1
-  CoolDown: 1
-  LastCast1: -100
+  CoolDown: 2
+  LastCast1: 0
   LastCast2: -100
+  ManaCost: 0.5
+  invocacion: {fileID: 0}
   DoVeneno: 0
+  DoBurn: 10
+  stun: 0
   attackType: 0
+  type: 3

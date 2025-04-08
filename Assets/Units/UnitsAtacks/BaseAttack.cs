@@ -8,27 +8,51 @@ using static UnityEngine.UI.CanvasScaler;
 public class BaseAttack : MonoBehaviour
 {
     public string UnitName;
-    public static event System.Action OnHeroHit;
     public Tile OccupiedTile;
-    public int Damage; 
+    public int Damage;
+    public int Heal;
     public Faction Faction;
     public int AreaOfEffect;
     public float CoolDown;
     public float LastCast1;
-    public float LastCast2;
+    public float LastCast2; //era para el segundo jugador peto ya no sera necesario, lo dejo por ahor apara no generar errores
 
     public float ManaCost = 0.5f;
+
+    public BaseUnit invocacion;
     //public bool activeInHierarchy;
     //public TMP_InputField inputDmg;
     //public TMP_InputField inputCool;
 
     public int DoVeneno = 0;
-    public int attackType; //0 para lazar en casilla highlight, 1 para ataque en linea, 2 skillshot , 3 ataque meelee, por ahora va asi, se modifica en el unit manager
+    public int DoBurn = 0;
+    public bool stun = false;
+    public int attackType;
+    public AttType type;
+    public enum AttType
+    {
+        proyectil = 0,
+        cast = 1,
+        area = 2,
+        muro = 3,
+        fila = 4,
+        allEnemies = 5,
+        randomCast = 6,
+        melee = 7,
+        invocacion = 8,
+        dashMelee = 9,
+        parry = 10,
+        cambiarFaction = 11,
+        allHeros = 12
+    }
+
+
 
     public void Destroy()
     {
-        //if(this != null) Destroy(gameObject);
-        UnitManager.Instance.Attacks.Remove(this);
+        if (this == null || this.OccupiedTile == null) return;
+        UnitManager.Instance.AttacksinPlay.Remove(this);
+        //MauriManager.Instance.AttacksinPlay.Remove(this);
         this.gameObject.SetActive(false);
         this.OccupiedTile.OccupiedAttack = null;
     }
@@ -38,17 +62,53 @@ public class BaseAttack : MonoBehaviour
         if (unit == null) return;
         if (unit.Faction != Faction)
         {
+            if (stun)
+            {
+                unit.stun = stun;
+            }
             if (DoVeneno > 0)
             {
                 unit.veneno += DoVeneno;
             }
-            //Debug.Log("soy normal");
-            unit.Health -= Math.Abs(Damage);
-            unit.ActualHeath.text = Math.Max(unit.Health,0) + " / " + unit.MaxHealth;
-            if (unit.Faction == Faction.Hero)
+            if (DoBurn > 0)
             {
-                OnHeroHit?.Invoke();
+                unit.burn += DoBurn;
             }
+            //Debug.Log("soy normal");
+            if (!unit.parry)
+            {
+                unit.Health -= Math.Abs(Damage);
+                unit.ActualHeath.text = Math.Max(unit.Health, 0) + " / " + unit.MaxHealth;
+                var audio = unit?.GetComponent<AudioSource>();
+                audio?.Play();
+                if (unit.animator != null)
+                {
+                    unit.animator?.SetTrigger("TakeDamage");
+                }
+            }
+            
+            
+            
+        }
+    }
+
+    public virtual void DoHeal(BaseUnit unit)
+    {
+        if (unit == null) return;
+        if (unit.Faction == Faction)
+        {
+            unit.Health += Math.Abs(Heal);
+            unit.ActualHeath.text = Math.Min(unit.Health, unit.MaxHealth) + " / " + unit.MaxHealth;
+            if(unit.Health > unit.MaxHealth)
+            {
+                unit.Health = unit.MaxHealth;
+            }
+            //var audio = unit?.GetComponent<AudioSource>();
+            //audio?.Play();
+            //if (unit.animator != null)
+            //{
+            //    unit.animator?.SetTrigger("TakeDamage");
+            //}
         }
     }
 
@@ -65,5 +125,5 @@ public class BaseAttack : MonoBehaviour
     //    }            
     //}
 
-    
+
 }

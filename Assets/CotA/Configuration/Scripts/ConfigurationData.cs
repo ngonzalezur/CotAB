@@ -1,10 +1,15 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace CotA.Configuration
 {
     [Serializable]
     public class ConfigurationData
     {
+        public List<UnitData> Heroes = new List<UnitData>();
+        public List<UnitData> Enemies = new List<UnitData>();
+
         public UnitData robot;
         public UnitData nina;
         public UnitData artificer;
