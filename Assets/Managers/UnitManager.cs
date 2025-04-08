@@ -344,6 +344,7 @@ public class UnitManager : MonoBehaviour
         var tile = target[0];
         var invocacion = Instantiate(attack.invocacion, new Vector3(tile.x, tile.y, -1), Quaternion.identity);
         var ataqueInvocacion = Instantiate(invocacion.Attacks[0], new Vector3(tile.x, tile.y, -1), Quaternion.identity);
+        ataqueInvocacion.LastCast1 = Time.time;
         ataqueInvocacion.gameObject.SetActive(false);
         invocacion.Attacks[0] = ataqueInvocacion;
         tile.SetUnit(invocacion);
