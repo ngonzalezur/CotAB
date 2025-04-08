@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Wwise/API/LICENSE.md.meta
+guid: a5ca225d95b5c9d4fa62de260f7f8f0a
+TextScriptImporter:
+========
 guid: e62a8010d343bc34c977b85c170a51a6
 DefaultImporter:
+>>>>>>>> main:Assets/Scenes/Escena Mauri.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
