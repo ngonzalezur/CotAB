@@ -246,7 +246,7 @@ PrefabInstance:
         type: 3}
       propertyPath: configuration.Heroes.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+      objectReference: {fileID: 7735570308767223746, guid: 2e475f0b150a10f45a8a20fbff88c12a,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
@@ -283,25 +283,25 @@ PrefabInstance:
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[0].Attacks.Array.data[0]'
       value: 
-      objectReference: {fileID: 8091908140846267713, guid: 3c845a59af75783418b716bba8af711b,
+      objectReference: {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[0].Attacks.Array.data[1]'
       value: 
-      objectReference: {fileID: 8091908140846267713, guid: 7ed337ab9ab6c2e48a167a70b64fa683,
+      objectReference: {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[0].Attacks.Array.data[2]'
       value: 
-      objectReference: {fileID: 8091908140846267713, guid: 71c5ee19f9fea1145b68efb9081d021d,
+      objectReference: {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[0].Attacks.Array.data[3]'
       value: 
-      objectReference: {fileID: 8091908140846267713, guid: 72a42869778c4864f828a6fea56fe7fb,
+      objectReference: {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}

@@ -52,7 +52,7 @@ MonoBehaviour:
   _renderer: {fileID: 0}
   _highlight: {fileID: 3517535994061871248}
   _isWalkable: 0
-  Faction: 0
+  Faction: 1
   x: 0
   y: 0
   OccupiedUnit: {fileID: 0}

@@ -363,9 +363,14 @@ public class UnitManager : MonoBehaviour
     {
         foreach (BaseUnit unit in Invocaciones)
         {
-            if (unit == null || unit.Attacks[0] == null) return;
-            CanCastAttack(unit, 0);
-            //Debug.Log("soy un planta que ataca");
+            if (unit == null || unit.Attacks[0] == null)
+            {
+                //literalmente no hacer nada porque al parecer se sale de la corrutina
+            }else
+            {
+                CanCastAttack(unit, 0);
+                //Debug.Log("soy un planta que ataca");
+            }
         }
     }
     public void DashMelee(BaseUnit unit, BaseAttack attack)
@@ -418,7 +423,7 @@ public class UnitManager : MonoBehaviour
         {
             tile.HeroTile.gameObject.SetActive(false);
             tile.EnemyTile.gameObject.SetActive(true);
-            tile.Faction = Faction.Hero;
+            tile.Faction = Faction.Enemy;
         }
     }
 

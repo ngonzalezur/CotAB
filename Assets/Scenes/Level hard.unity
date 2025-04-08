@@ -481,6 +481,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8028472371288863573, guid: b591f8df152857c4eaac0bf0b7f3a1ee,
+        type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 5062909486257896747, guid: c44797aa835b67347b6de1928fab39ac,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -533,9 +539,43 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
         type: 3}
+      propertyPath: configuration.Heroes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
+        type: 3}
       propertyPath: configuration.setup1.TimeMoveHero
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
+        type: 3}
+      propertyPath: configuration.Heroes.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+        type: 3}
+    - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 5695376190236047481, guid: c2afd071d3ba2c043b3f4d14c06e5f3a,
+        type: 3}
+    - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 5695376190236047481, guid: 9a17851b516091345af1271df4df2ca7,
+        type: 3}
+    - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 5695376190236047481, guid: c2afd071d3ba2c043b3f4d14c06e5f3a,
+        type: 3}
     - target: {fileID: 4447961927163866491, guid: 82a3b4bd038f134409a8d985d7fca9b9,
         type: 3}
       propertyPath: m_Name
