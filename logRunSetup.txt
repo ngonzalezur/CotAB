@@ -1,0 +1,1640 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Connection attempt to the License Client on channel: "LicenseClient-david" failed because channel doesn't exist; code: "0x80000002"
+[Licensing::Module] Successfully launched the LicensingClient (PId: 13172)
+Starting IPC server.
+Waiting for clients to connect on \\.\pipe\Unity-LicenseClient-david, press Ctrl-C to exit.
+[Licensing::IpcConnector] Successfully connected to the License Client on channel: "LicenseClient-david" at "2025-04-08T03:36:15.5177994Z"
+[Licensing::Client] Error: Code 10 while verifying Licensing Client signature (process Id: 13172, path: "C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] Error: LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.16.2+bdef8f5
+  Session Id:              376fd3f96d114120bf510ebdd1fadaab
+  Correlation Id:          ea5c2b448e35b0c088c98c20da30c1a2
+  External correlation Id: 3154456484415952698
+  Machine Id:              Hozf4ubZhAjw9mWR2/B/CKHlmak=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-david" (connect: 4.37s, validation: 0.24s, handshake: 0.05s)
+[Licensing::IpcConnector] Successfully connected to the License Notification on channel: "LicenseClient-david-notifications" at "2025-04-08T03:36:15.8059612Z"
+[Licensing::Module] Connected to LicensingClient (PId: 13172, launch time: 0.04, total connection time: 4.66s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully updated license
+Built from '6000.0/staging' branch; Version is '6000.0.41f1 (46e447368a18) revision 4645959'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Professional' Language: 'es' Physical Memory: 16145 MB
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-YKCB-3D3W-YR9P-8Z3U-XXXX"
+[Licensing::Module] Serial number assigned to: "4673232005860-UnityPersXXXX"
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-YKCB-3D3W-YR9P-8Z3U-XXXX"
+[Licensing::Module] Serial number assigned to: "4673232005860-UnityPersXXXX"
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Unity.exe
+-batchmode
+-nographics
+-logFile
+logRunSetup.txt
+-projectPath
+E:\CotaB\Unity Cota
+-executeMethod
+WwiseSetupWizard.RunSetup
+-quit
+Successfully changed project path to: E:\CotaB\Unity Cota
+E:/CotaB/Unity Cota
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [12412]  Target information:
+
+Player connection [12412]  * "[IP] 26.71.150.15 [Port] 55504 [Flags] 2 [Guid] 3655023007 [EditorId] 3655023007 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CNM6T3L) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [12412]  * "[IP] 192.168.1.8 [Port] 55504 [Flags] 2 [Guid] 3655023007 [EditorId] 3655023007 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CNM6T3L) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [12412] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [12412] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-992" after 0.0 seconds.
+Library Redirect Path: Library/
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 56 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ide.visualstudio@2.0.22 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.ide.visualstudio@8140e851d83e)
+    com.unity.inputsystem@1.13.1 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.inputsystem@e2c83221d2dc)
+    com.unity.postprocessing@3.4.0 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.postprocessing@026b2a0827a4)
+    com.unity.services.analytics@6.0.3 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.services.analytics@3692623288ba)
+    com.unity.timeline@1.8.8 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.timeline@fa3a0bab2b90)
+    com.unity.ext.nunit@2.0.5 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.ext.nunit@60ef35ffd3cd)
+    com.unity.services.core@1.14.0 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.services.core@9e81a5e38245)
+    com.unity.test-framework@1.4.6 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.test-framework@5ac417e07314)
+    com.unity.nuget.newtonsoft-json@3.2.1 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0)
+    com.unity.searcher@4.9.3 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.searcher@1e17ce91558d)
+    com.unity.burst@1.8.19 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.burst@7a907cf5a459)
+    com.unity.mathematics@1.3.2 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.mathematics@8017b507cc74)
+    com.unity.collections@2.5.1 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.collections@56bff8827a7e)
+    com.unity.nuget.mono-cecil@1.11.4 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f)
+    com.unity.test-framework.performance@3.0.3 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.test-framework.performance@fb0dc592af8b)
+  Built-in packages:
+    com.unity.2d.sprite@1.0.0 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.2d.sprite@072d7bd355e5)
+    com.unity.render-pipelines.universal@17.0.4 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.render-pipelines.universal@506b3deb0041)
+    com.unity.textmeshpro@5.0.0 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.textmeshpro@53f43edfd2e0)
+    com.unity.ugui@2.0.0 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.ugui@22ebcc83720a)
+    com.unity.modules.ai@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.hierarchycore)
+    com.unity.render-pipelines.core@17.0.4 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.render-pipelines.core@e13fb214c240)
+    com.unity.shadergraph@17.0.4 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.shadergraph@cdef3258c742)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.render-pipelines.universal-config@fa63c96d3e1a)
+    com.unity.rendering.light-transport@1.0.1 (location: E:\CotaB\Unity Cota\Library\PackageCache\com.unity.rendering.light-transport@307bc27a498f)
+[Package Manager] com.unity.textmeshpro is deprecated: This package is no longer supported. TextMeshPro functionalities are now included in the com.unity.ugui package. To continue using them, consider adding it to your project dependencies.
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+[Subsystems] No new subsystems found in resolved package list.
+Package Manager log level set to [2]
+[Package Manager] Done registering packages in 2.75 seconds
+Artifact Garbage Collection - Removed 4 unused hashed content filesRefreshing native plugins compatible for Editor in 24743.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.41f1 (46e447368a18)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/CotaB/Unity Cota/Assets
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-YKCB-3D3W-YR9P-8Z3U-XXXX"
+[Licensing::Module] Serial number assigned to: "4673232005860-UnityPersXXXX"
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56992
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.41f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.259002 seconds.
+- Loaded All Assemblies, in 10.008 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.520 seconds
+Domain Reload Profiling: 12557ms
+	BeginReloadAssembly (8091ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (521ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (318ms)
+	LoadAllAssembliesAndSetupDomain (3092ms)
+		LoadAssemblies (8093ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1053ms)
+			TypeCache.Refresh (1052ms)
+				TypeCache.ScanAssembly (766ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (521ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (483ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (95ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (57ms)
+			ProcessInitializeOnLoadAttributes (227ms)
+			ProcessInitializeOnLoadMethodAttributes (99ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-YKCB-3D3W-YR9P-8Z3U-XXXX"
+[Licensing::Module] Serial number assigned to: "4673232005860-UnityPersXXXX"
+Application.AssetDatabase Initial Refresh Start
+[ScriptCompilation] Requested script compilation because: Assembly Definition File(s) changed
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:80
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: E:\CotaB\Unity Cota\
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 63.5289ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\bee_backend.exe --dont-print-to-structured-log --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: E:/CotaB/Unity Cota
+DisplayProgressbar: Compiling Scripts
+ExitCode: 4 Duration: 19s
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/1900b0aE-inputdata.json
+*** Tundra requires additional run (19.81 seconds), 0 items updated, 1 evaluated
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Tools\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Tools\BuildPipeline\ScriptCompilationBuildProgram.exe" "Library/Bee/1900b0aE.dag.json" "Library/Bee/1900b0aE-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: E:/CotaB/Unity Cota
+ExitCode: 0 Duration: 2s7ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\bee_backend.exe --dont-print-to-structured-log --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --dagfilejson="Library\Bee\1900b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: E:/CotaB/Unity Cota
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+warn: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Assembly system.runtime.interopservices.windowsruntime has duplicate hint path. Ignoring "C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.InteropServices.WindowsRuntime.dll" in favor of "C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\NetStandard\Extensions\2.0.0\System.Runtime.InteropServices.WindowsRuntime.dll"
+warn: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Assembly system.componentmodel.composition has duplicate hint path. Ignoring "C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.ComponentModel.Composition.dll" in favor of "C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.ComponentModel.Composition.dll"
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Unity.Burst.Cecil, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library\PackageCache\com.unity.burst@7a907cf5a459\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Mono.Cecil, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc - - 200 - application/grpc 826.1747ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.dll, with 132 defines and 246 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 26.8765ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.WwiseTypes.dll, with 132 defines and 247 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 12.3923ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.Timeline.dll, with 133 defines and 249 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 1.8736ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.MonoBehaviour.dll, with 132 defines and 248 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 1.9139ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/Ak.Wwise.Api.WAAPI.dll, with 132 defines and 247 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 2.4161ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.Editor.dll, with 130 defines and 259 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 3.7558ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.Timeline.Editor.dll, with 131 defines and 260 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 1.9456ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 132 defines and 291 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 130 defines and 303 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.MonoBehaviour.Editor.dll, with 130 defines and 259 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 1.9825ms
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Unity.Collections, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null with Library\Bee\artifacts\1900b0aE.dag\Unity.Collections.dll
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null with C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Managed\UnityEngine\UnityEditor.CoreModule.dll
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null with C:\Program Files\Unity\Hub\Editor\6000.0.41f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Unity.Burst.Cecil.Rocks, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library\PackageCache\com.unity.burst@7a907cf5a459\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 2725.9121ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 2731.7623ms
+ExitCode: 0 Duration: 41s
+Finished compiling graph: 919 nodes, 15638 flattened edges (12648 ToBuild, 148 ToUse), maximum node priority 938
+[697/916    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[BUSY       6s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.ProjectDatabase.dll (+2 others)
+[BUSY      16s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.ProjectDatabase.dll (+2 others)
+[BUSY      26s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.ProjectDatabase.dll (+2 others)
+[872/916   30s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.ProjectDatabase.dll (+2 others)
+[876/916    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.dll (+2 others)
+[877/916    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.WwiseTypes.dll (+2 others)
+[878/916    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AK.Wwise.Unity.API.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.dll, with 132 defines and 246 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[879/916    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.API.pdb
+[880/916    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.API.dll
+[881/916    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AK.Wwise.Unity.API.WwiseTypes.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.WwiseTypes.dll, with 132 defines and 247 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[883/916    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.Timeline.dll (+2 others)
+[884/916    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.MonoBehaviour.dll (+2 others)
+Assets\Wwise\MonoBehaviour\Runtime\AkAmbient.cs(122,15): warning CS0108: 'AkAmbient.OnDisable()' hides inherited member 'AkEvent.OnDisable()'. Use the new keyword if hiding was intended.
+
+Assets\Wwise\MonoBehaviour\Runtime\AkGameObj.cs(429,26): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\Wwise\MonoBehaviour\Runtime\AkRoom.cs(609,3): warning CS0618: 'AkSoundEngine' is obsolete: 'This functionality is deprecated as of Wwise v2024.1.0 and will be removed in a future release.'
+
+Assets\Wwise\MonoBehaviour\Runtime\AkRoom.cs(619,3): warning CS0618: 'AkSoundEngine' is obsolete: 'This functionality is deprecated as of Wwise v2024.1.0 and will be removed in a future release.'
+[886/916    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Ak.Wwise.Api.WAAPI.dll (+2 others)
+[887/916    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AK.Wwise.Unity.Timeline.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.Timeline.dll, with 133 defines and 249 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[888/916    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AK.Wwise.Unity.MonoBehaviour.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.MonoBehaviour.dll, with 132 defines and 248 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[891/916    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Ak.Wwise.Api.WAAPI.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Ak.Wwise.Api.WAAPI.dll, with 132 defines and 247 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[895/916    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.Editor.dll (+2 others)
+[897/916    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.Timeline.Editor.dll (+2 others)
+[898/916    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.MonoBehaviour.Editor.dll (+2 others)
+Assets\Wwise\MonoBehaviour\Editor\AkPortalManager.cs(77,15): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\Wwise\MonoBehaviour\Editor\AkPortalManager.cs(82,19): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\Wwise\MonoBehaviour\Editor\AkAmbientInspector.cs(181,30): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\Wwise\MonoBehaviour\Editor\AkAmbientInspector.cs(209,30): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\Wwise\MonoBehaviour\Editor\AkEnvironmentPortalInspector.cs(143,22): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkXboxOneUtils.cs(35,4): warning CS0618: 'PlayerSettings.XboxOne' is obsolete: 'The XDK Xbox One platform was removed in 2021.1'
+
+Assets\Wwise\MonoBehaviour\Editor\AkAmbientInspector.cs(260,34): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\Wwise\MonoBehaviour\Editor\AkAmbientInspector.cs(274,30): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwiseSetupWizard.cs(160,18): warning CS0618: 'Object.FindObjectsOfType(Type)' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID, but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwisePostImportCallbackSetup.cs(321,24): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwiseSetupWizard.cs(632,22): warning CS0618: 'PlayerSettings.GetScriptingDefineSymbolsForGroup(BuildTargetGroup)' is obsolete: 'Use GetScriptingDefineSymbols(NamedBuildTarget buildTarget) instead'
+
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwiseSetupWizard.cs(644,5): warning CS0618: 'PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup, string)' is obsolete: 'Use SetScriptingDefineSymbols(NamedBuildTarget buildTarget, string defines) instead'
+
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwiseSetupWizard.cs(654,24): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwiseSetupWizard.cs(725,22): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+[901/916    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AK.Wwise.Unity.API.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.Editor.dll, with 130 defines and 259 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[902/916    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AK.Wwise.Unity.Timeline.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.Timeline.Editor.dll, with 131 defines and 260 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[903/916    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.API.Editor.pdb
+[906/916    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.API.Editor.dll
+[907/916    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/AK.Wwise.Unity.MonoBehaviour.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.MonoBehaviour.Editor.dll, with 130 defines and 259 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[908/916    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.MonoBehaviour.Editor.pdb
+[909/916    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.MonoBehaviour.Editor.dll
+[910/916    2s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 130 defines and 303 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[911/916    2s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 132 defines and 291 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+*** Tundra build success (41.42 seconds), 26 items updated, 916 evaluated
+Assets\Wwise\MonoBehaviour\Runtime\AkAmbient.cs(122,15): warning CS0108: 'AkAmbient.OnDisable()' hides inherited member 'AkEvent.OnDisable()'. Use the new keyword if hiding was intended.
+Assets\Wwise\MonoBehaviour\Runtime\AkGameObj.cs(429,26): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\Wwise\MonoBehaviour\Runtime\AkRoom.cs(609,3): warning CS0618: 'AkSoundEngine' is obsolete: 'This functionality is deprecated as of Wwise v2024.1.0 and will be removed in a future release.'
+Assets\Wwise\MonoBehaviour\Runtime\AkRoom.cs(619,3): warning CS0618: 'AkSoundEngine' is obsolete: 'This functionality is deprecated as of Wwise v2024.1.0 and will be removed in a future release.'
+Assets\Wwise\MonoBehaviour\Editor\AkPortalManager.cs(77,15): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\Wwise\MonoBehaviour\Editor\AkPortalManager.cs(82,19): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\Wwise\MonoBehaviour\Editor\AkAmbientInspector.cs(181,30): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\Wwise\MonoBehaviour\Editor\AkAmbientInspector.cs(209,30): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\Wwise\MonoBehaviour\Editor\AkEnvironmentPortalInspector.cs(143,22): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkXboxOneUtils.cs(35,4): warning CS0618: 'PlayerSettings.XboxOne' is obsolete: 'The XDK Xbox One platform was removed in 2021.1'
+Assets\Wwise\MonoBehaviour\Editor\AkAmbientInspector.cs(260,34): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\Wwise\MonoBehaviour\Editor\AkAmbientInspector.cs(274,30): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwiseSetupWizard.cs(160,18): warning CS0618: 'Object.FindObjectsOfType(Type)' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID, but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwisePostImportCallbackSetup.cs(321,24): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwiseSetupWizard.cs(632,22): warning CS0618: 'PlayerSettings.GetScriptingDefineSymbolsForGroup(BuildTargetGroup)' is obsolete: 'Use GetScriptingDefineSymbols(NamedBuildTarget buildTarget) instead'
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwiseSetupWizard.cs(644,5): warning CS0618: 'PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup, string)' is obsolete: 'Use SetScriptingDefineSymbols(NamedBuildTarget buildTarget, string defines) instead'
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwiseSetupWizard.cs(654,24): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\Wwise\MonoBehaviour\Editor\WwiseSetupWizard\AkWwiseSetupWizard.cs(725,22): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+AssetDatabase: script compilation time: 64.150816s
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Debug/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 12.49 ms, found 11 plugins.
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-YKCB-3D3W-YR9P-8Z3U-XXXX"
+[Licensing::Module] Serial number assigned to: "4673232005860-UnityPersXXXX"
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in 22.743 seconds
+Start importing Assets/Audio using Guid(9ab90d8b903512246a06d7678d5d140d) (DefaultImporter) -> (artifact id: 'cb7b71a685d2a52a13aea87ccbaf6026') in 0.0298146 seconds
+Start importing Assets/Wwise using Guid(3fa548573a05026459732ec62b66238c) (DefaultImporter) -> (artifact id: '477812c1fedb54d237c5fd616ba02991') in 0.0076772 seconds
+Start importing Assets/Wwise/Documentation using Guid(32d1fb67513da2043a758881755a3937) (DefaultImporter) -> (artifact id: '88bead7415ade17d09a867fb95fa8dad') in 0.0076312 seconds
+Start importing Assets/Wwise/Tools using Guid(42ffe78e6a1cfbb44bb9d72eea3924cc) (DefaultImporter) -> (artifact id: '1bb9db627ae19c3bbb2efb1addb7db86') in 0.0069071 seconds
+Start importing Assets/Wwise/Gizmos using Guid(e2864301bd7fa0448b1a05e461cb2500) (DefaultImporter) -> (artifact id: '8c612cc278bd7312d1bf2cbcfd1e088a') in 0.0083046 seconds
+Start importing Assets/Wwise/API using Guid(05a7ce8904786e548ae88505aa4b7d60) (DefaultImporter) -> (artifact id: 'e94c5e02409e30f0de9e11faa57260d1') in 0.0072748 seconds
+Start importing Assets/Wwise/Timeline using Guid(1551c07890c0aab4abbe8c453184ebb9) (DefaultImporter) -> (artifact id: 'c67cfaa087371da1f85be621a7b6458b') in 0.0082581 seconds
+Start importing Assets/Wwise/MonoBehaviour using Guid(65205587b5cc825418856390ef499750) (DefaultImporter) -> (artifact id: '85ba970b737feca5212387201234eaa5') in 0.007448 seconds
+Start importing Assets/StreamingAssets/Audio using Guid(e55a67f343085b44fac52e034ba4f856) (DefaultImporter) -> (artifact id: 'de61cd2671e3a53054b467ea3e7a40b6') in 0.008466 seconds
+Start importing Assets/Wwise/ProjectDatabase using Guid(3d55d1e87f0e90241ab68e96e219b0e3) (DefaultImporter) -> (artifact id: '5138d7f3f251542425f9520115cc3ba3') in 0.0071519 seconds
+Start importing Assets/Wwise/Timeline/Runtime using Guid(22281db4bf566bf4882a8087bda12986) (DefaultImporter) -> (artifact id: 'acf6551f01732631afc84e474ec6bb60') in 0.0085553 seconds
+Start importing Assets/Wwise/API/Editor using Guid(b22cc8958de5cc2488351beeaec3cf66) (DefaultImporter) -> (artifact id: '9a98aef5f8b7b5f38b04720e51e355ec') in 0.0071404 seconds
+Start importing Assets/Wwise/API/Runtime using Guid(852f0bb3c67b63043a98f8bffba86335) (DefaultImporter) -> (artifact id: '43988719f9d211d69e34d175e0a57ead') in 0.0083469 seconds
+Start importing Assets/Wwise/Documentation/Windows using Guid(855f2b0110ca07f4aad191f21f586e3b) (DefaultImporter) -> (artifact id: '240c70d4b7bc6cc3b02a2c5b7544400b') in 0.008289 seconds
+Start importing Assets/Wwise/Timeline/Editor using Guid(a8dea13d4e6c9c84fa4a47bd1ecb6535) (DefaultImporter) -> (artifact id: '219a5ac4dec534c0c229b55627ac756b') in 0.0084328 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime using Guid(0a785637e91b3724b8da7f4f8ff4e8c3) (DefaultImporter) -> (artifact id: '47710d1a36747bd7047317be5fb3cf80') in 0.0073866 seconds
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks using Guid(fbf1dfa62b62eac40b5929e3c5235ed7) (DefaultImporter) -> (artifact id: '08949e8c5b7b5c55aef0819df8ed1d4a') in 0.0091238 seconds
+Start importing Assets/Wwise/MonoBehaviour/Editor using Guid(0c1f86eeb4f355448b2ddfb0e4eb4477) (DefaultImporter) -> (artifact id: 'e4ad4e3da2451047195386bf73db82b1') in 0.0073021 seconds
+Start importing Assets/Wwise/MonoBehaviour/Runtime using Guid(2eeb33e254400214dad7157f946cdfdf) (DefaultImporter) -> (artifact id: '38cf43984eb2f17382091b4fb43ad231') in 0.0080368 seconds
+Start importing Assets/Wwise/Documentation/AppleCommon using Guid(1f4ea7984231272459fc889ee4815f0e) (DefaultImporter) -> (artifact id: 'e691f84e0433424746908a4f225cc174') in 0.0072591 seconds
+Start importing Assets/Wwise/Documentation/Windows/ja using Guid(a0a504da274d4ec4c9842bd809a7f7cb) (DefaultImporter) -> (artifact id: '396dcf4ab7a568059fca35d118ad9b20') in 0.0082627 seconds
+Start importing Assets/Wwise/API/Editor/PluginActivator using Guid(e096073424117794a8a3f58a4bebda2d) (DefaultImporter) -> (artifact id: '0b885003b2850bd19315d373ed25cf55') in 0.007286 seconds
+Start importing Assets/Wwise/Documentation/Windows/ko using Guid(114b3284d44a14f4fbcab0dcd9f1b585) (DefaultImporter) -> (artifact id: 'b4b9599170af3e0f4333ec4884781b84') in 0.0085388 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/Handwritten using Guid(f2021b73af06fcc4b970feb3241d2097) (DefaultImporter) -> (artifact id: '07ad5c57ea48ee944f2427c3f3b151a2') in 0.0075749 seconds
+Start importing Assets/Wwise/Documentation/AppleCommon/zh using Guid(14a2f464295bbef41a5fc7f563a6d4b8) (DefaultImporter) -> (artifact id: '26d4ca8ad4490d0024332b90e5a6578a') in 0.0084402 seconds
+Start importing Assets/Wwise/Documentation/Windows/en using Guid(a53806796d84dba46b34b5d4a5da0ba7) (DefaultImporter) -> (artifact id: '0c024d58e09f8df659cfc6547e616b7d') in 0.0082656 seconds
+Start importing Assets/Wwise/MonoBehaviour/Editor/EditorPlatformHelpers using Guid(d5194086f22d27f428f59cfffe0496a6) (DefaultImporter) -> (artifact id: 'cfdc69041ec8318c4c7eac3a215e17ed') in 0.0091311 seconds
+Start importing Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard using Guid(f53223ed4a21fcb459bef77707ee779d) (DefaultImporter) -> (artifact id: '95b8e6e1923190097f9f030ce4d6c1ce') in 0.0076735 seconds
+Start importing Assets/Wwise/Documentation/AppleCommon/ja using Guid(96ef12de29a3e8746a8fc952230419b7) (DefaultImporter) -> (artifact id: 'd0b311c667c67f2b8f773a5f900ee6d1') in 0.0090993 seconds
+Start importing Assets/Wwise/API/Runtime/WwiseTypes using Guid(277adb05bad637843a1dc74639458314) (DefaultImporter) -> (artifact id: 'd3ab76cbcc36b2e085ebedd703409434') in 0.0075812 seconds
+Start importing Assets/Wwise/API/Runtime/Generated using Guid(68ae6ff660bbda443846070095414ec0) (DefaultImporter) -> (artifact id: '25bee31b80334f9055fa8a34c84efbfc') in 0.0092803 seconds
+Start importing Assets/Wwise/Documentation/AppleCommon/en using Guid(1adb27b9d6d5d7045a3600af0fb22374) (DefaultImporter) -> (artifact id: '98efbfe9678e21eceea47cb08e19750e') in 0.0078243 seconds
+Start importing Assets/Wwise/Documentation/AppleCommon/ko using Guid(8b165644b15392a46bf245ae3e468496) (DefaultImporter) -> (artifact id: 'bb749817ac8fda28e8595a71b9ae2c53') in 0.0088916 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins using Guid(4c6ed046ed4f95149af4aa6ae3184ba0) (DefaultImporter) -> (artifact id: '03ddb1c9b663a7e9a26ed415f7195f9e') in 0.0073243 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows using Guid(5d314e1523c3a0f409f6f6ef06d90b85) (DefaultImporter) -> (artifact id: '4b9623552d5dca10831a7a6d5cea1ea0') in 0.0088184 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/Plugins using Guid(6df98c338134423499d2309d91281798) (DefaultImporter) -> (artifact id: 'a3f7cedc900c86f6a8b866fe66b28cab') in 0.0075119 seconds
+Start importing Assets/Wwise/API/Runtime/Handwritten using Guid(ed62e7c27b89c614291f30c8ce5a864b) (DefaultImporter) -> (artifact id: '3f8d28240885c6ff40614b4e22aba42d') in 0.0084328 seconds
+Start importing Assets/Wwise/API/Editor/WwiseTypes using Guid(0ee25f30989385c4fb15fdfefeac3b2f) (DefaultImporter) -> (artifact id: '288ba36450198f550dd387670eaf1a15') in 0.0070446 seconds
+Start importing Assets/Wwise/API/Editor/WwiseMenu using Guid(ae2879c0be94146448d64ab49b4ab694) (DefaultImporter) -> (artifact id: '9560709a994062eb162d08f19f962654') in 0.0087184 seconds
+Start importing Assets/Wwise/Documentation/Windows/zh using Guid(df8bbc3a90b5a00489488bdbbf8f2a8a) (DefaultImporter) -> (artifact id: 'a34bab0f6ada1c5ba100ca4942e11076') in 0.0072791 seconds
+Start importing Assets/Wwise/API/Editor/PluginActivator/Windows using Guid(0076421c44790a84b8168dd14d1469b9) (DefaultImporter) -> (artifact id: '2b209122b256ad907dd8ee3c19316969') in 0.0083997 seconds
+Start importing Assets/Wwise/API/Runtime/Handwritten/Windows using Guid(d023aa131d227854992abcbc61697237) (DefaultImporter) -> (artifact id: 'ebe009c7d9d8db0e4efe15d9c248905c') in 0.0073977 seconds
+Start importing Assets/Wwise/API/Editor/WwiseMenu/Common using Guid(d0a8b2889c0df0b448f9bacd3ab4b681) (DefaultImporter) -> (artifact id: '3b352456912b90a8969f57ed9fe15272') in 0.0088563 seconds
+Start importing Assets/Wwise/API/Runtime/Handwritten/WAAPI using Guid(d34bfca63bc95b14e829a35dc67da5b2) (DefaultImporter) -> (artifact id: 'a10fafd642514d869cbf9821bc2361c4') in 0.0072473 seconds
+Start importing Assets/Wwise/API/Runtime/WwiseTypes/WwiseObjectsManagers using Guid(841a4ae23c013854992965d305c47b1c) (DefaultImporter) -> (artifact id: 'b9f99aa0acce5a5bd77f4f583ade4eef') in 0.008407 seconds
+Start importing Assets/Wwise/API/Editor/PluginActivator/Mac using Guid(e44f355e5eed6a64fb8c46245a583935) (DefaultImporter) -> (artifact id: '6fabadf448fcdab0d79c0a8d4203c922') in 0.0070309 seconds
+Start importing Assets/Wwise/API/Editor/PluginActivator/Common using Guid(95a165ba08a58604c9f6e5a00999ddd7) (DefaultImporter) -> (artifact id: 'dcfed455c1a29ab24f2395a430b987c8') in 0.0085023 seconds
+Start importing Assets/Wwise/API/Runtime/WwiseTypes/WwiseObjects using Guid(96c7deb997033ce449b02b0255010c60) (DefaultImporter) -> (artifact id: '35a668c99f4fee6431630154620e4385') in 0.0073125 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac using Guid(17862adfc54f5fb4aaa970448851317c) (DefaultImporter) -> (artifact id: '69de2f184db88e965818a7ffca307966') in 0.0098598 seconds
+Start importing Assets/Wwise/API/Runtime/Generated/Mac using Guid(f75936e588e9f5349ac3175e41926d09) (DefaultImporter) -> (artifact id: '364c3fd4bd0fc9fdbde37a8b85451df1') in 0.0073374 seconds
+Start importing Assets/Wwise/API/Runtime/Handwritten/Common using Guid(086b12f045c77584e8d28f577d66623e) (DefaultImporter) -> (artifact id: 'd83e88351606258efadbd0e8a301bd1f') in 0.0089114 seconds
+Start importing Assets/Wwise/MonoBehaviour/Editor/EditorPlatformHelpers/Mac using Guid(29176d36210b17f40842e75fe84a5ce5) (DefaultImporter) -> (artifact id: '92b239608f66434e124aa27913854fb8') in 0.0075523 seconds
+Start importing Assets/Wwise/API/Editor/WwiseMenu/Windows using Guid(499a57be8b346ec439b85fb32accf7dd) (DefaultImporter) -> (artifact id: 'fec4fb9e39d8654563a9009c68faf9c6') in 0.0085995 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/Handwritten/Common using Guid(8907ee9a785709e4a9a0da5d55b62d95) (DefaultImporter) -> (artifact id: '25113359576afdf6e66a836f9ae4335d') in 0.0079187 seconds
+Start importing Assets/Wwise/API/Runtime/Handwritten/Mac using Guid(5a28e11b9d2d1ee44af60679eb37db0b) (DefaultImporter) -> (artifact id: '459bcf31d845140044b78bb13c6cdfa9') in 0.0088819 seconds
+Start importing Assets/Wwise/API/Runtime/Generated/Common using Guid(6ad67adee8dddb943b93c8ac030cee65) (DefaultImporter) -> (artifact id: '0ce2925d5bb99290fb6c60618d16f166') in 0.0085369 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/Handwritten/Windows using Guid(6a0d5142e36175148bc1f803d9bed3cd) (DefaultImporter) -> (artifact id: '03b33f3ff4f6d2d3119796951b7cf6cb') in 0.0093873 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/Handwritten/Mac using Guid(ca0f0a7751312d341b13022080692c5b) (DefaultImporter) -> (artifact id: 'c122980e211e0be9a697e464eac771f1') in 0.0091087 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/Plugins/Windows using Guid(0bac6d9d68082b748b6bf999bfd00789) (DefaultImporter) -> (artifact id: 'eded32ea284e66c4a4bacc5745a7b531') in 0.0088728 seconds
+Start importing Assets/Wwise/API/Editor/WwiseMenu/Mac using Guid(2d70da394c9f0d048a271d346c56fcb1) (DefaultImporter) -> (artifact id: '5c0d44c9f1f6b79121d5d82b3c54771d') in 0.0090519 seconds
+Start importing Assets/Wwise/MonoBehaviour/Editor/EditorPlatformHelpers/Windows using Guid(7deaee12901bd844bbebb3df3292af3a) (DefaultImporter) -> (artifact id: '0a7a9b9a31e130a399db8ab7e0850ef5') in 0.0086217 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons using Guid(3e46d2a0ad112c54e8e64061112d11f3) (DefaultImporter) -> (artifact id: '9445774175049ece8d05c699708f911a') in 0.0093636 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/Plugins/Mac using Guid(cec4e88f6995d4b439bd96f143086d5a) (DefaultImporter) -> (artifact id: 'f7a39883a21070289b44a0dca09abd00') in 0.0085852 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows using Guid(ee1769be9af25eb45816ca158c6cbe97) (DefaultImporter) -> (artifact id: '5363c27c291953efdb80b6af379e2c13') in 0.0096713 seconds
+Start importing Assets/Wwise/API/Runtime/WwiseTypes/WwiseTypes using Guid(df2b50e35d7666b42b412aa5d4f51e4f) (DefaultImporter) -> (artifact id: '54d7a845d56825d0ecab071fb959c1f9') in 0.0081416 seconds
+Start importing Assets/Wwise/API/Runtime/Generated/Windows using Guid(ff00200cc7da6c146af1293fac10650e) (DefaultImporter) -> (artifact id: '393ae3e2fb7af85d90240bac48bcfe37') in 0.0086457 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release using Guid(d2b4104313c7ace4c9fc23418f66de7e) (DefaultImporter) -> (artifact id: 'd5bf183613cac49ce90680338128cdd1') in 0.0084086 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug using Guid(87112d9ae1f85fb4f97763c408ba297f) (DefaultImporter) -> (artifact id: '74d1684f151d506afaf8a85100a35331') in 0.0082148 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile using Guid(1aea296f35c9db54e81247ceb28aa7fa) (DefaultImporter) -> (artifact id: '0e40f1d8dd5c6c06768d664962e7c1eb') in 0.0078745 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/Plugins/Mac/DSP using Guid(3cded7708f115e74cad350c2e7cbe60c) (DefaultImporter) -> (artifact id: '70aed3aaa5eb12f163fe0cf833a333a5') in 0.0091056 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/Plugins/Windows/x86_64 using Guid(fcf9d25023a99b34798c867dc3d94736) (DefaultImporter) -> (artifact id: 'e65c664e8a7a70a1756bd446665e5ab6') in 0.0093478 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64 using Guid(9db26e58a85345d4e886a106d5867952) (DefaultImporter) -> (artifact id: '949a458b3c0046356d809e289ad9ef6a') in 0.0081348 seconds
+Start importing Assets/Wwise/API/Runtime/Handwritten/Common/Arrays using Guid(de3ecbca9e57770468bf578f679fc1bc) (DefaultImporter) -> (artifact id: '8456cba14c07be0d4c62f8f72c7a1b25') in 0.0087451 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86 using Guid(eef2c49c68ae05e4b9b954be51f6d748) (DefaultImporter) -> (artifact id: 'c1051eb047dc9e64266279391bad9e32') in 0.0079398 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP using Guid(6f07e87d4541f774087085a279a73b50) (DefaultImporter) -> (artifact id: '24b14e25dcd8f9f332c25ea158189c73') in 0.0081843 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP using Guid(b2ee6953395c4ab49aa43381849b88ce) (DefaultImporter) -> (artifact id: 'c3baf33f1e4abfcf6d29dccfe72083c4') in 0.0073774 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP using Guid(a34cbd7409f37d9439f2dc5f2209d428) (DefaultImporter) -> (artifact id: 'c57f4cf3a805dfd99f5a52c8aa598669') in 0.0078934 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/Release using Guid(d58a53c5de553714c9bee32b494709f9) (DefaultImporter) -> (artifact id: '319731a487934c9d1b196becf6cb95e3') in 0.0076195 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile using Guid(165460168f3d17242b42cfbfa5ad1251) (DefaultImporter) -> (artifact id: 'a738664bc57899b8a660cd28332732a9') in 0.013664 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle.dSYM using Guid(d6b22ac2ffa4f804b85caf945d59ddf4) (DefaultImporter) -> (artifact id: 'df91493d83fd8a1a070b4ceb8d120db9') in 0.0078158 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Debug using Guid(58eeaccee10b6034d86ee9c6b3a9570d) (DefaultImporter) -> (artifact id: '58b946d1b6cbf4d9bb488d53e06ec333') in 0.0093142 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkUnitySoundEngine.bundle.dSYM using Guid(5999a8e38bac15f4585c292a22a54964) (DefaultImporter) -> (artifact id: 'f9b4b3ed4aeaed8e4ae5503a19b7f22a') in 0.007909 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/Debug using Guid(9aceafdb9f406f94aae37ff51b5d99fd) (DefaultImporter) -> (artifact id: 'f29995ca77fcdf2ff179f8869ad0354d') in 0.0084384 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release using Guid(3c5a525c5eccc7742bf4b52256d8d5fb) (DefaultImporter) -> (artifact id: '5bd5ce13e6ff51c0613b0234e6825b6c') in 0.0072304 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/Profile using Guid(7c8eea46475d9694b997bdcd170b15a6) (DefaultImporter) -> (artifact id: '48da74a3af1aab9a7a42074bca597d01') in 0.0083885 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/Plugins/Windows/x86_64/DSP using Guid(bc75ec052dad32d4f835e270a9384824) (DefaultImporter) -> (artifact id: 'aac3510672ccc43d5e1217c6fe9cba84') in 0.0070284 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkUnitySoundEngine.bundle.dSYM using Guid(2e1efd06576fc2e4e8d52e46eaa7e203) (DefaultImporter) -> (artifact id: '71dc81d6a34cca0682d8a72e8cc892b7') in 0.0082325 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkUnitySoundEngine.bundle.dSYM/Contents using Guid(76bae3f4a07ebb6488ea06b1b06681cb) (DefaultImporter) -> (artifact id: '5881d1e58516167c618c2cb92f3fa11f') in 0.007096 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle.dSYM/Contents using Guid(1845731805075e44884f1ab98b82dcf4) (DefaultImporter) -> (artifact id: 'a7382a04032f3878ec53b2094f0072ac') in 0.0105238 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkUnitySoundEngine.bundle.dSYM/Contents using Guid(8db2a814bf29e07478ecc9b6b386d976) (DefaultImporter) -> (artifact id: '03cfc5b8bde144f2ad2f39a1a5950e73') in 0.0084721 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkUnitySoundEngine.bundle.dSYM/Contents/Resources using Guid(3400632a3e3c185408ed5dbd7130f1ad) (DefaultImporter) -> (artifact id: '9f59c6ea60f7e26caa23d6bb14575006') in 0.0088524 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle.dSYM/Contents/Resources using Guid(4490040f0a8564d42ae5cff3d0557bf4) (DefaultImporter) -> (artifact id: 'e50c818f5e4066b2bb4871e64042e01d') in 0.0090301 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkUnitySoundEngine.bundle.dSYM/Contents/Resources using Guid(f94db033ba789404792cd5e2ec76ebc7) (DefaultImporter) -> (artifact id: 'f93c50c2569ca826b9c1fc3b3663ed07') in 0.0105836 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/DWARF using Guid(90dc72df61fb12342899fe76b2d9e01b) (DefaultImporter) -> (artifact id: 'eb9af88551202af2ca35f72f6ea17529') in 0.011098 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/DWARF using Guid(89e25dd75ad14b6418c368aeadf87e7b) (DefaultImporter) -> (artifact id: 'c0802810a1a4bfe6b9fcb2a1d0e20832') in 0.0092444 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations using Guid(1a73bd7c324faee438df46e71797c459) (DefaultImporter) -> (artifact id: '7c87f580dbe23beebd628fe71a942066') in 0.0090473 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/DWARF using Guid(7aa2b2f57d54fe64ea75ad6a64d3392e) (DefaultImporter) -> (artifact id: '3576fb0964dd4f7d7405c469a4e91986') in 0.010082 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations using Guid(fcc1978b291b95944a609ab2847c7ffc) (DefaultImporter) -> (artifact id: '52ab6554e7711ad3754728ff9fcda8c8') in 0.008586 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations using Guid(7e94879792c76a049b6c8863d337d028) (DefaultImporter) -> (artifact id: '840522af65fd8888a4dd3f04fa7c241e') in 0.0094311 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/aarch64 using Guid(f48b1d7aca80af9439abb5afcd5ed2ec) (DefaultImporter) -> (artifact id: '365c28be082e87aceb9a30f1080cbc70') in 0.008749 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/aarch64 using Guid(c7bdb01007728904b8915d925ff79819) (DefaultImporter) -> (artifact id: 'f31df1acbe92710150c1ee1d62df868e') in 0.0110522 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/x86_64 using Guid(f790ad24e83437e48b03c142729613dc) (DefaultImporter) -> (artifact id: '61aa938a147e79e35cd7f6ed657d118c') in 0.010196 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/x86_64 using Guid(0c643b65a33978b45a7e5f38e2ea0149) (DefaultImporter) -> (artifact id: 'a6512ff06f39f6975bf83aae2c5c57cb') in 0.0084139 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/x86_64 using Guid(8fc74821e4e9dc84196b37c835273471) (DefaultImporter) -> (artifact id: 'ce49408f8635e68d0ed0fa52cdf6a958') in 0.010245 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/aarch64 using Guid(eff72f29add07e94a804cda26183c747) (DefaultImporter) -> (artifact id: '47430a4f58398a077d0f95caf00a2e10') in 0.0080629 seconds
+Start importing Assets/Wwise/API/Runtime/WwiseTypes/AK.Wwise.Unity.API.WwiseTypes.asmdef using Guid(72b87c1946e67514c930c16d4c8ed27a) (AssemblyDefinitionImporter) -> (artifact id: '0d515375927df0c180680b322de77c7a') in 0.0106592 seconds
+Start importing Assets/Wwise/API/Runtime/Handwritten/WAAPI/Ak.Wwise.Api.WAAPI.asmdef using Guid(13b8a71e644012c4cae7d37756b2f698) (AssemblyDefinitionImporter) -> (artifact id: '91b8dfddd8449df7a41107150e6630b1') in 0.009169 seconds
+Start importing Assets/Wwise/Timeline/Runtime/AK.Wwise.Unity.Timeline.asmdef using Guid(a6d1a7ee9d094bb4a811d6240a0bf113) (AssemblyDefinitionImporter) -> (artifact id: 'ebb19462bade945149bcfbd05f388e79') in 0.0093182 seconds
+Start importing Assets/Wwise/API/Editor/AK.Wwise.Unity.API.Editor.asmdef using Guid(27f71071169dafa47b15ca6967415761) (AssemblyDefinitionImporter) -> (artifact id: 'be02f3202fdd26fbe7c5bec7eec2f653') in 0.009396 seconds
+Start importing Assets/Wwise/MonoBehaviour/Runtime/AK.Wwise.Unity.MonoBehaviour.asmdef using Guid(48997b2a74e1d5d4cb280c8438f3abfd) (AssemblyDefinitionImporter) -> (artifact id: '496cd114726dcae91099bd9a173e0f09') in 0.0099971 seconds
+Start importing Assets/Wwise/MonoBehaviour/Editor/AK.Wwise.Unity.MonoBehaviour.Editor.asmdef using Guid(48fa9885e02c9ee478d7b4bc705a0378) (AssemblyDefinitionImporter) -> (artifact id: '5d80bc7bcb5b688132b44fb7f9ee7f92') in 0.0095224 seconds
+Start importing Assets/Wwise/API/Runtime/AK.Wwise.Unity.API.asmdef using Guid(0d6d595221e12444ca7e6f140168449b) (AssemblyDefinitionImporter) -> (artifact id: '2b0421100042a389d89faa0107aa96ab') in 0.0090445 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/AK.Wwise.Unity.ProjectDataBase.asmdef using Guid(7d059dbea99b8a949a30674b617adf0b) (AssemblyDefinitionImporter) -> (artifact id: '9caf2b52a3167614894497cc5f96c09e') in 0.0086781 seconds
+Start importing Assets/Wwise/Timeline/Editor/AK.Wwise.Unity.Timeline.Editor.asmdef using Guid(dd25ef8877eafd648957f4803dd78f32) (AssemblyDefinitionImporter) -> (artifact id: 'd0a4c8d850a99ee7a7015ccf9ce03e12') in 0.0102675 seconds
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Debug/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 9.11 ms, found 11 plugins.
+Native extension for WindowsStandalone target not found
+WwiseUnity: Platform specific settings cannot be found for <Windows>. Using global settings.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+AkWwiseInitializationSettings:GetPlatformSettings (string) (at Assets/Wwise/API/Runtime/Handwritten/Common/AkWwiseInitializationSettings.cs:303)
+AkWwiseInitializationSettings:get_ActivePlatformSettings () (at Assets/Wwise/API/Runtime/Handwritten/Common/AkWwiseInitializationSettings.cs:312)
+Wwise.API.Editor.SoundBankDirectoryWatcher.Common.AkSoundBankDirectoryWatcher:.ctor () (at Assets/Wwise/API/Editor/AkSoundBankDirectoryWatcher.cs:44)
+Wwise.API.Editor.SoundBankDirectoryWatcher.Common.AkSoundBankDirectoryWatcher:.cctor () (at Assets/Wwise/API/Editor/AkSoundBankDirectoryWatcher.cs:49)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Wwise/API/Runtime/Handwritten/Common/AkWwiseInitializationSettings.cs Line: 303)
+
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Burst.Backend.UnmanagedLibrary/WindowsUnmanagedLibrary:LoadLibrary (string,bool,bool,bool)
+Burst.Backend.UnmanagedLibrary:LoadLibrary (string,bool,bool,bool)
+Burst.Compiler.IL.Client.JitMemoryNativeInterop:.cctor ()
+Burst.Compiler.IL.Jit.StubManager`1<Burst.Compiler.IL.Jit.FunctionPointerStub>:.ctor ()
+Burst.Compiler.IL.Jit.FunctionPointerStubManager:.ctor (Burst.Compiler.IL.Jit.FunctionPointerStubManager/PatcherDelegate)
+Burst.Compiler.IL.Jit.JitCompilerService:.ctor ()
+Unity.Burst.LowLevel.BurstCompilerService:InitializeInternal (string,Unity.Burst.LowLevel.BurstCompilerService/ExtractCompilerFlags)
+Unity.Burst.LowLevel.BurstCompilerService:Initialize (string,Unity.Burst.LowLevel.BurstCompilerService/ExtractCompilerFlags)
+Unity.Burst.Editor.BurstLoader:.cctor () (at ./Library/PackageCache/com.unity.burst@7a907cf5a459/Runtime/Editor/BurstLoader.cs:142)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[./Library/PackageCache/com.unity.burst@7a907cf5a459/Runtime/Editor/BurstLoader.cs line 142]
+
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Debug/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Burst.Backend.UnmanagedLibrary/WindowsUnmanagedLibrary:LoadLibrary (string,bool,bool,bool)
+Burst.Backend.UnmanagedLibrary:LoadLibrary (string,bool,bool,bool)
+Burst.Compiler.IL.Client.JitMemoryNativeInterop:.cctor ()
+Burst.Compiler.IL.Jit.StubManager`1<Burst.Compiler.IL.Jit.FunctionPointerStub>:.ctor ()
+Burst.Compiler.IL.Jit.FunctionPointerStubManager:.ctor (Burst.Compiler.IL.Jit.FunctionPointerStubManager/PatcherDelegate)
+Burst.Compiler.IL.Jit.JitCompilerService:.ctor ()
+Unity.Burst.LowLevel.BurstCompilerService:InitializeInternal (string,Unity.Burst.LowLevel.BurstCompilerService/ExtractCompilerFlags)
+Unity.Burst.LowLevel.BurstCompilerService:Initialize (string,Unity.Burst.LowLevel.BurstCompilerService/ExtractCompilerFlags)
+Unity.Burst.Editor.BurstLoader:.cctor () (at ./Library/PackageCache/com.unity.burst@7a907cf5a459/Runtime/Editor/BurstLoader.cs:142)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[./Library/PackageCache/com.unity.burst@7a907cf5a459/Runtime/Editor/BurstLoader.cs line 142]
+
+Refreshing native plugins compatible for Editor in 7.99 ms, found 11 plugins.
+The project currently uses the compatibility mode where the Render Graph API is disabled. Support for this mode will be removed in future Unity versions. Migrate existing ScriptableRenderPasses to the new RenderGraph API. After the migration, disable the compatibility mode in Edit > Projects Settings > Graphics > Render Graph.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+UnityEngine.Rendering.Universal.WarnUsingNonRenderGraph:EmitConsoleWarning () (at ./Library/PackageCache/com.unity.render-pipelines.universal@506b3deb0041/Runtime/Data/UniversalRenderPipelineAsset.cs:427)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.universal@506b3deb0041/Runtime/Data/UniversalRenderPipelineAsset.cs Line: 427)
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 37.690 seconds
+Domain Reload Profiling: 60430ms
+	BeginReloadAssembly (326ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (13ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (136ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (22318ms)
+		LoadAssemblies (21966ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (469ms)
+			TypeCache.Refresh (416ms)
+				TypeCache.ScanAssembly (403ms)
+			BuildScriptInfoCaches (40ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (37691ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (34024ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (133ms)
+			ProcessInitializeOnLoadAttributes (11071ms)
+			ProcessInitializeOnLoadMethodAttributes (22790ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Start importing Assets/Wwise/ScriptableObjects using Guid(f0a0fb875fb245b479f2febd04530661) (DefaultImporter) -> (artifact id: 'c037eff4978c033b3bd97f4317bcc4b2') in 0.0082813 seconds
+Start importing Assets/StreamingAssets/desc.txt using Guid(0be451c063e7e7746aa0fe8c142d074b) (DefaultImporter) -> (artifact id: 'd265ac21a67b8c1c284efdfbf0fc1c4c') in 0.0580633 seconds
+Start importing Assets/StreamingAssets/Audio/Init.bnk using Guid(a2fd26c4c566449418dfb162b46566c3) (DefaultImporter) -> (artifact id: '78e8845999e699e3b66430d206c12e8f') in 0.0149006 seconds
+Start importing Assets/Wwise/Tools/WwiseIDConverter.py using Guid(d3ffcdb3c0abf3341b07e8c298d2d742) (DefaultImporter) -> (artifact id: '1d1d639fe4da258d389c9883d08750a5') in 0.0173933 seconds
+Start importing Assets/StreamingAssets/Audio/CombatBank.bnk using Guid(29279b4e4ead4f44389d864572552570) (DefaultImporter) -> (artifact id: '2755a2ff2bfa1f741d98ff63bae40dd5') in 0.0078043 seconds
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks/Init.bnk using Guid(e428823c41c3a494da50273e6b703daa) (DefaultImporter) -> (artifact id: 'f3e328f899dcfb4cf7ae3ed37b77fb92') in 0.0098185 seconds
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks/aja.txt using Guid(55dc242cf6aa5b54bb71cc1d38468463) (DefaultImporter) -> (artifact id: 'ab60307d8580c50847a5519d719cfab5') in 0.0085098 seconds
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks/Combat_SBank.bnk using Guid(375afbccc968ded4fb540f91ef603f31) (DefaultImporter) -> (artifact id: '99f3bcc015d4a34e0010780532916a9c') in 0.0089777 seconds
+Start importing Assets/StreamingAssets/Audio/GeneratedSoundBanks/aja.bnk using Guid(f9df191d17f0bdb479f7a809a2566870) (DefaultImporter) -> (artifact id: '94719ddebb74e87a0319c21f5e479d41') in 0.0073004 seconds
+Start importing Assets/Wwise/Documentation/AppleCommon/ko/WwiseUnityIntegrationHelp_Mac_ko.chm using Guid(012dfb4bf1ed90a439e53c6ad0fa4789) (DefaultImporter) -> (artifact id: '46450c50733384eb531af4373440b48e') in 0.0134525 seconds
+Start importing Assets/Wwise/Documentation/Windows/en/WwiseUnityIntegrationHelp_en.chm using Guid(66211f11ef3b86a45aef2345f22dd5a4) (DefaultImporter) -> (artifact id: '4b71dfe8d9bf118634edcf0c14befbe8') in 0.0079284 seconds
+Start importing Assets/Wwise/Documentation/Windows/ko/WwiseUnityIntegrationHelp_ko.chm using Guid(572e3118e63a9d94daf0981df8232895) (DefaultImporter) -> (artifact id: 'eee340776b26eda719a40ab27d8195a8') in 0.007756 seconds
+Start importing Assets/Wwise/Documentation/Windows/zh/WwiseUnityIntegrationHelp_zh.chm using Guid(67fe3ea77f5486947930b5e052d9f9f5) (DefaultImporter) -> (artifact id: 'e61ef8d964d121ab1cbd2078d2c9ab79') in 0.0098773 seconds
+Start importing Assets/Wwise/Documentation/AppleCommon/zh/WwiseUnityIntegrationHelp_Mac_zh.chm using Guid(385fb4c2842d3c64cb2bb87db883408c) (DefaultImporter) -> (artifact id: '5eade31579f81aaf9ab3bdc6095f4e9d') in 0.0077054 seconds
+Start importing Assets/Wwise/Documentation/Windows/ja/WwiseUnityIntegrationHelp_ja.chm using Guid(fbfbe7cbdf32ea34288943cf3449acb4) (DefaultImporter) -> (artifact id: '695ecb1a5b2c76faa937e3e64dbaae29') in 0.0100419 seconds
+Start importing Assets/Wwise/Documentation/AppleCommon/ja/WwiseUnityIntegrationHelp_Mac_ja.chm using Guid(3eefee275e76a9c4095df67eb689b1c7) (DefaultImporter) -> (artifact id: '54399a999815a4e1a0b3fb501115f9f0') in 0.0094384 seconds
+Start importing Assets/Wwise/Documentation/AppleCommon/en/WwiseUnityIntegrationHelp_Mac_en.chm using Guid(3f8690a477b07844197f1bf887b340dc) (DefaultImporter) -> (artifact id: '8773d55ff5e0851dd974b30370072f5f') in 0.0108091 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/AkMotion.pdb using Guid(90fc40f7e232f624a9e388d3ba930398) (DefaultImporter) -> (artifact id: '89cd4cb2f4c8bfa30b28d7a09540af5d') in 0.0110392 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/AkMotion.pdb using Guid(b0c99ccd33b6f9346a7c9209eb1c3557) (DefaultImporter) -> (artifact id: '24a7a72cce388242dd4c5f4066749161') in 0.0089532 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/Auro.pdb using Guid(427ba5fb001aaaa489712fea31e885b2) (DefaultImporter) -> (artifact id: 'ee2c7c05adc287836d0b55ce22330a57') in 0.0089616 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/McDSP.pdb using Guid(538f7d16a05d72448b633d3067a75e6c) (DefaultImporter) -> (artifact id: 'f385908b75c3f3b954a71d7d7c22fc5d') in 0.0087587 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/AkConvolutionReverb.pdb using Guid(a335b912945e7634b848e8ba32ad83a3) (DefaultImporter) -> (artifact id: '6782432a3be8b36af3be62a33b859035') in 0.009001 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/AkSoundSeedAir.pdb using Guid(04a9e69d56c3e654387404d894387c77) (DefaultImporter) -> (artifact id: '49cd48ee3b11e0b65cbab7b7d728eebe') in 0.0076542 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/Auro.pdb using Guid(149f377a205ce6e4ba21f650d93370c5) (DefaultImporter) -> (artifact id: '537cbecc5748b0e02a7a5dd50aad35d2') in 0.0087915 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.pdb using Guid(574731735f2ccab4d864511ad2fbe58a) (DefaultImporter) -> (artifact id: '7b8f9634c209d8213e8ad3277d17907f') in 0.0090121 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/AkSoundEngineDLL.pdb using Guid(e7966c8b61ac27a499afe541fb821459) (DefaultImporter) -> (artifact id: '4af0416976067ecedb9c9e10046a3374') in 0.0089277 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/AkConvolutionReverb.pdb using Guid(0876aebff8d5ef747b3336102d7d08c8) (DefaultImporter) -> (artifact id: 'bab677fed831483979231cb6087da289') in 0.0087556 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/AkSoundSeedGrain.pdb using Guid(7803dafcd2541ac49bfc1969b5733474) (DefaultImporter) -> (artifact id: '1663019e1ca7ea00fb1fcf39a36c0d47') in 0.0081633 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/Release/AkUnitySoundEngine.pdb using Guid(b81c8f18bcb555a47868b3994e87fa24) (DefaultImporter) -> (artifact id: 'cd03d9e731917f2d4f1d241922b45b56') in 0.0100991 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.pdb using Guid(69a9533f174df6b4f9315e87b961b7f9) (DefaultImporter) -> (artifact id: '382b40a865f6ce6b9e50f3f207d0fa2a') in 0.0080651 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/Profile/AkUnitySoundEngine.pdb using Guid(8a4f2930fea4b3242bb1a30a3e931647) (DefaultImporter) -> (artifact id: '6899eb646b630b13fc6115a8f5fb9449') in 0.0095401 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/iZotope.pdb using Guid(1cc168e4f87210d4ebccefb4559ec2d7) (DefaultImporter) -> (artifact id: '10c9972b3393c0d47207c8aaa3f96bcb') in 0.0078048 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/iZotope.pdb using Guid(2cb8ab297dbe10e4398459abdc12d225) (DefaultImporter) -> (artifact id: '858a0216ada48e763e72b5582f68823c') in 0.0086977 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/McDSP.pdb using Guid(ecf67e343ee029a42ba8e8d4ca6f7d27) (DefaultImporter) -> (artifact id: 'f03f78d42a3ee63fe0be955876623ad8') in 0.0077154 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/AkSoundSeedAir.pdb using Guid(8d436d67fa79b9e4789848d379adaf31) (DefaultImporter) -> (artifact id: '52c6269ffb86c8b674b6626cd4e9a62b') in 0.0084856 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Debug/AkUnitySoundEngine.pdb using Guid(0ec5def0d41dcef4b8cb6f91b1990fee) (DefaultImporter) -> (artifact id: '3321e0bd7724b4ad53386dacca0d0dbf') in 0.0083336 seconds
+Start importing Assets/Wwise/ProjectDatabase/Runtime/Plugins/Windows/x86_64/DSP/WwiseProjectDatabase.pdb using Guid(6e1e04f339630f04aa2cb298be25ea9c) (DefaultImporter) -> (artifact id: 'e8201eee18f790281fb79a3b9c4780bb') in 0.0090075 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/AkSoundEngineDLL.pdb using Guid(beed8813d36ebbb44b52c37ddb05a6c7) (DefaultImporter) -> (artifact id: '2e37d78ce57fdbbdbfa030180acb69ca') in 0.0086579 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/Debug/AkUnitySoundEngine.pdb using Guid(6faeda98d3f1b774bb7032b776f55f19) (DefaultImporter) -> (artifact id: '62e0e4c494f49339df528938efd00da0') in 0.0086934 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/AkSoundSeedGrain.pdb using Guid(8f1e625ab0ca2564c91ea24ef7eb405a) (DefaultImporter) -> (artifact id: 'b8310d0b1a858065ceb2d8f5ab7da79c') in 0.0102187 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkUnitySoundEngine.bundle.dSYM/Contents/Info.plist using Guid(79d53521ec112614183265a3213ff142) (DefaultImporter) -> (artifact id: '9507de700657fe2f884e18fed6e56b67') in 0.0207699 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle.dSYM/Contents/Info.plist using Guid(ba2a308d20a412b49bed3c27214cf8bc) (DefaultImporter) -> (artifact id: 'b3b60a9972e61ee1c120a8f8b025de4a') in 0.0075467 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkUnitySoundEngine.bundle.dSYM/Contents/Info.plist using Guid(0c78812caa7b2bb4ebfba8ac2d49d5db) (DefaultImporter) -> (artifact id: 'c6da388345f12d18016bee2bf1973a09') in 0.0088932 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/DWARF/AkUnitySoundEngine using Guid(a9b8c71105389104e8216b7daa45a053) (DefaultImporter) -> (artifact id: 'c8b3ee7d25fb1ce86271af8b15379bf3') in 0.0076321 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/DWARF/AkUnitySoundEngine using Guid(ad09e7a19cc60094e95805ba6f82c26a) (DefaultImporter) -> (artifact id: '6a6449652b5374f184e4b067a4a5ed14') in 0.0090302 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/DWARF/AkUnitySoundEngine using Guid(cef88371808074b4aba444e0cd1439df) (DefaultImporter) -> (artifact id: '046c5359b31056cab2278189530d5937') in 0.0092831 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/aarch64/AkUnitySoundEngine.yml using Guid(7205f744388bbb84cb14de4362e434f5) (DefaultImporter) -> (artifact id: '527135c55fed44d53b6a8242d5da4012') in 0.0205128 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/x86_64/AkUnitySoundEngine.yml using Guid(a2d4fad73302ff043862e4917c87d15e) (DefaultImporter) -> (artifact id: '4f4a95a56379bb57b3844133633b7dba') in 0.007523 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/aarch64/AkUnitySoundEngine.yml using Guid(c484d6fbb203c8f4eaab5881a4810e7a) (DefaultImporter) -> (artifact id: '3ebd15c88e83575aefbbf885dc8aa667') in 0.0088094 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/aarch64/AkUnitySoundEngine.yml using Guid(15b23d924e3e6b64b8a011a3f12be7d9) (DefaultImporter) -> (artifact id: 'ab4273dc07942d7770a481dba2ecc1bc') in 0.0074872 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/x86_64/AkUnitySoundEngine.yml using Guid(450f1ed3d8e595a4c9ca71ed94e18c23) (DefaultImporter) -> (artifact id: '6208e100a4c8329d6fcc0c49fc9f04e6') in 0.010371 seconds
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkUnitySoundEngine.bundle.dSYM/Contents/Resources/Relocations/x86_64/AkUnitySoundEngine.yml using Guid(db870f06bef2c1c4bbaded3304b9ee20) (DefaultImporter) -> (artifact id: '4e9142355c78ec48d16b8e0af10bdba4') in 0.0080961 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/physical_folder_nor.png using Guid(309b6cc4f84f3dc48bf451294298c680) (TextureImporter) -> (artifact id: '7df2e82b87457856e554f9056a5e4937') in 0.023213 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/trigger_nor.png using Guid(11b5d6a941eb0b049aa35274e80c8f14) (TextureImporter) -> (artifact id: 'd205de1fc09063f6812ec7e2852600ae') in 0.0095843 seconds
+Start importing Assets/Wwise/Gizmos/WwiseAudioSpeaker.png using Guid(514e16dde4e8b2b499ed6105c42120b4) (TextureImporter) -> (artifact id: '71412d2b56d5b1fb1bc442119315a25e') in 0.010777 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/blank.png using Guid(a288db27358e40340abb570c2b56a37d) (TextureImporter) -> (artifact id: '7009a45094feee42b45291587476a7a0') in 0.0120764 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/gameparameter_nor.png using Guid(f2dfc2344baedca4494b4842b99a076f) (TextureImporter) -> (artifact id: '1bb6fa3f85ae59961f3c496f6ebc4b73') in 0.0100803 seconds
+Start importing Assets/Wwise/Gizmos/wwise_white_on_gray.png using Guid(448b21b70fae4a44bb2c86bd3b8627f3) (TextureImporter) -> (artifact id: 'efb75923b175a68f13084f50e64aa27f') in 0.0130107 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/acoustictexture_nor.png using Guid(250a5b250393f924aac340ace196db1d) (TextureImporter) -> (artifact id: '6aa810765509fcf2f49a47dfb5833d4d') in 0.0116895 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/wproj.png using Guid(48e6c1bc63c248b408b2c35c238f92dd) (TextureImporter) -> (artifact id: 'a2e991da1e50eae97bf4668428d1b089') in 0.0110527 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/state_nor.png using Guid(a889ad37cb2919744a08dad4ef5dd9d4) (TextureImporter) -> (artifact id: '91c7326398f5040d23ad9875d4738ec6') in 0.0101946 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/folder_nor.png using Guid(e8c27588ec1ab844fbf6e8c5b73ba2ef) (TextureImporter) -> (artifact id: 'cacd5e543de657b94d7bbb9647e0e5b6') in 0.0113082 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/bus_nor.png using Guid(f85324ef9da98884ab881c90c692fa50) (TextureImporter) -> (artifact id: '43891a9c456d610ba46a7d595002a14e') in 0.0104035 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/auxbus_nor.png using Guid(9a7371f4dc34e0e43b7c8d93ea122120) (TextureImporter) -> (artifact id: '2aebd9101b448659df212e497e91f07a') in 0.0102925 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/event_nor.png using Guid(aad6b5f3b3bd80a458522d8b2d369500) (TextureImporter) -> (artifact id: '6057c429f01d044c51622afe561baf8d') in 0.0117432 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/workunit_nor.png using Guid(ba296109029317847bfdb2c54b959b96) (TextureImporter) -> (artifact id: '95d9dfbfa0036ce687cb62f55d09ad01') in 0.0113208 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/soundbank_nor.png using Guid(6dbf47e0c7e407445ade450794bfc4b7) (TextureImporter) -> (artifact id: '7122b397f6cea6b70545773cb00d09b0') in 0.0100406 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/switchgroup_nor.png using Guid(0ee25c88d707b8c4092ed1d190c92d4d) (TextureImporter) -> (artifact id: 'b23d17b49f85471c71d5f5fd96542533') in 0.0119004 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/stategroup_nor.png using Guid(8e86bf030b2f3e24885f07c7b91d0a95) (TextureImporter) -> (artifact id: '95ba58ea56f9d936f1b55443219edb0d') in 0.0097437 seconds
+Start importing Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/switch_nor.png using Guid(cff4990dae6f4f2488a5208d090dc363) (TextureImporter) -> (artifact id: 'f15532038cbd546655b8c68671087b6e') in 0.0103288 seconds
+Start importing Assets/Wwise/ScriptableObjects/AkWwiseInitializationSettings.asset using Guid(5af73630b633579409f378b62b645e9c) (NativeFormatImporter) -> (artifact id: 'b21a20e554abee8ec18c81e165ffe0cd') in 0.0012606 seconds
+Start importing Assets/Wwise/API/README.md using Guid(502ffcf46a728ed45bb5d4257368bafb) (TextScriptImporter) -> (artifact id: '31e4b5d4effe62b404323064ee4a8e13') in 0.010402 seconds
+Start importing Assets/Wwise/Timeline/LICENSE.md using Guid(7036cd9f66ae263489373c16409152e8) (TextScriptImporter) -> (artifact id: 'c57a0f7fc019a2aec2c4f0223a645680') in 0.0082557 seconds
+Start importing Assets/Wwise/Timeline/CHANGELOG.md using Guid(d1e8988e267d4934796521c720958d74) (TextScriptImporter) -> (artifact id: '6f2a95c9f4dbec8a4324e289514c1c4d') in 0.0100787 seconds
+Start importing Assets/WwiseSettings.xml using Guid(144f0f8e8b0acaf4c802ef1918823174) (TextScriptImporter) -> (artifact id: '22805adbf810033d0a8feb66a804c82c') in 0.0091846 seconds
+Start importing Assets/Wwise/API/CHANGELOG.md using Guid(d5e69430cdf861e47bdd9167ee9fe81c) (TextScriptImporter) -> (artifact id: '596fb3ed404cb82748e2b3b18704c467') in 0.0083371 seconds
+Start importing Assets/Wwise/MonoBehaviour/README.md using Guid(16a697997aa71b642ab893b0dd8092a5) (TextScriptImporter) -> (artifact id: '46e1e5381735112fa63b52e79f7285b5') in 0.0104081 seconds
+Start importing Assets/Wwise/API/package.json using Guid(57747dc4fb487f24eb44c3807b9690a6) (TextScriptImporter) -> (artifact id: '27e8f1b5a0f39d1a53ae0a2d34906991') in 0.0082898 seconds
+Start importing Assets/Wwise/API/LICENSE.md using Guid(59fc457f8b02a3642b9442819300d100) (TextScriptImporter) -> (artifact id: '1171a27004280b74f37d3c5473eb830a') in 0.0091708 seconds
+Start importing Assets/Wwise/Timeline/package.json using Guid(c939f1193318594408c64c243ac9aacf) (TextScriptImporter) -> (artifact id: 'b47ff3778561a3d86cb546de049e5693') in 0.010235 seconds
+Start importing Assets/Wwise/MonoBehaviour/LICENSE.md using Guid(5a9a2023f7a7c0247a91e3132fc8df5f) (TextScriptImporter) -> (artifact id: 'eec19470b5b4b38e04428ea409b6c1ff') in 0.0090428 seconds
+Start importing Assets/Wwise/MonoBehaviour/CHANGELOG.md using Guid(6b1df7e882b6029439246e34487ead68) (TextScriptImporter) -> (artifact id: '8e58bd2fbe7449d164065472722df248') in 0.0096518 seconds
+Start importing Assets/Wwise/Version.txt using Guid(fe12e3815b317bd489dfdaa1e1806063) (TextScriptImporter) -> (artifact id: '08c4ab087c87b5ff4973e91f7f72bd27') in 0.0084546 seconds
+Start importing Assets/Wwise/MonoBehaviour/package.json using Guid(1f76d0275acb7fb48afc14d007321cae) (TextScriptImporter) -> (artifact id: '42a4a0e57ecc306f53420c3c0d7a59a9') in 0.0100522 seconds
+Start importing Assets/Wwise/Timeline/README.md using Guid(7f30d1533583d1d46905555165d7a3f9) (TextScriptImporter) -> (artifact id: '86a291893e4d2956ecd2c55b2bc035cd') in 0.0081514 seconds
+Start importing Assets/Audio/Combate.wav using Guid(16a16cf2fc55ffa4281ca3b1a503e0d2) (AudioImporter) -> (artifact id: 'ec8dc7b5bd9701ddc8fbf918992a7844') in 4.650625 seconds
+Start importing Assets/Audio/DamageHero.wav using Guid(6bfe3940ff384a449982d074dea4fa45) (AudioImporter) -> (artifact id: '24f0b8c67b0355edfa9c85ada527d169') in 0.1642999 seconds
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Debug/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Refreshing native plugins compatible for Editor in 8.95 ms, found 11 plugins.
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Debug/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Refreshing native plugins compatible for Editor in 7.98 ms, found 11 plugins.
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Debug/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Refreshing native plugins compatible for Editor in 7.12 ms, found 11 plugins.
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Refreshing native plugins compatible for Editor in 7.35 ms, found 11 plugins.
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Refreshing native plugins compatible for Editor in 6.80 ms, found 11 plugins.
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Refreshing native plugins compatible for Editor in 6.81 ms, found 11 plugins.
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Refreshing native plugins compatible for Editor in 7.03 ms, found 11 plugins.
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Refreshing native plugins compatible for Editor in 6.82 ms, found 11 plugins.
+Multiple plugins with the same name 'akunitysoundengine' (found at 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll' and 'Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkUnitySoundEngine.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportAsset (string,UnityEditor.ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset (string)
+UnityEditor.AssetImporter:SaveAndReimport ()
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:265)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+[Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs line 265]
+
+Refreshing native plugins compatible for Editor in 7.50 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.76 ms, found 11 plugins.
+WwiseUnity: Plugins successfully activated for Profile in Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:271)
+AkPluginActivator:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:45)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+(Filename: Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs Line: 271)
+
+WwiseUnity : Created new AkWwiseProjectData asset
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AkWwiseProjectInfo:CreateWwiseProjectData () (at Assets/Wwise/API/Editor/WwiseWindows/AkWwiseProjectInfo.cs:121)
+AkWwiseProjectInfo:GetData () (at Assets/Wwise/API/Editor/WwiseWindows/AkWwiseProjectInfo.cs:99)
+AkWwiseWWUBuilder:GatherModifiedFiles () (at Assets/Wwise/API/Editor/WwiseWindows/AkWwiseWWUBuilder.cs:449)
+AkWwiseWWUBuilder:InitializeWwiseProjectData () (at Assets/Wwise/API/Editor/WwiseWindows/AkWwiseWWUBuilder.cs:122)
+AkWwiseWWUBuilder:OnPostprocessAllAssets (string[],string[],string[],string[],bool) (at Assets/Wwise/API/Editor/WwiseWindows/AkWwiseWWUBuilder.cs:48)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+(Filename: Assets/Wwise/API/Editor/WwiseWindows/AkWwiseProjectInfo.cs Line: 121)
+
+Start importing Assets/Wwise/Editor using Guid(fd06aae01476c9c42850363eb090a0a2) (DefaultImporter) -> (artifact id: 'de06cefbc05990b6bdb72c737d8c3a32') in 0.0086646 seconds
+Start importing Assets/Wwise/Editor/ProjectData using Guid(0025b705f826bfb4baf955eefda09c38) (DefaultImporter) -> (artifact id: '422f094f3d91597e89c73df749e125af') in 0.008007 seconds
+Start importing Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset using Guid(48496e5c56a0cad43bbed729dfb84f8b) (NativeFormatImporter) -> (artifact id: '84fcd8ba46eb3b7298e9e8bf538af017') in 0.0013317 seconds
+DisplayProgressbar: Populating Wwise Picker
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-YKCB-3D3W-YR9P-8Z3U-XXXX"
+[Licensing::Module] Serial number assigned to: "4673232005860-UnityPersXXXX"
+Refreshing native plugins compatible for Editor in 7.25 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=e21c1005d13506b4a8eacaafa8ab78b4): Total: 173.248 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=203 (actual=203, local cache=0, cache server=0)
+		Asset DB Process Time: managed=21 ms, native=76197 ms
+		Asset DB Callback time: managed=10027 ms, native=58 ms
+		Scripting: domain reloads=1, domain reload time=22744 ms, compile time=64152 ms, other=45 ms
+		Project Asset Count: scripts=1260, non-scripts=2389
+		Asset File Changes: new=8, changed=586, moved=0, deleted=27
+		Scan Filter Count: 5
+	InvokeCustomDependenciesCallbacks: 0.003ms
+	InvokePackagesCallback: 2.099ms
+	ApplyChangesToAssetFolders: 1.962ms
+	Scan: 29165.566ms
+	OnSourceAssetsModified: 2.579ms
+	CategorizeAssetsWithTransientArtifact: 1260.767ms
+	ProcessAssetsWithTransientArtifactChanges: 64.054ms
+	UnregisterDeletedAssets: 0.010ms
+	CategorizeAssets: 116.949ms
+	ImportOutOfDateAssets: 44499.605ms (-26435.013ms without children)
+		ImportManagerImport: 6774.515ms (11.778ms without children)
+			ImportInProcess: 6761.549ms
+			UpdateCategorizedAssets: 1.188ms
+		CompileScripts: 64152.148ms
+		ReloadNativeAssets: 0.163ms
+		UnloadImportedAssets: 2.003ms
+		ReloadImportedAssets: 0.016ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 3.137ms
+		InitializingProgressBar: 0.011ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.002ms
+		OnDemandSchedulerStart: 2.624ms
+	PostProcessAllAssets: 10462.733ms
+	Hotreload: 10.062ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.887ms
+	UnloadStreamsBegin: 3.009ms
+	PersistCurrentRevisions: 1.583ms
+	UnloadStreamsEnd: 0.005ms
+	GenerateScriptTypeHashes: 3.659ms
+	Untracked: 87656.263ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 2.340ms
+Initializing Unity extensions:
+Failed to find entry-points:
+System.Exception: Error while loading assembly references for PPv2URPConverters ---> System.IO.IOException: Win32 IO returned 23. Path: E:\CotaB\Unity Cota\Library\BurstCache\JIT\Hashes\e46a347a64c793855e1e633a10266065.bhc
+  at System.IO.FileStream.ReadData (System.Runtime.InteropServices.SafeHandle safeHandle, System.Byte[] buf, System.Int32 offset, System.Int32 count) [0x0002d] in <13c0c460649d4ce49f991e2c222fa635>:0 
+  at System.IO.FileStream.ReadInternal (System.Byte[] dest, System.Int32 offset, System.Int32 count) [0x00026] in <13c0c460649d4ce49f991e2c222fa635>:0 
+  at System.IO.FileStream.Read (System.Byte[] array, System.Int32 offset, System.Int32 count) [0x000a1] in <13c0c460649d4ce49f991e2c222fa635>:0 
+  at System.IO.File.ReadAllBytes (System.String path) [0x00042] in <13c0c460649d4ce49f991e2c222fa635>:0 
+  at Burst.Compiler.IL.Hashing.Storage.ILHashingResultRuntime..ctor (System.String hashCachePath) [0x00006] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Hashing.CacheRuntime.HashCacheLoader.CreateHashingResult (Mono.Cecil.AssemblyNameReference assemblyNameReference, Burst.Compiler.IL.AssemblyLoader assemblyLoader, Burst.Compiler.IL.Helpers.DebugLogWriter debugLogWriter) [0x000d4] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Hashing.CacheRuntime.HashCacheAssemblyStore.GetAssemblyState (System.String assemblyName, Burst.Compiler.IL.AssemblyLoader assemblyLoader) [0x000a0] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Server.EntryPointMethodFinder.LoadAllAssemblyReferences (Mono.Cecil.AssemblyDefinition asmDef, System.Collections.Generic.Dictionary`2[TKey,TValue] visited, System.Collections.Generic.Dictionary`2[TKey,TValue] jobProducers, Burst.Compiler.IL.Hashing.CacheRuntime.HashCacheAssemblyStore assemblyStore, Burst.Compiler.IL.AssemblyLoader assemblyLoader) [0x00025] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Server.EntryPointMethodFinder.LoadAllAssemblyReferences (Mono.Cecil.AssemblyDefinition asmDef, System.Collections.Generic.Dictionary`2[TKey,TValue] visited, System.Collections.Generic.Dictionary`2[TKey,TValue] jobProducers, Burst.Compiler.IL.Hashing.CacheRuntime.HashCacheAssemblyStore assemblyStore, Burst.Compiler.IL.AssemblyLoader assemblyLoader) [0x0018a] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Server.EntryPointMethodFinder.FindEntryPoints (System.String[] rootAssemblyNames, Burst.Compiler.IL.Hashing.CacheRuntime.HashCacheAssemblyStore assemblyStore, Burst.Compiler.IL.AssemblyLoader assemblyLoader, Burst.Compiler.IL.NativeCompilerOptions options, Burst.Compiler.IL.Server.ProfileDelegate profileCallback, System.Boolean includeRootAssemblyReferences, System.Boolean splitTargets) [0x00071] in <e1b160e675d74da0b932cfdbf6040260>:0 
+   --- End of inner exception stack trace ---
+  at Burst.Compiler.IL.Server.EntryPointMethodFinder.FindEntryPoints (System.String[] rootAssemblyNames, Burst.Compiler.IL.Hashing.CacheRuntime.HashCacheAssemblyStore assemblyStore, Burst.Compiler.IL.AssemblyLoader assemblyLoader, Burst.Compiler.IL.NativeCompilerOptions options, Burst.Compiler.IL.Server.ProfileDelegate profileCallback, System.Boolean includeRootAssemblyReferences, System.Boolean splitTargets) [0x00094] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Server.CompilerServer+<>c__DisplayClass18_1.<FindMethods>b__0 (Burst.Compiler.IL.Server.Caching.CacheManager cacheManager) [0x0005e] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Server.CompilerServer+<>c__DisplayClass26_0`1[TResult].<RunTask>b__0 () [0x00145] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Server.CompilerServer.RunTask[TResult] (Burst.Compiler.IL.Server.TargetKey target, System.String taskName, System.String[] assemblyFolders, System.Threading.CancellationToken cancellationToken, System.Func`2[T,TResult] function) [0x00131] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Server.CompilerServer.FindMethods (Burst.Compiler.IL.Server.CompilerServerOptions options, Burst.Compiler.IL.Aot.AotCompilerOptions aotOptions, Burst.Compiler.IL.AssemblyDefinesDict assemblyDefines, Burst.Compiler.IL.Server.TargetKey target, Burst.Compiler.IL.Server.Caching.CacheManager cacheManager, Burst.Compiler.IL.CompilerStatistics stats, System.Threading.CancellationToken cancellationToken) [0x00299] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Server.CompilerServer+<>c__DisplayClass26_0`1[TResult].<RunTask>b__0 () [0x00145] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Server.CompilerServer.RunTask[TResult] (Burst.Compiler.IL.Server.TargetKey target, System.String taskName, System.String[] assemblyFolders, System.Threading.CancellationToken cancellationToken, System.Func`2[T,TResult] function) [0x00131] in <e1b160e675d74da0b932cfdbf6040260>:0 
+  at Burst.Compiler.IL.Server.CompilerServer.Compile (Burst.Compiler.IL.Server.CompilerServerOptions options, Burst.Compiler.IL.Server.CompilationMessageStreamer streamer, System.Threading.CancellationToken cancellationToken) [0x001ca] in <e1b160e675d74da0b932cfdbf6040260>:0 
+
+While compiling job:
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-YKCB-3D3W-YR9P-8Z3U-XXXX"
+[Licensing::Module] Serial number assigned to: "4673232005860-UnityPersXXXX"
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-My project
+Unloading 28 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4805 unused Assets / (2.2 MB). Loaded Objects now: 5526.
+Memory consumption went from 180.6 MB to 178.4 MB.
+Total: 10.144000 ms (FindLiveObjects: 0.626300 ms CreateObjectMapping: 0.787800 ms MarkObjects: 6.918600 ms  DeleteObjects: 1.810100 ms)
+
+WwiseUnity: Running install setup...
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:63)
+
+(Filename: Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 63)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (39.8 KB). Loaded Objects now: 5538.
+Memory consumption went from 172.6 MB to 172.6 MB.
+Total: 7.788800 ms (FindLiveObjects: 0.282400 ms CreateObjectMapping: 0.094900 ms MarkObjects: 7.372900 ms  DeleteObjects: 0.037500 ms)
+
+WwiseUnity: Deactivating all plugins...
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+WwiseSetupWizard:Setup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:544)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:65)
+
+(Filename: Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 544)
+
+Refreshing native plugins compatible for Editor in 6.73 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.47 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1e36e36e932de4b4bb9ede7cc5f51eb0): Total: 0.069 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 7.40 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.72 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d97179cc346edae429d6991e07886728): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.55 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.25 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=70a04e032dd81ff4080c11c81e3cf715): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 7.00 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.20 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=84a78acbf38528a42ac8addc43e9e6ae): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.59 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.62 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=699f0f1900ff31e4ca61ef0f0db46dce): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.50 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.74 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=e91f490b7afa5c7418bd32b207c9ad42): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 7.30 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.81 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=aca649d155ff17348b69eacd4717a9a5): Total: 0.164 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 7.59 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.77 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=03648b2202727864db2cfb891306d9ad): Total: 0.140 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 7.07 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.23 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f9d8fa96249105448a16fc2ee90fdc1a): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.79 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.46 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9962cf9e450f44b4bab36f506c1937f5): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.77 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.08 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ddc75a9d1fabeec4699f1985eb96cae7): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 7.08 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.66 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a999849da24ebf444a07c3322b6ae29f): Total: 0.139 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.79 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.55 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=32c9f64045cf49b4ba3aceed03a4cf73): Total: 0.029 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 7.12 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.73 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1fbf90b9ba979ca4ab681a3720afaefe): Total: 0.138 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.53 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.70 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=685f688ce80798245a35eb704be65d39): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 7.28 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.32 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2c27898eee1445c4f9d11a6441dfc2ab): Total: 0.165 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 7.37 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 9.02 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a1a215b816dcc834c93acb2f67b81638): Total: 0.150 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.70 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.73 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2d10e3a1a667bbd47bfdc7361eea5998): Total: 0.161 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.49 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.73 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4857242d9c7ab6f458fd6a3d3e735ab5): Total: 0.134 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 7.30 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.75 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=fa5ed02bded789b469f6dd30fc8f825e): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.40 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.25 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d3be64c419c1a1d4d9b3e39edb663e1a): Total: 0.025 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.40 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.13 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=51fe51f84aa35ff43a9e35f9055d5515): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.28 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.75 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c7fbf81860977af49a99dd89365a7a02): Total: 0.138 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.54 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.48 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=684eb1a14056c304788f96940bd15894): Total: 0.158 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.53 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.08 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=53c906074ce87e24b81eb29421fd44c9): Total: 0.026 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 7.00 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.48 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.86 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=226d766947717034e8708f635d7c1806): Total: 0.057 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.28 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.31 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c4b59b884e1409b4d80edce1a7d19722): Total: 0.141 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.53 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.74 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=bbf77354c60e3ac40bf818e9f4ed7971): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.50 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.76 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=59e57a59858e3bd4d9a934b4fe044690): Total: 0.141 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.69 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.86 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4c301a7566f48bc4f8c9016a4567f931): Total: 0.140 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.51 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.83 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=5bba24cd8d360174bab32e25caa233ba): Total: 0.138 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.69 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.50 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9ec59b3d6a1a89646b350a37ae9a9a3f): Total: 0.157 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.36 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.52 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=68d76c65c629fae4baf01e92514a4d81): Total: 0.131 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.39 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.69 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1ec3199682ca92f42be52b5a0764e6dc): Total: 0.133 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.63 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.88 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d0bd3271110673b46b2acc7ee7052ec3): Total: 0.140 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.89 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.66 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4f722947dcf11ef4d85d1f11c00f7a5b): Total: 0.134 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.47 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.60 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d3ab63d8432c5564cbd47efe0a18c866): Total: 0.026 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.76 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.36 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3dcca38349e63c04ba51c8c21d6bca1e): Total: 0.753 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=16 ms
+		Asset DB Callback time: managed=128 ms, native=608 ms
+		Scripting: domain reloads=0, domain reload time=0 ms, compile time=0 ms, other=0 ms
+		Project Asset Count: scripts=1260, non-scripts=2389
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 9
+	InvokeCustomDependenciesCallbacks: 0.000ms
+	InvokePackagesCallback: 0.000ms
+	ApplyChangesToAssetFolders: 0.103ms
+	Scan: 5.422ms
+	OnSourceAssetsModified: 0.001ms
+	CategorizeAssetsWithTransientArtifact: 0.074ms
+	ProcessAssetsWithTransientArtifactChanges: 0.046ms
+	CategorizeAssets: 1.327ms
+	ImportOutOfDateAssets: 1.030ms (0.272ms without children)
+		ReloadNativeAssets: 0.024ms
+		UnloadImportedAssets: 0.173ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.336ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.225ms
+	PostProcessAllAssets: 131.544ms
+	Hotreload: 605.391ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.131ms
+	UnloadStreamsBegin: 0.001ms
+	PersistCurrentRevisions: 0.146ms
+	UnloadStreamsEnd: 0.001ms
+	Untracked: 8.145ms
+
+Refreshing native plugins compatible for Editor in 6.52 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.57 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=cb22327f22c1bef4faadd2121cda6b29): Total: 0.178 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.43 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.52 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3f2692844efc820429a1b4d1755149fa): Total: 0.131 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.46 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.94 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=39bf6b352220e1c4487f3f58c5d2f18f): Total: 0.026 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.70 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.10 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=68977d4e8fac9a24b9bbf063d9d7ee02): Total: 0.026 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.19 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.77 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=e111e9316ba05bd4bb786406e009e657): Total: 0.026 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.42 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.33 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=6927526745fcad64aa551f70463205c2): Total: 0.025 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.37 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.29 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9aa595c39dc82734094d56aa09299288): Total: 0.025 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.34 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.28 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.51 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=fb979d6627f938d45b45c971a961ced9): Total: 0.159 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 6.38 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.49 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=b3e417f2c5caff24094d3d9bba162cf6): Total: 0.133 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+WwiseUnity: Sound engine will not be initialized in batch/nographics mode. To override, specify -wwiseEnableWithNoGraphics
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+AkSoundEngineController:Init (AkInitializer) (at Assets/Wwise/MonoBehaviour/Runtime/AkSoundEngineController.cs:112)
+AkInitializer:OnEnable () (at Assets/Wwise/MonoBehaviour/Runtime/AkInitializer.cs:162)
+UnityEditor.Undo:AddComponent (UnityEngine.GameObject,System.Type)
+UnityEditor.Undo:AddComponent<AkInitializer> (UnityEngine.GameObject)
+WwiseSetupWizard:CreateWwiseGlobalObject () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:661)
+WwiseSetupWizard:Setup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:561)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:65)
+
+(Filename: Assets/Wwise/MonoBehaviour/Runtime/AkSoundEngineController.cs Line: 112)
+
+WwiseUnity: Updating PluginActivator...
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+WwiseSetupWizard:Setup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:572)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:65)
+
+(Filename: Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 572)
+
+WwiseUnity: Activating plugins for editor...
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+WwiseSetupWizard:Setup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:574)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:65)
+
+(Filename: Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 574)
+
+wwiseunity: AkPluginActivator VERBOSE: ActivatePluginsForEditor: Activating Assets/Wwise/API/Runtime/Plugins/Windows/x86/Profile/AkUnitySoundEngine.dll
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AkPluginActivator:LogVerbose (string) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:308)
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:248)
+WwiseSetupWizard:Setup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:575)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:65)
+
+(Filename: Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs Line: 308)
+
+wwiseunity: AkPluginActivator VERBOSE: ActivatePluginsForEditor: Changed plugin Assets/Wwise/API/Runtime/Plugins/Windows/x86/Profile/AkUnitySoundEngine.dll, saving and reimporting.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AkPluginActivator:LogVerbose (string) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:308)
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:264)
+WwiseSetupWizard:Setup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:575)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:65)
+
+(Filename: Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs Line: 308)
+
+Refreshing native plugins compatible for Editor in 6.46 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 7.11 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 6.91 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=200025c68d4d5424f81ae91dca6d58dc): Total: 0.214 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+wwiseunity: AkPluginActivator VERBOSE: ActivatePluginsForEditor: Activating Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkUnitySoundEngine.bundle
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AkPluginActivator:LogVerbose (string) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:308)
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:248)
+WwiseSetupWizard:Setup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:575)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:65)
+
+(Filename: Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs Line: 308)
+
+wwiseunity: AkPluginActivator VERBOSE: ActivatePluginsForEditor: Activating Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AkPluginActivator:LogVerbose (string) (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:308)
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:248)
+WwiseSetupWizard:Setup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:575)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:65)
+
+(Filename: Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs Line: 308)
+
+WwiseUnity: Plugins successfully activated for Profile in Editor.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AkPluginActivator:ActivatePluginsForEditor () (at Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs:271)
+WwiseSetupWizard:Setup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:575)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:65)
+
+(Filename: Assets/Wwise/API/Editor/PluginActivator/Common/AkPluginActivator.cs Line: 271)
+
+[Licensing::Client] Successfully resolved entitlement details
+WwiseUnity: Refreshing asset database.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:67)
+
+(Filename: Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 67)
+
+Asset Pipeline Refresh (id=024955a859021914a8ea9fce648e5313): Total: 0.017 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+WwiseUnity: End of setup, exiting Unity.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+WwiseSetupWizard:RunSetup () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:71)
+
+(Filename: Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 71)
+
+Batchmode quit successfully invoked - shutting down!
+Start importing ProjectSettings/ProjectSettings.asset using Guid(00000000000000004000000000000000) (LibraryAssetImporter) -> (artifact id: 'cbb9df7112c95563ccccb70bc76d49cb') in 0.0085484 seconds
+Start importing ProjectSettings/AudioManager.asset using Guid(00000000000000006000000000000000) (LibraryAssetImporter) -> (artifact id: 'a619e7b440d09a824cdbe5b2cca6939c') in 0.0015706 seconds
+Start importing Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset using Guid(48496e5c56a0cad43bbed729dfb84f8b) (NativeFormatImporter) -> (artifact id: '76dfcba56058cceadff6fae60be09c96') in 0.0018697 seconds
+Refreshing native plugins compatible for Editor in 6.80 ms, found 11 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=4b7edb38ca76a5d45ad6cf56ae7498a0): Total: 0.049 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] License Notification channel disconnected successfully.
+[Licensing::IpcConnector] License Client channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Shut down.
+abort_threads: Failed aborting id: 0000000000003C80, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 0000000000001148, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 0000000000002494, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 0000000000003C80, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 0000000000001148, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 0000000000002494, mono_thread_manage will ignore it
+
+debugger-agent: Unable to listen on 3032
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0
