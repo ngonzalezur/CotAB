@@ -113,7 +113,7 @@ public class UnitManager : MonoBehaviour
 
         StartCoroutine(RestoreStamina(Heroes[0]));
         StartCoroutine(RestoreMana(Heroes[0]));
-        StartCoroutine(AtaqueInvocaciones());
+        //StartCoroutine(AtaqueInvocaciones());
         if (SecondPlayer)
         {
             StartCoroutine(RestoreStamina(Heroes[1]));
@@ -351,28 +351,26 @@ public class UnitManager : MonoBehaviour
         Invocaciones.Add(invocacion);
     }
 
-    IEnumerator AtaqueInvocaciones()
-    {
-        while (true)
-        {
-            AtaqueInvoacion();
-            yield return new WaitForSeconds(2);
-        }
-    }
-
-    public void AtaqueInvoacion()
+    IEnumerator AtaqueInvocaciones(List<BaseUnit> inovocaciones)
     {
         foreach (BaseUnit unit in Invocaciones)
         {
             if (unit == null || unit.Attacks[0] == null)
             {
                 //literalmente no hacer nada porque al parecer se sale de la corrutina
-            }else
+            }
+            else
             {
                 CanCastAttack(unit, 0);
                 //Debug.Log("soy un planta que ataca");
             }
         }
+        yield return new WaitForSeconds(2f);
+    }
+
+    public void AtaqueInvoacion()
+    {
+        //llamar corrutina si se puede
     }
     public void DashMelee(BaseUnit unit, BaseAttack attack)
     {
@@ -555,6 +553,25 @@ public class UnitManager : MonoBehaviour
                 CanMove(hero, 2);
             }
             if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.wasPressedThisFrame)))
+            {
+                CanMove(hero, 3);
+            }
+        }
+        if (player == 1)
+        {
+            if ((Input.GetKeyDown(KeyCode.UpArrow)))
+            {
+                CanMove(hero, 0);
+            }
+            if ((Input.GetKeyDown(KeyCode.LeftArrow)))
+            {
+                CanMove(hero, 1);
+            }
+            if ((Input.GetKeyDown(KeyCode.DownArrow)))
+            {
+                CanMove(hero, 2);
+            }
+            if ((Input.GetKeyDown(KeyCode.RightArrow)))
             {
                 CanMove(hero, 3);
             }
@@ -753,6 +770,11 @@ public class UnitManager : MonoBehaviour
         {
             MoveHero(Heroes[0], 0);
             AttackHero2(Heroes[0], 0);
+            if(SecondPlayer && Heroes[1] != null)
+            {
+                MoveHero(Heroes[1], 1);
+                AttackHero2(Heroes[1], 1);
+            }
             //TrueHighlight(Heroes[0]);
             //StartCoroutine(AttackMove());
             TakeDamage();
