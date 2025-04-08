@@ -46,13 +46,13 @@ public class CanvaManager : MonoBehaviour
                 var tiempoC = sprite.attS.LastCast1 + sprite.attS.CoolDown - Time.time;
                 sprite.texto.text = (tiempoC).ToString("F2");
             }
-            
+
         }
     }
 
     public void PutSprites()
     {
-        foreach(Sprite sprite in SpritesAtt)
+        foreach (Sprite sprite in SpritesAtt)
         {
             Sprite nuevoUI = Instantiate(sprite, canvasTransform);
             SpritesTemp.Add(nuevoUI);
@@ -61,7 +61,7 @@ public class CanvaManager : MonoBehaviour
 
     public void CambiarVidaHeroe(int hel)
     {
-        foreach (BaseUnit hero in UnitManager.Instance.AllUnits)
+        foreach (BaseUnit hero in UnitManager.Instance.Heroes)
         {
             if (hero.Faction == Faction.Hero)
             {
@@ -74,7 +74,7 @@ public class CanvaManager : MonoBehaviour
 
     public void CambiarVidaEnemigo(int hel)
     {
-        foreach (BaseUnit enemy in UnitManager.Instance.AllUnits)
+        foreach (BaseUnit enemy in UnitManager.Instance.Enemies)
         {
             if (enemy.Faction == Faction.Enemy)
             {
@@ -83,27 +83,27 @@ public class CanvaManager : MonoBehaviour
                 enemy.ActualHeath.text = enemy.Health + " / " + enemy.MaxHealth;
             }
         }
-        
+
     }
 
     public void CambiarVelocidadEnemigo(float vel)
     {
-        foreach (BaseUnit enemy in UnitManager.Instance.AllUnits)
+        foreach (BaseUnit enemy in UnitManager.Instance.Enemies)
         {
             if (enemy.Faction == Faction.Enemy)
             {
-                UnitManager.Instance.TimeMoveEne = vel;
+                //UnitManager.Instance.TimeMoveEne = vel;
             }
         }
     }
 
     public void CambiarVelocidadAttBasic(float vel)
     {
-        foreach (BaseUnit enemy in UnitManager.Instance.AllUnits)
+        foreach (BaseUnit enemy in UnitManager.Instance.Heroes)
         {
             if (enemy.Faction == Faction.Enemy)
             {
-                UnitManager.Instance.TimeAttEne = vel;
+                //UnitManager.Instance.TimeAttEne = vel;
             }
         }
     }

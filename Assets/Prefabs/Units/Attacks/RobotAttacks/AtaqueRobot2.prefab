@@ -133,11 +133,11 @@ MonoBehaviour:
   LastCast2: -100
   ManaCost: 5
   invocacion: {fileID: 0}
-  DoVeneno: 10
+  DoVeneno: 0
   DoBurn: 0
-  stun: 0
+  stun: 1
   attackType: 0
-  type: 10
+  type: 2
 --- !u!1 &1636329195985070217
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,6 +45,7 @@ public class BaseUnit : MonoBehaviour
         lastCastBA = 0;
         StartCoroutine(Veneno());
         StartCoroutine(Burn());
+        StartCoroutine(GetBurn());
     }
 
     public void Destroy()
@@ -130,9 +131,21 @@ public class BaseUnit : MonoBehaviour
         //basic attack
         if (Time.time - lastCastBA > Attacks[0].CoolDown)
         {
-            //UnitManager.Instance.AttackEnemy(this);
-            MauriManager.Instance.AttackEnemy(this);
+            UnitManager.Instance.AttackEnemy(this);
+            //MauriManager.Instance.AttackEnemy(this);
             lastCastBA = Time.time;
+        }
+    }
+
+    IEnumerator GetBurn()
+    {
+        while (true)
+        {
+            if(this.OccupiedTile != null && this.OccupiedTile.Burning > 0)
+            {
+                burn = this.OccupiedTile.Burning;
+            }
+            yield return new WaitForSeconds(1f);
         }
     }
 }

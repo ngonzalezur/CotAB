@@ -28,12 +28,12 @@ public class GameManager : MonoBehaviour
                 GridManager.Instance.GenerateGrid();
                 break;
             case GameState.SpawnHeroes:
-                //UnitManager.Instance.SpawnHeroes();
-                MauriManager.Instance.SpawnHeroes();
+                UnitManager.Instance.SpawnHeroes();
+                //MauriManager.Instance.SpawnHeroes();
                 break;
             case GameState.SpawnEnemies:
-                //UnitManager.Instance.SpawnEnemies();
-                MauriManager.Instance.SpawnEnemies();
+                UnitManager.Instance.SpawnEnemies();
+                //MauriManager.Instance.SpawnEnemies();
                 break;
             case GameState.GenerateUI:
                 //CanvaManager.Instance.AssignAttack();
@@ -42,8 +42,8 @@ public class GameManager : MonoBehaviour
                 CanvaManager.Instance.CanSprites = true;
                 break;
             case GameState.HeroesTurn:
-                //UnitManager.Instance.CanPlay = true;
-                MauriManager.Instance.CanPlay = true;
+                UnitManager.Instance.CanPlay = true;
+                //MauriManager.Instance.CanPlay = true;
                 break;
             case GameState.EndFight:
                 UnitManager.Instance.CanPlay = false;

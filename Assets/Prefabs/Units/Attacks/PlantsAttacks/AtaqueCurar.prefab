@@ -129,11 +129,13 @@ MonoBehaviour:
   Faction: 0
   AreaOfEffect: 1
   CoolDown: 10
-  LastCast1: 0
+  LastCast1: 5
   LastCast2: -100
   ManaCost: 0
   invocacion: {fileID: 0}
   DoVeneno: 0
+  DoBurn: 0
+  stun: 0
   attackType: 0
   type: 12
 --- !u!1 &1636329195985070217

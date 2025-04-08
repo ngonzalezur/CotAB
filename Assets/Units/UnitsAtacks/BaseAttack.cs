@@ -51,8 +51,8 @@ public class BaseAttack : MonoBehaviour
     public void Destroy()
     {
         if (this == null || this.OccupiedTile == null) return;
-        //UnitManager.Instance.Attacks.Remove(this);
-        MauriManager.Instance.AttacksinPlay.Remove(this);
+        UnitManager.Instance.AttacksinPlay.Remove(this);
+        //MauriManager.Instance.AttacksinPlay.Remove(this);
         this.gameObject.SetActive(false);
         this.OccupiedTile.OccupiedAttack = null;
     }

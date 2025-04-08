@@ -125,15 +125,19 @@ MonoBehaviour:
   UnitName: EstadoEnemigos
   OccupiedTile: {fileID: 0}
   Damage: 5
+  Heal: 0
   Faction: 0
   AreaOfEffect: 1
   CoolDown: 1
   LastCast1: 0
   LastCast2: -100
   ManaCost: 5
-  DoVeneno: 10
+  invocacion: {fileID: 0}
+  DoVeneno: 0
+  DoBurn: 0
+  stun: 0
   attackType: 0
-  type: 10
+  type: 9
 --- !u!1 &1636329195985070217
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,12 @@ public abstract class Tile : MonoBehaviour
 
     public BaseUnit OccupiedUnit;
     public BaseAttack OccupiedAttack;
+
+    public int Burning = 0;
+
+    public Tile HeroTile;
+    public Tile EnemyTile;
+    public Tile NeutralTile;
     public bool Walkable => _isWalkable && OccupiedUnit == null;
 
     Coroutine moveUnitCoroutine = null;
@@ -33,8 +39,23 @@ public abstract class Tile : MonoBehaviour
        // _highlight.SetActive(false);
     }
 
+    IEnumerator StartBurning(int i)
+    {
+        Burning = i;
+        //activar vfx
+        yield return new WaitForSeconds(8);
+        Burning = 0;
+        //apagar vfx
+    }
+
+    public void StartCoroutineBurning(int i)
+    {
+        StartCoroutine(StartBurning(i));
+    }
+
     public void SetUnit(BaseUnit unit)
     {
+        if (unit == null || unit.Faction != Faction || this.OccupiedUnit != null) return;
         // Asegurar que la casilla anterior detenga su animación
         if (unit.OccupiedTile != null)
         {
@@ -45,7 +66,7 @@ public abstract class Tile : MonoBehaviour
         StopMovingCoroutine();
 
         // Iniciar la nueva animación
-        moveUnitCoroutine = StartCoroutine(SetUnitCoroutine(0.2f, 0.5f, unit.transform.position, transform.position + new Vector3(0, 0, -1), unit));
+        moveUnitCoroutine = StartCoroutine(SetUnitCoroutine(0.2f, 0.2f, unit.transform.position, transform.position + new Vector3(0, 0, -1), unit));
         if (unit.OccupiedTile != null)
         {
             ChangeHighlight(unit);

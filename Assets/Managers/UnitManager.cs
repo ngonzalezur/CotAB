@@ -6,6 +6,9 @@ using UnityEngine.Rendering; // Necesario para Task.Delay
 using UnityEngine.InputSystem;
 using CotA.Configuration;
 using System.Reflection;
+using System;
+using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.UI.CanvasScaler;
 //using System;
 
 
@@ -14,129 +17,83 @@ public class UnitManager : MonoBehaviour
     public ConfigurationData configuration;
 
     public static UnitManager Instance;
-    private List<BaseUnit> _heroes = new List<BaseUnit>();
-    private BaseUnit _enemies;
-    private ScriptableAttack _attack;
-    private ScriptableAttack _attackE;
-    public List<ScriptableAttack> _attackS = new List<ScriptableAttack>();
-    public List<BaseUnit> AllUnits = new List<BaseUnit>();
 
-    [SerializeField] private float pobAtt = 50;
-    [SerializeField] private int HealthEnemy = 0;
-    [SerializeField] private int NumEnemies = 1;
+    public List<BaseUnit> Heroes = new List<BaseUnit>();
+    public List<BaseUnit> Enemies = new List<BaseUnit>();
 
-    //[SerializeField] private int DmgAttHero = 0;
-    [SerializeField] private int HealthHero = 1;
+    public List<BaseUnit> Invocaciones = new List<BaseUnit>();
+
 
     public ObjectPool poolHero1;
     public ObjectPool poolHero2;
     public ObjectPool poolEnemies;
 
-    private List<int> movimientos = new List<int>();
-    private List<int> movimientos2 = new List<int>();
+    public List<BaseAttack> AttacksinPlay = new List<BaseAttack>();
 
-
-    //private BaseUnit Hero1;
-    //private BaseUnit Hero2;
-    private List<BaseUnit> Heroes = new List<BaseUnit>();
-
-    private List<BaseUnit> Enemies = new List<BaseUnit>();
-    public List<BaseAttack> Attacks = new List<BaseAttack>();
-
-    private float tiempoUltimaEjecucion = 1f;
-    private float tiempoUltimaEjecucion2 = 1f;
-    private float tiempoUltimaEjecucion3 = 0.5f;
-    private float tiempoUltimaEjecucion4 = 0.5f;
 
     public bool CanPlay = false;
 
-    public float TimeMoveEne = 2f;
-    public float TimeAttEne = 0.5f;
-    public float TimeMoveHero = 0.5f;
-    public float TimeVeneno = 1f;
-
     public bool SecondPlayer = false;
 
-    //public float lastAtt1 = -100f;
-    //public float lastAtt2 = -100f;
-
     Gamepad Mando = null;
+
+    public void SetHeroUnit(BaseUnit unit)
+    {
+        //Agrego una intancia y esa sera quien se modifique en escena
+        var newUnit = Instantiate(unit, new Vector3(0, 0, -1), Quaternion.identity);
+        int cont = 0;
+        foreach (BaseAttack attack in unit.Attacks)
+        {
+            newUnit.Attacks[cont] = Instantiate(unit.Attacks[cont], new Vector3(0, 0, -1), Quaternion.identity);
+            newUnit.Attacks[cont].gameObject.SetActive(false);
+            cont++;
+        }
+        Heroes.Add(newUnit);
+    }
+
+    public void SetEnemyUnit(BaseUnit unit)
+    {
+        //Agrego una referencia de la unidad para modificar la referencia y no el prefab
+        var newUnit = Instantiate(unit, new Vector3(0, 0, -1), Quaternion.identity);
+        int cont = 0;
+        foreach (BaseAttack attack in unit.Attacks)
+        {
+            newUnit.Attacks[cont] = Instantiate(unit.Attacks[cont], new Vector3(0, 0, -1), Quaternion.identity);
+            newUnit.Attacks[cont].gameObject.SetActive(false);
+            cont++;
+        }
+        Enemies.Add(newUnit);
+        cont = 0;
+    }
 
     void Awake()
     {
         Instance = this;
-        
-        TimeMoveEne = configuration.setup1.TimeMoveEne;
-        TimeAttEne = configuration.setup1.TimeAttEne;
-        TimeMoveHero = configuration.setup1.TimeMoveHero;
-        TimeVeneno = configuration.setup1.TimeVeneno;
-
-        foreach (ConfigurationData.AttData  att in configuration.basickAttack)
+        //Referencio los heroes del data maanger y los guardo en la Lista Heroes
+        foreach (ConfigurationData.UnitData unit in configuration.Heroes)
         {
-            att.prefab.Damage = att.Damage;
-            att.prefab.DoVeneno = att.DoVeneno;
-            att.prefab.CoolDown = att.Cooldown;
-            att.prefab.AreaOfEffect = att.AreaOfEffect;
-            att.prefab.LastCast1 = -100;
+            BaseUnit hero = unit.prefab;
+            SetHeroUnit(hero);
         }
 
-        //Busco todos los prefabs que necesito
-
-        //_heroes = new List<ScriptableUnit>(Resources.LoadAll<ScriptableUnit>("Units/Heroes"));
-        _heroes.Add(configuration.nina.prefab);
-        _heroes.Add(configuration.robot.prefab);
-
-        //_enemies = Resources.Load<ScriptableUnit>("Units/Enemies/Enemy1");
-        _enemies = configuration.basicEnemy.prefab;
-        _attack = Resources.Load<ScriptableAttack>("Units/Attacks/BasicAttackHero");
-        _attackE = Resources.Load<ScriptableAttack>("Units/Attacks/BasicAttackEnemy");
-
-        //_attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack1"));
-        _attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack1"));
-        //_attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack2"));
-        _attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack2"));
-        //_attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack3"));
-        _attackS.Add(Resources.Load<ScriptableAttack>("Units/Attacks/SpecialAttack3"));
-
-
-        //Seteo que este tiempo no demore nada para que pueda tirar poderes inemdiatamente
-        foreach (ScriptableAttack attack in _attackS)
+        //Referencio los enemigos del data maanger y los guardo en la Lista Enemies
+        foreach (ConfigurationData.UnitData unit in configuration.Enemies)
         {
-            attack.AttackPrefab.LastCast1 = -100f;
-            attack.AttackPrefab.LastCast2 = -100f;
+            BaseUnit enemy = unit.prefab;
+            SetEnemyUnit(enemy);
         }
-         //los tiempos de cada cuanto puede pasar cierta corrutina
-        tiempoUltimaEjecucion = Time.time;
-        tiempoUltimaEjecucion2 = Time.time;
-        tiempoUltimaEjecucion3 = Time.time;
-        //la formula inicial para calcular las velocidades de los enemigos y proyectiles
-        //TimeMoveEne = 1 / velEnemy;
-        //TimeAttEne = 1 / velAttack;
-
-        //obtengo als variales para las vidas de heroes y enemigos y poder mostarlas encima de ellos
-        
-        _enemies.MaxHealth = HealthEnemy;
-
-       
-        _heroes[0].MaxHealth = HealthHero;
+        SetAttackDictionary();
 
         Mando = InputSystem.GetDevice<Gamepad>();
-        //Debug.Log(Mando);
 
-        foreach(BaseHero hero in _heroes)
-        {
-            foreach(BaseAttack att in hero.Attacks)
-            {
-                att.LastCast1 = -100;
-                att.LastCast2 = -100;
-            }
-            
-        }
+        //emepzar corrutinas
+        StartCoroutine(AttackMove());
     }
 
     //codigo que hace aparecer los personajes
     public void SpawnHeroes()
     {
+        //Cantidad de personajes aliaos que voy a hacer spawn, si hay dos jugadores le agrega uno
         var heroCount = 1;
         if (SecondPlayer)
         {
@@ -145,22 +102,18 @@ public class UnitManager : MonoBehaviour
 
         for (int i = 0; i < heroCount; i++)
         {
-            var heroPrefab = _heroes[i];
-            var Hero1 = Instantiate(heroPrefab,Vector3.zero + new Vector3(0, 0, -1), Quaternion.identity);
-            var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(0,0));
-            while (randomSpawnTile.OccupiedUnit != null)
-            {
-                randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(Random.Range(0, 5), Random.Range(0, 5)));
-            }
-            Heroes.Add(Hero1);
-            AllUnits.Add(Hero1);
-
-            randomSpawnTile.SetUnit(Hero1);
-            Hero1.OccupiedTile = randomSpawnTile;
+            var x = UnityEngine.Random.Range(0, 5);
+            var y = UnityEngine.Random.Range(0, 5);
+            var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(x, y));
+            var hero = Heroes[i];
+            hero.OccupiedTile = randomSpawnTile;
+            randomSpawnTile.SetUnit(hero);
+            hero.GetHighlightHero()._highlight.SetActive(true);
         }
 
         StartCoroutine(RestoreStamina(Heroes[0]));
         StartCoroutine(RestoreMana(Heroes[0]));
+        StartCoroutine(AtaqueInvocaciones());
         if (SecondPlayer)
         {
             StartCoroutine(RestoreStamina(Heroes[1]));
@@ -173,418 +126,524 @@ public class UnitManager : MonoBehaviour
     //codigo que hace aparecer los enemigos
     public void SpawnEnemies()
     {
-        var enemyCount = NumEnemies;
+        var enemyCount = Enemies.Count;
 
         for (int i = 0; i < enemyCount; i++)
         {
-            
-            var enemyPrefab = _enemies;
-            var enemy = Instantiate(enemyPrefab, Vector3.zero + new Vector3(0,0,-1), Quaternion.identity);
-            var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(8, 3));
-            //while (randomSpawnTile.OccupiedUnit != null)
-            //{
-                randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(Random.Range(6, 11), Random.Range(0, 5)));
-            //}
-
-            randomSpawnTile.SetUnit(enemy);
-            if(i == 2)
-            {
-                enemy.EnemyType.Special = true;
-            }
-            else
-            {
-                enemy.EnemyType.Special = false;
-            }
-            Enemies.Add(enemy);
-            AllUnits.Add(enemy);
+            var x = UnityEngine.Random.Range(6, 11);
+            var y = UnityEngine.Random.Range(0, 5);
+            var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(x, y));
+            var enemy = Enemies[i];
+            enemy.OccupiedTile = randomSpawnTile;
+            randomSpawnTile.SetUnit(Enemies[i]);
         }
-        
+
         GameManager.Instance.ChangeState(GameState.GenerateUI);
     }
 
-    
-
-    private void AttackHero(BaseUnit hero, int player)
+    public void CanCastAttack(BaseUnit unit, int i)
     {
+        if (unit == null) return;
 
-        if(player == 0)
+        if (unit.CastMana - unit.Attacks[i].ManaCost > 0 && Time.time - unit.Attacks[i].LastCast1 >= unit.Attacks[i].CoolDown)
         {
-            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && hero.CastMana- _attack.AttackPrefab.ManaCost> 0)
-            {
-                hero.CastMana -= _attack.AttackPrefab.ManaCost;
-                var randomPrefab = _attack.AttackPrefab;
-                //var attackSpawned = Instantiate(randomPrefab, Vector3.zero, Quaternion.identity);
-                var attackSpawned = poolHero1.GetObjectInPool();
-                attackSpawned.gameObject.SetActive(true);
-                var randomSpawnTile = hero.OccupiedTile.RightTile();
-
-                randomSpawnTile.SetAttack(attackSpawned);
-                Attacks.Add(attackSpawned);
-                hero.animator.SetTrigger("Attack");
-            }
-
-            //ataues especiales de los heroes uno con Q otro con E
-
-            if ((Input.GetKeyDown(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && Time.time >= hero.Attacks[0].LastCast1 + _attackS[0].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[0].ManaCost > 0)
-            {
-                hero.CastMana -= hero.Attacks[0].ManaCost;
-                if (hero.Attacks[0] != null)
-                {
-                    //SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
-                    SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
-                    hero.Attacks[0].LastCast1 = Time.time;
-                    hero.animator.SetTrigger("Attack");
-                }
-
-            }
-
-            if ((Input.GetKeyDown(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && Time.time >= hero.Attacks[1].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[1].ManaCost > 0)
-            {
-                hero.CastMana -= hero.Attacks[1].ManaCost;
-                if (hero.Attacks[1] != null)
-                {
-                    SpecialAttack(hero, hero.Attacks[1], hero.GetHighlightHero());
-                    hero.Attacks[1].LastCast1 = Time.time;
-                    hero.animator.SetTrigger("Attack");
-                }
-            }
-
-            if ((Input.GetKeyDown(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && Time.time >= hero.Attacks[2].LastCast1 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[2].ManaCost > 0)
-            {
-                hero.CastMana -= hero.Attacks[2].ManaCost;
-                if (hero.Attacks[2] != null)
-                {
-                    SpecialAttack(hero, hero.Attacks[2], hero.GetHighlightHero());
-                    hero.Attacks[2].LastCast1 = Time.time;
-                    hero.animator.SetTrigger("Attack");
-                }
-            }
-
-            //if ((Input.GetKeyDown(KeyCode.P) || (Mando != null && Mando.buttonSouth.ReadValue() > 0)) && Time.time >= hero.Attacks[3].LastCast1 + _attackS[1].AttackPrefab.CoolDown&& hero.CastMana - hero.Attacks[3].ManaCost > 0)
-            //{
-            //    hero.CastMana -= hero.Attacks[3].ManaCost;
-            //    if (hero.Attacks[3] != null)
-            //    {
-            //        SpecialAttack(hero, hero.Attacks[3], hero.GetHighlightHero());
-            //        hero.Attacks[3].LastCast1 = Time.time;
-            //    }
-            //}
+            unit.CastMana -= unit.Attacks[i].ManaCost;
+            CastAttack(unit, unit.Attacks[i]);
+            unit.Attacks[i].LastCast1 = Time.time;
+            unit.animator.SetTrigger("Attack");
         }
+    }
+    public delegate void Ataques(BaseUnit unit, BaseAttack attack);
 
-        if (player == 1)
-        {
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                var randomPrefab = _attack.AttackPrefab;
-                var attackSpawned = poolHero2.GetObjectInPool();
-                attackSpawned.gameObject.SetActive(true);
-                var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(hero.OccupiedTile.x + 1, hero.OccupiedTile.y));
+    Dictionary<int, Ataques> Ataque = new Dictionary<int, Ataques>();
 
-                randomSpawnTile.SetAttack(attackSpawned);
-                Attacks.Add(attackSpawned);
-            }
-
-            //ataues especiales de los heroes uno con Q otro con E
-
-            if (Input.GetKeyDown(KeyCode.V) && Time.time >= _attackS[0].AttackPrefab.LastCast2 + _attackS[0].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[0].ManaCost > 0)
-            {
-                hero.CastMana -= hero.Attacks[0].ManaCost;
-                if (hero.Attacks[0] != null)
-                {
-                    SpecialAttack(hero, hero.Attacks[0], hero.GetHighlightHero());
-                    hero.Attacks[0].LastCast1 = Time.time;
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.B) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[1].ManaCost > 0)
-            {
-                hero.CastMana -= hero.Attacks[1].ManaCost;
-                if (hero.Attacks[1] != null)
-                {
-                    SpecialAttack(hero, hero.Attacks[1], hero.GetHighlightHero());
-                    hero.Attacks[1].LastCast1 = Time.time;
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.N) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[2].ManaCost > 0)
-            {
-                hero.CastMana -= hero.Attacks[2].ManaCost;
-                if (hero.Attacks[2] != null)
-                {
-                    SpecialAttack(hero, hero.Attacks[2], hero.GetHighlightHero());
-                    hero.Attacks[2].LastCast1 = Time.time;
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.M) && Time.time >= _attackS[1].AttackPrefab.LastCast2 + _attackS[1].AttackPrefab.CoolDown && hero.CastMana - hero.Attacks[3].ManaCost > 0)
-            {
-                hero.CastMana -= hero.Attacks[3].ManaCost;
-                if (hero.Attacks[3] != null)
-                {
-                    SpecialAttack(hero, hero.Attacks[3], hero.GetHighlightHero());
-                    hero.Attacks[3].LastCast1 = Time.time;
-                }
-            }
-        }
+    public void SetAttackDictionary()
+    {
+        Ataque[0] = Proyectil;
+        Ataque[1] = Cast;
+        Ataque[2] = Area;
+        Ataque[3] = Muro;
+        Ataque[4] = Fila;
+        Ataque[5] = AllEnemiesDamage;
+        Ataque[6] = RandomCast;
+        Ataque[7] = Melee;
+        Ataque[8] = Invocacion;
+        Ataque[9] = DashMelee;
+        Ataque[10] = Parry;
+        Ataque[11] = CambiarFaccion;
+        Ataque[12] = AllHerosDamage;
 
     }
 
-    //codigo para que los ataques basicos se muevan de por la cuadricula
-    IEnumerator AttackMove()
+    public void CastAttack(BaseUnit unit, BaseAttack attack)
     {
-        for(int i = Attacks.Count - 1; i >= 0; i--)
+        if (unit == null || attack == null) return;
+
+        if (Ataque.TryGetValue((int)attack.type, out Ataques att))
         {
-            if( Attacks[i].Faction == Faction.Hero)
-            {
-                //if (Attacks[i] != null && Attacks[i].OccupiedTile.x >= GridManager.Instance._width - 1)
-                //{
-                //    //Attacks.Remove(Attacks[i]);
-                //    Attacks[i].Destroy();
-
-                //}
-                if (Attacks[i] != null && Attacks[i].OccupiedTile.x < GridManager.Instance._width - 2)
-                {
-                    var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(Attacks[i].OccupiedTile.x + 1, Attacks[i].OccupiedTile.y));
-                    nextTile.SetAttack(Attacks[i]);
-                }
-                else if (Attacks[i] != null)
-                {
-                    Attacks[i].Destroy();
-                }
-            }
-
-            if (Attacks[i].Faction == Faction.Enemy)
-            {
-                //if (Attacks[i] != null && Attacks[i].OccupiedTile.x <= 0)
-                //{
-                //    //Attacks.Remove(Attacks[i]);
-                //    Attacks[i].Destroy();
-
-                //}
-                if (Attacks[i] != null && Attacks[i].OccupiedTile.x > 0)
-                {
-                    var nextTile = GridManager.Instance.GetTileAtPosition(new Vector2(Attacks[i].OccupiedTile.x - 1, Attacks[i].OccupiedTile.y));
-                    nextTile.SetAttack(Attacks[i]);
-                }
-                else if(Attacks[i] != null)
-                {
-                    Attacks[i].Destroy();
-                }
-            }
-
-
+            att(unit, attack);
         }
-        
-
-        yield return new WaitForSeconds(0.5f);
+        else
+        {
+            Debug.Log("Acción no encontrada");
+        }
     }
 
-    
 
-    //IEnumerator MoverHeroeSlowOG(BaseUnit hero1, int player)
-    //{
-    //    if(player == 0)
-    //    {
-    //        //var newTile = hero1.OccupiedTile;
-    //        var mc = movimientos.Count;
-    //        var Highlight = hero1.GetHighlightHero();
-    //        Highlight._highlight.SetActive(false);
-
-
-    //        if (mc < 2)
-    //        {
-    //            if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
-    //            {
-    //                movimientos.Add(0);
-    //            }
-    //            if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
-    //            {
-    //                movimientos.Add(1);
-    //            }
-    //            if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
-    //            {
-    //                movimientos.Add(2);
-    //            }
-    //            if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
-    //            {
-    //                movimientos.Add(3);
-    //            }
-    //        }
-
-    //        //newTile.SetUnit(hero1);
-    //        Highlight = hero1.GetHighlightHero();
-    //        Highlight._highlight.SetActive(true);
-
-
-    //        //Aqui esta el ataque de heroe, separarlo (ya se separó)
-    //        //AttackHero(hero1);
-    //    }else if (player == 1)
-    //    {
-    //        var newTile = hero1.OccupiedTile;
-    //        var Highlight = hero1.GetHighlightHero();
-    //        Highlight._highlight.SetActive(false);
-
-
-
-    //        if (Input.GetKey(KeyCode.UpArrow) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
-    //        {
-    //            newTile = hero1.OccupiedTile.UpTile();
-    //            //Debug.Log("entra arriba?");
-    //        }
-    //        if (Input.GetKey(KeyCode.LeftArrow) && hero1.OccupiedTile.x > 0)
-    //        {
-    //            newTile = hero1.OccupiedTile.LeftTile();
-    //        }
-    //        if (Input.GetKey(KeyCode.DownArrow) && hero1.OccupiedTile.y > 0)
-    //        {
-    //            newTile = hero1.OccupiedTile.DownTile();
-    //        }
-    //        if (Input.GetKey(KeyCode.RightArrow) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
-    //        {
-    //            newTile = hero1.OccupiedTile.RightTile();
-    //        }
-
-    //        newTile.SetUnit(hero1);
-    //        Highlight = hero1.GetHighlightHero();
-    //        Highlight._highlight.SetActive(true);
-
-
-    //        //Aqui esta el ataque de heroe, separarlo (ya se separó)
-    //        //AttackHero(hero1);
-    //    }
-
-    //    yield return new WaitForSeconds(2f);
-    //}
-
-
-    public void  MoverHeroeSlow(BaseUnit hero1, int player)
+    public void Proyectil(BaseUnit unit, BaseAttack attack)
     {
+        if (unit == null || attack == null) return;
+        var tile = unit.OccupiedTile.RightTile();
+        var tempAttack = Instantiate(attack, new Vector3(tile.x, tile.y, -1), Quaternion.identity);
+        tempAttack.gameObject.SetActive(true);
+        tile.SetAttack(tempAttack);
+        AttacksinPlay.Add(tempAttack);
+    }
+    public void Cast(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = unit.GetHighlightHero();
+        var tempAttack = Instantiate(attack, new Vector3(target.x, target.y, -1), Quaternion.identity);
+        tempAttack.gameObject.SetActive(true);
+        target.SetAttack(tempAttack);
+        StartCoroutine(Destruir(tempAttack));
+    }
+
+    public void SetAttacksInTiles(List<Tile> target, BaseAttack attack)
+    {
+        if (target == null || attack == null) return;
+        foreach (Tile tile in target)
+        {
+            var att = Instantiate(attack, new Vector3(tile.x, tile.y, -1), Quaternion.identity);
+            att.gameObject.SetActive(true);
+            tile.SetAttack(att);
+            StartCoroutine(Destruir(att));
+            if(attack.DoBurn > 0)
+            {
+                tile.StartCoroutineBurning(att.DoBurn);
+            }
+        }
+    }
+    public void Area(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        target.Add(unit.GetHighlightHero());
+        //buscar vecinas
+        AgregarSiNoNull(target, target[0].UpTile());
+        AgregarSiNoNull(target, target[0].DownTile());
+        AgregarSiNoNull(target, target[0].LeftTile());
+        AgregarSiNoNull(target, target[0].RightTile());
+
+        // Diagonales
+        AgregarSiNoNull(target, target[0].UpTile().LeftTile());
+        AgregarSiNoNull(target, target[0].UpTile().RightTile());
+        AgregarSiNoNull(target, target[0].DownTile().LeftTile());
+        AgregarSiNoNull(target, target[0].DownTile().RightTile());
+
+        SetAttacksInTiles(target, attack);
+    }
+    //Funcion para ver si una tile es nula o agregarla a una lista
+    public void AgregarSiNoNull(List<Tile> lista, Tile tile)
+    {
+        if (tile != null)
+            lista.Add(tile);
+    }
+
+    public void Muro(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        target = AllYTiles(unit.GetHighlightHero());
+
+        SetAttacksInTiles(target, attack);
+    }
+
+    //Funcion para conseguir todas las tiles de una columna
+    public List<Tile> AllYTiles(Tile tile)
+    {
+        if (tile == null) return null;
+        var target = new List<Tile>();
+        for (int i = 0; i < 6; i++)
+        {
+            var tempTile = GridManager.Instance.GetTileAtPosition(new Vector2(tile.x, i));
+            AgregarSiNoNull(target, tempTile);
+        }
+        return target;
+    }
+    public void Fila(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        target = AllXTiles(unit.OccupiedTile);
+        SetAttacksInTiles(target, attack);
+    }
+
+    //Funcion para conseguir todas las tiles de una fila a la derecha del heroe
+    public List<Tile> AllXTiles(Tile tile)
+    {
+        if (tile == null) return null;
+        var target = new List<Tile>();
+        for (int i = tile.x + 1; i <= 11; i++)
+        {
+            var tempTile = GridManager.Instance.GetTileAtPosition(new Vector2(i, tile.y));
+            AgregarSiNoNull(target, tempTile);
+        }
+        return target;
+    }
+    public void AllEnemiesDamage(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        foreach (BaseUnit enemy in Enemies)
+        {
+            var tempTile = enemy.OccupiedTile;
+            AgregarSiNoNull(target, tempTile);
+        }
+        SetAttacksInTiles(target, attack);
+    }
+
+    public void AllHerosDamage(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        foreach (BaseUnit hero in Heroes)
+        {
+            var tempTile = hero.OccupiedTile;
+            AgregarSiNoNull(target, tempTile);
+        }
+        SetAttacksInTiles(target, attack);
+    }
+
+    public void RandomCast(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        // no se definir cuantos randoms van a hacer, queda pendiente
+    }
+    public void Melee(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        AgregarSiNoNull(target, unit.OccupiedTile.RightTile());
+        SetAttacksInTiles(target, attack);
+    }
+
+
+
+    public void Invocacion(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        target.Add(unit.OccupiedTile.RightTile());
+        InstanciarInvocacion(attack, target);
+    }
+
+    public void InstanciarInvocacion(BaseAttack attack, List<Tile> target)
+    {
+        if (target == null || target[0] == null || attack.invocacion == null) return;
+        var tile = target[0];
+        var invocacion = Instantiate(attack.invocacion, new Vector3(tile.x, tile.y, -1), Quaternion.identity);
+        var ataqueInvocacion = Instantiate(invocacion.Attacks[0], new Vector3(tile.x, tile.y, -1), Quaternion.identity);
+        ataqueInvocacion.gameObject.SetActive(false);
+        invocacion.Attacks[0] = ataqueInvocacion;
+        tile.SetUnit(invocacion);
+        Invocaciones.Add(invocacion);
+    }
+
+    IEnumerator AtaqueInvocaciones()
+    {
+        while (true)
+        {
+            AtaqueInvoacion();
+            yield return new WaitForSeconds(2);
+        }
+    }
+
+    public void AtaqueInvoacion()
+    {
+        foreach (BaseUnit unit in Invocaciones)
+        {
+            if (unit == null || unit.Attacks[0] == null) return;
+            CanCastAttack(unit, 0);
+            //Debug.Log("soy un planta que ataca");
+        }
+    }
+    public void DashMelee(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        AgregarSiNoNull(target, unit.GetHighlightHero());
+        StartCoroutine(TeleportMeleeDash(unit, attack, target));
+    }
+
+    IEnumerator TeleportMeleeDash(BaseUnit unit, BaseAttack attack, List<Tile> target)
+    {
+        unit.GetHighlightHero().LeftTile().InstantSetUnit(unit);
+        SetAttacksInTiles(target, attack);
+        yield return new WaitForSeconds(1);
+        unit.OccupiedTile.InstantSetUnit(unit);
+
+    }
+    public void Parry(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        StartCoroutine(ActivateParry(unit));
+        //algo visaul del parry, una corrutina con while true depronto y que al finalizar activate parry se detenga
+    }
+
+    IEnumerator ActivateParry(BaseUnit unit)
+    {
+        unit.parry = true;
+        yield return new WaitForSeconds(2);
+        unit.parry = false;
+    }
+    public void CambiarFaccion(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        target = PrimeraColumnaEnemiga(target);
+        StartCoroutine(CambiarFactionToHero(target));
+    }
+
+    IEnumerator CambiarFactionToHero(List<Tile> target)
+    {
+        foreach(Tile tile in target)
+        {
+            tile.HeroTile.gameObject.SetActive(true);
+            tile.EnemyTile.gameObject.SetActive(false);
+            tile.Faction = Faction.Hero;
+        }
+        yield return new WaitForSeconds(10);
+        foreach (Tile tile in target)
+        {
+            tile.HeroTile.gameObject.SetActive(false);
+            tile.EnemyTile.gameObject.SetActive(true);
+            tile.Faction = Faction.Hero;
+        }
+    }
+
+    public List<Tile> PrimeraColumnaEnemiga(List<Tile> target)
+    {        
+        for(int i = 0; i < 6; i++)
+        {
+            var tempTile = GridManager.Instance.GetTileAtPosition(new Vector2(GridManager.Instance._width / 2, i));
+            AgregarSiNoNull(target, tempTile);
+        }
+        return target;
+    }
+
+    public void AttackHero2(BaseUnit unit, int player)
+    {
+        if (unit == null) return;
+
         if (player == 0)
         {
-            //var newTile = hero1.OccupiedTile;
-            var mc = movimientos.Count;
-            var Highlight = hero1.GetHighlightHero();
-            Highlight._highlight.SetActive(false);
-
-
-            if (mc == 2)
+            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)))
             {
-                if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.wasPressedThisFrame)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
-                {
-                    movimientos[1] = 0;
-                }
-                if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.wasPressedThisFrame)) && hero1.OccupiedTile.x > 0)
-                {
-                    movimientos[1] = 1;
-                }
-                if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.wasPressedThisFrame)) && hero1.OccupiedTile.y > 0)
-                {
-                    movimientos[1] = 2;
-                }
-                if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.wasPressedThisFrame)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
-                {
-                    movimientos[1] = 3;
-                }
+                CanCastAttack(unit, 0);
             }
-
-            if (mc < 2)
+            if ((Input.GetKeyDown(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)))
             {
-                if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.wasPressedThisFrame)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
-                {
-                    movimientos.Add(0);
-                }
-                if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.wasPressedThisFrame)) && hero1.OccupiedTile.x > 0)
-                {
-                    movimientos.Add(1);
-                }
-                if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.wasPressedThisFrame)) && hero1.OccupiedTile.y > 0)
-                {
-                    movimientos.Add(2);
-                }
-                if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.wasPressedThisFrame)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
-                {
-                    movimientos.Add(3);
-                }
+                CanCastAttack(unit, 1);
             }
-
-
-
-            //newTile.SetUnit(hero1);
-            Highlight = hero1.GetHighlightHero();
-            Highlight._highlight.SetActive(true);
-
-
-            //Aqui esta el ataque de heroe, separarlo (ya se separó)
-            //AttackHero(hero1);
+            if ((Input.GetKeyDown(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)))
+            {
+                CanCastAttack(unit, 2);
+            }
+            if ((Input.GetKeyDown(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)))
+            {
+                CanCastAttack(unit, 3);
+            }
         }
-        else if (player == 1)
+        if (player == 1)
         {
-            //var newTile = hero1.OccupiedTile;
-            var mc = movimientos.Count;
-            var Highlight = hero1.GetHighlightHero();
-            Highlight._highlight.SetActive(false);
-
-
-            if (mc == 2)
+            if (Input.GetKeyDown(KeyCode.G))
             {
-                if ((Input.GetKeyDown(KeyCode.UpArrow) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
-                {
-                    movimientos2[1] = 0;
-                }
-                if ((Input.GetKeyDown(KeyCode.LeftArrow) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
-                {
-                    movimientos2[1] = 1;
-                }
-                if ((Input.GetKeyDown(KeyCode.DownArrow) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
-                {
-                    movimientos2[1] = 2;
-                }
-                if ((Input.GetKeyDown(KeyCode.RightArrow) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
-                {
-                    movimientos2[1] = 3;
-                }
+                CanCastAttack(unit, 0);
             }
-
-            if (mc < 2)
+            if (Input.GetKeyDown(KeyCode.V))
             {
-                if ((Input.GetKeyDown(KeyCode.UpArrow) || (Mando != null && Mando.dpad.up.ReadValue() > 0)) && hero1.OccupiedTile.y < GridManager.Instance._height - 1)
-                {
-                    movimientos2.Add(0);
-                }
-                if ((Input.GetKeyDown(KeyCode.LeftArrow) || (Mando != null && Mando.dpad.left.ReadValue() > 0)) && hero1.OccupiedTile.x > 0)
-                {
-                    movimientos2.Add(1);
-                }
-                if ((Input.GetKeyDown(KeyCode.DownArrow) || (Mando != null && Mando.dpad.down.ReadValue() > 0)) && hero1.OccupiedTile.y > 0)
-                {
-                    movimientos2.Add(2);
-                }
-                if ((Input.GetKeyDown(KeyCode.RightArrow) || (Mando != null && Mando.dpad.right.ReadValue() > 0)) && hero1.OccupiedTile.x < GridManager.Instance._width / 2 - 1)
-                {
-                    movimientos2.Add(3);
-                }
+                CanCastAttack(unit, 1);
             }
-            Highlight = hero1.GetHighlightHero();
-            Highlight._highlight.SetActive(true);
-
-
-            //Aqui esta el ataque de heroe, separarlo (ya se separó)
-            //AttackHero(hero1);
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                CanCastAttack(unit, 2);
+            }
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                CanCastAttack(unit, 3);
+            }
         }
-
-        
     }
+
+    IEnumerator AttackMove()
+    {
+        while (true)
+        {
+            for (int i = AttacksinPlay.Count - 1; i >= 0; i--)
+            {
+                if (AttacksinPlay[i] == null) break;
+                if (AttacksinPlay[i].Faction == Faction.Hero)
+                {
+                    //if (Attacks[i] != null && Attacks[i].OccupiedTile.x >= GridManager.Instance._width - 1)
+                    //{
+                    //    //Attacks.Remove(Attacks[i]);
+                    //    Attacks[i].Destroy();
+
+                    //}
+                    if (AttacksinPlay[i] == null)
+                    {
+                        break;
+                    }
+                    if (AttacksinPlay[i] != null && AttacksinPlay[i].OccupiedTile != null && AttacksinPlay[i].OccupiedTile.x < GridManager.Instance._width - 1)
+                    {
+                        var nextTile = AttacksinPlay[i].OccupiedTile.RightTile();
+                        nextTile.SetAttack(AttacksinPlay[i]);
+                    }
+                    else if (AttacksinPlay[i] != null)
+                    {
+                        AttacksinPlay[i].Destroy();
+                    }
+                }
+                else if (AttacksinPlay[i].Faction == Faction.Enemy)
+                {
+                    //if (Attacks[i] != null && Attacks[i].OccupiedTile.x <= 0)
+                    //{
+                    //    //Attacks.Remove(Attacks[i]);
+                    //    Attacks[i].Destroy();
+
+                    //}
+                    if (AttacksinPlay[i] != null && AttacksinPlay[i].OccupiedTile.x > 0)
+                    {
+                        var nextTile = AttacksinPlay[i].OccupiedTile.LeftTile();
+                        nextTile.SetAttack(AttacksinPlay[i]);
+                    }
+                    else if (AttacksinPlay[i] != null)
+                    {
+                        AttacksinPlay[i].Destroy();
+                    }
+                }
+
+
+            }
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+
+    public void MoveHero(BaseUnit hero, int player)
+    {
+        if (hero == null) return;
+        if (player == 0)
+        {
+            if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.wasPressedThisFrame)))
+            {
+                CanMove(hero, 0);
+            }
+            if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.wasPressedThisFrame)))
+            {
+                CanMove(hero, 1);
+            }
+            if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.wasPressedThisFrame)))
+            {
+                CanMove(hero, 2);
+            }
+            if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.wasPressedThisFrame)))
+            {
+                CanMove(hero, 3);
+            }
+        }
+    }
+
+    public void FalseHighlight(BaseUnit unit)
+    {
+        if (unit.Faction == Faction.Hero)
+        {
+            unit.GetHighlightHero()._highlight.SetActive(false);
+            //Debug.Log("Me apague");
+        }
+        else
+        {
+            unit.GetHighlightEnemy()._highlight.SetActive(false);
+        }
+    }
+    public void TrueHighlight(BaseUnit unit)
+    {
+        if (unit.Faction == Faction.Hero)
+        {
+            unit.GetHighlightHero()._highlight.SetActive(true);
+            //Debug.Log("Me prendi");
+        }
+        else
+        {
+            unit.GetHighlightEnemy()._highlight.SetActive(true);
+        }
+    }
+
+    public void CanMove(BaseUnit unit, int direction)
+    {
+        //para direccion tendremos 0 arriba, 1 izquierda, 2 abajo, 3 derecha
+        if (direction == 0 && CheckFaction(unit, unit.OccupiedTile.UpTile()))
+        {
+            FalseHighlight(unit);
+            //moverse
+            MoveUnit(unit, unit.OccupiedTile.UpTile());
+            //TrueHighlight(unit);
+        }
+        if (direction == 1 && CheckFaction(unit, unit.OccupiedTile.LeftTile()))
+        {
+            FalseHighlight(unit);
+            //moverse
+            MoveUnit(unit, unit.OccupiedTile.LeftTile());
+            unit.animator.SetTrigger("MoveBack");
+            //TrueHighlight(unit);
+        }
+        if (direction == 2 && CheckFaction(unit, unit.OccupiedTile.DownTile()))
+        {
+            FalseHighlight(unit);
+            //moverse
+            MoveUnit(unit, unit.OccupiedTile.DownTile());
+            //TrueHighlight(unit);
+        }
+        if (direction == 3 && CheckFaction(unit, unit.OccupiedTile.RightTile()))
+        {
+            FalseHighlight(unit);
+            //moverse
+            MoveUnit(unit, unit.OccupiedTile.RightTile());
+            unit.animator.SetTrigger("MoveFoward");
+            //TrueHighlight(unit);
+        }
+    }
+
+    public void MoveUnit(BaseUnit unit, Tile tile)
+    {
+        if (unit == null || tile == null) return;
+        tile.SetUnit(unit);
+        tile.OccupiedUnit.GetHighlightHero()._highlight.SetActive(true);
+    }
+
+    public bool CheckFaction(BaseUnit unit, Tile tile)
+    {
+        if (unit == null || tile == null) return false;
+        if (unit.Faction == tile.Faction || tile.Faction == Faction.Neutral)
+        {
+            return true;
+        }
+        return false;
+    }
+
+
 
 
 
     //Codigo de movimiento que SI se esta suando ahorita para mover y atacar del enemigo
     IEnumerator MoverEnemigo()
     {
-        foreach(BaseUnit Enemy1 in Enemies)
+        foreach (BaseUnit Enemy1 in Enemies)
         {
             var newTile = Enemy1.OccupiedTile;
             //Esto hace que el enemigo se mueva de forma aleatoria
-            int randomMove = Random.Range(1, 6);
+            int randomMove = UnityEngine.Random.Range(1, 6);
             //Vector2 nuevaPosicion = new Vector2(Enemy1.OccupiedTile.x, Enemy1.OccupiedTile.y);
 
             //if (randomMove == 1 && Enemy1.OccupiedTile.y < GridManager.Instance._height - 1)
@@ -593,7 +652,7 @@ public class UnitManager : MonoBehaviour
             //    {
             //        newTile = Enemy1.OccupiedTile.UpTile();
             //    }
-                
+
             //}
             //else if (randomMove == 2 && Enemy1.OccupiedTile.x > GridManager.Instance._width / 2)
             //{
@@ -608,7 +667,7 @@ public class UnitManager : MonoBehaviour
             //    {
             //        newTile = Enemy1.OccupiedTile.DownTile();
             //    }
-                
+
             //}
             //else if (randomMove == 4 && Enemy1.OccupiedTile.x < GridManager.Instance._width - 1)
             //{
@@ -618,24 +677,24 @@ public class UnitManager : MonoBehaviour
             //    }
             //}
 
-            
+
             //if (newTile != null)
             //{
             //    newTile.SetUnit(Enemy1);
             //}
-            
+
 
             //Aqui esta codigo de ataque enemigo
-            var randomAtt = Random.Range(0, 100);
+            var randomAtt = UnityEngine.Random.Range(0, 100);
 
-            if (randomAtt < pobAtt)
+            if (randomAtt < 50)
             {
                 //AttackEnemy(Enemy1);
             }
             // ataque especial
             if (Enemy1.EnemyType.Special && randomAtt < 5)
             {
-                SpecialAttackEnemy(_attackS[1], Enemy1.GetHighlightEnemy());
+                //SpecialAttackEnemy(Enemy1.Attacks[1], Enemy1.GetHighlightEnemy());
 
             }
 
@@ -652,8 +711,8 @@ public class UnitManager : MonoBehaviour
         attackSpawned.gameObject.SetActive(true);
         var spawnTileAtt = GridManager.Instance.GetTileAtPosition(new Vector2(enemy.OccupiedTile.x - 1, enemy.OccupiedTile.y));
         spawnTileAtt.SetAttack(attackSpawned);
-        Attacks.Add(attackSpawned);
-               
+        AttacksinPlay.Add(attackSpawned);
+
     }
 
 
@@ -676,7 +735,7 @@ public class UnitManager : MonoBehaviour
             {
                 hero.CastMana += 1;
             }
-            
+
             yield return new WaitForSeconds(1f);
         }
     }
@@ -686,142 +745,66 @@ public class UnitManager : MonoBehaviour
         //Debug.Log(CanPlay);
         if (CanPlay)
         {
-            if (Time.time - tiempoUltimaEjecucion4 >= TimeVeneno)
-            {
-                StartCoroutine(VenenoDoDamage());
-                tiempoUltimaEjecucion4 = Time.time;
-            }
-            
+            MoveHero(Heroes[0], 0);
+            AttackHero2(Heroes[0], 0);
+            //TrueHighlight(Heroes[0]);
+            //StartCoroutine(AttackMove());
             TakeDamage();
-            //MoveHeroes();            
-            MoverHeroeSlow(Heroes[0], 0);
-                if (SecondPlayer)
-            {
-                
-                MoverHeroeSlow(Heroes[1], 1);
-            }
-
-            if (Time.time - tiempoUltimaEjecucion >= TimeMoveEne)
-            {
-                StartCoroutine(MoverEnemigo());
-                tiempoUltimaEjecucion = Time.time;
-            }
-            if (Time.time - tiempoUltimaEjecucion2 >= TimeAttEne)
-            {
-                StartCoroutine(AttackMove());
-                tiempoUltimaEjecucion2 = Time.time;
-            }
-            if (Time.time - tiempoUltimaEjecucion3 >= TimeMoveHero)
-            {
-                
-                StartCoroutine(LecturaMovimientos(Heroes[0],0));
-                if (SecondPlayer)
-                {
-                    
-                    StartCoroutine(LecturaMovimientos(Heroes[1], 1));
-                }
-                
-                tiempoUltimaEjecucion3 = Time.time;
-            }
-            AttackHero(Heroes[0], 0);
-            if (SecondPlayer)
-            {
-                AttackHero(Heroes[1], 1);
-            }
-            //Debug.Log(Mando.dpad.up.ReadValue());
         }
-        
+
     }
 
     //codigo para tirar un poder especial
 
-    public void SpecialAttack(BaseUnit unit, BaseAttack att, Tile tile)
+
+
+    IEnumerator Destruir(BaseAttack att)
     {
-        if (att != null && tile != null)
-        {
-            if (att.attackType == 0)
-            {
-                var area = new List<Tile>();
-                var atts = new List<BaseAttack>();
-                area.Add(tile);
-                if (att.AreaOfEffect == 2)
-                {
-                    area.Add(tile.DownTile());
-                    area.Add(tile.LeftTile());
-                    area.Add(tile.LeftTile().DownTile());
-                }
-                //luego hacer un codigo para pegar en area
-                foreach (Tile t in area)
-                {
-                    if (t != null)
-                    {
-                        var attackSpawned = Instantiate(att, Vector3.zero, Quaternion.identity);
-                        t.SetAttack(attackSpawned);
-                        Destruir(attackSpawned);
-                    }
-
-                }
-
-                //Destruir(attackSpawned);
-            }
-            if(att.attackType == 1)
-            {
-                var area = new List<Tile>();
-                for (int i = 1; i < GridManager.Instance._width - unit.OccupiedTile.x; i++)
-                {
-                    area.Add(GridManager.Instance.GetTileAtPosition(new Vector2(unit.OccupiedTile.x + i, unit.OccupiedTile.y)));
-                }
-                foreach (Tile t in area)
-                {
-                    if (t != null)
-                    {
-                        var attackSpawned = Instantiate(att, Vector3.zero, Quaternion.identity);
-                        t.SetAttack(attackSpawned);
-                        Destruir(attackSpawned);
-                    }
-
-                }
-            }
-            if(att.attackType == 2)
-            {
-                var attackSpawned = Instantiate(att, Vector3.zero, Quaternion.identity);
-                unit.OccupiedTile.RightTile().SetAttack(attackSpawned);
-                Attacks.Add(attackSpawned);
-            }
-        }
-        
+        yield return new WaitForSeconds(1f);
+        att.Destroy();
     }
-
-    public async void Destruir(BaseAttack att)
+    public void DestruirProyectil(BaseAttack att)
     {
-        await Task.Delay(500);
         att.Destroy();
     }
 
     public void TakeDamage()
     {
+        var AllUnits = new List<BaseUnit>();
+        AllUnits.AddRange(Heroes);
+        AllUnits.AddRange(Enemies);
+        AllUnits.AddRange(Invocaciones);
         foreach (BaseUnit unit in AllUnits)
         {
-            if(unit == null || unit.OccupiedTile == null) continue;
+            if (unit == null || unit.OccupiedTile == null) continue;
             if (unit.OccupiedTile.OccupiedAttack == null)
             {
-                
+
             }
             else if (unit.OccupiedTile.OccupiedAttack != null)
             {
-                if(unit.Faction != unit.OccupiedTile.OccupiedAttack.Faction)
+                if (unit.Faction != unit.OccupiedTile.OccupiedAttack.Faction)
                 {
                     unit.OccupiedTile.OccupiedAttack.DoDamage(unit);
+                    unit.OccupiedTile.OccupiedAttack.Destroy();
+                }
+                else if (unit.OccupiedTile.OccupiedAttack.Faction == unit.Faction && unit.OccupiedTile.OccupiedAttack.Heal > 0)
+                {
+                    unit.OccupiedTile.OccupiedAttack.DoHeal(unit);
                     unit.OccupiedTile.OccupiedAttack.Destroy();
                 }
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Hero)
             {
+                Heroes.Remove(unit);
                 unit.Destroy();
-                GameManager.Instance.ChangeState(GameState.EndFight);
+                if (Heroes.Count == 0)
+                {
+                    GameManager.Instance.ChangeState(GameState.EndFight);
+                }
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Enemy)
-            {                
+            {
                 Enemies.Remove(unit);
                 unit.Destroy();
                 if (Enemies.Count == 0)
@@ -833,129 +816,31 @@ public class UnitManager : MonoBehaviour
         }
     }
 
-    
-    public void SpecialAttackEnemy(ScriptableAttack att, Tile tile)
-    {
-        if (att != null && tile != null)
-        {
-            var area = new List<Tile>();
-            var atts = new List<BaseAttack>();
-            area.Add(tile);
-            if (att.AttackPrefab.AreaOfEffect == 2)
-            {
-                area.Add(tile.DownTile());
-                area.Add(tile.RightTile());
-                area.Add(tile.RightTile().DownTile());
-            }
-            //luego hacer un codigo para pegar en area
-            foreach (Tile t in area)
-            {
-                if (t != null)
-                {
-                    var attackSpawned = Instantiate(att.AttackPrefab, Vector3.zero, Quaternion.identity);
-                    t.SetAttack(attackSpawned);
-                    Destruir(attackSpawned);
-                }
 
-            }
-            //Destruir(attackSpawned);
-        }
-    }
+
 
     IEnumerator RestoreStamina(BaseUnit hero)
     {
         while (true)
         {
-            if(hero.MaxStamina > hero.MoveCooldown)
+            if (hero.MaxStamina > hero.MoveCooldown)
             {
                 hero.MoveCooldown += 1;
-            }            
+            }
             yield return new WaitForSeconds(1f);
-        }        
+        }
     }
 
-    IEnumerator LecturaMovimientos(BaseUnit hero, int jugador)
-    {
 
-            if (jugador == 0)
-        {
-            var newTile = hero.OccupiedTile;
-            if (movimientos.Count != 0)
-            {
-                if (movimientos[0] == 0 && hero.OccupiedTile.y < GridManager.Instance._height - 1 && hero.MoveCooldown > 0)
-                {
-                    hero.MoveCooldown -= 1;
-                    hero.GetHighlightHero()._highlight.SetActive(false);
-                    newTile = hero.OccupiedTile.UpTile();
-                }
-                if (movimientos[0] == 1 && hero.OccupiedTile.x > 0 && hero.MoveCooldown > 0)
-                {
-                    hero.MoveCooldown -= 1;
-                    hero.animator?.SetTrigger("MoveBack");
-                    hero.GetHighlightHero()._highlight.SetActive(false);
-                    newTile = hero.OccupiedTile.LeftTile();
-                }
-                if (movimientos[0] == 2 && hero.OccupiedTile.y > 0 && hero.MoveCooldown > 0)
-                {
-                    hero.MoveCooldown -= 1;
-                    hero.GetHighlightHero()._highlight.SetActive(false);
-                    newTile = hero.OccupiedTile.DownTile();
-                }
-                if (movimientos[0] == 3 && hero.OccupiedTile.x < GridManager.Instance._width / 2 - 1 && hero.MoveCooldown > 0)
-                {
-                    hero.MoveCooldown -= 1;
-                    hero.animator?.SetTrigger("MoveFoward");
-                    hero.GetHighlightHero()._highlight.SetActive(false);
-                    newTile = hero.OccupiedTile.RightTile();
-                }
-                movimientos.RemoveAt(0);
-                newTile.SetUnit(hero);
-            }
-            
-        }
-
-        if (jugador == 1)
-        {
-            var newTile = hero.OccupiedTile;
-            if (movimientos2.Count != 0)
-            {
-                if (movimientos2[0] == 0 && hero.MoveCooldown>0)
-                {
-                    hero.MoveCooldown -= 1;
-                    hero.GetHighlightHero()._highlight.SetActive(false);
-                    newTile = hero.OccupiedTile.UpTile();
-                }
-                if (movimientos2[0] == 1 && hero.MoveCooldown > 0)
-                {
-                    hero.MoveCooldown -= 1;
-                    hero.GetHighlightHero()._highlight.SetActive(false);
-                    newTile = hero.OccupiedTile.LeftTile();
-                }
-                if (movimientos2[0] == 2 && hero.MoveCooldown > 0)
-                {
-                    hero.MoveCooldown -= 1;
-                    hero.GetHighlightHero()._highlight.SetActive(false);
-                    newTile = hero.OccupiedTile.DownTile();
-                }
-                if (movimientos2[0] == 3 && hero.MoveCooldown > 0)
-                {
-                    hero.MoveCooldown -= 1;
-                    hero.GetHighlightHero()._highlight.SetActive(false);
-                    newTile = hero.OccupiedTile.RightTile();
-                }
-                movimientos2.RemoveAt(0);
-                newTile.SetUnit(hero);
-            }
-            
-        }
-        yield return null;
-    }
 
     IEnumerator VenenoDoDamage()
     {
+        var AllUnits = new List<BaseUnit>();
+        AllUnits.AddRange(Heroes);
+        AllUnits.AddRange(Enemies);
         foreach (BaseUnit unit in AllUnits)
         {
-           unit.VenenoDamage();
+            unit.VenenoDamage();
         }
         yield return new WaitForSeconds(2f);
     }

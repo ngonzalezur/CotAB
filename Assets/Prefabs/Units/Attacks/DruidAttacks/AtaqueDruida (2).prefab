@@ -9925,6 +9925,7 @@ MonoBehaviour:
   UnitName: duplica veneno
   OccupiedTile: {fileID: 0}
   Damage: 1
+  Heal: 0
   Faction: 0
   AreaOfEffect: 1
   CoolDown: 2
@@ -9934,8 +9935,10 @@ MonoBehaviour:
   invocacion: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
     type: 3}
   DoVeneno: 0
+  DoBurn: 0
+  stun: 0
   attackType: 1
-  type: 8
+  type: 11
 --- !u!1 &3713141160072462006
 GameObject:
   m_ObjectHideFlags: 0

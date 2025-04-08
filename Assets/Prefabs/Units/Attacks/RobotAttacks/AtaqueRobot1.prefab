@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: EstadoEnemigos
   OccupiedTile: {fileID: 0}
-  Damage: 5
+  Damage: 0
   Heal: 0
   Faction: 0
   AreaOfEffect: 1
@@ -133,11 +133,11 @@ MonoBehaviour:
   LastCast2: -100
   ManaCost: 5
   invocacion: {fileID: 0}
-  DoVeneno: 10
+  DoVeneno: 0
   DoBurn: 0
   stun: 0
   attackType: 0
-  type: 9
+  type: 10
 --- !u!1 &1636329195985070217
 GameObject:
   m_ObjectHideFlags: 0

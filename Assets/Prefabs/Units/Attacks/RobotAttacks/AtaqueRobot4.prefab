@@ -134,11 +134,11 @@ MonoBehaviour:
   ManaCost: 5
   invocacion: {fileID: 7735570308767223746, guid: 69b3cdb8031e1594695517f134e838da,
     type: 3}
-  DoVeneno: 10
+  DoVeneno: 0
   DoBurn: 0
   stun: 0
   attackType: 0
-  type: 7
+  type: 8
 --- !u!1 &1636329195985070217
 GameObject:
   m_ObjectHideFlags: 0
