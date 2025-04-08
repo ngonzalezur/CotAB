@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{4B3A05C5-79CD-49FA-80FC-55624EBFE325}",
     "Language": "SFX",
-    "Hash": "{69F3D057-D206-F76A-57EA-A363FDB4E7D5}",
+    "Hash": "{5583B77F-7639-2D3B-4517-87A99ADF20B7}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SBank",
     "ShortName": "Combat_SBank",
     "Path": "Combat_SBank.bnk",
@@ -366,6 +366,6 @@
     ]
    }
   ],
-  "FileHash": "{B44EA4CE-53B4-E597-8D80-565A159A258A}"
+  "FileHash": "{E8F27DDB-084B-6E7B-0354-7A39D56A09A8}"
  }
 }

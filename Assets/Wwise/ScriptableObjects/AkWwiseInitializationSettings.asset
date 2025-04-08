@@ -15,7 +15,7 @@ MonoBehaviour:
   PlatformSettingsNameList:
   - Windows
   PlatformSettingsList:
-  - {fileID: 11400000, guid: a3950fa5c8f3d1d43ae480eb7ff37cf9, type: 2}
+  - {fileID: 11400000, guid: 3e72bd283c911b14db76983d9f304052, type: 2}
   InvalidReferencePlatforms: []
   UserSettings:
     m_BasePath: Audio\GeneratedSoundBanks
