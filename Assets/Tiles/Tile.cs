@@ -14,6 +14,12 @@ public abstract class Tile : MonoBehaviour
 
     public BaseUnit OccupiedUnit;
     public BaseAttack OccupiedAttack;
+
+    public int Burning = 0;
+
+    public Tile HeroTile;
+    public Tile EnemyTile;
+    public Tile NeutralTile;
     public bool Walkable => _isWalkable && OccupiedUnit == null;
 
     Coroutine moveUnitCoroutine = null;
@@ -33,8 +39,23 @@ public abstract class Tile : MonoBehaviour
        // _highlight.SetActive(false);
     }
 
+    IEnumerator StartBurning(int i)
+    {
+        Burning = i;
+        //activar vfx
+        yield return new WaitForSeconds(8);
+        Burning = 0;
+        //apagar vfx
+    }
+
+    public void StartCoroutineBurning(int i)
+    {
+        StartCoroutine(StartBurning(i));
+    }
+
     public void SetUnit(BaseUnit unit)
     {
+        if (unit == null || unit.Faction != Faction || this.OccupiedUnit != null) return;
         // Asegurar que la casilla anterior detenga su animación
         if (unit.OccupiedTile != null)
         {
@@ -45,7 +66,15 @@ public abstract class Tile : MonoBehaviour
         StopMovingCoroutine();
 
         // Iniciar la nueva animación
-        moveUnitCoroutine = StartCoroutine(SetUnitCoroutine(0.2f, 0.5f, unit.transform.position, transform.position + new Vector3(0, 0, -1), unit));
+        moveUnitCoroutine = StartCoroutine(SetUnitCoroutine(0.2f, 0.2f, unit.transform.position, transform.position + new Vector3(0, 0, -1), unit));
+        if (unit.OccupiedTile != null)
+        {
+            ChangeHighlight(unit);
+            unit.OccupiedTile.OccupiedUnit = null;
+        }
+
+        OccupiedUnit = unit;
+        unit.OccupiedTile = this;
     }
 
     IEnumerator SetUnitCoroutine(float delay, float duration, Vector3 from, Vector3 to, BaseUnit unit)
@@ -74,14 +103,14 @@ public abstract class Tile : MonoBehaviour
         unit.transform.position = to;
 
         // Actualizar referencias
-        if (unit.OccupiedTile != null)
-        {
-            ChangeHighlight(unit);
-            unit.OccupiedTile.OccupiedUnit = null;
-        }
+        //if (unit.OccupiedTile != null)
+        //{
+        //    ChangeHighlight(unit);
+        //    unit.OccupiedTile.OccupiedUnit = null;
+        //}
 
-        OccupiedUnit = unit;
-        unit.OccupiedTile = this;
+        //OccupiedUnit = unit;
+        //unit.OccupiedTile = this;
 
         StopMovingCoroutine();
 
@@ -100,7 +129,16 @@ public abstract class Tile : MonoBehaviour
 
     public void ChangeHighlight(BaseUnit unit)
     {
-        unit.GetHighlightHero()._highlight.SetActive(false);
+       // unit.GetHighlightHero()._highlight.SetActive(false);
+    }
+
+    public void InstantSetUnit(BaseUnit unit)
+    {
+        if(moveUnitCoroutine != null)
+        {
+            StopCoroutine(moveUnitCoroutine);
+        }        
+        unit.transform.position = transform.position + new Vector3(0, 0, -1);
     }
 
 
@@ -175,7 +213,7 @@ public abstract class Tile : MonoBehaviour
 
     public Tile RightTile()
     {
-        if (this != null && this.x < GridManager.Instance._width - 1)
+        if (this != null && this.x < GridManager.Instance._width - 1 && GridManager.Instance.GetTileAtPosition(new Vector2(this.x + 1, this.y)) != null)
         {
             return GridManager.Instance.GetTileAtPosition(new Vector2(this.x + 1, this.y));
         }
@@ -183,7 +221,7 @@ public abstract class Tile : MonoBehaviour
     }
     public Tile LeftTile()
     {
-        if (this != null && this.x > 0)
+        if (this != null && this.x > 0 && GridManager.Instance.GetTileAtPosition(new Vector2(this.x - 1, this.y)) != null)
         {
             return GridManager.Instance.GetTileAtPosition(new Vector2(this.x - 1, this.y));
         }
@@ -191,7 +229,7 @@ public abstract class Tile : MonoBehaviour
     }
     public Tile UpTile()
     {
-        if (this != null && this.y < GridManager.Instance._height- 1)
+        if (this != null && this.y < GridManager.Instance._height- 1 && GridManager.Instance.GetTileAtPosition(new Vector2(this.x, this.y+1)) != null)
         {
             return GridManager.Instance.GetTileAtPosition(new Vector2(this.x, this.y + 1));
         }
@@ -199,7 +237,7 @@ public abstract class Tile : MonoBehaviour
     }
     public Tile DownTile()
     {
-        if (this != null && this.y > 0)
+        if (this != null && this.y > 0 && GridManager.Instance.GetTileAtPosition(new Vector2(this.x, this.y-1)) != null)
         {
             return GridManager.Instance.GetTileAtPosition(new Vector2(this.x, this.y - 1));
         }

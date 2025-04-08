@@ -125,13 +125,19 @@ MonoBehaviour:
   UnitName: AeO efecto
   OccupiedTile: {fileID: 0}
   Damage: 5
+  Heal: 0
   Faction: 0
   AreaOfEffect: 2
   CoolDown: 5
-  LastCast1: -100
-  LastCast2: 0
-  DoVeneno: 5
+  LastCast1: 0
+  LastCast2: -100
+  ManaCost: 0.5
+  invocacion: {fileID: 0}
+  DoVeneno: 10
+  DoBurn: 0
+  stun: 0
   attackType: 0
+  type: 2
 --- !u!1 &3037364760383503627
 GameObject:
   m_ObjectHideFlags: 0

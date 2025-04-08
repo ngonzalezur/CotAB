@@ -516,6 +516,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
         type: 3}
+      propertyPath: configuration.Heroes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
       propertyPath: configuration.setup1.TimeMoveHero
       value: 0.1
       objectReference: {fileID: 0}
@@ -523,6 +533,33 @@ PrefabInstance:
         type: 3}
       propertyPath: configuration.basickAttack.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.Heroes.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+        type: 3}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 5695376190236047481, guid: 9a17851b516091345af1271df4df2ca7,
+        type: 3}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[0].Faction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.Heroes.Array.data[0].MaxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[0].MaxHealth
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1935114297078956584, guid: e61e16ebd2fc2324794ff4e51371baad,
         type: 3}
@@ -1075,6 +1112,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3127514008260928012, guid: f47d2d795a499e643bf9c70bf4d1ac41,
+        type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 5062909486257896747, guid: c44797aa835b67347b6de1928fab39ac,
+        type: 3}
     - target: {fileID: 8102561688722638206, guid: f47d2d795a499e643bf9c70bf4d1ac41,
         type: 3}
       propertyPath: m_Name
