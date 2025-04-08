@@ -613,10 +613,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3082305925274306857, guid: 060c48d71d1b1e743956a851a89fa483,
         type: 3}
+      propertyPath: triggerList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082305925274306857, guid: 060c48d71d1b1e743956a851a89fa483,
+        type: 3}
       propertyPath: data.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: bb0506f8e24993b4d9f95a5f82e7f59e,
         type: 2}
+    - target: {fileID: 3082305925274306857, guid: 060c48d71d1b1e743956a851a89fa483,
+        type: 3}
+      propertyPath: 'triggerList.Array.data[0]'
+      value: 1151176110
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082305925274306857, guid: 060c48d71d1b1e743956a851a89fa483,
+        type: 3}
+      propertyPath: 'triggerList.Array.data[1]'
+      value: 1281810935
+      objectReference: {fileID: 0}
     - target: {fileID: 6773414632191873720, guid: 060c48d71d1b1e743956a851a89fa483,
         type: 3}
       propertyPath: m_Name
