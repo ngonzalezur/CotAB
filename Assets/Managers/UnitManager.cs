@@ -9,12 +9,15 @@ using System.Reflection;
 using System;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.UI.CanvasScaler;
+using CotA.Sound;
 //using System;
 
 
 public class UnitManager : MonoBehaviour
 {
     public ConfigurationData configuration;
+
+    public SoundManager SoundManager;
 
     public static UnitManager Instance;
 
@@ -805,6 +808,10 @@ public class UnitManager : MonoBehaviour
             //StartCoroutine(AttackMove());
             TakeDamage();
             AtaqueInvoacion();
+            if (SoundManager != null && Heroes[0] != null && Heroes[0].Health < Heroes[0].MaxHealth / 2)
+            {
+                SoundManager.ChangeSoundtrackToMidLifeMode();
+            }
         }
 
     }
