@@ -187,18 +187,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5253e0d5b8c04c240b46c4d996845f33, type: 3}
---- !u!114 &335785629 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -7516485040342788421, guid: 060c48d71d1b1e743956a851a89fa483,
-    type: 3}
-  m_PrefabInstance: {fileID: 1204507861}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b21140f798d21a347ae77c046a50484a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &345972716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,11 +210,6 @@ PrefabInstance:
       propertyPath: poolEnemies
       value: 
       objectReference: {fileID: 691810129}
-    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
-        type: 3}
-      propertyPath: SoundManager
-      value: 
-      objectReference: {fileID: 335785629}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: TimeMoveHero

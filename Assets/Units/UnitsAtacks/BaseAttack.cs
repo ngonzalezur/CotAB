@@ -59,7 +59,6 @@ public class BaseAttack : MonoBehaviour
 
     public virtual void DoDamage(BaseUnit unit)
     {
-        var sound = UnitManager.Instance.SoundManager;
         if (unit == null) return;
         if (unit.Faction != Faction)
         {
@@ -76,13 +75,12 @@ public class BaseAttack : MonoBehaviour
                 unit.burn += DoBurn;
             }
             //Debug.Log("soy normal");
-            if (!unit.parry && sound != null)
+            if (!unit.parry)
             {
                 unit.Health -= Math.Abs(Damage);
                 unit.ActualHeath.text = Math.Max(unit.Health, 0) + " / " + unit.MaxHealth;
-                //var audio = unit?.GetComponent<AudioSource>();
-                //audio?.Play();
-                sound.PlayHeroDamage();
+                var audio = unit?.GetComponent<AudioSource>();
+                audio?.Play();
                 if (unit.animator != null)
                 {
                     unit.animator?.SetTrigger("TakeDamage");
