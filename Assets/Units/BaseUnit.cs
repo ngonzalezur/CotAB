@@ -34,11 +34,15 @@ public class BaseUnit : MonoBehaviour
     public Animator animator;
 
     public bool parry = false;
+    public bool isPersistentHero = false;
 
-    //public BaseUnit invocacion;
 
     public void Awake()
     {
+        if (isPersistentHero)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
         Health = MaxHealth;
         this.ActualHeath.text = this.Health + " / " + this.MaxHealth;
         veneno = 0;
