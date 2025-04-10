@@ -75,6 +75,9 @@ public class UnitManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+
+        GameManager.prueba++;
+
         //Referencio los heroes del data maanger y los guardo en la Lista Heroes
         foreach (ConfigurationData.UnitData unit in configuration.Heroes)
         {
@@ -146,7 +149,76 @@ public class UnitManager : MonoBehaviour
 
         GameManager.Instance.ChangeState(GameState.GenerateUI);
     }
+    public void ContadorKPIAtaques(BaseUnit unit, int i)
+    {
+        //Aca solo se cuentan cuantos ataques tiraron
+        if (unit == null) return;
+        //ataques druida
+        if(unit.UnitName == "Druid")
+        {
+            if (i == 0)
+            {
+                //atqque 1 y los otros 2, 3, etc druida
+            }
+            if (i == 1)
+            {
 
+            }
+            if (i == 2)
+            {
+
+            }
+            if (i == 3)
+            {
+
+            }
+            if (i == 4)
+            {
+
+            }
+        }
+
+        //ataques Robot
+        else if (unit.UnitName == "Robot")
+        {
+            if (i == 0)
+            {
+                //atqque 1 y los otros 2, 3, etc robot
+            }
+            if (i == 1)
+            {
+
+            }
+            if (i == 2)
+            {
+
+            }
+            if (i == 3)
+            {
+                //claro este vale monda porque tiene que atacar la donchimba planta, claro ombe claro
+            }
+            if (i == 4)
+            {
+                //claro este vale monda porque tiene que atacar la donchimba planta, claro ombe claro
+            }
+        }
+        else //el caso de las plantas
+        {
+            if (unit.UnitName == "")
+            {
+                //atqque 3 del robot
+            }
+            if (unit.UnitName == "")
+            {
+                //atqque 4 del robot
+            }
+        }
+    }
+
+    public void ContadorKPIMovimientos()
+    {
+        //simplemente darle ++ a la variable de interacciones
+    }
     public void CanCastAttack(BaseUnit unit, int i)
     {
         if (unit == null) return;
@@ -159,8 +231,12 @@ public class UnitManager : MonoBehaviour
             }
             else
             {
+                ContadorKPIAtaques(unit, i);
                 unit.CastMana -= unit.Attacks[i].ManaCost;
-                StartCoroutine(ui.HandleCooldown(i));
+                if(i < 4)
+                {
+                    StartCoroutine(ui.HandleCooldown(i));
+                }                
                 CastAttack(unit, unit.Attacks[i]);
                 unit.Attacks[i].LastCast1 = Time.time;
             
@@ -540,6 +616,10 @@ public class UnitManager : MonoBehaviour
             {
                 CanCastAttack(unit, 3);
             }
+            if ((Input.GetKeyDown(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasPressedThisFrame)))
+            {
+                CanCastAttack(unit, 4);
+            }
         }
         if (player == 1)
         {
@@ -558,6 +638,10 @@ public class UnitManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.N))
             {
                 CanCastAttack(unit, 3);
+            }
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                CanCastAttack(unit, 4);
             }
         }
     }
@@ -733,6 +817,7 @@ public class UnitManager : MonoBehaviour
         if (unit == null || tile == null) return;
         if(unit.MoveCooldown > 0)
         {
+            ContadorKPIMovimientos();
             FalseHighlight(unit);
             unit.MoveCooldown--;
             tile.SetUnit(unit);

@@ -50,6 +50,57 @@ public class BaseAttack : MonoBehaviour
         allHeros = 12
     }
 
+    public void ContadorKPIAciertoAttaque()
+    {
+        //me va tocar revisar los nombres de los ataques NICO NO CAMBIE NOMBRES O PONGA ESTOS
+        if(UnitName != null)
+        {
+            if (UnitName == "")
+            {
+                //dale ++ a la variable
+            }
+            if (UnitName == "")
+            {
+                //dale ++ a la variable
+            }
+            if (UnitName == "")
+            {
+                //dale ++ a la variable
+            }
+            if (UnitName == "")
+            {
+                //dale ++ a la variable
+            }
+            if (UnitName == "")
+            {
+                //dale ++ a la variable
+            }
+            if (UnitName == "")
+            {
+                //dale ++ a la variable
+            }
+            if (UnitName == "")
+            {
+                //dale ++ a la variable
+            }
+            if (UnitName == "")
+            {
+                //dale ++ a la variable
+            }
+            if (UnitName == "")
+            {
+                //dale ++ a la variable
+            }
+            if (UnitName == "")
+            {
+                //dale ++ a la variable
+            }
+            if (UnitName == "")
+            {
+                //dale ++ a la variable
+            }
+        }
+    }
 
 
     public void Destroy()
@@ -122,6 +173,7 @@ public class BaseAttack : MonoBehaviour
             //Debug.Log("soy normal");
             if (!unit.parry)
             {
+                ContadorKPIAciertoAttaque();
                 unit.Health -= Math.Abs(Damage);
                 unit.ActualHeath.text = Math.Max(unit.Health, 0) + " / " + unit.MaxHealth;
                 

@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameState GameState;
 
+    //las 21 cosas que leen los kpis
+
+    public static float prueba = 0;
+
     void Awake()
     {
         Instance = this;
@@ -64,6 +68,11 @@ public class GameManager : MonoBehaviour
                 else if (scene == "Level medium")
                 {
                     SceneManager.LoadScene("Level hard");
+                }
+
+                if (scene == "Level hard" || UnitManager.Instance.SecondPlayer)
+                {
+                    //llamar la funcion que manda los datos
                 }
                 break;
             default:

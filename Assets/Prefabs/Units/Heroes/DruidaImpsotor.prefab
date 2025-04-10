@@ -317,6 +317,7 @@ MonoBehaviour:
   - {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d, type: 3}
   - {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5, type: 3}
   - {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6, type: 3}
+  - {fileID: 8091908140846267713, guid: 7076414fe5a27754a8f5c46cb19108ef, type: 3}
   veneno: 0
   burn: 0
   MaxStamina: 3
