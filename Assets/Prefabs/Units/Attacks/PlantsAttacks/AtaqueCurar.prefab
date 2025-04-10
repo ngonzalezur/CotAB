@@ -129,8 +129,8 @@ MonoBehaviour:
   Stamina: 6
   Faction: 0
   AreaOfEffect: 1
-  CoolDown: 3
-  LastCast1: 3
+  CoolDown: 6.5
+  LastCast1: 6.5
   LastCast2: -100
   ManaCost: 0
   invocacion: {fileID: 0}
