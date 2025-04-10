@@ -74,4 +74,19 @@ public class AnalyticsManager : MonoBehaviour
         AnalyticsService.Instance.RecordEvent(myEvent);
         Debug.Log("Se llamo eta vaina");
     }
+    public void SendCustomEvent(int parameterValue)
+    {
+        if (!_isInitialized)
+        {
+            return;
+        }
+
+        CustomEvent myEvent = new CustomEvent("TestEvent2")
+    {
+        {"TestParameter3", parameterValue}
+    };
+
+        AnalyticsService.Instance.RecordEvent(myEvent);
+        Debug.Log($"Se llamó la función con el valor: {parameterValue}");
+    }
 }
