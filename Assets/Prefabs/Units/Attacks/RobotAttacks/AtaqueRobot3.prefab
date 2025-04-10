@@ -126,12 +126,13 @@ MonoBehaviour:
   OccupiedTile: {fileID: 0}
   Damage: 5
   Heal: 0
+  Stamina: 0
   Faction: 0
   AreaOfEffect: 1
   CoolDown: 1
   LastCast1: 0
   LastCast2: -100
-  ManaCost: 5
+  ManaCost: 0.5
   invocacion: {fileID: 7735570308767223746, guid: fdd801f139e7d7b47a848087e5576ac2,
     type: 3}
   DoVeneno: 0

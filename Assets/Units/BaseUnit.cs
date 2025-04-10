@@ -15,6 +15,7 @@ public class BaseUnit : MonoBehaviour
     public TextMeshPro ActualHeath;
     public BaseEnemy EnemyType;
     public BaseHero HeroType;
+    public int dmgBurn;
 
     public bool stun = false;
 
@@ -28,6 +29,7 @@ public class BaseUnit : MonoBehaviour
     public float MaxStamina = 3;
     public float MoveCooldown = 0;
     public float regenStamina = 0;
+    public float MaxMana = 0;
     public float CastMana = 0;
     public float regenMana = 0;
 
@@ -120,7 +122,7 @@ public class BaseUnit : MonoBehaviour
         {
             if(burn > 0)
             {
-                Health -= 1;
+                Health -= dmgBurn;
                 ActualHeath.text = Math.Max(Health, 0) + " / " + MaxHealth;
                 burn--;
                 efecto?.SetActive(true);

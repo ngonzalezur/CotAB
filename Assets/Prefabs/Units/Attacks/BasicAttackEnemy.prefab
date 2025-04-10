@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
         type: 3}
       propertyPath: Damage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
         type: 3}
@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
         type: 3}
       propertyPath: CoolDown
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -1300841014010044806, guid: f5c1e3ca2062df64a8a30f42d73670aa,
         type: 3}

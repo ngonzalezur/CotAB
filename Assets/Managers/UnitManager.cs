@@ -781,7 +781,7 @@ public class UnitManager : MonoBehaviour
 
     public void FalseHighlight(BaseUnit unit)
     {
-        if (unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero && unit.GetHighlightHero() != null)
         {
             unit.GetHighlightHero()._highlight.SetActive(false);
             //Debug.Log("Me apague");
@@ -973,7 +973,7 @@ public class UnitManager : MonoBehaviour
     {
         while (true)
         {
-            if (10 > hero.CastMana)
+            if (hero.MaxMana > hero.CastMana)
             {
                 hero.CastMana += hero.regenMana;
             }

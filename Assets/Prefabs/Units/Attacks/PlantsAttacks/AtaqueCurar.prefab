@@ -125,11 +125,12 @@ MonoBehaviour:
   UnitName: EstadoEnemigos
   OccupiedTile: {fileID: 0}
   Damage: 0
-  Heal: 1
+  Heal: 7
+  Stamina: 6
   Faction: 0
   AreaOfEffect: 1
-  CoolDown: 10
-  LastCast1: 5
+  CoolDown: 6.5
+  LastCast1: 6.5
   LastCast2: -100
   ManaCost: 0
   invocacion: {fileID: 0}
