@@ -35,7 +35,7 @@ public class AnalyticsManager : MonoBehaviour
             AnalyticsService.Instance.StartDataCollection();
             _isInitialized = true;
             Debug.Log("Unity Services inicializados correctamente");
-            SendCustomEvent();
+            //SendCustomEvent();
         }
         else
         {
@@ -61,6 +61,7 @@ public class AnalyticsManager : MonoBehaviour
         Debug.Log("See llama la funcion");
     }
     */
+    /*
     public void SendCustomEvent()
     {
         if (!_isInitialized)
@@ -74,6 +75,7 @@ public class AnalyticsManager : MonoBehaviour
         AnalyticsService.Instance.RecordEvent(myEvent);
         Debug.Log("Se llamo eta vaina");
     }
+    */
     /*
     public void SendCustomEvent(int parameterValue)
     {
