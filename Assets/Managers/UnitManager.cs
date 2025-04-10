@@ -153,11 +153,31 @@ public class UnitManager : MonoBehaviour
 
         if (unit.CastMana - unit.Attacks[i].ManaCost > 0 && Time.time - unit.Attacks[i].LastCast1 >= unit.Attacks[i].CoolDown)
         {
-            unit.CastMana -= unit.Attacks[i].ManaCost;
-            StartCoroutine(ui.HandleCooldown(i));
-            CastAttack(unit, unit.Attacks[i]);
-            unit.Attacks[i].LastCast1 = Time.time;
-            unit.animator.SetTrigger("Attack");
+            if (unit.Attacks[i].type == BaseAttack.AttType.invocacion && Invocaciones.Count >= 1)
+            {
+                //no hacer nada
+            }
+            else
+            {
+                unit.CastMana -= unit.Attacks[i].ManaCost;
+                StartCoroutine(ui.HandleCooldown(i));
+                CastAttack(unit, unit.Attacks[i]);
+                unit.Attacks[i].LastCast1 = Time.time;
+            
+
+                if(unit.animator != null)
+                {
+                    unit.animator.SetTrigger("Attack");
+                }
+            }
+            
+            if(Invocaciones.Contains(unit))
+            {
+                unit.Health = 0;
+                Invocaciones.Remove(unit);
+                Debug.Log(Invocaciones.Count);
+                unit.Destroy();
+            }
         }
     }
     public delegate void Ataques(BaseUnit unit, BaseAttack attack);
@@ -341,8 +361,11 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return;
         var target = new List<Tile>();
-        target.Add(unit.OccupiedTile.RightTile());
-        InstanciarInvocacion(attack, target);
+        target.Add(unit.OccupiedTile.LeftTile());
+        if(Invocaciones.Count <= 0)
+        {
+            InstanciarInvocacion(attack, target);
+        }
     }
 
     public void InstanciarInvocacion(BaseAttack attack, List<Tile> target)
@@ -358,25 +381,27 @@ public class UnitManager : MonoBehaviour
         Invocaciones.Add(invocacion);
     }
 
-    IEnumerator AtaqueInvocaciones(List<BaseUnit> inovocaciones)
+    IEnumerator AtaqueInvocaciones(BaseUnit inovocaciones)
     {
         if(inovocaciones == null)
         {
             corrutinaInvocaciones = null;
             yield break;
         }
-        foreach (BaseUnit unit in Invocaciones)
-        {
-            if (unit == null || unit.Attacks[0] == null)
+        
+            if (inovocaciones == null || inovocaciones.Attacks[0] == null)
             {
                 //literalmente no hacer nada porque al parecer se sale de la corrutina
             }
             else
             {
-                CanCastAttack(unit, 0);
+            Debug.Log(Invocaciones.Count);
+            CanCastAttack(inovocaciones, 0);
+                //yield return new WaitForSeconds(1f);
                 //Debug.Log("soy un planta que ataca");
+                //Invocaciones.Remove(unit);                
             }
-        }
+        
         yield return new WaitForSeconds(2f);
         corrutinaInvocaciones = null;
     }
@@ -384,9 +409,9 @@ public class UnitManager : MonoBehaviour
     public void AtaqueInvoacion()
     {
         //llamar corrutina si se puede
-        if(corrutinaInvocaciones == null)
+        if(corrutinaInvocaciones == null && Invocaciones.Count > 0)
         {
-            corrutinaInvocaciones = StartCoroutine(AtaqueInvocaciones(Invocaciones));
+            corrutinaInvocaciones = StartCoroutine(AtaqueInvocaciones(Invocaciones[0]));
         }
         
     }
@@ -395,16 +420,55 @@ public class UnitManager : MonoBehaviour
         if (unit == null || attack == null) return;
         var target = new List<Tile>();
         AgregarSiNoNull(target, unit.GetHighlightHero());
-        StartCoroutine(TeleportMeleeDash(unit, attack, target));
+        StartCoroutine(TeleportMeleeDash(unit, attack, unit.OccupiedTile));
     }
 
-    IEnumerator TeleportMeleeDash(BaseUnit unit, BaseAttack attack, List<Tile> target)
+    IEnumerator TeleportMeleeDash(BaseUnit unit, BaseAttack attack, Tile baseTile)
     {
-        unit.GetHighlightHero().LeftTile().InstantSetUnit(unit);
+        //unit.GetHighlightHero().LeftTile().InstantSetUnit(unit);
+        var newTile = DashThrouhTiles(unit, unit.OccupiedTile);
+        var target = new List<Tile>();
+        AgregarSiNoNull(target, newTile.RightTile());
         SetAttacksInTiles(target, attack);
         yield return new WaitForSeconds(1);
-        unit.OccupiedTile.InstantSetUnit(unit);
+        baseTile.InstantSetUnit(unit);
+    }
 
+    public Tile DashThrouhTiles(BaseUnit unit, Tile tile)
+    {
+        var nextTile = tile.RightTile();
+        if(nextTile == null || nextTile.OccupiedUnit != null)
+        {
+            //StartCoroutine(DeOccupiedTile(tile));
+            return tile;
+        }
+        //tile.OccupiedUnit = null;
+        
+        nextTile.InstantSetUnit(unit);
+        //nextTile.OccupiedUnit = unit;
+        StartCoroutine(OccupiedTile(tile, unit));
+        StartCoroutine(DeOccupiedTile(tile));
+        return DashThrouhTiles(unit, nextTile);
+    }
+
+    IEnumerator OccupiedTile(Tile tile, BaseUnit unit)
+    {
+        if(tile != null)
+        {
+           tile.OccupiedUnit = unit;
+            if(tile.OccupiedAttack != null)
+            {
+                tile.OccupiedAttack.DoDamage(unit);
+                tile.OccupiedAttack.Destroy();
+            }
+        }
+        
+        yield return new WaitForSeconds(0.1f);
+    }
+    IEnumerator DeOccupiedTile(Tile tile)
+    {
+        tile.OccupiedUnit = null;
+        yield return new WaitForSeconds(0.1f);
     }
     public void Parry(BaseUnit unit, BaseAttack attack)
     {
@@ -852,11 +916,17 @@ public class UnitManager : MonoBehaviour
                     unit.OccupiedTile.OccupiedAttack.DoDamage(unit);
                     unit.OccupiedTile.OccupiedAttack.Destroy();
                 }
-                else if (unit.OccupiedTile.OccupiedAttack.Faction == unit.Faction && unit.OccupiedTile.OccupiedAttack.Heal > 0)
+                else if (unit.OccupiedTile.OccupiedAttack.Faction == unit.Faction && (unit.OccupiedTile.OccupiedAttack.Heal > 0 || unit.OccupiedTile.OccupiedAttack.Stamina > 0))
                 {
                     unit.OccupiedTile.OccupiedAttack.DoHeal(unit);
+                    unit.OccupiedTile.OccupiedAttack.DoStamina(unit);
                     unit.OccupiedTile.OccupiedAttack.Destroy();
                 }
+            }
+            if (UnitManager.Instance.Invocaciones.Contains(unit) && unit.Health <= 0)
+            {
+                Invocaciones.Remove(unit);
+                unit.Destroy();
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Hero)
             {

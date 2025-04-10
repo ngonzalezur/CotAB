@@ -194,7 +194,7 @@ public class BaseUnit : MonoBehaviour
             {
                 burn = Math.Max(this.OccupiedTile.Burning, burn);
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
