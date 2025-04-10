@@ -158,6 +158,7 @@ public class BaseUnit : MonoBehaviour
     {
         if(burn > 0 && veneno > 0)
         {
+            GameManager.combo++;
             Health -= (int)Math.Floor(veneno * 1.5);
             GetNeighbor(veneno);
             burn = 0;

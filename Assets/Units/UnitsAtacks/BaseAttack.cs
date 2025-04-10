@@ -57,48 +57,45 @@ public class BaseAttack : MonoBehaviour
         {
             if (UnitName == "")
             {
-                //dale ++ a la variable
+                GameManager.HitAttDruid1++;
             }
             if (UnitName == "")
             {
-                //dale ++ a la variable
+                GameManager.HitAttDruid2++;
             }
             if (UnitName == "")
             {
-                //dale ++ a la variable
+                GameManager.HitAttDruid3++;
             }
             if (UnitName == "")
             {
-                //dale ++ a la variable
+                GameManager.HitAttDruid4++;
             }
             if (UnitName == "")
             {
-                //dale ++ a la variable
+                GameManager.HitAttRobot1++;
             }
             if (UnitName == "")
             {
-                //dale ++ a la variable
+                GameManager.HitAttRobot2++;
             }
             if (UnitName == "")
             {
-                //dale ++ a la variable
+                GameManager.HitAttRobot3++;
             }
             if (UnitName == "")
             {
-                //dale ++ a la variable
+                GameManager.HitAttRobot4++;
             }
             if (UnitName == "")
             {
-                //dale ++ a la variable
+                GameManager.HitMeleeDruid++;
             }
             if (UnitName == "")
             {
-                //dale ++ a la variable
+                GameManager.HitMeleeRobot++;
             }
-            if (UnitName == "")
-            {
-                //dale ++ a la variable
-            }
+            
         }
     }
 
@@ -205,6 +202,7 @@ public class BaseAttack : MonoBehaviour
 
     public virtual void DoHeal(BaseUnit unit)
     {
+        ContadorKPIAciertoAttaque();
         if (unit == null) return;
         if (unit.Faction == Faction)
         {
