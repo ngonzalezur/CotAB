@@ -27,7 +27,9 @@ public class BaseUnit : MonoBehaviour
 
     public float MaxStamina = 3;
     public float MoveCooldown = 0;
+    public float regenStamina = 0;
     public float CastMana = 0;
+    public float regenMana = 0;
 
     public float lastCastBA = 0;
 

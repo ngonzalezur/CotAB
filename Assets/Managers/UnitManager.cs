@@ -913,7 +913,7 @@ public class UnitManager : MonoBehaviour
         {
             if (10 > hero.CastMana)
             {
-                hero.CastMana += 1;
+                hero.CastMana += hero.regenMana;
             }
 
             yield return new WaitForSeconds(1f);
@@ -1021,7 +1021,7 @@ public class UnitManager : MonoBehaviour
         {
             if (hero.MaxStamina > hero.MoveCooldown)
             {
-                hero.MoveCooldown += 1;
+                hero.MoveCooldown += hero.regenStamina;
             }
             yield return new WaitForSeconds(1f);
         }
