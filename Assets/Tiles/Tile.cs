@@ -217,7 +217,7 @@ public abstract class Tile : MonoBehaviour
         {
             return GridManager.Instance.GetTileAtPosition(new Vector2(this.x + 1, this.y));
         }
-        return this;
+        return null;
     }
     public Tile LeftTile()
     {

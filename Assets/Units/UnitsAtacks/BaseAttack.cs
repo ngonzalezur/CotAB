@@ -11,6 +11,7 @@ public class BaseAttack : MonoBehaviour
     public Tile OccupiedTile;
     public int Damage;
     public int Heal;
+    public int Stamina;
     public Faction Faction;
     public int AreaOfEffect;
     public float CoolDown;
@@ -61,7 +62,7 @@ public class BaseAttack : MonoBehaviour
         StartCoroutine(DeSpawnAttack());
     }
 
-    IEnumerator DeSpawnAttack()
+     public IEnumerator DeSpawnAttack()
     {
         QuitAttackFromTile();
         yield return new WaitForSeconds(1f);
@@ -123,9 +124,11 @@ public class BaseAttack : MonoBehaviour
             {
                 unit.Health -= Math.Abs(Damage);
                 unit.ActualHeath.text = Math.Max(unit.Health, 0) + " / " + unit.MaxHealth;
+                
                 //var audio = unit?.GetComponent<AudioSource>();
                 //audio?.Play();
-                if(unit.Faction == Faction.Hero && sound != null) //despues meter label de que tipo de heroe es para llama una funcion u otra
+                
+                if(unit.Faction == Faction.Hero && sound != null && !UnitManager.Instance.Invocaciones.Contains(unit)) //despues meter label de que tipo de heroe es para llama una funcion u otra
                 {
                     sound.PlayHeroDamage();
                 }                
@@ -151,6 +154,26 @@ public class BaseAttack : MonoBehaviour
             {
                 unit.Health = unit.MaxHealth;
             }
+            //var audio = unit?.GetComponent<AudioSource>();
+            //audio?.Play();
+            //if (unit.animator != null)
+            //{
+            //    unit.animator?.SetTrigger("TakeDamage");
+            //}
+        }
+    }
+
+    public virtual void DoStamina(BaseUnit unit)
+    {
+        if (unit == null) return;
+        if (unit.Faction == Faction)
+        {
+            unit.MoveCooldown += Math.Abs(Stamina);
+            //unit.ActualHeath.text = Math.Min(unit.Health, unit.MaxHealth) + " / " + unit.MaxHealth;
+            //if (unit.Health > unit.MaxHealth)
+            //{
+            //    unit.Health = unit.MaxHealth;
+            //}
             //var audio = unit?.GetComponent<AudioSource>();
             //audio?.Play();
             //if (unit.animator != null)
