@@ -55,43 +55,43 @@ public class BaseAttack : MonoBehaviour
         //me va tocar revisar los nombres de los ataques NICO NO CAMBIE NOMBRES O PONGA ESTOS
         if(UnitName != null)
         {
-            if (UnitName == "")
+            if (UnitName == "ad1")
             {
                 GameManager.HitAttDruid1++;
             }
-            if (UnitName == "")
+            if (UnitName == "ad2")
             {
                 GameManager.HitAttDruid2++;
             }
-            if (UnitName == "")
+            if (UnitName == "ad3")
             {
                 GameManager.HitAttDruid3++;
             }
-            if (UnitName == "")
+            if (UnitName == "ad4")
             {
                 GameManager.HitAttDruid4++;
             }
-            if (UnitName == "")
+            if (UnitName == "ar1")
             {
                 GameManager.HitAttRobot1++;
             }
-            if (UnitName == "")
+            if (UnitName == "ar2")
             {
                 GameManager.HitAttRobot2++;
             }
-            if (UnitName == "")
+            if (UnitName == "ar3")
             {
                 GameManager.HitAttRobot3++;
             }
-            if (UnitName == "")
+            if (UnitName == "ar4")
             {
                 GameManager.HitAttRobot4++;
             }
-            if (UnitName == "")
+            if (UnitName == "amd")
             {
                 GameManager.HitMeleeDruid++;
             }
-            if (UnitName == "")
+            if (UnitName == "amr")
             {
                 GameManager.HitMeleeRobot++;
             }

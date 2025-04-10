@@ -87,9 +87,10 @@ public class UnitManager : MonoBehaviour
 
         BaseUnit persistentHero = GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
                                      .FirstOrDefault(u => u.isPersistentHero);
-        GameManager.character = persistentHero.UnitName;
+        
         if(persistentHero != null)
         {
+            GameManager.character = persistentHero.UnitName;
             configuration.Heroes[0].prefab = persistentHero;
             Heroes.Add(persistentHero);
             Heroes[0] = persistentHero;

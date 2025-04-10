@@ -5080,10 +5080,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16274881907b8884ea04a6135ccd68f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: "Da\xF1o por estado"
+  UnitName: ad4
   OccupiedTile: {fileID: 0}
   Damage: 1
   Heal: 0
+  Stamina: 0
   Faction: 0
   AreaOfEffect: 1
   CoolDown: 2
