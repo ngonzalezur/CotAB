@@ -130,7 +130,15 @@ public class BaseAttack : MonoBehaviour
                 
                 if(unit.Faction == Faction.Hero && sound != null && !UnitManager.Instance.Invocaciones.Contains(unit)) //despues meter label de que tipo de heroe es para llama una funcion u otra
                 {
-                    sound.PlayHeroDamage();
+                    //sound.PlayHeroDamage();
+                    if (unit.UnitName == "Druid")
+                    {
+                        sound.PlayDruidDamage();
+                    }
+                    if (unit.UnitName == "Robot")
+                    {
+                        sound.PlayRobotDamage();
+                    }
                 }                
                 if (unit.animator != null)
                 {
