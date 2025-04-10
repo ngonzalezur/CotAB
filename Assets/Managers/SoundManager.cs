@@ -5,12 +5,12 @@ namespace CotA.Sound
 {
     public class SoundManager : MonoBehaviour
     {
+        // ---------------- LEER ANTES ---------------
+        // La función PlayHeroDamage ahora se llama PlayDruidDamage, con la que manejas el daño a la druida
         
-        public void PlayMusic ()
-        {
-          
-        }
-        
+
+
+        // ----------------------- MÚSICA ----------------------------
         public void ChangeSoundtrackToMidLifeMode ()
         {
           /// Combat 01 Callar
@@ -26,15 +26,50 @@ namespace CotA.Sound
         }
 
 
-        public void StopMusic ()
-        {
-
-        }
-
-        public void PlayHeroDamage () //Quite el float Health por no saber como usarlo
+        // ----------------------- DAÑO A HEROES ---------------------------
+        public void PlayDruidDamage () //Le hacen daño a la Druida
         {
             AkUnitySoundEngine.PostEvent("Play_Damage_Druid", gameObject);
         }
+
+        public void PlayRobotDamage () //Le hacen daño a la Robot
+        {
+            AkUnitySoundEngine.PostEvent("Play_Damage_Robot", gameObject);
+        }
+
+        // ------------------- Ataques y Habilidades Heroes ---------------
+        //                   ---- DRUIDA ----
+        public void PlayFirewallDruid () //Druida hace el ataque muro de fuego
+        {
+            AkUnitySoundEngine.PostEvent("Play_Firewall_Druid", gameObject);
+        }
+        public void PlayGridDruid () //Druida cambias las casillas de enemigas a amigas
+        {
+            AkUnitySoundEngine.PostEvent("Play_Grid_Druid", gameObject);
+        }
+        public void PlayMeleeDruid () //Druida hace dash y ataque melee
+        {
+            AkUnitySoundEngine.PostEvent("Play_Melee_Druid", gameObject);
+        }
+        public void PlayPoisonDruid () //Druida lanza ataque de area veneno
+        {
+            AkUnitySoundEngine.PostEvent("Play_Posion_Druid", gameObject);  //se que esta escrito mal posion, asi quedo el event en wwise despues lo corrijo
+        }
+
+        //                   ---- ROBOT ----
+        public void PlayBroteRobot () //Robot invoca cualquiera de las 2 flores
+        {
+            AkUnitySoundEngine.PostEvent("Play_Brote_Robot", gameObject);
+        }
+        public void PlayParryRobot () //Robot bloquea ataque de enemigos
+        {
+            AkUnitySoundEngine.PostEvent("Play_Parry_Robot", gameObject);
+        }
+        public void PlaySmiteRobot () //Robot hace ataque de area
+        {
+            AkUnitySoundEngine.PostEvent("Play_Smite_Robot", gameObject);
+        }
+        
 
       
     }

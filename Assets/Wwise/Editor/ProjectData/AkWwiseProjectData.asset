@@ -331,7 +331,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 0ac5b1dff5e8cc47a658227402647446
     GuidInternal: 
-    m_lastTime: -8584575663157050874
+    m_lastTime: -8584573556864064478
     List:
     - name: Combat_SBank
       guid: c5053a4bcd79fa4980fc55624ebfe325
@@ -359,8 +359,42 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e162b17a710f2943908bc696d6471d61
     GuidInternal: 
-    m_lastTime: -8584578058962794499
+    m_lastTime: -8584573557441054836
     List:
+    - name: Attack Druid
+      guid: f4a86e17a16bd048a5c19e74981a767d
+      id: 2559603093
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Druid
+        ObjectType: 4
+        guid: f4a86e17a16bd048a5c19e74981a767d
+      Path: Events\Default Work Unit\Attack Druid
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Attack Robot
+      guid: 502839aa97a45d4a96ea7f435191df6a
+      id: 323005269
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Robot
+        ObjectType: 4
+        guid: 502839aa97a45d4a96ea7f435191df6a
+      Path: Events\Default Work Unit\Attack Robot
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Combat01_Voices
       guid: fe96ea0872d60340962461a164d053a8
       id: 3684908830
@@ -392,6 +426,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: 6b8cd6b04b663c49a8a3651dd6076188
       Path: Events\Default Work Unit\Combate02_Voices
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Brote_Robot
+      guid: 2dcbff63150d844e9188f6fd74d2ece9
+      id: 3671704113
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Robot
+        ObjectType: 4
+        guid: 502839aa97a45d4a96ea7f435191df6a
+      - ElementName: Play_Brote_Robot
+        ObjectType: 3
+        guid: 2dcbff63150d844e9188f6fd74d2ece9
+      Path: Events\Default Work Unit\Attack Robot\Play_Brote_Robot
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -446,6 +500,143 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.4199093
       minDuration: 0.22462586
+    - name: Play_Damage_Robot
+      guid: e926e6dcc9c62444b24c1b8fa1f394d8
+      id: 1942325012
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Play_Damage_Robot
+        ObjectType: 3
+        guid: e926e6dcc9c62444b24c1b8fa1f394d8
+      Path: Events\Default Work Unit\Play_Damage_Robot
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Firewall_Druid
+      guid: 77a2c8741431074ea1b61ea63aca7e9b
+      id: 364273755
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Druid
+        ObjectType: 4
+        guid: f4a86e17a16bd048a5c19e74981a767d
+      - ElementName: Play_Firewall_Druid
+        ObjectType: 3
+        guid: 77a2c8741431074ea1b61ea63aca7e9b
+      Path: Events\Default Work Unit\Attack Druid\Play_Firewall_Druid
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Grid_Druid
+      guid: 6a5167c9572fca43991b7cb486e97d5b
+      id: 104012431
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Druid
+        ObjectType: 4
+        guid: f4a86e17a16bd048a5c19e74981a767d
+      - ElementName: Play_Grid_Druid
+        ObjectType: 3
+        guid: 6a5167c9572fca43991b7cb486e97d5b
+      Path: Events\Default Work Unit\Attack Druid\Play_Grid_Druid
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Melee_Druid
+      guid: b390a38add9f3e44950c09d23092cf30
+      id: 2651910159
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Druid
+        ObjectType: 4
+        guid: f4a86e17a16bd048a5c19e74981a767d
+      - ElementName: Play_Melee_Druid
+        ObjectType: 3
+        guid: b390a38add9f3e44950c09d23092cf30
+      Path: Events\Default Work Unit\Attack Druid\Play_Melee_Druid
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Parry_Robot
+      guid: 2bd766a99b0c3f49a13e4a8abb6ebb89
+      id: 3072108541
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Robot
+        ObjectType: 4
+        guid: 502839aa97a45d4a96ea7f435191df6a
+      - ElementName: Play_Parry_Robot
+        ObjectType: 3
+        guid: 2bd766a99b0c3f49a13e4a8abb6ebb89
+      Path: Events\Default Work Unit\Attack Robot\Play_Parry_Robot
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Posion_Druid
+      guid: 8efe516523aa804796bee6fe0c2d4a43
+      id: 1979277459
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Druid
+        ObjectType: 4
+        guid: f4a86e17a16bd048a5c19e74981a767d
+      - ElementName: Play_Posion_Druid
+        ObjectType: 3
+        guid: 8efe516523aa804796bee6fe0c2d4a43
+      Path: Events\Default Work Unit\Attack Druid\Play_Posion_Druid
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Smite_Robot
+      guid: c2530bcac82e084984c8d8d4a98b6c4e
+      id: 1513174551
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Robot
+        ObjectType: 4
+        guid: 502839aa97a45d4a96ea7f435191df6a
+      - ElementName: Play_Smite_Robot
+        ObjectType: 3
+        guid: c2530bcac82e084984c8d8d4a98b6c4e
+      Path: Events\Default Work Unit\Attack Robot\Play_Smite_Robot
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Set_Voice_Volume_Contra_Bajo_Lento
       guid: 7e20e76c0333164fb92d126b89b21498
       id: 2899002807
