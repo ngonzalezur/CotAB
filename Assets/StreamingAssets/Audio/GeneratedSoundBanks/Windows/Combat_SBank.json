@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{4B3A05C5-79CD-49FA-80FC-55624EBFE325}",
     "Language": "SFX",
-    "Hash": "{5583B77F-7639-2D3B-4517-87A99ADF20B7}",
+    "Hash": "{9E89D7AE-922A-54EB-8061-1242F5BA9E7F}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SBank",
     "ShortName": "Combat_SBank",
     "Path": "Combat_SBank.bnk",
@@ -32,12 +32,28 @@
       "CachePath": "E7/{E73C22DD-3586-BEFB-FB0D-C4FEC46C1F2E}.wem"
      },
      {
+      "Id": "143620131",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageRobot 05.wav",
+      "CachePath": "23/{23B5E690-B0AD-648B-9855-6B4590548027}.wem"
+     },
+     {
       "Id": "202317441",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DamageDruid04.wav",
       "CachePath": "6A/{6AB17254-4DE3-1EB7-6209-0E73C3C1D95C}.wem"
+     },
+     {
+      "Id": "234338636",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Parry Robot.wav",
+      "CachePath": "0F/{0FA4427D-1D61-51F7-D927-AD327ED42134}.wem"
      },
      {
       "Id": "237363396",
@@ -64,6 +80,14 @@
       "CachePath": "5C/{5C086CD1-91FA-5ADA-BF4E-D671F3310733}.wem"
      },
      {
+      "Id": "308188639",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageRobot 04.wav",
+      "CachePath": "38/{386FA16E-EFAC-3BB3-4EF7-C92CA8E4C488}.wem"
+     },
+     {
       "Id": "478948819",
       "Language": "SFX",
       "Streaming": "false",
@@ -80,12 +104,28 @@
       "CachePath": "85/{850C7F6E-6569-8C55-0E3A-4493D94A6771}.wem"
      },
      {
-      "Id": "537308945",
+      "Id": "555864172",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "DamageHero.wav",
-      "CachePath": "AE/{AE2A55DC-D846-DD99-77C5-E9D3554839B8}.wem"
+      "ShortName": "Posion Druid.wav",
+      "CachePath": "A0/{A0806440-F9A4-141F-4EE6-F3A7367F486D}.wem"
+     },
+     {
+      "Id": "576757380",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageRobot 07.wav",
+      "CachePath": "87/{870D1BA1-F302-1FCC-AF5A-6645C07BCDCD}.wem"
+     },
+     {
+      "Id": "586318892",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageRobot 03.wav",
+      "CachePath": "82/{82246AFF-43A3-823F-074F-4231C5605E04}.wem"
      },
      {
       "Id": "629815313",
@@ -96,20 +136,20 @@
       "CachePath": "48/{48CD294D-31B6-FE68-D3E9-A1CCCFA3D8EF}.wem"
      },
      {
+      "Id": "676915343",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageRobot 02.wav",
+      "CachePath": "81/{81507E9C-EF7B-EC04-9664-D4BA084C16CF}.wem"
+     },
+     {
       "Id": "709076494",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Contra Bajo Lento02.wav",
       "CachePath": "C3/{C3EA8E5B-B6FA-9BFF-D45C-AA8D2A9E4E9C}.wem"
-     },
-     {
-      "Id": "721554303",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DamageHero02.wav",
-      "CachePath": "5B/{5B990BFE-99ED-7F53-00D0-C02015E02801}.wem"
      },
      {
       "Id": "728003334",
@@ -128,6 +168,38 @@
       "CachePath": "2F/{2F618857-6925-633F-07B9-9EBC48F8DBE6}.wem"
      },
      {
+      "Id": "775123153",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Firewall Druid.wav",
+      "CachePath": "E2/{E2B149BB-3106-93FC-91D1-490B114682F6}.wem"
+     },
+     {
+      "Id": "841096337",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Smite Robot.wav",
+      "CachePath": "11/{11BC932F-EC94-7008-BEB0-987F97D8A232}.wem"
+     },
+     {
+      "Id": "851681003",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageRobot 06.wav",
+      "CachePath": "B4/{B49DCCCD-5809-8489-82AD-A52072322475}.wem"
+     },
+     {
+      "Id": "867981589",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Brote Robot.wav",
+      "CachePath": "A4/{A4A8EB90-101E-CB01-B226-CC320BE6DFDF}.wem"
+     },
+     {
       "Id": "906392941",
       "Language": "SFX",
       "Streaming": "false",
@@ -136,27 +208,53 @@
       "CachePath": "8A/{8AA021F5-FFD8-636A-EE71-22DC994598A9}.wem"
      },
      {
+      "Id": "922971329",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Grid Druid.wav",
+      "CachePath": "CC/{CC7D021E-635C-8BD5-28DF-12827E58F149}.wem"
+     },
+     {
       "Id": "951621927",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DamageDruid06.wav",
       "CachePath": "96/{96C97231-8CCC-A1C6-D8BF-FB6E7D724C0D}.wem"
+     },
+     {
+      "Id": "1017942417",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Melee Druid.wav",
+      "CachePath": "F1/{F1D6E841-341B-2BF2-F6AF-F4B84D5498EF}.wem"
+     },
+     {
+      "Id": "1050705725",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageRobot 01.wav",
+      "CachePath": "A0/{A0085CEA-59A8-C78D-C312-DA6E40A04D21}.wem"
      }
     ],
-    "Plugins": {
-     "Custom": [
-      {
-       "Id": "671018388",
-       "Name": "Pitch Shifter (Custom)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SFX Combat\\Damage Hero Randomizer\\DamageHero01\\[Effect Slot [0]: (Pitch Shifter)]\\Pitch Shifter (Custom)",
-       "GUID": "{8AE8DB9A-E206-4584-B968-3AC9D09BAD68}",
-       "LibName": "Wwise Pitch Shifter",
-       "LibId": "8912899"
-      }
-     ]
-    },
     "Events": [
+     {
+      "Id": "3671704113",
+      "Name": "Play_Brote_Robot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Robot\\Play_Brote_Robot",
+      "GUID": "{63FFCB2D-0D15-4E84-9188-F6FD74D2ECE9}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94773245",
+      "DurationMax": "0.94773245",
+      "MediaRefs": [
+       {
+        "Id": "867981589"
+       }
+      ]
+     },
      {
       "Id": "1462092269",
       "Name": "Play_CombatMusicPlaylist",
@@ -220,28 +318,120 @@
       ]
      },
      {
-      "Id": "3446409770",
-      "Name": "Play_Damage_Hero_Randomizer",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Damage_Hero_Randomizer",
-      "GUID": "{DC8E1906-F6CE-4C14-B04F-B9A981E605FD}",
+      "Id": "1942325012",
+      "Name": "Play_Damage_Robot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Damage_Robot",
+      "GUID": "{DCE626E9-C6C9-4424-B24C-1B8FA1F394D8}",
       "DurationType": "OneShot",
-      "DurationMin": "0.22462586",
-      "DurationMax": "0.4199093",
+      "DurationMin": "2.6892517",
+      "DurationMax": "2.6892517",
       "MediaRefs": [
        {
-        "Id": "537308945"
+        "Id": "143620131"
        },
        {
-        "Id": "721554303"
+        "Id": "308188639"
+       },
+       {
+        "Id": "576757380"
+       },
+       {
+        "Id": "586318892"
+       },
+       {
+        "Id": "676915343"
+       },
+       {
+        "Id": "851681003"
+       },
+       {
+        "Id": "1050705725"
        }
-      ],
-      "PluginRefs": {
-       "Custom": [
-        {
-         "Id": "671018388"
-        }
-       ]
-      }
+      ]
+     },
+     {
+      "Id": "364273755",
+      "Name": "Play_Firewall_Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Druid\\Play_Firewall_Druid",
+      "GUID": "{74C8A277-3114-4E07-A1B6-1EA63ACA7E9B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94773245",
+      "DurationMax": "0.94773245",
+      "MediaRefs": [
+       {
+        "Id": "775123153"
+       }
+      ]
+     },
+     {
+      "Id": "104012431",
+      "Name": "Play_Grid_Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Druid\\Play_Grid_Druid",
+      "GUID": "{C967516A-2F57-43CA-991B-7CB486E97D5B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94773245",
+      "DurationMax": "0.94773245",
+      "MediaRefs": [
+       {
+        "Id": "922971329"
+       }
+      ]
+     },
+     {
+      "Id": "2651910159",
+      "Name": "Play_Melee_Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Druid\\Play_Melee_Druid",
+      "GUID": "{8AA390B3-9FDD-443E-950C-09D23092CF30}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94773245",
+      "DurationMax": "0.94773245",
+      "MediaRefs": [
+       {
+        "Id": "1017942417"
+       }
+      ]
+     },
+     {
+      "Id": "3072108541",
+      "Name": "Play_Parry_Robot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Robot\\Play_Parry_Robot",
+      "GUID": "{A966D72B-0C9B-493F-A13E-4A8ABB6EBB89}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94773245",
+      "DurationMax": "0.94773245",
+      "MediaRefs": [
+       {
+        "Id": "234338636"
+       }
+      ]
+     },
+     {
+      "Id": "1979277459",
+      "Name": "Play_Posion_Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Druid\\Play_Posion_Druid",
+      "GUID": "{6551FE8E-AA23-4780-96BE-E6FE0C2D4A43}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94773245",
+      "DurationMax": "0.94773245",
+      "MediaRefs": [
+       {
+        "Id": "555864172"
+       }
+      ]
+     },
+     {
+      "Id": "1513174551",
+      "Name": "Play_Smite_Robot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Robot\\Play_Smite_Robot",
+      "GUID": "{CA0B53C2-2EC8-4908-84C8-D8D4A98B6C4E}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.1614287",
+      "DurationMax": "2.1614287",
+      "MediaRefs": [
+       {
+        "Id": "841096337"
+       }
+      ]
      },
      {
       "Id": "2899002807",
@@ -366,6 +556,6 @@
     ]
    }
   ],
-  "FileHash": "{E8F27DDB-084B-6E7B-0354-7A39D56A09A8}"
+  "FileHash": "{0847B29A-7287-9C37-0FAC-C12ADC4BA259}"
  }
 }
