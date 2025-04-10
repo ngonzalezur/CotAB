@@ -325,6 +325,7 @@ MonoBehaviour:
   lastCastBA: 0
   animator: {fileID: 2885529330961643097}
   parry: 0
+  isPersistentHero: 1
 --- !u!54 &-2926728650241075384
 Rigidbody:
   m_ObjectHideFlags: 0

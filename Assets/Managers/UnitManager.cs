@@ -10,6 +10,7 @@ using System;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.UI.CanvasScaler;
 using CotA.Sound;
+using System.Linq;
 //using System;
 
 
@@ -40,18 +41,26 @@ public class UnitManager : MonoBehaviour
     public bool SecondPlayer = false;
 
     Gamepad Mando = null;
+    bool hasPersist = false;
 
     private Coroutine corrutinaInvocaciones;
 
     public void SetHeroUnit(BaseUnit unit)
     {
         //Agrego una intancia y esa sera quien se modifique en escena
-        var newUnit = Instantiate(unit, new Vector3(0, 0, -1), Quaternion.identity);
+        var newUnit = unit;
+        if (!hasPersist)
+        {
+            newUnit = Instantiate(unit, new Vector3(0, 0, -1), Quaternion.identity);
+        }       
+        
+        
         int cont = 0;
         foreach (BaseAttack attack in unit.Attacks)
         {
             newUnit.Attacks[cont] = Instantiate(unit.Attacks[cont], new Vector3(0, 0, -1), Quaternion.identity);
             newUnit.Attacks[cont].gameObject.SetActive(false);
+            DontDestroyOnLoad(newUnit.Attacks[cont]);
             cont++;
         }
         Heroes.Add(newUnit);
@@ -72,9 +81,20 @@ public class UnitManager : MonoBehaviour
         cont = 0;
     }
 
-    void Awake()
+    public void Awake()
     {
         Instance = this;
+
+        BaseUnit persistentHero = GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
+                                     .FirstOrDefault(u => u.isPersistentHero);
+        if(persistentHero != null)
+        {
+            configuration.Heroes[0].prefab = persistentHero;
+            Heroes.Add(persistentHero);
+            Heroes[0] = persistentHero;
+            hasPersist = true;
+        }
+        
         //Referencio los heroes del data maanger y los guardo en la Lista Heroes
         foreach (ConfigurationData.UnitData unit in configuration.Heroes)
         {
@@ -100,31 +120,33 @@ public class UnitManager : MonoBehaviour
     public void SpawnHeroes()
     {
         //Cantidad de personajes aliaos que voy a hacer spawn, si hay dos jugadores le agrega uno
-        var heroCount = 1;
-        if (SecondPlayer)
-        {
-            heroCount++;
-        }
+        
+            var heroCount = 1;
+            if (SecondPlayer)
+            {
+                heroCount++;
+            }
 
-        for (int i = 0; i < heroCount; i++)
-        {
-            var x = UnityEngine.Random.Range(0, 5);
-            var y = UnityEngine.Random.Range(0, 5);
-            var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(x, y));
-            var hero = Heroes[i];
-            hero.OccupiedTile = randomSpawnTile;
-            randomSpawnTile.SetUnit(hero);
-            hero.GetHighlightHero()._highlight.SetActive(true);
-        }
+            for (int i = 0; i < heroCount; i++)
+            {
+                var x = UnityEngine.Random.Range(0, 5);
+                var y = UnityEngine.Random.Range(0, 5);
+                var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(x, y));
+                var hero = Heroes[i];
+                hero.OccupiedTile = randomSpawnTile;
+                randomSpawnTile.SetUnit(hero);
+                hero.GetHighlightHero()._highlight.SetActive(true);
+            }
 
-        StartCoroutine(RestoreStamina(Heroes[0]));
-        StartCoroutine(RestoreMana(Heroes[0]));
-        //StartCoroutine(AtaqueInvocaciones());
-        if (SecondPlayer)
-        {
-            StartCoroutine(RestoreStamina(Heroes[1]));
-            StartCoroutine(RestoreMana(Heroes[1]));
-        }
+            StartCoroutine(RestoreStamina(Heroes[0]));
+            StartCoroutine(RestoreMana(Heroes[0]));
+            //StartCoroutine(AtaqueInvocaciones());
+            if (SecondPlayer)
+            {
+                StartCoroutine(RestoreStamina(Heroes[1]));
+                StartCoroutine(RestoreMana(Heroes[1]));
+            }      
+        
 
         GameManager.Instance.ChangeState(GameState.SpawnEnemies);
     }
@@ -153,7 +175,7 @@ public class UnitManager : MonoBehaviour
 
         if (unit.CastMana - unit.Attacks[i].ManaCost > 0 && Time.time - unit.Attacks[i].LastCast1 >= unit.Attacks[i].CoolDown)
         {
-            if (unit.Attacks[i].type == BaseAttack.AttType.invocacion && Invocaciones.Count >= 1)
+            if (unit.Attacks[i].type == BaseAttack.AttType.invocacion && Invocaciones.Count >= 2  && Invocaciones[0].UnitName == unit.Attacks[i].invocacion.UnitName)
             {
                 //no hacer nada
             }
@@ -168,6 +190,38 @@ public class UnitManager : MonoBehaviour
                 if(unit.animator != null)
                 {
                     unit.animator.SetTrigger("Attack");
+                }
+                //sound effects de cada ataque
+                if(unit.Attacks[i].type == BaseAttack.AttType.muro)
+                {
+                    SoundManager.PlayFirewallDruid();
+                }
+                if (unit.Attacks[i].type == BaseAttack.AttType.parry)
+                {
+                    SoundManager.PlayParryRobot();
+                }
+                if (unit.Attacks[i].type == BaseAttack.AttType.area)
+                {
+                    if(unit.Attacks[i].DoVeneno > 0)
+                    {
+                        SoundManager.PlayPoisonDruid();
+                    }
+                    else
+                    {
+                        SoundManager.PlaySmiteRobot();
+                    }
+                }
+                if (unit.Attacks[i].type == BaseAttack.AttType.dashMelee)
+                {
+                    SoundManager.PlayMeleeDruid();
+                }
+                if (unit.Attacks[i].type == BaseAttack.AttType.cambiarFaction)
+                {
+                    SoundManager.PlayGridDruid();
+                }
+                if (unit.Attacks[i].type == BaseAttack.AttType.invocacion)
+                {
+                    SoundManager.PlayBroteRobot();
                 }
             }
             
@@ -362,9 +416,17 @@ public class UnitManager : MonoBehaviour
         if (unit == null || attack == null) return;
         var target = new List<Tile>();
         target.Add(unit.OccupiedTile.LeftTile());
-        if(Invocaciones.Count <= 0)
+        if(Invocaciones.Count <= 1)
         {
-            InstanciarInvocacion(attack, target);
+            if (Invocaciones.Count == 0)
+            {
+                InstanciarInvocacion(attack, target);
+            }
+            else if (Invocaciones[0] != null && Invocaciones[0].UnitName != attack.invocacion.UnitName)
+            {
+                InstanciarInvocacion(attack, target);
+            }
+            
         }
     }
 

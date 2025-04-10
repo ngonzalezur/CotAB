@@ -3,6 +3,7 @@ using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
+using System.Linq;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "EnemyPursuit", story: "[Enemy] moves to [Target]", category: "Action", id: "af47a70f26f9a17700b6313063417b10")]
@@ -13,7 +14,17 @@ public partial class EnemyPursuitAction : Action
 
     protected override Status OnStart()
     {
-        Target.Value = GameObject.FindFirstObjectByType<BaseHero>();
+        BaseUnit persistentHero = GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
+                                     .FirstOrDefault(u => u.isPersistentHero);
+        if (persistentHero == null)
+        {
+            Target.Value = GameObject.FindFirstObjectByType<BaseHero>();
+        }
+        else
+        {
+            Target.Value = persistentHero;
+        }
+        
         return Status.Running;
     }
 
