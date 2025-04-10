@@ -5,3 +5,5 @@
 *.bnk filter=lfs diff=lfs merge=lfs -text
 *.wwu filter=lfs diff=lfs merge=lfs -text
 *.wav filter=lfs diff=lfs merge=lfs -text
+*.exr filter=lfs diff=lfs merge=lfs -text
+*.mat filter=lfs diff=lfs merge=lfs -text
