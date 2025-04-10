@@ -350,6 +350,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &88211164 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
+    type: 3}
+  m_PrefabInstance: {fileID: 88211159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afb7c9cece689f4497ac18bf774d78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &147041322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -502,6 +514,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
         type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 88211164}
+    - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
+        type: 3}
       propertyPath: poolHero1
       value: 
       objectReference: {fileID: 546541056}
@@ -520,6 +537,11 @@ PrefabInstance:
       propertyPath: poolEnemies
       value: 
       objectReference: {fileID: 1064770965}
+    - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
+        type: 3}
+      propertyPath: SoundManager
+      value: 
+      objectReference: {fileID: 4970182566589299296}
     - target: {fileID: 1544890186074902800, guid: 82a3b4bd038f134409a8d985d7fca9b9,
         type: 3}
       propertyPath: TimeMoveHero
@@ -1306,6 +1328,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea21cc6e8b3b92b4f91252261f296aa3, type: 3}
+--- !u!114 &4970182566589299296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2315415838213100201, guid: ea21cc6e8b3b92b4f91252261f296aa3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4970182566589299295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21140f798d21a347ae77c046a50484a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8798392102145111918
 PrefabInstance:
   m_ObjectHideFlags: 0

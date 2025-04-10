@@ -26,30 +26,30 @@ public class UIFeedback : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < abilities.Length; i++)
-        {
-            if (Input.GetKey(abilities[i].key) && !abilities[i].isCooldown)
-            {
-                StartCoroutine(HandleCooldown(abilities[i]));
-            }
-        }
+        //for (int i = 0; i < abilities.Length; i++)
+        //{
+        //    if (Input.GetKey(abilities[i].key) && !abilities[i].isCooldown)
+        //    {
+        //        StartCoroutine(HandleCooldown(i));
+        //    }
+        //}
     }
 
-    IEnumerator HandleCooldown(Ability ability)
+    public IEnumerator HandleCooldown(int i)
     {
-        ability.isCooldown = true;
-        ability.abilityImage.fillAmount = 1;
+        abilities[i].isCooldown = true;
+        abilities[i].abilityImage.fillAmount = 1;
 
         float elapsedTime = 0f;
 
-        while (elapsedTime < ability.cooldown)
+        while (elapsedTime < abilities[i].cooldown)
         {
             elapsedTime += Time.deltaTime;
-            ability.abilityImage.fillAmount = 1 - (elapsedTime / ability.cooldown);
+            abilities[i].abilityImage.fillAmount = 1 - (elapsedTime / abilities[i].cooldown);
             yield return null;
         }
 
-        ability.abilityImage.fillAmount = 0;
-        ability.isCooldown = false;
+        abilities[i].abilityImage.fillAmount = 0;
+        abilities[i].isCooldown = false;
     }
 }

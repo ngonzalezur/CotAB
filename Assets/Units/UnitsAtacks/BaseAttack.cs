@@ -29,6 +29,9 @@ public class BaseAttack : MonoBehaviour
     public bool stun = false;
     public int attackType;
     public AttType type;
+
+    SpriteRenderer sprite;
+    ParticleSystem particle;
     public enum AttType
     {
         proyectil = 0,
@@ -53,8 +56,48 @@ public class BaseAttack : MonoBehaviour
         if (this == null || this.OccupiedTile == null) return;
         UnitManager.Instance.AttacksinPlay.Remove(this);
         //MauriManager.Instance.AttacksinPlay.Remove(this);
+        //this.gameObject.SetActive(false);
+        //this.OccupiedTile.OccupiedAttack = null;
+        StartCoroutine(DeSpawnAttack());
+    }
+
+    IEnumerator DeSpawnAttack()
+    {
+        QuitAttackFromTile();
+        yield return new WaitForSeconds(1f);
+        QuitSprite();
+        QuitAttackPrefab();
+    }
+
+    public void QuitAttackFromTile()
+    {
+        OccupiedTile.OccupiedAttack = null;
+        OccupiedTile = null;
+    }
+
+    public void QuitSprite()
+    {
+        if (TryGetComponent<SpriteRenderer>(out sprite))
+        {
+            sprite.gameObject.SetActive(false);
+        }
+        if (TryGetComponent<ParticleSystem>(out particle))
+        {
+            particle.gameObject.SetActive(false);
+        }
+    }
+
+    public void QuitAttackPrefab()
+    {
+        if(sprite != null)
+        {
+            sprite.gameObject.SetActive(true);
+        }
+        if (particle != null)
+        {
+            particle.gameObject.SetActive(true);
+        }
         this.gameObject.SetActive(false);
-        this.OccupiedTile.OccupiedAttack = null;
     }
 
     public virtual void DoDamage(BaseUnit unit)
@@ -76,13 +119,16 @@ public class BaseAttack : MonoBehaviour
                 unit.burn += DoBurn;
             }
             //Debug.Log("soy normal");
-            if (!unit.parry && sound != null)
+            if (!unit.parry)
             {
                 unit.Health -= Math.Abs(Damage);
                 unit.ActualHeath.text = Math.Max(unit.Health, 0) + " / " + unit.MaxHealth;
                 //var audio = unit?.GetComponent<AudioSource>();
                 //audio?.Play();
-                sound.PlayHeroDamage();
+                if(unit.Faction == Faction.Hero && sound != null) //despues meter label de que tipo de heroe es para llama una funcion u otra
+                {
+                    sound.PlayHeroDamage();
+                }                
                 if (unit.animator != null)
                 {
                     unit.animator?.SetTrigger("TakeDamage");
