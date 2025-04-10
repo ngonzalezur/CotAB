@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6811442fc79aed84884aa7c97a3645a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: Druida
+  UnitName: planta curar
   OccupiedTile: {fileID: 0}
   Faction: 0
   MaxHealth: 2
@@ -322,6 +322,7 @@ MonoBehaviour:
   lastCastBA: 0
   animator: {fileID: 2885529330961643097}
   parry: 0
+  isPersistentHero: 0
 --- !u!54 &-2926728650241075384
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -359,7 +360,7 @@ AudioSource:
   m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 89290a39a40183248a51f1d50178bde4, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 89290a39a40183248a51f1d50178bde4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

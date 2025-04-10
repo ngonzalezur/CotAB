@@ -175,7 +175,7 @@ public class UnitManager : MonoBehaviour
 
         if (unit.CastMana - unit.Attacks[i].ManaCost > 0 && Time.time - unit.Attacks[i].LastCast1 >= unit.Attacks[i].CoolDown)
         {
-            if (unit.Attacks[i].type == BaseAttack.AttType.invocacion && Invocaciones.Count >= 1)
+            if (unit.Attacks[i].type == BaseAttack.AttType.invocacion && Invocaciones.Count >= 2  && Invocaciones[0].UnitName == unit.Attacks[i].invocacion.UnitName)
             {
                 //no hacer nada
             }
@@ -190,6 +190,38 @@ public class UnitManager : MonoBehaviour
                 if(unit.animator != null)
                 {
                     unit.animator.SetTrigger("Attack");
+                }
+                //sound effects de cada ataque
+                if(unit.Attacks[i].type == BaseAttack.AttType.muro)
+                {
+                    SoundManager.PlayFirewallDruid();
+                }
+                if (unit.Attacks[i].type == BaseAttack.AttType.parry)
+                {
+                    SoundManager.PlayParryRobot();
+                }
+                if (unit.Attacks[i].type == BaseAttack.AttType.area)
+                {
+                    if(unit.Attacks[i].DoVeneno > 0)
+                    {
+                        SoundManager.PlayPoisonDruid();
+                    }
+                    else
+                    {
+                        SoundManager.PlaySmiteRobot();
+                    }
+                }
+                if (unit.Attacks[i].type == BaseAttack.AttType.dashMelee)
+                {
+                    SoundManager.PlayMeleeDruid();
+                }
+                if (unit.Attacks[i].type == BaseAttack.AttType.cambiarFaction)
+                {
+                    SoundManager.PlayGridDruid();
+                }
+                if (unit.Attacks[i].type == BaseAttack.AttType.invocacion)
+                {
+                    SoundManager.PlayBroteRobot();
                 }
             }
             
@@ -384,9 +416,17 @@ public class UnitManager : MonoBehaviour
         if (unit == null || attack == null) return;
         var target = new List<Tile>();
         target.Add(unit.OccupiedTile.LeftTile());
-        if(Invocaciones.Count <= 0)
+        if(Invocaciones.Count <= 1)
         {
-            InstanciarInvocacion(attack, target);
+            if (Invocaciones.Count == 0)
+            {
+                InstanciarInvocacion(attack, target);
+            }
+            else if (Invocaciones[0] != null && Invocaciones[0].UnitName != attack.invocacion.UnitName)
+            {
+                InstanciarInvocacion(attack, target);
+            }
+            
         }
     }
 
