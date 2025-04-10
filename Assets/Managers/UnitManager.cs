@@ -18,6 +18,7 @@ public class UnitManager : MonoBehaviour
     public ConfigurationData configuration;
 
     public SoundManager SoundManager;
+    public UIFeedback ui;
 
     public static UnitManager Instance;
 
@@ -153,6 +154,7 @@ public class UnitManager : MonoBehaviour
         if (unit.CastMana - unit.Attacks[i].ManaCost > 0 && Time.time - unit.Attacks[i].LastCast1 >= unit.Attacks[i].CoolDown)
         {
             unit.CastMana -= unit.Attacks[i].ManaCost;
+            StartCoroutine(ui.HandleCooldown(i));
             CastAttack(unit, unit.Attacks[i]);
             unit.Attacks[i].LastCast1 = Time.time;
             unit.animator.SetTrigger("Attack");

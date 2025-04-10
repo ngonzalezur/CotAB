@@ -308,6 +308,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a671c067d9aa1e74b9accc32fa210bd1, type: 3}
+--- !u!114 &78003230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
+    type: 3}
+  m_PrefabInstance: {fileID: 78003229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afb7c9cece689f4497ac18bf774d78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &138065448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -692,6 +704,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 060c48d71d1b1e743956a851a89fa483, type: 3}
+--- !u!114 &810309399 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7516485040342788421, guid: 060c48d71d1b1e743956a851a89fa483,
+    type: 3}
+  m_PrefabInstance: {fileID: 810309398}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21140f798d21a347ae77c046a50484a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &998247178 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1316520585027751740, guid: a671c067d9aa1e74b9accc32fa210bd1,
@@ -978,6 +1002,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
         type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 78003230}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
       propertyPath: poolHero1
       value: 
       objectReference: {fileID: 750076039}
@@ -991,6 +1020,11 @@ PrefabInstance:
       propertyPath: poolEnemies
       value: 
       objectReference: {fileID: 2011988049}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
+      propertyPath: SoundManager
+      value: 
+      objectReference: {fileID: 810309399}
     - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
         type: 3}
       propertyPath: configuration.nina.prefab
