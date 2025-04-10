@@ -33,21 +33,21 @@ public class CanvaManager : MonoBehaviour
 
     public void Cooldowns()
     {
-        foreach (Sprite sprite in SpritesTemp)
-        {
-            if (Time.time >= sprite.attS.LastCast1 + sprite.attS.CoolDown)
-            {
-                sprite.texto.text = "";
-                sprite.indicator.SetActive(false);
-            }
-            else
-            {
-                sprite.indicator.SetActive(true);
-                var tiempoC = sprite.attS.LastCast1 + sprite.attS.CoolDown - Time.time;
-                sprite.texto.text = (tiempoC).ToString("F2");
-            }
+        //foreach (Sprite sprite in SpritesTemp)
+        //{
+        //    if (Time.time >= sprite.attS.LastCast1 + sprite.attS.CoolDown)
+        //    {
+        //        sprite.texto.text = "";
+        //        sprite.indicator.SetActive(false);
+        //    }
+        //    else
+        //    {
+        //        sprite.indicator.SetActive(true);
+        //        var tiempoC = sprite.attS.LastCast1 + sprite.attS.CoolDown - Time.time;
+        //        sprite.texto.text = (tiempoC).ToString("F2");
+        //    }
 
-        }
+        //}
     }
 
     public void PutSprites()

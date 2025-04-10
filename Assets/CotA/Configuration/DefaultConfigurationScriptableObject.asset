@@ -13,6 +13,22 @@ MonoBehaviour:
   m_Name: DefaultConfigurationScriptableObject
   m_EditorClassIdentifier: 
   _data:
+    Heroes:
+    - prefab: {fileID: 7735570308767223746, guid: a0bf54fc03aa32f489bd82d9cd5d2180,
+        type: 3}
+      MaxHealth: 0
+      Faction: 0
+      Attacks: []
+    - prefab: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+        type: 3}
+      MaxHealth: 30
+      Faction: 0
+      Attacks: []
+    Enemies:
+    - prefab: {fileID: 0}
+      MaxHealth: 0
+      Faction: 0
+      Attacks: []
     robot:
       prefab: {fileID: 7735570308767223746, guid: d966dd1f6a21bca478f2fe7ca2c24d1f,
         type: 3}
@@ -57,3 +73,8 @@ MonoBehaviour:
       AreaOfEffect: 1
       Cooldown: 1
       DoVeneno: 10
+    setup1:
+      TimeMoveEne: 2
+      TimeAttEne: 0.5
+      TimeMoveHero: 0.5
+      TimeVeneno: 1

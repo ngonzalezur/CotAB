@@ -5139,12 +5139,13 @@ MonoBehaviour:
   UnitName: Enemigo Medio
   OccupiedTile: {fileID: 0}
   Faction: 1
-  MaxHealth: 30
+  MaxHealth: 100
   Health: 10
   ActualHeath: {fileID: 1570463510335372378}
   EnemyType: {fileID: 1128217994411323301, guid: 39b651769be7cd847a5b4f71953170f8,
     type: 3}
   HeroType: {fileID: 0}
+  dmgBurn: 3
   stun: 0
   efecto: {fileID: 1005906517160525336}
   Attacks:
@@ -5156,10 +5157,14 @@ MonoBehaviour:
   burn: 0
   MaxStamina: 3
   MoveCooldown: 0
+  regenStamina: 0
+  MaxMana: 0
   CastMana: 0
+  regenMana: 0
   lastCastBA: 0
   animator: {fileID: 0}
   parry: 0
+  isPersistentHero: 0
   Special: 0
 --- !u!82 &5653083602591302278
 AudioSource:

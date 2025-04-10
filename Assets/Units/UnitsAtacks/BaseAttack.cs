@@ -171,12 +171,12 @@ public class BaseAttack : MonoBehaviour
         }
     }
 
-    public virtual void DoStamina(BaseUnit unit)
+    public virtual void DoStamina(BaseUnit unit)//No voy a reombrar esto porque me da miedo, peor ya no regenera estamina. Regenera mana
     {
         if (unit == null) return;
         if (unit.Faction == Faction)
         {
-            unit.MoveCooldown += Math.Abs(Stamina);
+            unit.CastMana += Math.Abs(Stamina);
             //unit.ActualHeath.text = Math.Min(unit.Health, unit.MaxHealth) + " / " + unit.MaxHealth;
             //if (unit.Health > unit.MaxHealth)
             //{

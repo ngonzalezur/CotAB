@@ -52,4 +52,24 @@ MonoBehaviour:
   ActualHeath: {fileID: 0}
   EnemyType: {fileID: 0}
   HeroType: {fileID: 0}
+  dmgBurn: 0
+  stun: 0
+  efecto: {fileID: 0}
+  Attacks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  veneno: 0
+  burn: 0
+  MaxStamina: 3
+  MoveCooldown: 0
+  regenStamina: 0
+  MaxMana: 0
+  CastMana: 0
+  regenMana: 0
+  lastCastBA: 0
+  animator: {fileID: 0}
+  parry: 0
+  isPersistentHero: 0
   Special: 0
