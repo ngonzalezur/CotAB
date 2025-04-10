@@ -11,6 +11,7 @@ public class BaseAttack : MonoBehaviour
     public Tile OccupiedTile;
     public int Damage;
     public int Heal;
+    public int Stamina;
     public Faction Faction;
     public int AreaOfEffect;
     public float CoolDown;
@@ -29,6 +30,9 @@ public class BaseAttack : MonoBehaviour
     public bool stun = false;
     public int attackType;
     public AttType type;
+
+    SpriteRenderer sprite;
+    ParticleSystem particle;
     public enum AttType
     {
         proyectil = 0,
@@ -53,12 +57,53 @@ public class BaseAttack : MonoBehaviour
         if (this == null || this.OccupiedTile == null) return;
         UnitManager.Instance.AttacksinPlay.Remove(this);
         //MauriManager.Instance.AttacksinPlay.Remove(this);
+        //this.gameObject.SetActive(false);
+        //this.OccupiedTile.OccupiedAttack = null;
+        StartCoroutine(DeSpawnAttack());
+    }
+
+     public IEnumerator DeSpawnAttack()
+    {
+        QuitAttackFromTile();
+        yield return new WaitForSeconds(1f);
+        QuitSprite();
+        QuitAttackPrefab();
+    }
+
+    public void QuitAttackFromTile()
+    {
+        OccupiedTile.OccupiedAttack = null;
+        OccupiedTile = null;
+    }
+
+    public void QuitSprite()
+    {
+        if (TryGetComponent<SpriteRenderer>(out sprite))
+        {
+            sprite.gameObject.SetActive(false);
+        }
+        if (TryGetComponent<ParticleSystem>(out particle))
+        {
+            particle.gameObject.SetActive(false);
+        }
+    }
+
+    public void QuitAttackPrefab()
+    {
+        if(sprite != null)
+        {
+            sprite.gameObject.SetActive(true);
+        }
+        if (particle != null)
+        {
+            particle.gameObject.SetActive(true);
+        }
         this.gameObject.SetActive(false);
-        this.OccupiedTile.OccupiedAttack = null;
     }
 
     public virtual void DoDamage(BaseUnit unit)
     {
+        var sound = UnitManager.Instance.SoundManager;
         if (unit == null) return;
         if (unit.Faction != Faction)
         {
@@ -79,8 +124,14 @@ public class BaseAttack : MonoBehaviour
             {
                 unit.Health -= Math.Abs(Damage);
                 unit.ActualHeath.text = Math.Max(unit.Health, 0) + " / " + unit.MaxHealth;
-                var audio = unit?.GetComponent<AudioSource>();
-                audio?.Play();
+                
+                //var audio = unit?.GetComponent<AudioSource>();
+                //audio?.Play();
+                
+                if(unit.Faction == Faction.Hero && sound != null && !UnitManager.Instance.Invocaciones.Contains(unit)) //despues meter label de que tipo de heroe es para llama una funcion u otra
+                {
+                    sound.PlayHeroDamage();
+                }                
                 if (unit.animator != null)
                 {
                     unit.animator?.SetTrigger("TakeDamage");
@@ -103,6 +154,26 @@ public class BaseAttack : MonoBehaviour
             {
                 unit.Health = unit.MaxHealth;
             }
+            //var audio = unit?.GetComponent<AudioSource>();
+            //audio?.Play();
+            //if (unit.animator != null)
+            //{
+            //    unit.animator?.SetTrigger("TakeDamage");
+            //}
+        }
+    }
+
+    public virtual void DoStamina(BaseUnit unit)
+    {
+        if (unit == null) return;
+        if (unit.Faction == Faction)
+        {
+            unit.MoveCooldown += Math.Abs(Stamina);
+            //unit.ActualHeath.text = Math.Min(unit.Health, unit.MaxHealth) + " / " + unit.MaxHealth;
+            //if (unit.Health > unit.MaxHealth)
+            //{
+            //    unit.Health = unit.MaxHealth;
+            //}
             //var audio = unit?.GetComponent<AudioSource>();
             //audio?.Play();
             //if (unit.animator != null)

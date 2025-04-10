@@ -5136,7 +5136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ffc177a1ba4c93469b36339c4af5151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: Basic Enemy
+  UnitName: Enemigo facil
   OccupiedTile: {fileID: 0}
   Faction: 1
   MaxHealth: 30
@@ -5292,7 +5292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Graph: {fileID: 9169206349268469263, guid: b5cecbdaa95eb1b43bfb4a4c34f78615, type: 2}
+  m_Graph: {fileID: 1608651791499967441, guid: c5d5a065dec28934e9a7f7af866f17a6, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 160817464568971552
   m_IsInitialised: 0

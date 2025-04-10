@@ -308,6 +308,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a671c067d9aa1e74b9accc32fa210bd1, type: 3}
+--- !u!114 &78003230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2574607167085622887, guid: a671c067d9aa1e74b9accc32fa210bd1,
+    type: 3}
+  m_PrefabInstance: {fileID: 78003229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afb7c9cece689f4497ac18bf774d78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &138065448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -692,6 +704,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 060c48d71d1b1e743956a851a89fa483, type: 3}
+--- !u!114 &810309399 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7516485040342788421, guid: 060c48d71d1b1e743956a851a89fa483,
+    type: 3}
+  m_PrefabInstance: {fileID: 810309398}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21140f798d21a347ae77c046a50484a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &998247178 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1316520585027751740, guid: a671c067d9aa1e74b9accc32fa210bd1,
@@ -834,6 +858,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4681222723524309049, guid: 00ceb05a637e3334bb814b138c3bcc2c,
+        type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 5062909486257896747, guid: c44797aa835b67347b6de1928fab39ac,
+        type: 3}
     - target: {fileID: 5853658297977414921, guid: 00ceb05a637e3334bb814b138c3bcc2c,
         type: 3}
       propertyPath: m_Name
@@ -972,6 +1002,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
         type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 78003230}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
       propertyPath: poolHero1
       value: 
       objectReference: {fileID: 750076039}
@@ -987,6 +1022,11 @@ PrefabInstance:
       objectReference: {fileID: 2011988049}
     - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
         type: 3}
+      propertyPath: SoundManager
+      value: 
+      objectReference: {fileID: 810309399}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
       propertyPath: configuration.nina.prefab
       value: 
       objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
@@ -999,9 +1039,37 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
         type: 3}
+      propertyPath: configuration.Heroes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
       propertyPath: configuration.setup1.TimeMoveHero
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
+      propertyPath: configuration.Heroes.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+        type: 3}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
+      propertyPath: configuration.Heroes.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 7735570308767223746, guid: 2e475f0b150a10f45a8a20fbff88c12a,
+        type: 3}
+    - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
+        type: 3}
+      propertyPath: configuration.Enemies.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 5695376190236047481, guid: 9a17851b516091345af1271df4df2ca7,
+        type: 3}
     - target: {fileID: 8339046422228571747, guid: dd2eda7d0c727664daf6cf62bc878f8b,
         type: 3}
       propertyPath: m_Name
