@@ -124,14 +124,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: EstadoEnemigos
   OccupiedTile: {fileID: 0}
-  Damage: 5
+  Damage: 7
   Heal: 0
+  Stamina: 0
   Faction: 0
   AreaOfEffect: 1
   CoolDown: 1
   LastCast1: 0
   LastCast2: -100
-  ManaCost: 5
+  ManaCost: 5.9
   invocacion: {fileID: 0}
   DoVeneno: 0
   DoBurn: 0

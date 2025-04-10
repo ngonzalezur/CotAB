@@ -310,6 +310,7 @@ MonoBehaviour:
   ActualHeath: {fileID: 2869813721422711052}
   EnemyType: {fileID: 0}
   HeroType: {fileID: 0}
+  dmgBurn: 0
   stun: 0
   efecto: {fileID: 3534751925261361500}
   Attacks:
@@ -319,9 +320,12 @@ MonoBehaviour:
   - {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6, type: 3}
   veneno: 0
   burn: 0
-  MaxStamina: 3
+  MaxStamina: 5
   MoveCooldown: 3
+  regenStamina: 2
+  MaxMana: 4
   CastMana: 10
+  regenMana: 1
   lastCastBA: 0
   animator: {fileID: 2885529330961643097}
   parry: 0
