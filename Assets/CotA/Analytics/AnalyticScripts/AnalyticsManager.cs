@@ -69,7 +69,7 @@ public class AnalyticsManager : MonoBehaviour
         }
         CustomEvent myEvent = new CustomEvent("TestEvent2")
         {
-            {"testParameter3", 11}
+            {"TestParameter3", 11}
         };
         AnalyticsService.Instance.RecordEvent(myEvent);
         Debug.Log("Se llamo eta vaina");
