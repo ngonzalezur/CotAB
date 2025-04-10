@@ -73,3 +73,11 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 *.zip
+Assets/Wwise/API.meta
+Assets/Wwise/API/Runtime.meta
+Assets/Wwise/API/Runtime/Plugins.meta
+Assets/Wwise/API/Runtime/Plugins/Windows.meta
+Assets/Wwise/API/Runtime/Plugins/Windows/x86_64.meta
+Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile.meta
+Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll
+Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkUnitySoundEngine.dll.meta
