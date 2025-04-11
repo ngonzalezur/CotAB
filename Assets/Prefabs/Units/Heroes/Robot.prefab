@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6811442fc79aed84884aa7c97a3645a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: Druida
+  UnitName: Robot
   OccupiedTile: {fileID: 0}
   Faction: 0
   MaxHealth: 10
@@ -318,6 +318,7 @@ MonoBehaviour:
   - {fileID: 8091908140846267713, guid: 7ed337ab9ab6c2e48a167a70b64fa683, type: 3}
   - {fileID: 8091908140846267713, guid: 71c5ee19f9fea1145b68efb9081d021d, type: 3}
   - {fileID: 8091908140846267713, guid: 72a42869778c4864f828a6fea56fe7fb, type: 3}
+  - {fileID: 8091908140846267713, guid: 36df67b67f69b7a47a20291d28a23495, type: 3}
   veneno: 0
   burn: 0
   MaxStamina: 5

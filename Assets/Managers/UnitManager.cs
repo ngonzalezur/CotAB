@@ -87,8 +87,10 @@ public class UnitManager : MonoBehaviour
 
         BaseUnit persistentHero = GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
                                      .FirstOrDefault(u => u.isPersistentHero);
+        
         if(persistentHero != null)
         {
+            GameManager.character = persistentHero.UnitName;
             configuration.Heroes[0].prefab = persistentHero;
             Heroes.Add(persistentHero);
             Heroes[0] = persistentHero;
@@ -169,6 +171,60 @@ public class UnitManager : MonoBehaviour
         GameManager.Instance.ChangeState(GameState.GenerateUI);
     }
 
+    public void ContarKPIAtaque(BaseUnit unit, int i)
+    {
+        //si es druida
+        if(unit.UnitName == "Druid")
+        {
+            if(i == 0)
+            {
+                GameManager.AttDruid1++;
+            }
+            if (i == 1)
+            {
+                GameManager.AttDruid2++;
+            }
+            if (i == 2)
+            {
+                GameManager.AttDruid3++;
+            }
+            if (i == 3)
+            {
+                GameManager.AttDruid4++;
+            }
+            if (i == 4)
+            {
+                GameManager.MeleeDruid++;
+            }
+        }
+
+        //si es robot
+
+        if (unit.UnitName == "Robot")
+        {
+            if (i == 0)
+            {
+                GameManager.AttRobot1++;
+            }
+            if (i == 1)
+            {
+                GameManager.AttRobot2++;
+            }
+            if (i == 2)
+            {
+                GameManager.AttRobot3++;
+            }
+            if (i == 3)
+            {
+                GameManager.AttRobot4++;
+            }
+            if (i == 4)
+            {
+                GameManager.MeleeRobot++;
+            }
+        }
+    }
+
     public void CanCastAttack(BaseUnit unit, int i)
     {
         if (unit == null) return;
@@ -181,6 +237,8 @@ public class UnitManager : MonoBehaviour
             }
             else
             {
+                ContarKPIInteracciones();
+                ContarKPIAtaque(unit,i);
                 unit.CastMana -= unit.Attacks[i].ManaCost;
                 StartCoroutine(ui.HandleCooldown(i));
                 CastAttack(unit, unit.Attacks[i]);
@@ -795,11 +853,16 @@ public class UnitManager : MonoBehaviour
         if (unit == null || tile == null) return;
         if(unit.MoveCooldown > 0)
         {
+            ContarKPIInteracciones();
             FalseHighlight(unit);
             unit.MoveCooldown--;
             tile.SetUnit(unit);
             tile.OccupiedUnit.GetHighlightHero()._highlight.SetActive(true);
         }        
+    }
+   void ContarKPIInteracciones()
+    {
+        GameManager.interactionTotal++;
     }
 
     public bool CheckFaction(BaseUnit unit, Tile tile)

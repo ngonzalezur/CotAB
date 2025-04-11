@@ -50,6 +50,58 @@ public class BaseAttack : MonoBehaviour
         allHeros = 12
     }
 
+    public void ContadorKPIAciertoAttaque()
+    {
+        //me va tocar revisar los nombres de los ataques NICO NO CAMBIE NOMBRES O PONGA ESTOS
+        if(UnitName != null)
+        {
+            Debug.Log(UnitName);
+            if (UnitName == "ad1")
+            {
+                GameManager.HitAttDruid1++;
+            }
+            if (UnitName == "ad2")
+            {
+                GameManager.HitAttDruid2++;
+            }
+            if (UnitName == "ad3")
+            {
+                GameManager.HitAttDruid3++;
+                //Debug.Log(GameManager.HitAttDruid4);
+            }
+            if (UnitName == "at4")
+            {
+                GameManager.HitAttDruid4++;
+                //Debug.Log(GameManager.HitAttDruid4);
+            }
+
+            if (UnitName == "ar1")
+            {
+                GameManager.HitAttRobot1++;
+            }
+            if (UnitName == "ar2")
+            {
+                GameManager.HitAttRobot2++;
+            }
+            if (UnitName == "ar3")
+            {
+                GameManager.HitAttRobot3++;
+            }
+            if (UnitName == "ar4")
+            {
+                GameManager.HitAttRobot4++;
+            }
+            if (UnitName == "amd")
+            {
+                GameManager.HitMeleeDruid++;
+            }
+            if (UnitName == "amr")
+            {
+                GameManager.HitMeleeRobot++;
+            }
+            
+        }
+    }
 
 
     public void Destroy()
@@ -103,6 +155,7 @@ public class BaseAttack : MonoBehaviour
 
     public virtual void DoDamage(BaseUnit unit)
     {
+        //Debug.Log(UnitName);
         var sound = UnitManager.Instance.SoundManager;
         if (unit == null) return;
         if (unit.Faction != Faction)
@@ -122,6 +175,7 @@ public class BaseAttack : MonoBehaviour
             //Debug.Log("soy normal");
             if (!unit.parry)
             {
+                ContadorKPIAciertoAttaque();
                 unit.Health -= Math.Abs(Damage);
                 unit.ActualHeath.text = Math.Max(unit.Health, 0) + " / " + unit.MaxHealth;
                 
@@ -153,6 +207,7 @@ public class BaseAttack : MonoBehaviour
 
     public virtual void DoHeal(BaseUnit unit)
     {
+        ContadorKPIAciertoAttaque();
         if (unit == null) return;
         if (unit.Faction == Faction)
         {

@@ -4970,7 +4970,7 @@ GameObject:
   - component: {fileID: 8114775697765021452}
   - component: {fileID: 4495253135193612988}
   - component: {fileID: 4748783093001889783}
-  - component: {fileID: -3697817405935798582}
+  - component: {fileID: 4136229920012857292}
   m_Layer: 0
   m_Name: AtaqueDruida (4)
   m_TagString: Untagged
@@ -5068,7 +5068,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-3697817405935798582
+--- !u!114 &4136229920012857292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5077,19 +5077,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 7946166130053266866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16274881907b8884ea04a6135ccd68f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 526bb499f705fa84eab5a631b0eb3e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: "Da\xF1o por estado"
+  UnitName: at4
   OccupiedTile: {fileID: 0}
-  Damage: 1
+  Damage: 2
   Heal: 0
+  Stamina: 0
   Faction: 0
-  AreaOfEffect: 1
-  CoolDown: 2
+  AreaOfEffect: 0
+  CoolDown: 5
   LastCast1: 0
-  LastCast2: -100
-  ManaCost: 0.5
+  LastCast2: 0
+  ManaCost: 3
   invocacion: {fileID: 0}
   DoVeneno: 0
   DoBurn: 10

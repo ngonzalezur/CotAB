@@ -9922,7 +9922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90506a3c1cdf033428580d7e5b257471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: duplica veneno
+  UnitName: ad2
   OccupiedTile: {fileID: 0}
   Damage: 1
   Heal: 0
