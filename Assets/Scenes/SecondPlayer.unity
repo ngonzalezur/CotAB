@@ -1056,13 +1056,13 @@ PrefabInstance:
         type: 3}
       propertyPath: configuration.Heroes.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+      objectReference: {fileID: 7735570308767223746, guid: a0bf54fc03aa32f489bd82d9cd5d2180,
         type: 3}
     - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
         type: 3}
       propertyPath: configuration.Heroes.Array.data[1].prefab
       value: 
-      objectReference: {fileID: 7735570308767223746, guid: 2e475f0b150a10f45a8a20fbff88c12a,
+      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
         type: 3}
     - target: {fileID: 7279752219887549663, guid: dd2eda7d0c727664daf6cf62bc878f8b,
         type: 3}
@@ -1416,6 +1416,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas multiplayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003905720597176878, guid: e3ad956fd14ed2c458969ed139580a37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5669424366318303971, guid: e3ad956fd14ed2c458969ed139580a37,
         type: 3}

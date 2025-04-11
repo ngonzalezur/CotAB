@@ -96,6 +96,10 @@ public class GameManager : MonoBehaviour
                 {
                     SceneManager.LoadScene("Level hard");
                 }
+                else if (scene == "SecondPlayer")
+                {
+                    SceneManager.LoadScene("Elegir");
+                }
 
                 if (scene == "Level hard" || UnitManager.Instance.SecondPlayer)
                 {
@@ -142,6 +146,8 @@ public class GameManager : MonoBehaviour
                         MeleeRobot = 1;
                     }
                     AnalyticsManager.Instance.SendCustomEvent(HitMeleeDruid/MeleeDruid,HitMeleeRobot/MeleeRobot,HitAttDruid1/ AttDruid1, HitAttDruid2/AttDruid2,HitAttDruid3/AttDruid3, HitAttDruid4/AttDruid4,interactionTotal/Time.time,HitAttRobot1/AttRobot1,HitAttRobot2/AttRobot2,HitAttRobot3/AttRobot3,HitAttRobot4/AttRobot4,(int)MeleeDruid,(int)MeleeRobot,(int)combo,(int)AttDruid1,(int)AttDruid2,(int)AttDruid3,(int)AttDruid4,(int)AttRobot2,(int)AttRobot3,(int)AttRobot4,(int)AttRobot1,character);
+                    Debug.Log(HitAttDruid4);
+                    SceneManager.LoadScene("Elegir");
                 }
                 break;
             default:

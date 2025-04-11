@@ -200,7 +200,7 @@ public class UnitManager : MonoBehaviour
 
         //si es robot
 
-        if (unit.UnitName == "Druid")
+        if (unit.UnitName == "Robot")
         {
             if (i == 0)
             {

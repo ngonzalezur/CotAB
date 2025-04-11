@@ -55,6 +55,7 @@ public class BaseAttack : MonoBehaviour
         //me va tocar revisar los nombres de los ataques NICO NO CAMBIE NOMBRES O PONGA ESTOS
         if(UnitName != null)
         {
+            Debug.Log(UnitName);
             if (UnitName == "ad1")
             {
                 GameManager.HitAttDruid1++;
@@ -66,11 +67,14 @@ public class BaseAttack : MonoBehaviour
             if (UnitName == "ad3")
             {
                 GameManager.HitAttDruid3++;
+                //Debug.Log(GameManager.HitAttDruid4);
             }
-            if (UnitName == "ad4")
+            if (UnitName == "at4")
             {
                 GameManager.HitAttDruid4++;
+                //Debug.Log(GameManager.HitAttDruid4);
             }
+
             if (UnitName == "ar1")
             {
                 GameManager.HitAttRobot1++;
@@ -151,6 +155,7 @@ public class BaseAttack : MonoBehaviour
 
     public virtual void DoDamage(BaseUnit unit)
     {
+        //Debug.Log(UnitName);
         var sound = UnitManager.Instance.SoundManager;
         if (unit == null) return;
         if (unit.Faction != Faction)
