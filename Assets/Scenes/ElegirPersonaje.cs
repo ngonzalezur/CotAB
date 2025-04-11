@@ -28,6 +28,7 @@ public class ElegirPersonaje : MonoBehaviour
             {
                 newUnit.Attacks[cont] = Instantiate(elegido.Attacks[cont], new Vector3(0, 0, -1), Quaternion.identity);
                 newUnit.Attacks[cont].gameObject.SetActive(false);
+                DontDestroyOnLoad(newUnit.Attacks[cont]);
                 cont++;
             }
         }

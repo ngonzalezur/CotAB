@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85bdd008e424474981ba35ab1ba97f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elegido: {fileID: 7735570308767223746, guid: a0bf54fc03aa32f489bd82d9cd5d2180, type: 3}
+  elegido: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4, type: 3}
 --- !u!114 &1053229474
 MonoBehaviour:
   m_ObjectHideFlags: 0

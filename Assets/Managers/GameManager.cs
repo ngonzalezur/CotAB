@@ -100,7 +100,48 @@ public class GameManager : MonoBehaviour
                 if (scene == "Level hard" || UnitManager.Instance.SecondPlayer)
                 {
                     //llamar la funcion que manda los datos
-                    AnalyticsManager.Instance.SendCustomEvent(HitMeleeDruid/MeleeDruid,HitMeleeRobot/MeleeRobot,HitAttDruid1/ AttDruid1, HitAttDruid2/AttDruid2,HitAttDruid3/AttDruid3, HitAttDruid4/AttDruid4,interactionTotal,HitAttRobot1/AttRobot1,HitAttRobot2/AttRobot2,HitAttRobot3/AttRobot3,HitAttRobot4/AttRobot4,(int)MeleeDruid,(int)MeleeRobot,(int)combo,(int)AttDruid1,(int)AttDruid2,(int)AttDruid3,(int)AttDruid4,(int)AttRobot2,(int)AttRobot3,(int)AttRobot4,(int)AttRobot1,character);
+                    if(AttDruid1 == 0)
+                    {
+                        AttDruid1 = 1;
+                    }
+                    if (AttDruid2 == 0)
+                    {
+                        AttDruid2 = 1;
+                    }
+                    if (AttDruid3 == 0)
+                    {
+                        AttDruid3 = 1;
+                    }
+                    if (AttDruid4 == 0)
+                    {
+                        AttDruid4 = 1;
+                    }
+                    if (MeleeDruid == 0)
+                    {
+                        MeleeDruid = 1;
+                    }
+
+                    if (AttRobot1 == 0)
+                    {
+                        AttRobot1 = 1;
+                    }
+                    if (AttRobot2 == 0)
+                    {
+                        AttRobot2 = 1;
+                    }
+                    if (AttRobot3 == 0)
+                    {
+                        AttRobot3 = 1;
+                    }
+                    if (AttRobot4 == 0)
+                    {
+                        AttRobot4 = 1;
+                    }
+                    if (MeleeRobot == 0)
+                    {
+                        MeleeRobot = 1;
+                    }
+                    AnalyticsManager.Instance.SendCustomEvent(HitMeleeDruid/MeleeDruid,HitMeleeRobot/MeleeRobot,HitAttDruid1/ AttDruid1, HitAttDruid2/AttDruid2,HitAttDruid3/AttDruid3, HitAttDruid4/AttDruid4,interactionTotal/Time.time,HitAttRobot1/AttRobot1,HitAttRobot2/AttRobot2,HitAttRobot3/AttRobot3,HitAttRobot4/AttRobot4,(int)MeleeDruid,(int)MeleeRobot,(int)combo,(int)AttDruid1,(int)AttDruid2,(int)AttDruid3,(int)AttDruid4,(int)AttRobot2,(int)AttRobot3,(int)AttRobot4,(int)AttRobot1,character);
                 }
                 break;
             default:
