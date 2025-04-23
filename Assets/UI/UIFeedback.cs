@@ -26,13 +26,13 @@ public class UIFeedback : MonoBehaviour
 
     void Update()
     {
-        //for (int i = 0; i < abilities.Length; i++)
-        //{
-        //    if (Input.GetKey(abilities[i].key) && !abilities[i].isCooldown)
-        //    {
-        //        StartCoroutine(HandleCooldown(i));
-        //    }
-        //}
+        for (int i = 0; i < abilities.Length; i++)
+        {
+            if (Input.GetKey(abilities[i].key) && !abilities[i].isCooldown)
+            {
+                StartCoroutine(HandleCooldown(i));
+            }
+        }
     }
 
     public IEnumerator HandleCooldown(int i)
