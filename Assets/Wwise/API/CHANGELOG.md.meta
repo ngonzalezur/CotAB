@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Wwise/API/CHANGELOG.md.meta
 guid: d5e69430cdf861e47bdd9167ee9fe81c
 TextScriptImporter:
-========
-guid: 2e475f0b150a10f45a8a20fbff88c12a
-PrefabImporter:
->>>>>>>> main:Assets/Prefabs/Units/Heroes/DruidaImpsotor.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

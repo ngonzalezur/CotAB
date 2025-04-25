@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{4B3A05C5-79CD-49FA-80FC-55624EBFE325}",
     "Language": "SFX",
-    "Hash": "{2B4994F5-582D-0ACE-EC5A-BE9FF34F702B}",
+    "Hash": "{A4F12344-0099-39D8-747E-4291FD60FB9E}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SBank",
     "ShortName": "Combat_SBank",
     "Path": "Combat_SBank.bnk",
@@ -29,7 +29,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DamageDruid05.wav",
-      "CachePath": "E7/{E73C22DD-3586-BEFB-FB0D-C4FEC46C1F2E}.wem"
+      "CachePath": "2D/{2D8285DB-E74D-217A-31C7-6255FBA462B5}.wem"
      },
      {
       "Id": "143620131",
@@ -45,7 +45,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DamageDruid04.wav",
-      "CachePath": "6A/{6AB17254-4DE3-1EB7-6209-0E73C3C1D95C}.wem"
+      "CachePath": "54/{5412A825-364C-59A0-FC1B-02FAAE2C2C9F}.wem"
      },
      {
       "Id": "234338636",
@@ -93,7 +93,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DamageDruid03.wav",
-      "CachePath": "FD/{FDD093CB-C6C1-782E-FAAB-5C017D15A009}.wem"
+      "CachePath": "1B/{1B6A5407-2333-BC3D-26BD-D6FECF9144FF}.wem"
      },
      {
       "Id": "491861953",
@@ -165,7 +165,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Contra Bajo Lento.wav",
-      "CachePath": "2F/{2F618857-6925-633F-07B9-9EBC48F8DBE6}.wem"
+      "CachePath": "40/{40DEDAFA-5403-6976-DDB7-E92E00EDC74A}.wem"
      },
      {
       "Id": "775123153",
@@ -221,7 +221,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DamageDruid06.wav",
-      "CachePath": "96/{96C97231-8CCC-A1C6-D8BF-FB6E7D724C0D}.wem"
+      "CachePath": "11/{110F2D86-B4BD-8460-F19A-C616B66685A4}.wem"
      },
      {
       "Id": "1017942417",
@@ -294,7 +294,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Damage_Druid",
       "GUID": "{61568903-1713-48D0-BBE3-0BBBF57F1601}",
       "DurationType": "OneShot",
-      "DurationMin": "0.54667276",
+      "DurationMin": "0.26268423",
       "DurationMax": "0.72942215",
       "MediaRefs": [
        {
@@ -556,6 +556,6 @@
     ]
    }
   ],
-  "FileHash": "{96ACC846-8FC5-DEA6-6794-ADEF035D60D2}"
+  "FileHash": "{2D92F0C5-A727-8726-ABF6-DFE8E5EE2DD4}"
  }
 }
