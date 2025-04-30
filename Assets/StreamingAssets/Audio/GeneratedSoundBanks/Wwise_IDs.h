@@ -13,9 +13,16 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_BROTE_ROBOT = 3671704113U;
         static const AkUniqueID PLAY_COMBATMUSICPLAYLIST = 1462092269U;
         static const AkUniqueID PLAY_DAMAGE_DRUID = 3230461460U;
-        static const AkUniqueID PLAY_DAMAGE_HERO_RANDOMIZER = 3446409770U;
+        static const AkUniqueID PLAY_DAMAGE_ROBOT = 1942325012U;
+        static const AkUniqueID PLAY_FIREWALL_DRUID = 364273755U;
+        static const AkUniqueID PLAY_GRID_DRUID = 104012431U;
+        static const AkUniqueID PLAY_MELEE_DRUID = 2651910159U;
+        static const AkUniqueID PLAY_PARRY_ROBOT = 3072108541U;
+        static const AkUniqueID PLAY_POSION_DRUID = 1979277459U;
+        static const AkUniqueID PLAY_SMITE_ROBOT = 1513174551U;
         static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_LENTO = 2899002807U;
         static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_LENTO02 = 2215044877U;
         static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_PA02 = 422594956U;
