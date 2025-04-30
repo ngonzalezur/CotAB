@@ -82,6 +82,7 @@ public class BaseUnit : MonoBehaviour
         {
             Health -= 1;
             ActualHeath.text = Math.Max(Health, 0) + " / " + MaxHealth;
+
             veneno--;
             efecto?.SetActive(true);
         }
