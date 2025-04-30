@@ -364,6 +364,11 @@ public partial class AkUtilities
 	
 	public static string GetRootOutputPath(string WwiseProjectPath)
 	{
+		if (!System.IO.File.Exists(WwiseProjectPath))
+    	{
+        // Devuelve una ruta vacía o un valor por defecto
+        return string.Empty;
+    	} 
 		var doc = new System.Xml.XmlDocument { PreserveWhitespace = true };
 		doc.Load(WwiseProjectPath);
 		var Navigator = doc.CreateNavigator();
