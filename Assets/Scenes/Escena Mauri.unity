@@ -548,6 +548,49 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad07d1f5afc349742b57b5200b3289d0, type: 3}
+--- !u!1 &812880697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8691925312858472161, guid: f88ff0f709476ff47888ef71e8093843,
+    type: 3}
+  m_PrefabInstance: {fileID: 1795114858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &812880698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812880697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0007b76bf59773141af09b45a4c634b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
+--- !u!114 &812880699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812880697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d9f93099354984bbc5be80c93d2970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  usePositionOffsetData: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1001 &884862047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -904,73 +947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0761894ee5cd57644b234e99f12bdeba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configuration:
-    Heroes:
-    - prefab: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
-        type: 3}
-      MaxHealth: 50
-      Faction: 0
-      Attacks:
-      - {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6, type: 3}
-      - {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d, type: 3}
-      - {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5, type: 3}
-      - {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6, type: 3}
-    Enemies:
-    - prefab: {fileID: 5695376190236047481, guid: 9a17851b516091345af1271df4df2ca7,
-        type: 3}
-      MaxHealth: 70
-      Faction: 1
-      Attacks:
-      - {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1, type: 3}
-      - {fileID: 3481210697016181405, guid: 151612ec7e131dc44904448138c4ece1, type: 3}
-    robot:
-      prefab: {fileID: 0}
-      MaxHealth: 10
-      Faction: 0
-      Attacks:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-    nina:
-      prefab: {fileID: 0}
-      MaxHealth: 10
-      Faction: 0
-      Attacks:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-    artificer:
-      prefab: {fileID: 0}
-      MaxHealth: 10
-      Faction: 0
-      Attacks:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-    basicEnemy:
-      prefab: {fileID: 0}
-      MaxHealth: 10
-      Faction: 0
-      Attacks:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-    basickAttack: []
-    setup1:
-      TimeMoveEne: 2
-      TimeAttEne: 0.5
-      TimeMoveHero: 0.5
-      TimeVeneno: 1
-  poolHero1: {fileID: 1799492665}
-  poolHero2: {fileID: 1799492665}
-  poolEnemies: {fileID: 237711504}
-  AttacksinPlay: []
-  CanPlay: 0
-  SecondPlayer: 0
 --- !u!4 &1691450486
 Transform:
   m_ObjectHideFlags: 0
@@ -1061,10 +1037,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera facil
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 106457109722892564, guid: f88ff0f709476ff47888ef71e8093843, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8691925312858472161, guid: f88ff0f709476ff47888ef71e8093843,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 812880699}
+    - targetCorrespondingSourceObject: {fileID: 8691925312858472161, guid: f88ff0f709476ff47888ef71e8093843,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 812880698}
   m_SourcePrefab: {fileID: 100100000, guid: f88ff0f709476ff47888ef71e8093843, type: 3}
 --- !u!114 &1799492665 stripped
 MonoBehaviour:
@@ -1078,6 +1063,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a643890d5d187824d97498a2bbfaf5db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1901792873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1901792875}
+  - component: {fileID: 1901792874}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1901792874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901792873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00231c759759fb4994a95215083351c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationSettings: {fileID: 11400000, guid: 5af73630b633579409f378b62b645e9c,
+    type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
+--- !u!4 &1901792875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901792873}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1911940531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1303,3 +1346,4 @@ SceneRoots:
   - {fileID: 1795114858}
   - {fileID: 2028572649}
   - {fileID: 1691450486}
+  - {fileID: 1901792875}
