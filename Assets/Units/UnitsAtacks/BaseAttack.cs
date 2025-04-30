@@ -173,16 +173,18 @@ public class BaseAttack : MonoBehaviour
                 unit.burn += DoBurn;
             }
             //Debug.Log("soy normal");
+            
             if (!unit.parry)
             {
                 ContadorKPIAciertoAttaque();
                 unit.Health -= Math.Abs(Damage);
                 unit.ActualHeath.text = Math.Max(unit.Health, 0) + " / " + unit.MaxHealth;
-                
+        
                 //var audio = unit?.GetComponent<AudioSource>();
                 //audio?.Play();
-                
-                if(unit.Faction == Faction.Hero && sound != null && !UnitManager.Instance.Invocaciones.Contains(unit)) //despues meter label de que tipo de heroe es para llama una funcion u otra
+
+
+                if (unit.Faction == Faction.Hero && sound != null && !UnitManager.Instance.Invocaciones.Contains(unit)) //despues meter label de que tipo de heroe es para llama una funcion u otra
                 {
                     //sound.PlayHeroDamage();
                     if (unit.UnitName == "Druid")

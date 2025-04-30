@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 using static UnityEngine.UI.CanvasScaler;
 
 public class BaseUnit : MonoBehaviour
@@ -55,6 +56,8 @@ public class BaseUnit : MonoBehaviour
         StartCoroutine(Burn());
         StartCoroutine(GetBurn());
         StartCoroutine(CheckTileFaction());
+    
+        
     }
 
     public void Destroy()
@@ -79,6 +82,7 @@ public class BaseUnit : MonoBehaviour
         {
             Health -= 1;
             ActualHeath.text = Math.Max(Health, 0) + " / " + MaxHealth;
+
             veneno--;
             efecto?.SetActive(true);
         }
