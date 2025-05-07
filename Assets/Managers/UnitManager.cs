@@ -49,6 +49,7 @@ public class UnitManager : MonoBehaviour
 
 
     private Coroutine corrutinaInvocaciones;
+    private Coroutine corrutinaInvocaciones2;
 
     public void SetHeroUnit(BaseUnit unit)
     {
@@ -256,18 +257,20 @@ public class UnitManager : MonoBehaviour
         if (unit.CastMana - unit.Attacks[i].ManaCost > 0 && Time.time - unit.Attacks[i].LastCast1 >= unit.Attacks[i].CoolDown)
         {
             var checkInvo = false;
-            foreach (BaseUnit invocacion in Invocaciones)
-            {
-                if (invocacion.UnitName == unit.Attacks[i].invocacion.UnitName)
+            if (unit.Attacks[i].type == BaseAttack.AttType.invocacion)
+            {                
+                foreach (BaseUnit invocacion in Invocaciones)
                 {
-                    checkInvo = true;
+                    if (invocacion != null && invocacion.UnitName == unit.Attacks[i].invocacion.UnitName)
+                    {
+                        checkInvo = true;
+                    }
                 }
             }
 
-            if (unit.Attacks[i].type == BaseAttack.AttType.invocacion && checkInvo)
+            if (checkInvo)
             {
-                //no hacer nada
-                
+                //no hacer nada                
             }
             else
             {
@@ -584,41 +587,34 @@ public class UnitManager : MonoBehaviour
         invocacion.Attacks[0] = ataqueInvocacion;
         tile.SetUnit(invocacion);
         Invocaciones.Add(invocacion);
+        StartCoroutine(AtaqueInvocaciones(invocacion));
     }
 
     IEnumerator AtaqueInvocaciones(BaseUnit inovocaciones)
-    {
-        if(inovocaciones == null)
+    {        
+       if (inovocaciones == null || inovocaciones.Attacks[0] == null)
         {
-            corrutinaInvocaciones = null;
-            yield break;
+             yield break;
         }
-        
-            if (inovocaciones == null || inovocaciones.Attacks[0] == null)
-            {
-                //literalmente no hacer nada porque al parecer se sale de la corrutina
-            }
-            else
-            {
-            Debug.Log(Invocaciones.Count);
-            CanCastAttack(inovocaciones, 0);
-                //yield return new WaitForSeconds(1f);
-                //Debug.Log("soy un planta que ataca");
-                //Invocaciones.Remove(unit);                
-            }
-        
-        yield return new WaitForSeconds(2f);
-        corrutinaInvocaciones = null;
+        while(!MayCastAttack(inovocaciones, inovocaciones.Attacks[0]))
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        CanCastAttack(inovocaciones, 0);       
+        yield return new WaitForSeconds(0.1f);
     }
 
     public void AtaqueInvoacion()
     {
-        //llamar corrutina si se puede
-        if(corrutinaInvocaciones == null && Invocaciones.Count > 0)
-        {
-            corrutinaInvocaciones = StartCoroutine(AtaqueInvocaciones(Invocaciones[0]));
-        }
-        
+        ////llamar corrutina si se puede
+        //if(corrutinaInvocaciones == null && Invocaciones.Count < 0)
+        //{
+        //    corrutinaInvocaciones = StartCoroutine(AtaqueInvocaciones(Invocaciones[0]));
+        //}
+        //f(corrutinaInvocaciones2 == null && Invocaciones.Count > 1)
+        //{
+        //    corrutinaInvocaciones2 = StartCoroutine(AtaqueInvocaciones(Invocaciones[0]));
+        //}
     }
     public List<Tile> DashMelee(BaseUnit unit, BaseAttack attack)
     {
