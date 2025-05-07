@@ -149,6 +149,15 @@ public class BaseUnit : MonoBehaviour
     {
         this.OccupiedTile.UpTile().SetUnit(this);
     }
+    public void MoveRight()
+    {
+        this.OccupiedTile.RightTile().SetUnit(this);
+    }
+    public void MoveLeft()
+    {
+        this.OccupiedTile.LeftTile().SetUnit(this);
+    }
+
 
     public void Attack()
     {
