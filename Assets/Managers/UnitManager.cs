@@ -255,9 +255,19 @@ public class UnitManager : MonoBehaviour
 
         if (unit.CastMana - unit.Attacks[i].ManaCost > 0 && Time.time - unit.Attacks[i].LastCast1 >= unit.Attacks[i].CoolDown)
         {
-            if (unit.Attacks[i].type == BaseAttack.AttType.invocacion && Invocaciones.Count >= 2  && Invocaciones[0].UnitName == unit.Attacks[i].invocacion.UnitName)
+            var checkInvo = false;
+            foreach (BaseUnit invocacion in Invocaciones)
+            {
+                if (invocacion.UnitName == unit.Attacks[i].invocacion.UnitName)
+                {
+                    checkInvo = true;
+                }
+            }
+
+            if (unit.Attacks[i].type == BaseAttack.AttType.invocacion && checkInvo)
             {
                 //no hacer nada
+                
             }
             else
             {
@@ -719,35 +729,55 @@ public class UnitManager : MonoBehaviour
         return target;
     }
 
-    
+    bool MayCastAttack(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return false;
+
+        if(unit.CastMana - attack.ManaCost > 0 && Time.time - attack.LastCast1 >= attack.CoolDown)
+        {
+            if(attack.type == BaseAttack.AttType.invocacion)
+            {
+                foreach (BaseUnit invocacion in Invocaciones)
+                {
+                    if(invocacion.UnitName ==  attack.invocacion.UnitName)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 
     public void AttackHero2(BaseUnit unit, int player)
     {
         if (unit == null) return;
 
+
         if (player == 0)
         {   
-            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)))
+            if ((Input.GetKey(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[0]))
             {
                 //CanCastAttack(unit, 0);
                 ShowPrecast(unit, 0, player);
             }
-            if ((Input.GetKeyDown(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)))
+            if ((Input.GetKey(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[1]))
             {
                 //CanCastAttack(unit, 1);
                 ShowPrecast(unit, 1, player);
             }
-            if ((Input.GetKeyDown(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)))
+            if ((Input.GetKey(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[2]))
             {
                 //CanCastAttack(unit, 2);
                 ShowPrecast(unit, 2, player);
             }
-            if ((Input.GetKeyDown(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)))
+            if ((Input.GetKey(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[3]))
             {
                 //CanCastAttack(unit, 3);
                 ShowPrecast(unit, 3, player);
             }
-            if ((Input.GetKeyDown(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasPressedThisFrame)))
+            if ((Input.GetKey(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[4]))
             {
                 //CanCastAttack(unit, 4);
                 ShowPrecast(unit, 4, player);
