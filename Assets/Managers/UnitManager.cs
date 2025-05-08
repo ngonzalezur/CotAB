@@ -43,7 +43,13 @@ public class UnitManager : MonoBehaviour
     Gamepad Mando = null;
     bool hasPersist = false;
 
+    private List<Tile>[] currentPrecasts = new List<Tile>[2] { new List<Tile>(), new List<Tile>() };
+    private int[] currentPrecastIndex = new int[2] { -1, -1 }; // -1 = ningún precast activo
+
+
+
     private Coroutine corrutinaInvocaciones;
+    private Coroutine corrutinaInvocaciones2;
 
     public void SetHeroUnit(BaseUnit unit)
     {
@@ -60,6 +66,7 @@ public class UnitManager : MonoBehaviour
         {
             newUnit.Attacks[cont] = Instantiate(unit.Attacks[cont], new Vector3(0, 0, -1), Quaternion.identity);
             newUnit.Attacks[cont].gameObject.SetActive(false);
+            //ui.abilities[cont].cooldown = newUnit.Attacks[cont].CoolDown;
             DontDestroyOnLoad(newUnit.Attacks[cont]);
             cont++;
         }
@@ -225,20 +232,51 @@ public class UnitManager : MonoBehaviour
         }
     }
 
+
+    void ShowPrecast(BaseUnit unit, int i, int player)
+    {
+        if (unit == null || unit.Attacks[i] == null) return;
+
+        if (Ataque.TryGetValue((int)unit.Attacks[i].type, out Ataques att))
+        {
+            var target = att(unit, unit.Attacks[i]);
+            PrecastAppear(target, player);
+            currentPrecastIndex[player] = i; // Guarda el ataque actual
+        }
+        else
+        {
+            Debug.Log("Acción no encontrada");
+        }
+    }
+
+
     public void CanCastAttack(BaseUnit unit, int i)
     {
         if (unit == null) return;
 
         if (unit.CastMana - unit.Attacks[i].ManaCost > 0 && Time.time - unit.Attacks[i].LastCast1 >= unit.Attacks[i].CoolDown)
         {
-            if (unit.Attacks[i].type == BaseAttack.AttType.invocacion && Invocaciones.Count >= 2  && Invocaciones[0].UnitName == unit.Attacks[i].invocacion.UnitName)
+            var checkInvo = false;
+            if (unit.Attacks[i].type == BaseAttack.AttType.invocacion)
+            {                
+                foreach (BaseUnit invocacion in Invocaciones)
+                {
+                    if (invocacion != null && invocacion.UnitName == unit.Attacks[i].invocacion.UnitName)
+                    {
+                        checkInvo = true;
+                    }
+                }
+            }
+
+            if (checkInvo)
             {
-                //no hacer nada
+                //no hacer nada                
             }
             else
             {
                 ContarKPIInteracciones();
                 ContarKPIAtaque(unit,i);
+
                 unit.CastMana -= unit.Attacks[i].ManaCost;
                 StartCoroutine(ui.HandleCooldown(i));
                 CastAttack(unit, unit.Attacks[i]);
@@ -291,8 +329,13 @@ public class UnitManager : MonoBehaviour
                 unit.Destroy();
             }
         }
+        else if (Ataque.TryGetValue((int)unit.Attacks[i].type, out Ataques att))
+        {
+            var target = att(unit, unit.Attacks[i]);
+            PrecastDelete(target);
+        }
     }
-    public delegate void Ataques(BaseUnit unit, BaseAttack attack);
+    public delegate List<Tile> Ataques(BaseUnit unit, BaseAttack attack);
 
     Dictionary<int, Ataques> Ataque = new Dictionary<int, Ataques>();
 
@@ -320,7 +363,41 @@ public class UnitManager : MonoBehaviour
 
         if (Ataque.TryGetValue((int)attack.type, out Ataques att))
         {
-            att(unit, attack);
+            var target = att(unit, attack);
+            if(target != null)
+            {
+                if(attack.type == BaseAttack.AttType.dashMelee)
+                {
+                    StartCoroutine(TeleportMeleeDash(unit, attack, unit.OccupiedTile));
+                    PrecastDelete(target);
+                }
+                else if(attack.type == BaseAttack.AttType.parry)
+                {
+                    StartCoroutine(ActivateParry(unit));
+                    PrecastDelete(target);
+                }
+                else if(attack.type == BaseAttack.AttType.invocacion)
+                {
+                    if (Invocaciones.Count <= 1)
+                    {
+                        if (Invocaciones.Count == 0)
+                        {
+                            InstanciarInvocacion(attack, target);
+                        }
+                        else if (Invocaciones[0] != null && Invocaciones[0].UnitName != attack.invocacion.UnitName)
+                        {
+                            InstanciarInvocacion(attack, target);
+                        }
+
+                    }
+                    PrecastDelete(target);
+                }
+                else
+                {
+                    SetAttacksInTiles(target, attack);
+                    PrecastDelete(target);
+                }                              
+            }
         }
         else
         {
@@ -329,23 +406,26 @@ public class UnitManager : MonoBehaviour
     }
 
 
-    public void Proyectil(BaseUnit unit, BaseAttack attack)
+    public List<Tile> Proyectil(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
+        if (unit == null || attack == null) return null;
         var tile = unit.OccupiedTile.RightTile();
         var tempAttack = Instantiate(attack, new Vector3(tile.x, tile.y, -1), Quaternion.identity);
         tempAttack.gameObject.SetActive(true);
         tile.SetAttack(tempAttack);
         AttacksinPlay.Add(tempAttack);
+        return null;
     }
-    public void Cast(BaseUnit unit, BaseAttack attack)
+    public List<Tile> Cast(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
-        var target = unit.GetHighlightHero();
-        var tempAttack = Instantiate(attack, new Vector3(target.x, target.y, -1), Quaternion.identity);
+        if (unit == null || attack == null) return null;
+        var target = new List<Tile>();
+        target.Add(unit.GetHighlightHero());
+        var tempAttack = Instantiate(attack, new Vector3(target[0].x, target[0].y, -1), Quaternion.identity);
         tempAttack.gameObject.SetActive(true);
-        target.SetAttack(tempAttack);
+        target[0].SetAttack(tempAttack);
         StartCoroutine(Destruir(tempAttack));
+        return target;
     }
 
     public void SetAttacksInTiles(List<Tile> target, BaseAttack attack)
@@ -363,9 +443,9 @@ public class UnitManager : MonoBehaviour
             }
         }
     }
-    public void Area(BaseUnit unit, BaseAttack attack)
+    public List<Tile> Area(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
+        if (unit == null || attack == null) return null;
         var target = new List<Tile>();
         target.Add(unit.GetHighlightHero());
         //buscar vecinas
@@ -380,7 +460,8 @@ public class UnitManager : MonoBehaviour
         AgregarSiNoNull(target, target[0].DownTile().LeftTile());
         AgregarSiNoNull(target, target[0].DownTile().RightTile());
 
-        SetAttacksInTiles(target, attack);
+        //SetAttacksInTiles(target, attack);
+        return target;
     }
     //Funcion para ver si una tile es nula o agregarla a una lista
     public void AgregarSiNoNull(List<Tile> lista, Tile tile)
@@ -389,13 +470,14 @@ public class UnitManager : MonoBehaviour
             lista.Add(tile);
     }
 
-    public void Muro(BaseUnit unit, BaseAttack attack)
+    public List<Tile> Muro(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
+        if (unit == null || attack == null) return null;
         var target = new List<Tile>();
         target = AllYTiles(unit.GetHighlightHero());
 
-        SetAttacksInTiles(target, attack);
+        //SetAttacksInTiles(target, attack);
+        return target;
     }
 
     //Funcion para conseguir todas las tiles de una columna
@@ -410,12 +492,13 @@ public class UnitManager : MonoBehaviour
         }
         return target;
     }
-    public void Fila(BaseUnit unit, BaseAttack attack)
+    public List<Tile> Fila(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
+        if (unit == null || attack == null) return null;
         var target = new List<Tile>();
         target = AllXTiles(unit.OccupiedTile);
-        SetAttacksInTiles(target, attack);
+        //SetAttacksInTiles(target, attack);
+        return target;
     }
 
     //Funcion para conseguir todas las tiles de una fila a la derecha del heroe
@@ -430,62 +513,67 @@ public class UnitManager : MonoBehaviour
         }
         return target;
     }
-    public void AllEnemiesDamage(BaseUnit unit, BaseAttack attack)
+    public List<Tile> AllEnemiesDamage(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
+        if (unit == null || attack == null) return null;
         var target = new List<Tile>();
         foreach (BaseUnit enemy in Enemies)
         {
             var tempTile = enemy.OccupiedTile;
             AgregarSiNoNull(target, tempTile);
         }
-        SetAttacksInTiles(target, attack);
+        //SetAttacksInTiles(target, attack);
+        return target;
     }
 
-    public void AllHerosDamage(BaseUnit unit, BaseAttack attack)
+    public List<Tile> AllHerosDamage(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
+        if (unit == null || attack == null) return null;
         var target = new List<Tile>();
         foreach (BaseUnit hero in Heroes)
         {
             var tempTile = hero.OccupiedTile;
             AgregarSiNoNull(target, tempTile);
         }
-        SetAttacksInTiles(target, attack);
+        //SetAttacksInTiles(target, attack);
+        return target;
     }
 
-    public void RandomCast(BaseUnit unit, BaseAttack attack)
+    public List<Tile> RandomCast(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
+        if (unit == null || attack == null) return null;
         // no se definir cuantos randoms van a hacer, queda pendiente
+        return null;
     }
-    public void Melee(BaseUnit unit, BaseAttack attack)
+    public List<Tile> Melee(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
+        if (unit == null || attack == null) return null;
         var target = new List<Tile>();
         AgregarSiNoNull(target, unit.OccupiedTile.RightTile());
-        SetAttacksInTiles(target, attack);
+        //SetAttacksInTiles(target, attack);
+        return target;
     }
 
 
 
-    public void Invocacion(BaseUnit unit, BaseAttack attack)
+    public List<Tile> Invocacion(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
+        if (unit == null || attack == null) return null;
         var target = new List<Tile>();
         target.Add(unit.OccupiedTile.LeftTile());
-        if(Invocaciones.Count <= 1)
-        {
-            if (Invocaciones.Count == 0)
-            {
-                InstanciarInvocacion(attack, target);
-            }
-            else if (Invocaciones[0] != null && Invocaciones[0].UnitName != attack.invocacion.UnitName)
-            {
-                InstanciarInvocacion(attack, target);
-            }
+        //if(Invocaciones.Count <= 1)
+        //{
+        //    if (Invocaciones.Count == 0)
+        //    {
+        //        InstanciarInvocacion(attack, target);
+        //    }
+        //    else if (Invocaciones[0] != null && Invocaciones[0].UnitName != attack.invocacion.UnitName)
+        //    {
+        //        InstanciarInvocacion(attack, target);
+        //    }
             
-        }
+        //}
+        return target;
     }
 
     public void InstanciarInvocacion(BaseAttack attack, List<Tile> target)
@@ -499,48 +587,43 @@ public class UnitManager : MonoBehaviour
         invocacion.Attacks[0] = ataqueInvocacion;
         tile.SetUnit(invocacion);
         Invocaciones.Add(invocacion);
+        StartCoroutine(AtaqueInvocaciones(invocacion));
     }
 
     IEnumerator AtaqueInvocaciones(BaseUnit inovocaciones)
-    {
-        if(inovocaciones == null)
+    {        
+       if (inovocaciones == null || inovocaciones.Attacks[0] == null)
         {
-            corrutinaInvocaciones = null;
-            yield break;
+             yield break;
         }
-        
-            if (inovocaciones == null || inovocaciones.Attacks[0] == null)
-            {
-                //literalmente no hacer nada porque al parecer se sale de la corrutina
-            }
-            else
-            {
-            Debug.Log(Invocaciones.Count);
-            CanCastAttack(inovocaciones, 0);
-                //yield return new WaitForSeconds(1f);
-                //Debug.Log("soy un planta que ataca");
-                //Invocaciones.Remove(unit);                
-            }
-        
-        yield return new WaitForSeconds(2f);
-        corrutinaInvocaciones = null;
+        while(!MayCastAttack(inovocaciones, inovocaciones.Attacks[0]))
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        CanCastAttack(inovocaciones, 0);       
+        yield return new WaitForSeconds(0.1f);
     }
 
     public void AtaqueInvoacion()
     {
-        //llamar corrutina si se puede
-        if(corrutinaInvocaciones == null && Invocaciones.Count > 0)
-        {
-            corrutinaInvocaciones = StartCoroutine(AtaqueInvocaciones(Invocaciones[0]));
-        }
-        
+        ////llamar corrutina si se puede
+        //if(corrutinaInvocaciones == null && Invocaciones.Count < 0)
+        //{
+        //    corrutinaInvocaciones = StartCoroutine(AtaqueInvocaciones(Invocaciones[0]));
+        //}
+        //f(corrutinaInvocaciones2 == null && Invocaciones.Count > 1)
+        //{
+        //    corrutinaInvocaciones2 = StartCoroutine(AtaqueInvocaciones(Invocaciones[0]));
+        //}
     }
-    public void DashMelee(BaseUnit unit, BaseAttack attack)
+    public List<Tile> DashMelee(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
+        if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        AgregarSiNoNull(target, unit.GetHighlightHero());
-        StartCoroutine(TeleportMeleeDash(unit, attack, unit.OccupiedTile));
+        target = AllXTiles(unit.OccupiedTile);
+        //AgregarSiNoNull(target, unit.GetHighlightHero());
+        //StartCoroutine(TeleportMeleeDash(unit, attack, unit.OccupiedTile));
+        return target;
     }
 
     IEnumerator TeleportMeleeDash(BaseUnit unit, BaseAttack attack, Tile baseTile)
@@ -590,11 +673,14 @@ public class UnitManager : MonoBehaviour
         tile.OccupiedUnit = null;
         yield return new WaitForSeconds(0.1f);
     }
-    public void Parry(BaseUnit unit, BaseAttack attack)
+    public List<Tile> Parry(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
-        StartCoroutine(ActivateParry(unit));
+        if (unit == null || attack == null) return null;
+        //StartCoroutine(ActivateParry(unit));
+        var target = new List<Tile>();
+        target.Add(unit.OccupiedTile);
         //algo visaul del parry, una corrutina con while true depronto y que al finalizar activate parry se detenga
+        return target;
     }
 
     IEnumerator ActivateParry(BaseUnit unit)
@@ -603,12 +689,13 @@ public class UnitManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         unit.parry = false;
     }
-    public void CambiarFaccion(BaseUnit unit, BaseAttack attack)
+    public  List<Tile> CambiarFaccion(BaseUnit unit, BaseAttack attack)
     {
-        if (unit == null || attack == null) return;
+        if (unit == null || attack == null) return null;
         var target = new List<Tile>();
         target = PrimeraColumnaEnemiga(target);
         StartCoroutine(CambiarFactionToHero(target));
+        return target;
     }
 
     IEnumerator CambiarFactionToHero(List<Tile> target)
@@ -638,27 +725,86 @@ public class UnitManager : MonoBehaviour
         return target;
     }
 
+    bool MayCastAttack(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return false;
+
+        if(unit.CastMana - attack.ManaCost > 0 && Time.time - attack.LastCast1 >= attack.CoolDown)
+        {
+            if(attack.type == BaseAttack.AttType.invocacion)
+            {
+                foreach (BaseUnit invocacion in Invocaciones)
+                {
+                    if(invocacion.UnitName ==  attack.invocacion.UnitName)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
     public void AttackHero2(BaseUnit unit, int player)
     {
         if (unit == null) return;
 
+
         if (player == 0)
-        {
-            if ((Input.GetKeyDown(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)))
+        {   
+            if ((Input.GetKey(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[0]))
+            {
+                //CanCastAttack(unit, 0);
+                ShowPrecast(unit, 0, player);
+            }
+            if ((Input.GetKey(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[1]))
+            {
+                //CanCastAttack(unit, 1);
+                ShowPrecast(unit, 1, player);
+            }
+            if ((Input.GetKey(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[2]))
+            {
+                //CanCastAttack(unit, 2);
+                ShowPrecast(unit, 2, player);
+            }
+            if ((Input.GetKey(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[3]))
+            {
+                //CanCastAttack(unit, 3);
+                ShowPrecast(unit, 3, player);
+            }
+            if ((Input.GetKey(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[4]))
+            {
+                //CanCastAttack(unit, 4);
+                ShowPrecast(unit, 4, player);
+            }
+
+            //lo de arriba sera le precast y este de abajo el cast
+
+            if ((Input.GetKeyUp(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasReleasedThisFrame)))
             {
                 CanCastAttack(unit, 0);
+                currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyDown(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasReleasedThisFrame)))
             {
                 CanCastAttack(unit, 1);
+                currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyDown(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.K) || (Mando != null && Mando.buttonEast.wasReleasedThisFrame)))
             {
                 CanCastAttack(unit, 2);
+                currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyDown(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.L) || (Mando != null && Mando.buttonWest.wasReleasedThisFrame)))
             {
                 CanCastAttack(unit, 3);
+                currentPrecastIndex[0] = -1;
+            }
+            if ((Input.GetKeyUp(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasReleasedThisFrame)))
+            {
+                CanCastAttack(unit, 4);
+                currentPrecastIndex[0] = -1;
             }
         }
         if (player == 1)
@@ -679,6 +825,28 @@ public class UnitManager : MonoBehaviour
             {
                 CanCastAttack(unit, 3);
             }
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                CanCastAttack(unit, 3);
+            }
+        }
+    }
+
+    void PrecastAppear(List<Tile> target, int player)
+    {
+        PrecastDelete(currentPrecasts[player]); 
+        currentPrecasts[player] = target;
+
+        foreach (Tile tile in target)
+        {
+            tile._precast.SetActive(true);
+        }
+    }
+    void PrecastDelete(List<Tile> target)
+    {
+        foreach (Tile tile in target)
+        {
+            tile._precast.SetActive(false);
         }
     }
 
@@ -740,42 +908,65 @@ public class UnitManager : MonoBehaviour
     public void MoveHero(BaseUnit hero, int player)
     {
         if (hero == null) return;
+
+        bool moved = false;
+
         if (player == 0)
         {
-            if ((Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.wasPressedThisFrame)))
+            if (Input.GetKeyDown(KeyCode.W) || (Mando != null && Mando.dpad.up.wasPressedThisFrame))
             {
                 CanMove(hero, 0);
+                moved = true;
             }
-            if ((Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.wasPressedThisFrame)))
+            if (Input.GetKeyDown(KeyCode.A) || (Mando != null && Mando.dpad.left.wasPressedThisFrame))
             {
                 CanMove(hero, 1);
+                moved = true;
             }
-            if ((Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.wasPressedThisFrame)))
+            if (Input.GetKeyDown(KeyCode.S) || (Mando != null && Mando.dpad.down.wasPressedThisFrame))
             {
                 CanMove(hero, 2);
+                moved = true;
             }
-            if ((Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.wasPressedThisFrame)))
+            if (Input.GetKeyDown(KeyCode.D) || (Mando != null && Mando.dpad.right.wasPressedThisFrame))
             {
                 CanMove(hero, 3);
+                moved = true;
             }
         }
+
         if (player == 1)
         {
-            if ((Input.GetKeyDown(KeyCode.UpArrow)))
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 CanMove(hero, 0);
+                moved = true;
             }
-            if ((Input.GetKeyDown(KeyCode.LeftArrow)))
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 CanMove(hero, 1);
+                moved = true;
             }
-            if ((Input.GetKeyDown(KeyCode.DownArrow)))
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 CanMove(hero, 2);
+                moved = true;
             }
-            if ((Input.GetKeyDown(KeyCode.RightArrow)))
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 CanMove(hero, 3);
+                moved = true;
+            }
+        }
+
+        if (moved)
+        {
+            PrecastDelete(currentPrecasts[player]);
+
+            // Si había un ataque precasteado, lo volvemos a mostrar
+            if (currentPrecastIndex[player] != -1)
+            {
+                ShowPrecast(hero, currentPrecastIndex[player], player);
             }
         }
     }
