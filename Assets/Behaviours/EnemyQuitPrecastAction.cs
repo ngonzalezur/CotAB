@@ -1,17 +1,14 @@
 using System;
 using Unity.Behavior;
 using UnityEngine;
-using System.Linq;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
 using static UnitManager;
-using static UnityEngine.UI.CanvasScaler;
 using System.Collections.Generic;
-using TMPro.Examples;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "Showprecast", story: "[Enemy] show precast", category: "Action", id: "9cac88c92ef22f0854f4a9b74c0febfc")]
-public partial class ShowprecastAction : Action
+[NodeDescription(name: "EnemyQuitPrecast", story: "[Enemy] disapper precast", category: "Action", id: "d086f25b270c7bb87b8587f568f2b555")]
+public partial class EnemyQuitPrecastAction : Action
 {
     [SerializeReference] public BlackboardVariable<BaseUnit> Enemy;
     BaseAttack attack;
@@ -19,29 +16,26 @@ public partial class ShowprecastAction : Action
     protected override Status OnStart()
     {
         attack = Enemy.Value.Attacks[0];
-        manager = UnitManager.Instance;        
+        manager = UnitManager.Instance;
         return Status.Running;
     }
 
     protected override Status OnUpdate()
     {
-        //Dictionary<int, Ataques> Ataque = new Dictionary<int, Ataques>();
         Dictionary<int, Ataques> Ataque = manager.Ataque;
         manager.SetAttackDictionary();
         var target = new List<Tile>();
         if (Ataque.TryGetValue((int)attack.type, out Ataques att))
         {
             target = att(Enemy.Value, attack);
-            Debug.Log("entre y hay target");
         }
         else
         {
             target = null;
-            Debug.Log("no hay target");
         }
         foreach (Tile tile in target)
         {
-            tile._precast.SetActive(true);
+            tile._precast.SetActive(false);
         }
         return Status.Success;
     }

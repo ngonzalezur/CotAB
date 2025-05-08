@@ -30,25 +30,25 @@ public partial class PursuitXandYAction : Action
     }
 
     protected override Status OnUpdate()
-    {
-        if (Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionYTile() - Hero.Value.OccupiedTile.PositionYTile() > Y)
-        {
-            Enemy.Value.MoveUp();
-            return Status.Success;
-        }
-        if (Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionYTile() - Hero.Value.OccupiedTile.PositionYTile() < Y)
-        {
-            Enemy.Value.MoveDown();
-            return Status.Success;
-        }
-        if (Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionXTile() - Hero.Value.OccupiedTile.PositionXTile() > X)
+    {        
+        if (Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionXTile() - Hero.Value.OccupiedTile.PositionXTile() < X)
         {
             Enemy.Value.MoveRight();
             return Status.Success;
         }
-        if (Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionXTile() - Hero.Value.OccupiedTile.PositionXTile() < X)
+        if (Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionXTile() - Hero.Value.OccupiedTile.PositionXTile() > X)
         {
             Enemy.Value.MoveLeft();
+            return Status.Success;
+        }
+        if (Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionYTile() - Hero.Value.OccupiedTile.PositionYTile() < Y)
+        {
+            Enemy.Value.MoveUp();
+            return Status.Success;
+        }
+        if (Enemy.Value.OccupiedTile != null && Enemy.Value.OccupiedTile.PositionYTile() - Hero.Value.OccupiedTile.PositionYTile() > Y)
+        {
+            Enemy.Value.MoveDown();
             return Status.Success;
         }
         return Status.Success;
