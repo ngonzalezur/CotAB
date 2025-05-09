@@ -178,7 +178,7 @@ public class UnitManager : MonoBehaviour
         GameManager.Instance.ChangeState(GameState.GenerateUI);
     }
 
-    public void ContarKPIAtaque(BaseUnit unit, int i)
+    void ContarKPIAtaque(BaseUnit unit, int i)
     {
         //si es druida
         if(unit.UnitName == "Druid")
@@ -233,7 +233,7 @@ public class UnitManager : MonoBehaviour
     }
 
 
-    void ShowPrecast(BaseUnit unit, int i, int player)
+    public void ShowPrecast(BaseUnit unit, int i, int player)
     {
         if (unit == null || unit.Attacks[i] == null) return;
 
@@ -337,7 +337,7 @@ public class UnitManager : MonoBehaviour
     }
     public delegate List<Tile> Ataques(BaseUnit unit, BaseAttack attack);
 
-    Dictionary<int, Ataques> Ataque = new Dictionary<int, Ataques>();
+    public Dictionary<int, Ataques> Ataque = new Dictionary<int, Ataques>();
 
     public void SetAttackDictionary()
     {
@@ -447,7 +447,14 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        target.Add(unit.GetHighlightHero());
+        if(unit.Faction == Faction.Hero)
+        {
+            target.Add(unit.GetHighlightHero());
+        }
+        else
+        {
+            target.Add(unit.GetHighlightEnemy());
+        }        
         //buscar vecinas
         AgregarSiNoNull(target, target[0].UpTile());
         AgregarSiNoNull(target, target[0].DownTile());
@@ -832,7 +839,7 @@ public class UnitManager : MonoBehaviour
         }
     }
 
-    void PrecastAppear(List<Tile> target, int player)
+    public void PrecastAppear(List<Tile> target, int player)
     {
         PrecastDelete(currentPrecasts[player]); 
         currentPrecasts[player] = target;
@@ -842,7 +849,7 @@ public class UnitManager : MonoBehaviour
             tile._precast.SetActive(true);
         }
     }
-    void PrecastDelete(List<Tile> target)
+    public void PrecastDelete(List<Tile> target)
     {
         foreach (Tile tile in target)
         {
