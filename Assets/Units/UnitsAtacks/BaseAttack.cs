@@ -47,7 +47,11 @@ public class BaseAttack : MonoBehaviour
         dashMelee = 9,
         parry = 10,
         cambiarFaction = 11,
-        allHeros = 12
+        allHeros = 12,
+        areamelee2x3 = 13,
+        fila3x1 = 14,
+        gancho = 15,
+        areaLast2Columns = 16
     }
 
     public void ContadorKPIAciertoAttaque()
