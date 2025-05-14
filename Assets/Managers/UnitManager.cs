@@ -360,8 +360,69 @@ public class UnitManager : MonoBehaviour
         Ataque[14] = Fila3x1;
         Ataque[15] = Gancho;
         Ataque[16] = AreaLast2Columns;
+        Ataque[17] = ArearDelay;
+        Ataque[18] = AreaMelee1x3;
+        Ataque[19] = AreaGlobal;
+        Ataque[20] = Atractor;
     }
 
+    public List<Tile> AreaGlobal(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return null;
+        var target = new List<Tile>();
+        if(unit.Faction == Faction.Hero)
+        {
+            var r = UnityEngine.Random.Range(0, Enemies.Count);
+            var tile = Enemies[r].OccupiedTile;
+            AgregarSiNoNull(target, tile);
+            AgregarSiNoNull(target, target[0].UpTile());
+            AgregarSiNoNull(target, target[0].DownTile());
+            AgregarSiNoNull(target, target[0].LeftTile());
+            AgregarSiNoNull(target, target[0].RightTile());
+
+            // Diagonales
+            AgregarSiNoNull(target, target[0].UpTile().LeftTile());
+            AgregarSiNoNull(target, target[0].UpTile().RightTile());
+            AgregarSiNoNull(target, target[0].DownTile().LeftTile());
+            AgregarSiNoNull(target, target[0].DownTile().RightTile());
+        }
+        else if(unit.Faction == Faction.Enemy)
+        {
+            var r = UnityEngine.Random.Range(0, Heroes.Count);
+            var tile = Heroes[r].OccupiedTile;
+            AgregarSiNoNull(target, tile);
+            AgregarSiNoNull(target, target[0].UpTile());
+            AgregarSiNoNull(target, target[0].DownTile());
+            AgregarSiNoNull(target, target[0].LeftTile());
+            AgregarSiNoNull(target, target[0].RightTile());
+
+            // Diagonales
+            AgregarSiNoNull(target, target[0].UpTile().LeftTile());
+            AgregarSiNoNull(target, target[0].UpTile().RightTile());
+            AgregarSiNoNull(target, target[0].DownTile().LeftTile());
+            AgregarSiNoNull(target, target[0].DownTile().RightTile());
+        }
+        //SetAttacksInTiles(target, attack);
+        return target;
+    }
+    public List<Tile> AreaMelee1x3(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return null;
+        var target = new List<Tile>();
+        if(unit.Faction == Faction.Hero)
+        {
+            AgregarSiNoNull(target, unit.OccupiedTile.RightTile());
+            AgregarSiNoNull(target, unit.OccupiedTile.RightTile().UpTile());
+            AgregarSiNoNull(target, unit.OccupiedTile.RightTile().DownTile());
+        }else if (unit.Faction == Faction.Enemy)
+        {
+            AgregarSiNoNull(target, unit.OccupiedTile.LeftTile());
+            AgregarSiNoNull(target, unit.OccupiedTile.LeftTile().UpTile());
+            AgregarSiNoNull(target, unit.OccupiedTile.LeftTile().DownTile());
+        }
+        
+        return target;
+    }
     public List<Tile> AreaMelee2x3(BaseUnit unit, BaseAttack attack)
     {
         if (unit == null || attack == null) return null;
@@ -405,6 +466,39 @@ public class UnitManager : MonoBehaviour
 
         return target;
     }
+    public List<Tile> Atractor(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return null;
+        var target = new List<Tile>();
+        target = AllXTiles(unit);
+        return target;
+    }
+
+    public void HabilidadAtraer(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return;
+        var target = new List<Tile>();
+        var newtarget = new List<Tile>();
+        target = AllXTiles(unit);
+        foreach (Tile tile in target)
+        {
+            newtarget.Add(tile);
+            SetAttacksInTiles(newtarget, attack);
+            if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction != unit.Faction)
+            {
+                if(tile.OccupiedUnit.Faction == Faction.Hero)
+                {
+                    tile.OccupiedUnit.MoveToXandY(5, tile.PositionYTile());
+                }
+                if (tile.OccupiedUnit.Faction == Faction.Enemy)
+                {
+                    tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
+                }                
+                break;
+            }
+            newtarget.Clear();
+        }
+    }
 
     public List<Tile> Gancho(BaseUnit unit, BaseAttack attack)
     {
@@ -426,8 +520,18 @@ public class UnitManager : MonoBehaviour
             SetAttacksInTiles(newtarget, attack);
             if(tile.OccupiedUnit != null && tile.OccupiedUnit.Faction != unit.Faction)
             {
-                unit.MoveToXandY(5, unit.OccupiedTile.PositionYTile());
-                tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
+                if (tile.OccupiedUnit.Faction == Faction.Hero)
+                {
+                    tile.OccupiedUnit.MoveToXandY(5, tile.PositionYTile());
+                    unit.MoveToXandY(6, unit.OccupiedTile.PositionYTile());
+                }
+                if (tile.OccupiedUnit.Faction == Faction.Enemy)
+                {
+                    tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
+                    unit.MoveToXandY(5, unit.OccupiedTile.PositionYTile());
+                }
+                
+                //tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
                 break;
             }
             newtarget.Clear();
@@ -486,6 +590,42 @@ public class UnitManager : MonoBehaviour
         }
     }
 
+    public List<Tile> ArearDelay(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return null;
+        var target = new List<Tile>();
+        if(unit.Faction == Faction.Hero)
+        {
+            AgregarSiNoNull(target, unit.GetHighlightHero());
+        }
+        else if(unit.Faction == Faction.Enemy)
+        {
+            AgregarSiNoNull(target, unit.GetHighlightEnemy());
+        }
+        
+        return target;
+    }
+
+    public IEnumerator ExtraAttack(List<Tile> target, BaseAttack attack)
+    {
+        var extraTarget = new List<Tile>();
+        //agrego el ataque extra
+        AgregarSiNoNull(extraTarget, target[0].RightTile());
+        AgregarSiNoNull(extraTarget, target[0].LeftTile());
+        AgregarSiNoNull(extraTarget, target[0].UpTile());
+        AgregarSiNoNull(extraTarget, target[0].DownTile());
+        AgregarSiNoNull(extraTarget, target[0].DownTile().RightTile());
+        AgregarSiNoNull(extraTarget, target[0].UpTile().RightTile());
+        AgregarSiNoNull(extraTarget, target[0].DownTile().LeftTile());
+        AgregarSiNoNull(extraTarget, target[0].UpTile().LeftTile());
+
+        PrecastAppear(extraTarget, -1);
+
+        yield return new WaitForSeconds(0.7f);
+
+        PrecastDelete(extraTarget);
+        SetAttacksInTiles(extraTarget, attack);
+    }
 
 
     public void CastAttack(BaseUnit unit, BaseAttack attack)
@@ -512,9 +652,20 @@ public class UnitManager : MonoBehaviour
                     HabilidadGancho(unit, attack);
                     PrecastDelete(target);
                 }
+                else if (attack.type == BaseAttack.AttType.atractor)
+                {
+                    HabilidadAtraer(unit, attack);
+                    PrecastDelete(target);
+                }
                 else if (attack.type == BaseAttack.AttType.areaLast2Columns)
                 {
                     MoveFront(attack);
+                    PrecastDelete(target);
+                }
+                else if (attack.type == BaseAttack.AttType.areadelay)
+                {
+                    SetAttacksInTiles(target,attack);
+                    StartCoroutine(ExtraAttack(target, attack.ExtraAttack));
                     PrecastDelete(target);
                 }
                 else if(attack.type == BaseAttack.AttType.invocacion)
@@ -704,8 +855,46 @@ public class UnitManager : MonoBehaviour
     public List<Tile> RandomCast(BaseUnit unit, BaseAttack attack)
     {
         if (unit == null || attack == null) return null;
+        var target = new List<Tile>();
         // no se definir cuantos randoms van a hacer, queda pendiente
-        return null;
+        if(unit.Faction == Faction.Enemy)
+        {
+            for (int i = 0; i < attack.numRandomTiles; i++)
+            {
+                var rx = UnityEngine.Random.Range(0, GridManager.Instance._width/2);
+                var ry = UnityEngine.Random.Range(0, GridManager.Instance._height);
+                var tile = GridManager.Instance.GetTileAtPosition(new Vector2(rx, ry));
+                if (!target.Contains(tile))
+                {
+                    AgregarSiNoNull(target, tile);
+                }
+                else
+                {
+                    i--;
+                }
+
+            }
+        }
+        else if(unit.Faction == Faction.Hero)
+        {
+            for (int i = 0; i < attack.numRandomTiles; i++)
+            {
+                var rx = UnityEngine.Random.Range(6, GridManager.Instance._width);
+                var ry = UnityEngine.Random.Range(0, GridManager.Instance._height);
+                var tile = GridManager.Instance.GetTileAtPosition(new Vector2(rx, ry));
+                if (!target.Contains(tile))
+                {
+                    AgregarSiNoNull(target, tile);
+                }
+                else
+                {
+                    i--;
+                }
+
+            }
+        }
+        
+        return target;
     }
     public List<Tile> Melee(BaseUnit unit, BaseAttack attack)
     {
@@ -996,8 +1185,11 @@ public class UnitManager : MonoBehaviour
 
     public void PrecastAppear(List<Tile> target, int player)
     {
-        PrecastDelete(currentPrecasts[player]); 
-        currentPrecasts[player] = target;
+        if(player > -1)
+        {
+            PrecastDelete(currentPrecasts[player]);
+            currentPrecasts[player] = target;
+        }        
 
         foreach (Tile tile in target)
         {

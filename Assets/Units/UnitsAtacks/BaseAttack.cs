@@ -30,6 +30,8 @@ public class BaseAttack : MonoBehaviour
     public bool stun = false;
     public int attackType;
     public AttType type;
+    public BaseAttack ExtraAttack;
+    public int numRandomTiles = 0;
 
     SpriteRenderer sprite;
     ParticleSystem particle;
@@ -51,7 +53,11 @@ public class BaseAttack : MonoBehaviour
         areamelee2x3 = 13,
         fila3x1 = 14,
         gancho = 15,
-        areaLast2Columns = 16
+        areaLast2Columns = 16,
+        areadelay = 17,
+        areamelee1x3 = 18,
+        areaglobal = 19,
+        atractor = 20
     }
 
     public void ContadorKPIAciertoAttaque()
