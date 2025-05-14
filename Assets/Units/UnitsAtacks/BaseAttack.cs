@@ -57,7 +57,9 @@ public class BaseAttack : MonoBehaviour
         areadelay = 17,
         areamelee1x3 = 18,
         areaglobal = 19,
-        atractor = 20
+        atractor = 20,
+        barridofilainverso = 21,
+        barridocolumnainverso = 22
     }
 
     public void ContadorKPIAciertoAttaque()

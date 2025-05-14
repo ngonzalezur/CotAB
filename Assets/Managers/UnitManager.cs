@@ -364,6 +364,61 @@ public class UnitManager : MonoBehaviour
         Ataque[18] = AreaMelee1x3;
         Ataque[19] = AreaGlobal;
         Ataque[20] = Atractor;
+        Ataque[21] = BarridoFilaInverso;
+        Ataque[22] = BarridoColumnaInverso;
+    }
+
+    public List<Tile> BarridoColumnaInverso(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return null;
+        var target = new List<Tile>();
+        var rh = UnityEngine.Random.Range(0, Heroes.Count);
+        var r = Heroes[rh].OccupiedTile.x;
+        var dir = UnityEngine.Random.Range(0, 2);
+        if(dir == 0)
+        {
+            for (int i = 0; i < GridManager.Instance._height; i++)
+            {
+                var tile = GridManager.Instance.GetTileAtPosition(new Vector2(r, i));
+                AgregarSiNoNull(target, tile);
+            }
+        }
+        if (dir == 1)
+        {
+            for (int i = GridManager.Instance._height - 1; i >= 0; i--)
+            {
+                var tile = GridManager.Instance.GetTileAtPosition(new Vector2(r, i));
+                AgregarSiNoNull(target, tile);
+            }
+        }
+
+        
+        return target;
+    }
+    public List<Tile> BarridoFilaInverso(BaseUnit unit, BaseAttack attack)
+    {
+        if (unit == null || attack == null) return null;
+        var target = new List<Tile>();
+        var rh = UnityEngine.Random.Range(0, Heroes.Count);
+        var r = Heroes[rh].OccupiedTile.y;
+        for (int i = 0; i < GridManager.Instance._width/2; i++)
+        {
+            var tile = GridManager.Instance.GetTileAtPosition(new Vector2(i, r));
+            AgregarSiNoNull(target, tile);
+        }
+        return target;
+    }
+    public IEnumerator Barrer(List<Tile> target, BaseAttack attack)
+    {
+        for(int i = 0; i < target.Count; i++)
+        {
+            var auxTarget = new List<Tile>();
+            auxTarget.Add(target[i]);
+            SetAttacksInTiles(auxTarget, attack);
+            yield return new WaitForSeconds(0.7f);
+            auxTarget.Clear();
+        }
+        yield return new WaitForSeconds(0.1f);
     }
 
     public List<Tile> AreaGlobal(BaseUnit unit, BaseAttack attack)
@@ -660,6 +715,16 @@ public class UnitManager : MonoBehaviour
                 else if (attack.type == BaseAttack.AttType.areaLast2Columns)
                 {
                     MoveFront(attack);
+                    PrecastDelete(target);
+                }
+                else if (attack.type == BaseAttack.AttType.barridofilainverso)
+                {
+                    StartCoroutine(Barrer(target, attack));
+                    PrecastDelete(target);
+                }
+                else if (attack.type == BaseAttack.AttType.barridocolumnainverso)
+                {
+                    StartCoroutine(Barrer(target, attack));
                     PrecastDelete(target);
                 }
                 else if (attack.type == BaseAttack.AttType.areadelay)
