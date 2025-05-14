@@ -515,8 +515,8 @@ MonoBehaviour:
         guid: e926e6dcc9c62444b24c1b8fa1f394d8
       Path: Events\Default Work Unit\Play_Damage_Robot
       maxAttenuation: 0
-      maxDuration: 2.6892517
-      minDuration: 2.6892517
+      maxDuration: 0.81938773
+      minDuration: 0.81938773
     - name: Play_Firewall_Druid
       guid: 77a2c8741431074ea1b61ea63aca7e9b
       id: 364273755

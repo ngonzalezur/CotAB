@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{4B3A05C5-79CD-49FA-80FC-55624EBFE325}",
     "Language": "SFX",
-    "Hash": "{A4F12344-0099-39D8-747E-4291FD60FB9E}",
+    "Hash": "{86691E34-CD3B-1FCD-4D59-20A619FC22E1}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SBank",
     "ShortName": "Combat_SBank",
     "Path": "Combat_SBank.bnk",
@@ -30,14 +30,6 @@
       "Location": "Memory",
       "ShortName": "DamageDruid05.wav",
       "CachePath": "2D/{2D8285DB-E74D-217A-31C7-6255FBA462B5}.wem"
-     },
-     {
-      "Id": "143620131",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DamageRobot 05.wav",
-      "CachePath": "23/{23B5E690-B0AD-648B-9855-6B4590548027}.wem"
      },
      {
       "Id": "202317441",
@@ -80,12 +72,36 @@
       "CachePath": "5C/{5C086CD1-91FA-5ADA-BF4E-D671F3310733}.wem"
      },
      {
-      "Id": "308188639",
+      "Id": "305939396",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "DamageRobot 04.wav",
-      "CachePath": "38/{386FA16E-EFAC-3BB3-4EF7-C92CA8E4C488}.wem"
+      "ShortName": "Damage Knight 01.wav",
+      "CachePath": "B2/{B219498B-E812-7664-0089-53A84941717C}.wem"
+     },
+     {
+      "Id": "333461705",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 07.wav",
+      "CachePath": "FB/{FB66BFE4-0AC7-68F0-2B2F-0C37EE3F3A20}.wem"
+     },
+     {
+      "Id": "365070089",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 06.wav",
+      "CachePath": "E2/{E27DC8F0-44BA-7CA5-7079-4A38AF39226D}.wem"
+     },
+     {
+      "Id": "471444188",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 04.wav",
+      "CachePath": "07/{07CDE174-FF08-4E5B-25EE-62C2CA0CF75E}.wem"
      },
      {
       "Id": "478948819",
@@ -104,28 +120,44 @@
       "CachePath": "85/{850C7F6E-6569-8C55-0E3A-4493D94A6771}.wem"
      },
      {
+      "Id": "529577813",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 05.wav",
+      "CachePath": "4B/{4BA3A251-1999-BC55-790A-AD04FEA3E38B}.wem"
+     },
+     {
+      "Id": "538168653",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 09.wav",
+      "CachePath": "DF/{DF2B2A74-01DB-A4E6-721F-858E7D3DAF90}.wem"
+     },
+     {
+      "Id": "548955585",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 03.wav",
+      "CachePath": "06/{063384F3-947B-52EA-385D-8571AB38B5B0}.wem"
+     },
+     {
+      "Id": "554354140",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 08.wav",
+      "CachePath": "5B/{5B124349-C20E-457D-3B76-A1E2C0B60E7D}.wem"
+     },
+     {
       "Id": "555864172",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Posion Druid.wav",
       "CachePath": "A0/{A0806440-F9A4-141F-4EE6-F3A7367F486D}.wem"
-     },
-     {
-      "Id": "576757380",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DamageRobot 07.wav",
-      "CachePath": "87/{870D1BA1-F302-1FCC-AF5A-6645C07BCDCD}.wem"
-     },
-     {
-      "Id": "586318892",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DamageRobot 03.wav",
-      "CachePath": "82/{82246AFF-43A3-823F-074F-4231C5605E04}.wem"
      },
      {
       "Id": "629815313",
@@ -136,12 +168,12 @@
       "CachePath": "48/{48CD294D-31B6-FE68-D3E9-A1CCCFA3D8EF}.wem"
      },
      {
-      "Id": "676915343",
+      "Id": "674788976",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "DamageRobot 02.wav",
-      "CachePath": "81/{81507E9C-EF7B-EC04-9664-D4BA084C16CF}.wem"
+      "ShortName": "Damage Knight 02.wav",
+      "CachePath": "B8/{B8CDBF51-3F0A-62F8-9A00-1745EB8663D4}.wem"
      },
      {
       "Id": "709076494",
@@ -184,14 +216,6 @@
       "CachePath": "11/{11BC932F-EC94-7008-BEB0-987F97D8A232}.wem"
      },
      {
-      "Id": "851681003",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DamageRobot 06.wav",
-      "CachePath": "B4/{B49DCCCD-5809-8489-82AD-A52072322475}.wem"
-     },
-     {
       "Id": "867981589",
       "Language": "SFX",
       "Streaming": "false",
@@ -230,14 +254,6 @@
       "Location": "Memory",
       "ShortName": "Melee Druid.wav",
       "CachePath": "F1/{F1D6E841-341B-2BF2-F6AF-F4B84D5498EF}.wem"
-     },
-     {
-      "Id": "1050705725",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DamageRobot 01.wav",
-      "CachePath": "A0/{A0085CEA-59A8-C78D-C312-DA6E40A04D21}.wem"
      }
     ],
     "Events": [
@@ -323,29 +339,35 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Damage_Robot",
       "GUID": "{DCE626E9-C6C9-4424-B24C-1B8FA1F394D8}",
       "DurationType": "OneShot",
-      "DurationMin": "2.6892517",
-      "DurationMax": "2.6892517",
+      "DurationMin": "0.81938773",
+      "DurationMax": "0.81938773",
       "MediaRefs": [
        {
-        "Id": "143620131"
+        "Id": "305939396"
        },
        {
-        "Id": "308188639"
+        "Id": "333461705"
        },
        {
-        "Id": "576757380"
+        "Id": "365070089"
        },
        {
-        "Id": "586318892"
+        "Id": "471444188"
        },
        {
-        "Id": "676915343"
+        "Id": "529577813"
        },
        {
-        "Id": "851681003"
+        "Id": "538168653"
        },
        {
-        "Id": "1050705725"
+        "Id": "548955585"
+       },
+       {
+        "Id": "554354140"
+       },
+       {
+        "Id": "674788976"
        }
       ]
      },
@@ -556,6 +578,6 @@
     ]
    }
   ],
-  "FileHash": "{2D92F0C5-A727-8726-ABF6-DFE8E5EE2DD4}"
+  "FileHash": "{43A6A210-75BD-39E3-6AA2-15AD42D22509}"
  }
 }
