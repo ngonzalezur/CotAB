@@ -6,14 +6,14 @@
   "SoundBankVersion": "154",
   "SoundBanks": [
    {
-    "Id": "2264177337",
+    "Id": "1637973687",
     "Type": "User",
-    "GUID": "{4B3A05C5-79CD-49FA-80FC-55624EBFE325}",
+    "GUID": "{02612187-DD2D-4746-B156-5731E390E223}",
     "Language": "SFX",
-    "Hash": "{86691E34-CD3B-1FCD-4D59-20A619FC22E1}",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SBank",
-    "ShortName": "Combat_SBank",
-    "Path": "Combat_SBank.bnk",
+    "Hash": "{B19A0C96-9AA4-B7B8-A8CD-E29B5E67DC78}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SoundBank",
+    "ShortName": "Combat_SoundBank",
+    "Path": "Combat_SoundBank.bnk",
     "Media": [
      {
       "Id": "86543320",
@@ -56,6 +56,14 @@
       "CachePath": "D9/{D90255C2-87B5-D420-4D50-0E69A39D8AB4}.wem"
      },
      {
+      "Id": "251311754",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music Boss INTRO.wav",
+      "CachePath": "97/{97B3C7BB-0363-6354-F971-468EDE9A5059}.wem"
+     },
+     {
       "Id": "257841820",
       "Language": "SFX",
       "Streaming": "false",
@@ -94,6 +102,14 @@
       "Location": "Memory",
       "ShortName": "Damage Knight 06.wav",
       "CachePath": "E2/{E27DC8F0-44BA-7CA5-7079-4A38AF39226D}.wem"
+     },
+     {
+      "Id": "438758271",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music Boss part 1 Loop.wav",
+      "CachePath": "56/{569BE98B-C4CC-44EB-786F-912AE68223D1}.wem"
      },
      {
       "Id": "471444188",
@@ -168,12 +184,28 @@
       "CachePath": "48/{48CD294D-31B6-FE68-D3E9-A1CCCFA3D8EF}.wem"
      },
      {
+      "Id": "671985149",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music Boss part 2 Loop.wav",
+      "CachePath": "9F/{9F5A2CA8-EADB-3E13-6985-35BEF542BE0C}.wem"
+     },
+     {
       "Id": "674788976",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Damage Knight 02.wav",
       "CachePath": "B8/{B8CDBF51-3F0A-62F8-9A00-1745EB8663D4}.wem"
+     },
+     {
+      "Id": "695065844",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music Boss INTRO part 2.wav",
+      "CachePath": "31/{314C0D36-82E2-0229-E388-B1857115AB68}.wem"
      },
      {
       "Id": "709076494",
@@ -456,6 +488,42 @@
       ]
      },
      {
+      "Id": "394309612",
+      "Name": "PlayBossMusic01",
+      "ObjectPath": "\\Events\\Default Work Unit\\Boss Music\\PlayBossMusic01",
+      "GUID": "{7A066BCB-9FA9-45DC-8052-1491427EA90C}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "251311754"
+       },
+       {
+        "Id": "438758271"
+       }
+      ]
+     },
+     {
+      "Id": "394309615",
+      "Name": "PlayBossMusic02",
+      "ObjectPath": "\\Events\\Default Work Unit\\Boss Music\\PlayBossMusic02",
+      "GUID": "{6D997CAF-9EC8-4C9B-93C1-A24AECA4F743}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "251311754"
+       },
+       {
+        "Id": "438758271"
+       },
+       {
+        "Id": "671985149"
+       },
+       {
+        "Id": "695065844"
+       }
+      ]
+     },
+     {
       "Id": "2899002807",
       "Name": "Set_Voice_Volume_Contra_Bajo_Lento",
       "ObjectPath": "\\Events\\Default Work Unit\\Combat01_Voices\\Set_Voice_Volume_Contra_Bajo_Lento",
@@ -542,6 +610,12 @@
       "MediaRefs": [
        {
         "Id": "86543320"
+       },
+       {
+        "Id": "671985149"
+       },
+       {
+        "Id": "695065844"
        }
       ]
      },
@@ -578,6 +652,6 @@
     ]
    }
   ],
-  "FileHash": "{43A6A210-75BD-39E3-6AA2-15AD42D22509}"
+  "FileHash": "{EEAFAE02-7EF9-73E9-3F88-BDC35BA5A865}"
  }
 }

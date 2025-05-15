@@ -23,6 +23,8 @@ namespace AK
         static const AkUniqueID PLAY_PARRY_ROBOT = 3072108541U;
         static const AkUniqueID PLAY_POSION_DRUID = 1979277459U;
         static const AkUniqueID PLAY_SMITE_ROBOT = 1513174551U;
+        static const AkUniqueID PLAYBOSSMUSIC01 = 394309612U;
+        static const AkUniqueID PLAYBOSSMUSIC02 = 394309615U;
         static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_LENTO = 2899002807U;
         static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_LENTO02 = 2215044877U;
         static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_PA02 = 422594956U;
@@ -50,7 +52,7 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID COMBAT_SBANK = 2264177337U;
+        static const AkUniqueID COMBAT_SOUNDBANK = 1637973687U;
     } // namespace BANKS
 
     namespace BUSSES

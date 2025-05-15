@@ -6,7 +6,10 @@ namespace CotA.Sound
     public class SoundManager : MonoBehaviour
     {
         // ---------------- LEER ANTES ---------------
-        // La función PlayHeroDamage ahora se llama PlayDruidDamage, con la que manejas el daño a la druida
+        // Este script es el encargado de controlar la música y los SFX del juego
+        // La música de los niveles emnpieza a sonar desde un componente en el SoundManager, aqui se controla el cambio de música
+        // Los SFX si se les da play desde aca
+        // La música del Boss solo suena en el ultimo nivel, de resto es Combat 01 y Combat 02
         
 
 
@@ -23,6 +26,9 @@ namespace CotA.Sound
           AkUnitySoundEngine.PostEvent("Set_Voice_Volume_Contra_Bajo_Rapido02", gameObject); //Suena Contrabajo rapido 02
           AkUnitySoundEngine.PostEvent("Set_Voice_Volume_Contra_Bajo_Pa02", gameObject); //Suena Contrabajo Paneado 02
           AkUnitySoundEngine.PostEvent("Set_Voice_Volume_Drums02", gameObject); //Suena Drums 02
+
+          /// Boss Music --- Cambio de Boss Music 01 a Boss Music 02
+          AkUnitySoundEngine.PostEvent("PlayBossMusic02", gameObject); //Suena Boss Music 02
         }
 
 

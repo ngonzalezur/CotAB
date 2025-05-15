@@ -44,7 +44,7 @@ public class UnitManager : MonoBehaviour
     bool hasPersist = false;
 
     private List<Tile>[] currentPrecasts = new List<Tile>[2] { new List<Tile>(), new List<Tile>() };
-    private int[] currentPrecastIndex = new int[2] { -1, -1 }; // -1 = ningún precast activo
+    private int[] currentPrecastIndex = new int[2] { -1, -1 }; // -1 = ningï¿½n precast activo
 
 
 
@@ -245,7 +245,7 @@ public class UnitManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Acción no encontrada");
+            Debug.Log("Acciï¿½n no encontrada");
         }
     }
 
@@ -401,7 +401,7 @@ public class UnitManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Acción no encontrada");
+            Debug.Log("Acciï¿½n no encontrada");
         }
     }
 
@@ -970,7 +970,7 @@ public class UnitManager : MonoBehaviour
         {
             PrecastDelete(currentPrecasts[player]);
 
-            // Si había un ataque precasteado, lo volvemos a mostrar
+            // Si habï¿½a un ataque precasteado, lo volvemos a mostrar
             if (currentPrecastIndex[player] != -1)
             {
                 ShowPrecast(hero, currentPrecastIndex[player], player);
@@ -1181,6 +1181,8 @@ public class UnitManager : MonoBehaviour
         }
     }
 
+    private bool hasChangedMusic = false; // Boolean para controlar el cambio de mÃºsica
+
     public void Update()
     {
         //Debug.Log(CanPlay);
@@ -1188,7 +1190,7 @@ public class UnitManager : MonoBehaviour
         {
             MoveHero(Heroes[0], 0);
             AttackHero2(Heroes[0], 0);
-            if(SecondPlayer && Heroes[1] != null)
+            if (SecondPlayer && Heroes[1] != null)
             {
                 MoveHero(Heroes[1], 1);
                 AttackHero2(Heroes[1], 1);
@@ -1197,9 +1199,12 @@ public class UnitManager : MonoBehaviour
             //StartCoroutine(AttackMove());
             TakeDamage();
             AtaqueInvoacion();
-            if (SoundManager != null && Heroes[0] != null && Heroes[0].Health < Heroes[0].MaxHealth / 2)
+
+            //Agregue el hasChangedMusic porque me llamaba los eventos de wwise cada frame y me generaba distorsiÃ³n
+            if (SoundManager != null && Heroes[0] != null && Heroes[0].Health < Heroes[0].MaxHealth / 2 && !hasChangedMusic)
             {
                 SoundManager.ChangeSoundtrackToMidLifeMode();
+                hasChangedMusic = true; // Marcamos que ya hicimos el cambio
             }
         }
 

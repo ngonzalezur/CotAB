@@ -331,11 +331,11 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 0ac5b1dff5e8cc47a658227402647446
     GuidInternal: 
-    m_lastTime: -8584573556854775808
+    m_lastTime: -8584542779633306438
     List:
-    - name: Combat_SBank
-      guid: c5053a4bcd79fa4980fc55624ebfe325
-      id: 2264177337
+    - name: Combat_SoundBank
+      guid: 872161022ddd4647b1565731e390e223
+      id: 1637973687
       PathAndIcons:
       - ElementName: SoundBanks
         ObjectType: 5
@@ -343,10 +343,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 0ac5b1dff5e8cc47a658227402647446
-      - ElementName: Combat_SBank
+      - ElementName: Combat_SoundBank
         ObjectType: 7
-        guid: c5053a4bcd79fa4980fc55624ebfe325
-      Path: SoundBanks\Default Work Unit\Combat_SBank
+        guid: 872161022ddd4647b1565731e390e223
+      Path: SoundBanks\Default Work Unit\Combat_SoundBank
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -359,7 +359,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e162b17a710f2943908bc696d6471d61
     GuidInternal: 
-    m_lastTime: -8584560513525802234
+    m_lastTime: -8584542701714360789
     List:
     - name: Attack Druid
       guid: f4a86e17a16bd048a5c19e74981a767d
@@ -392,6 +392,40 @@ MonoBehaviour:
         ObjectType: 4
         guid: 502839aa97a45d4a96ea7f435191df6a
       Path: Events\Default Work Unit\Attack Robot
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Boss Music
+      guid: 136b5a634645a84b93bf60ce8b2d8f07
+      id: 982809915
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Boss Music
+        ObjectType: 4
+        guid: 136b5a634645a84b93bf60ce8b2d8f07
+      Path: Events\Default Work Unit\Boss Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: ChangeCombatMusic
+      guid: 9612f55a8a3010409202b795026deb90
+      id: 3740741074
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: ChangeCombatMusic
+        ObjectType: 3
+        guid: 9612f55a8a3010409202b795026deb90
+      Path: Events\Default Work Unit\ChangeCombatMusic
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -637,6 +671,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.1614287
       minDuration: 2.1614287
+    - name: PlayBossMusic01
+      guid: cb6b067aa99fdc4580521491427ea90c
+      id: 394309612
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Boss Music
+        ObjectType: 4
+        guid: 136b5a634645a84b93bf60ce8b2d8f07
+      - ElementName: PlayBossMusic01
+        ObjectType: 3
+        guid: cb6b067aa99fdc4580521491427ea90c
+      Path: Events\Default Work Unit\Boss Music\PlayBossMusic01
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayBossMusic02
+      guid: af7c996dc89e9b4c93c1a24aeca4f743
+      id: 394309615
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Boss Music
+        ObjectType: 4
+        guid: 136b5a634645a84b93bf60ce8b2d8f07
+      - ElementName: PlayBossMusic02
+        ObjectType: 3
+        guid: af7c996dc89e9b4c93c1a24aeca4f743
+      Path: Events\Default Work Unit\Boss Music\PlayBossMusic02
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Set_Voice_Volume_Contra_Bajo_Lento
       guid: 7e20e76c0333164fb92d126b89b21498
       id: 2899002807
@@ -1006,9 +1080,9 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8584586643634775808
     List: []
-  ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
-  AutoSyncSelection: 0
+  ExpandedFileSystemItemIds: 01000000020000000300000006000000070000000a000000220000002300000024000000
+  ExpandedWaapiItemIds: 01000000020000000300000006000000070000000a000000
+  AutoSyncSelection: 1
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 
