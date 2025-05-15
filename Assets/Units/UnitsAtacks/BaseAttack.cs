@@ -212,6 +212,9 @@ public class BaseAttack : MonoBehaviour
                 {
                     unit.animator?.SetTrigger("TakeDamage");
                 }
+            }else if (unit.parry)
+            {
+                UnitManager.Instance.CastAttack(unit, this);
             }
             
             

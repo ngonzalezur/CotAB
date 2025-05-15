@@ -545,7 +545,7 @@ public class UnitManager : MonoBehaviour
                 {
                     tile.OccupiedUnit.MoveToXandY(5, tile.PositionYTile());
                 }
-                if (tile.OccupiedUnit.Faction == Faction.Enemy)
+                if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Enemy)
                 {
                     tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
                 }                
@@ -613,7 +613,7 @@ public class UnitManager : MonoBehaviour
         }
         return target;
     }
-    void MoveFront(BaseAttack attack)
+    public void MoveFront(BaseAttack attack)
     {
         if (attack == null) return;
         var target = new List<Tile>();
@@ -882,7 +882,7 @@ public class UnitManager : MonoBehaviour
             }
         }else if(unit.Faction == Faction.Enemy)
         {
-            for (int i = tile.x - 1; i > 0; i--)
+            for (int i = tile.x - 1; i >= 0; i--)
             {
                 var tempTile = Gmanager.GetTileAtPosition(new Vector2(i, tile.y));
                 AgregarSiNoNull(target, tempTile);
@@ -1006,7 +1006,7 @@ public class UnitManager : MonoBehaviour
         StartCoroutine(AtaqueInvocaciones(invocacion));
     }
 
-    IEnumerator AtaqueInvocaciones(BaseUnit inovocaciones)
+    public IEnumerator AtaqueInvocaciones(BaseUnit inovocaciones)
     {        
        if (inovocaciones == null || inovocaciones.Attacks[0] == null)
         {
@@ -1042,7 +1042,7 @@ public class UnitManager : MonoBehaviour
         return target;
     }
 
-    IEnumerator TeleportMeleeDash(BaseUnit unit, BaseAttack attack, Tile baseTile)
+    public IEnumerator TeleportMeleeDash(BaseUnit unit, BaseAttack attack, Tile baseTile)
     {
         //unit.GetHighlightHero().LeftTile().InstantSetUnit(unit);
         var newTile = DashThrouhTiles(unit, unit.OccupiedTile);
@@ -1070,7 +1070,7 @@ public class UnitManager : MonoBehaviour
         return DashThrouhTiles(unit, nextTile);
     }
 
-    IEnumerator OccupiedTile(Tile tile, BaseUnit unit)
+    public IEnumerator OccupiedTile(Tile tile, BaseUnit unit)
     {
         if(tile != null)
         {
@@ -1084,7 +1084,7 @@ public class UnitManager : MonoBehaviour
         
         yield return new WaitForSeconds(0.1f);
     }
-    IEnumerator DeOccupiedTile(Tile tile)
+    public IEnumerator DeOccupiedTile(Tile tile)
     {
         tile.OccupiedUnit = null;
         yield return new WaitForSeconds(0.1f);
@@ -1099,7 +1099,7 @@ public class UnitManager : MonoBehaviour
         return target;
     }
 
-    IEnumerator ActivateParry(BaseUnit unit)
+    public IEnumerator ActivateParry(BaseUnit unit)
     {
         unit.parry = true;
         yield return new WaitForSeconds(2);
@@ -1114,7 +1114,7 @@ public class UnitManager : MonoBehaviour
         return target;
     }
 
-    IEnumerator CambiarFactionToHero(List<Tile> target)
+    public IEnumerator CambiarFactionToHero(List<Tile> target)
     {
         foreach(Tile tile in target)
         {
@@ -1269,7 +1269,7 @@ public class UnitManager : MonoBehaviour
         }
     }
 
-    IEnumerator AttackMove()
+    public IEnumerator AttackMove()
     {
         while (true)
         {
@@ -1490,7 +1490,7 @@ public class UnitManager : MonoBehaviour
 
 
     //Codigo de movimiento que SI se esta suando ahorita para mover y atacar del enemigo
-    IEnumerator MoverEnemigo()
+    public IEnumerator MoverEnemigo()
     {
         foreach (BaseUnit Enemy1 in Enemies)
         {
@@ -1580,7 +1580,7 @@ public class UnitManager : MonoBehaviour
         //}
     }
 
-    IEnumerator RestoreMana(BaseUnit hero)
+    public IEnumerator RestoreMana(BaseUnit hero)
     {
         while (true)
         {
@@ -1621,7 +1621,7 @@ public class UnitManager : MonoBehaviour
 
 
 
-    IEnumerator Destruir(BaseAttack att)
+    public IEnumerator Destruir(BaseAttack att)
     {
         yield return new WaitForSeconds(1f);
         att.Destroy();
@@ -1688,7 +1688,7 @@ public class UnitManager : MonoBehaviour
 
 
 
-    IEnumerator RestoreStamina(BaseUnit hero)
+    public IEnumerator RestoreStamina(BaseUnit hero)
     {
         while (true)
         {
