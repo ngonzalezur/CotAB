@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: ef1
   OccupiedTile: {fileID: 0}
-  Damage: 5
+  Damage: 0
   Heal: 0
   Stamina: 0
   Faction: 1
@@ -139,7 +139,8 @@ MonoBehaviour:
   stun: 0
   attackType: 0
   type: 20
-  ExtraAttack: {fileID: 0}
+  ExtraAttack: {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5,
+    type: 3}
   numRandomTiles: 5
 --- !u!1001 &381033061802036996
 PrefabInstance:

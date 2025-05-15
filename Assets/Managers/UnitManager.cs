@@ -543,6 +543,7 @@ public class UnitManager : MonoBehaviour
             {
                 if(tile.OccupiedUnit.Faction == Faction.Hero)
                 {
+                    tile.OccupiedUnit.GetHighlightHero()._highlight?.SetActive(false);
                     tile.OccupiedUnit.MoveToXandY(5, tile.PositionYTile());
                 }
                 if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Enemy)
@@ -575,12 +576,13 @@ public class UnitManager : MonoBehaviour
             SetAttacksInTiles(newtarget, attack);
             if(tile.OccupiedUnit != null && tile.OccupiedUnit.Faction != unit.Faction)
             {
-                if (tile.OccupiedUnit.Faction == Faction.Hero)
+                if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Hero)
                 {
+                    tile.OccupiedUnit.GetHighlightHero()._highlight?.SetActive(false);
                     tile.OccupiedUnit.MoveToXandY(5, tile.PositionYTile());
                     unit.MoveToXandY(6, unit.OccupiedTile.PositionYTile());
                 }
-                if (tile.OccupiedUnit.Faction == Faction.Enemy)
+                if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Enemy)
                 {
                     tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
                     unit.MoveToXandY(5, unit.OccupiedTile.PositionYTile());
@@ -596,8 +598,17 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 1));
-        target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 2));
+        if(unit.Faction == Faction.Hero)
+        {
+            target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 1));
+            target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 2));
+        }
+        else if(unit.Faction == Faction.Enemy)
+        {
+            target.AddRange(AllYTilesInXColumn(0));
+            target.AddRange(AllYTilesInXColumn(1));
+        }
+        
         return target;
     }
 
@@ -613,13 +624,13 @@ public class UnitManager : MonoBehaviour
         }
         return target;
     }
-    public void MoveFront(BaseAttack attack)
+    public void MoveFront(BaseAttack attack, List<Tile> target)
     {
         if (attack == null) return;
-        var target = new List<Tile>();
+        //var auxtarget = new List<Tile>();
         var units = new List<BaseUnit>();
-        target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 1));
-        target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 2));
+        //target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 1));
+        //target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 2));
         SetAttacksInTiles(target, attack);
         foreach(Tile tile in target)
         {
@@ -627,6 +638,10 @@ public class UnitManager : MonoBehaviour
             {
                 if(tile.OccupiedUnit.Faction != attack.Faction)
                 {
+                    if(tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Hero)
+                    {
+                        tile.OccupiedUnit.GetHighlightHero()._highlight?.SetActive(false);
+                    }                    
                     attack.DoDamage(tile.OccupiedUnit);
                 }
                 units.Add(tile.OccupiedUnit);
@@ -714,7 +729,7 @@ public class UnitManager : MonoBehaviour
                 }
                 else if (attack.type == BaseAttack.AttType.areaLast2Columns)
                 {
-                    MoveFront(attack);
+                    MoveFront(attack, target);
                     PrecastDelete(target);
                 }
                 else if (attack.type == BaseAttack.AttType.barridofilainverso)

@@ -55,7 +55,7 @@ public partial class EnemyAttackXAction : Action
             }
             else if (attack.type == BaseAttack.AttType.areaLast2Columns)
             {
-                uManager.MoveFront(attack);
+                uManager.MoveFront(attack, target);
                 uManager.PrecastDelete(target);
             }
             else if (attack.type == BaseAttack.AttType.barridofilainverso)
