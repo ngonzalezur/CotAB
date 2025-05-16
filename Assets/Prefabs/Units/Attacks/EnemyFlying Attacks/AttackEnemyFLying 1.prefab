@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: ef1
   OccupiedTile: {fileID: 0}
-  Damage: 0
+  Damage: 1
   Heal: 0
   Stamina: 0
   Faction: 1
@@ -138,7 +138,7 @@ MonoBehaviour:
   DoBurn: 0
   stun: 0
   attackType: 0
-  type: 15
+  type: 18
   ExtraAttack: {fileID: 0}
   numRandomTiles: 5
 --- !u!1001 &381033061802036996
