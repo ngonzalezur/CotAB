@@ -359,7 +359,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e162b17a710f2943908bc696d6471d61
     GuidInternal: 
-    m_lastTime: -8584542701714360789
+    m_lastTime: -8584542413770853704
     List:
     - name: Attack Druid
       guid: f4a86e17a16bd048a5c19e74981a767d
@@ -427,42 +427,8 @@ MonoBehaviour:
         guid: 9612f55a8a3010409202b795026deb90
       Path: Events\Default Work Unit\ChangeCombatMusic
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Combat01_Voices
-      guid: fe96ea0872d60340962461a164d053a8
-      id: 3684908830
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
-        ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      Path: Events\Default Work Unit\Combat01_Voices
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Combate02_Voices
-      guid: 6b8cd6b04b663c49a8a3651dd6076188
-      id: 3527054834
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
-        ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      Path: Events\Default Work Unit\Combate02_Voices
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Brote_Robot
       guid: 2dcbff63150d844e9188f6fd74d2ece9
       id: 3671704113
@@ -711,9 +677,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Lento
-      guid: 7e20e76c0333164fb92d126b89b21498
-      id: 2899002807
+    - name: RestartCombatMusic
+      guid: e2d02668e689d847afa0d67163e300bb
+      id: 143413923
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -721,153 +687,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
-        ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Lento
+      - ElementName: RestartCombatMusic
         ObjectType: 3
-        guid: 7e20e76c0333164fb92d126b89b21498
-      Path: Events\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Contra_Bajo_Lento
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Lento02
-      guid: 98b0adb314c1e040be012f57facc0314
-      id: 2215044877
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
-        ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Lento02
-        ObjectType: 3
-        guid: 98b0adb314c1e040be012f57facc0314
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Lento02
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Pa02
-      guid: f317b656a7a06a4cafa6454486b4699b
-      id: 422594956
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
-        ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Pa02
-        ObjectType: 3
-        guid: f317b656a7a06a4cafa6454486b4699b
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Pa02
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Rapido
-      guid: 3df83113ae35f841b2d0d70297808326
-      id: 3312578390
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
-        ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Rapido
-        ObjectType: 3
-        guid: 3df83113ae35f841b2d0d70297808326
-      Path: Events\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Contra_Bajo_Rapido
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Rapido02
-      guid: 6eb628948d3d8d4381159a536e980e6b
-      id: 3665169700
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
-        ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Rapido02
-        ObjectType: 3
-        guid: 6eb628948d3d8d4381159a536e980e6b
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Rapido02
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Drums02
-      guid: fd3a3272558bee4590e302901b3a3e19
-      id: 2484717745
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
-        ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Drums02
-        ObjectType: 3
-        guid: fd3a3272558bee4590e302901b3a3e19
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Drums02
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Violin_lead
-      guid: 35871594b8142046a0cd4aabb2741aa0
-      id: 266669932
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
-        ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      - ElementName: Set_Voice_Volume_Violin_lead
-        ObjectType: 3
-        guid: 35871594b8142046a0cd4aabb2741aa0
-      Path: Events\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Violin_lead
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Violin_lead02
-      guid: f1331365acf696469c36350e2171450c
-      id: 86316782
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
-        ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Violin_lead02
-        ObjectType: 3
-        guid: f1331365acf696469c36350e2171450c
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Violin_lead02
+        guid: e2d02668e689d847afa0d67163e300bb
+      Path: Events\Default Work Unit\RestartCombatMusic
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -1080,7 +903,7 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8584586643634775808
     List: []
-  ExpandedFileSystemItemIds: 01000000020000000300000006000000070000000a000000220000002300000024000000
+  ExpandedFileSystemItemIds: 010000000200000003000000070000000a000000220000002300000024000000
   ExpandedWaapiItemIds: 01000000020000000300000006000000070000000a000000
   AutoSyncSelection: 1
   autoPopulateEnabled: 1

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{02612187-DD2D-4746-B156-5731E390E223}",
     "Language": "SFX",
-    "Hash": "{B19A0C96-9AA4-B7B8-A8CD-E29B5E67DC78}",
+    "Hash": "{83684FA6-B4C0-BDC5-1B45-C27647E7DEA9}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SoundBank",
     "ShortName": "Combat_SoundBank",
     "Path": "Combat_SoundBank.bnk",
@@ -290,6 +290,48 @@
     ],
     "Events": [
      {
+      "Id": "3740741074",
+      "Name": "ChangeCombatMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\ChangeCombatMusic",
+      "GUID": "{5AF51296-308A-4010-9202-B795026DEB90}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "MediaRefs": [
+       {
+        "Id": "86543320"
+       },
+       {
+        "Id": "257841820"
+       },
+       {
+        "Id": "258161636"
+       },
+       {
+        "Id": "491861953"
+       },
+       {
+        "Id": "629815313"
+       },
+       {
+        "Id": "671985149"
+       },
+       {
+        "Id": "695065844"
+       },
+       {
+        "Id": "709076494"
+       },
+       {
+        "Id": "766028941"
+       },
+       {
+        "Id": "906392941"
+       }
+      ]
+     },
+     {
       "Id": "3671704113",
       "Name": "Play_Brote_Robot",
       "ObjectPath": "\\Events\\Default Work Unit\\Attack Robot\\Play_Brote_Robot",
@@ -524,85 +566,10 @@
       ]
      },
      {
-      "Id": "2899002807",
-      "Name": "Set_Voice_Volume_Contra_Bajo_Lento",
-      "ObjectPath": "\\Events\\Default Work Unit\\Combat01_Voices\\Set_Voice_Volume_Contra_Bajo_Lento",
-      "GUID": "{6CE7207E-3303-4F16-B92D-126B89B21498}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "MediaRefs": [
-       {
-        "Id": "766028941"
-       }
-      ]
-     },
-     {
-      "Id": "2215044877",
-      "Name": "Set_Voice_Volume_Contra_Bajo_Lento02",
-      "ObjectPath": "\\Events\\Default Work Unit\\Combate02_Voices\\Set_Voice_Volume_Contra_Bajo_Lento02",
-      "GUID": "{B3ADB098-C114-40E0-BE01-2F57FACC0314}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "MediaRefs": [
-       {
-        "Id": "709076494"
-       }
-      ]
-     },
-     {
-      "Id": "422594956",
-      "Name": "Set_Voice_Volume_Contra_Bajo_Pa02",
-      "ObjectPath": "\\Events\\Default Work Unit\\Combate02_Voices\\Set_Voice_Volume_Contra_Bajo_Pa02",
-      "GUID": "{56B617F3-A0A7-4C6A-AFA6-454486B4699B}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "MediaRefs": [
-       {
-        "Id": "257841820"
-       }
-      ]
-     },
-     {
-      "Id": "3312578390",
-      "Name": "Set_Voice_Volume_Contra_Bajo_Rapido",
-      "ObjectPath": "\\Events\\Default Work Unit\\Combat01_Voices\\Set_Voice_Volume_Contra_Bajo_Rapido",
-      "GUID": "{1331F83D-35AE-41F8-B2D0-D70297808326}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "MediaRefs": [
-       {
-        "Id": "491861953"
-       }
-      ]
-     },
-     {
-      "Id": "3665169700",
-      "Name": "Set_Voice_Volume_Contra_Bajo_Rapido02",
-      "ObjectPath": "\\Events\\Default Work Unit\\Combate02_Voices\\Set_Voice_Volume_Contra_Bajo_Rapido02",
-      "GUID": "{9428B66E-3D8D-438D-8115-9A536E980E6B}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "MediaRefs": [
-       {
-        "Id": "629815313"
-       }
-      ]
-     },
-     {
-      "Id": "2484717745",
-      "Name": "Set_Voice_Volume_Drums02",
-      "ObjectPath": "\\Events\\Default Work Unit\\Combate02_Voices\\Set_Voice_Volume_Drums02",
-      "GUID": "{72323AFD-8B55-45EE-90E3-02901B3A3E19}",
+      "Id": "143413923",
+      "Name": "RestartCombatMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\RestartCombatMusic",
+      "GUID": "{6826D0E2-89E6-47D8-AFA0-D67163E300BB}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
       "DurationMin": "0",
@@ -612,46 +579,37 @@
         "Id": "86543320"
        },
        {
+        "Id": "257841820"
+       },
+       {
+        "Id": "258161636"
+       },
+       {
+        "Id": "491861953"
+       },
+       {
+        "Id": "629815313"
+       },
+       {
         "Id": "671985149"
        },
        {
         "Id": "695065844"
-       }
-      ]
-     },
-     {
-      "Id": "266669932",
-      "Name": "Set_Voice_Volume_Violin_lead",
-      "ObjectPath": "\\Events\\Default Work Unit\\Combat01_Voices\\Set_Voice_Volume_Violin_lead",
-      "GUID": "{94158735-14B8-4620-A0CD-4AABB2741AA0}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "MediaRefs": [
+       },
+       {
+        "Id": "709076494"
+       },
+       {
+        "Id": "766028941"
+       },
        {
         "Id": "906392941"
-       }
-      ]
-     },
-     {
-      "Id": "86316782",
-      "Name": "Set_Voice_Volume_Violin_lead02",
-      "ObjectPath": "\\Events\\Default Work Unit\\Combate02_Voices\\Set_Voice_Volume_Violin_lead02",
-      "GUID": "{651333F1-F6AC-4696-9C36-350E2171450C}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "MediaRefs": [
-       {
-        "Id": "258161636"
        }
       ]
      }
     ]
    }
   ],
-  "FileHash": "{EEAFAE02-7EF9-73E9-3F88-BDC35BA5A865}"
+  "FileHash": "{79AB21AC-0FD1-436B-9904-1DA919D7066A}"
  }
 }

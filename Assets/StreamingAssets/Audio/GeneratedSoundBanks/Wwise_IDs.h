@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID CHANGECOMBATMUSIC = 3740741074U;
         static const AkUniqueID PLAY_BROTE_ROBOT = 3671704113U;
         static const AkUniqueID PLAY_COMBATMUSICPLAYLIST = 1462092269U;
         static const AkUniqueID PLAY_DAMAGE_DRUID = 3230461460U;
@@ -25,14 +26,7 @@ namespace AK
         static const AkUniqueID PLAY_SMITE_ROBOT = 1513174551U;
         static const AkUniqueID PLAYBOSSMUSIC01 = 394309612U;
         static const AkUniqueID PLAYBOSSMUSIC02 = 394309615U;
-        static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_LENTO = 2899002807U;
-        static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_LENTO02 = 2215044877U;
-        static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_PA02 = 422594956U;
-        static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_RAPIDO = 3312578390U;
-        static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_RAPIDO02 = 3665169700U;
-        static const AkUniqueID SET_VOICE_VOLUME_DRUMS02 = 2484717745U;
-        static const AkUniqueID SET_VOICE_VOLUME_VIOLIN_LEAD = 266669932U;
-        static const AkUniqueID SET_VOICE_VOLUME_VIOLIN_LEAD02 = 86316782U;
+        static const AkUniqueID RESTARTCOMBATMUSIC = 143413923U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS

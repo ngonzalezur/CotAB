@@ -1,24 +1,18 @@
 Event	ID	Name			Wwise Object Path	Notes
-	86316782	Set_Voice_Volume_Violin_lead02			\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Violin_lead02	
 	104012431	Play_Grid_Druid			\Default Work Unit\Attack Druid\Play_Grid_Druid	
-	266669932	Set_Voice_Volume_Violin_lead			\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Violin_lead	
+	143413923	RestartCombatMusic			\Default Work Unit\RestartCombatMusic	
 	364273755	Play_Firewall_Druid			\Default Work Unit\Attack Druid\Play_Firewall_Druid	
 	394309612	PlayBossMusic01			\Default Work Unit\Boss Music\PlayBossMusic01	
 	394309615	PlayBossMusic02			\Default Work Unit\Boss Music\PlayBossMusic02	
-	422594956	Set_Voice_Volume_Contra_Bajo_Pa02			\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Pa02	
 	1462092269	Play_CombatMusicPlaylist			\Default Work Unit\Play_CombatMusicPlaylist	
 	1513174551	Play_Smite_Robot			\Default Work Unit\Attack Robot\Play_Smite_Robot	
 	1942325012	Play_Damage_Robot			\Default Work Unit\Play_Damage_Robot	
 	1979277459	Play_Posion_Druid			\Default Work Unit\Attack Druid\Play_Posion_Druid	
-	2215044877	Set_Voice_Volume_Contra_Bajo_Lento02			\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Lento02	
-	2484717745	Set_Voice_Volume_Drums02			\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Drums02	
 	2651910159	Play_Melee_Druid			\Default Work Unit\Attack Druid\Play_Melee_Druid	
-	2899002807	Set_Voice_Volume_Contra_Bajo_Lento			\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Contra_Bajo_Lento	
 	3072108541	Play_Parry_Robot			\Default Work Unit\Attack Robot\Play_Parry_Robot	
 	3230461460	Play_Damage_Druid			\Default Work Unit\Play_Damage_Druid	
-	3312578390	Set_Voice_Volume_Contra_Bajo_Rapido			\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Contra_Bajo_Rapido	
-	3665169700	Set_Voice_Volume_Contra_Bajo_Rapido02			\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Rapido02	
 	3671704113	Play_Brote_Robot			\Default Work Unit\Attack Robot\Play_Brote_Robot	
+	3740741074	ChangeCombatMusic			\Default Work Unit\ChangeCombatMusic	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	86543320	Drums02	C:\COTA\Wwise Cota\CotaB\.cache\48\{48DBA6D8-55E3-CC4D-0D5D-7512B943605E}.wem		\Interactive Music Hierarchy\Default Work Unit\CombatMusicPlaylist\CombatMusic01\Drums02		4515936
