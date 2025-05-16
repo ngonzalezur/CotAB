@@ -359,7 +359,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e162b17a710f2943908bc696d6471d61
     GuidInternal: 
-    m_lastTime: -8584541822855960926
+    m_lastTime: -8584541788918768355
     List:
     - name: Attack Druid
       guid: f4a86e17a16bd048a5c19e74981a767d
@@ -422,13 +422,33 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Combat Music
+        ObjectType: 4
+        guid: e7929771eb504b4cbe50390096e777de
       - ElementName: ChangeCombatMusic
         ObjectType: 3
         guid: 9612f55a8a3010409202b795026deb90
-      Path: Events\Default Work Unit\ChangeCombatMusic
+      Path: Events\Default Work Unit\Combat Music\ChangeCombatMusic
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Combat Music
+      guid: e7929771eb504b4cbe50390096e777de
+      id: 4120977212
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Combat Music
+        ObjectType: 4
+        guid: e7929771eb504b4cbe50390096e777de
+      Path: Events\Default Work Unit\Combat Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Brote_Robot
       guid: 2dcbff63150d844e9188f6fd74d2ece9
       id: 3671704113
@@ -459,10 +479,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Combat Music
+        ObjectType: 4
+        guid: e7929771eb504b4cbe50390096e777de
       - ElementName: Play_CombatMusicPlaylist
         ObjectType: 3
         guid: dfe7bd6128ac21419c65d064dd4b687b
-      Path: Events\Default Work Unit\Play_CombatMusicPlaylist
+      Path: Events\Default Work Unit\Combat Music\Play_CombatMusicPlaylist
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0

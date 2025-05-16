@@ -292,7 +292,7 @@
      {
       "Id": "3740741074",
       "Name": "ChangeCombatMusic",
-      "ObjectPath": "\\Events\\Default Work Unit\\ChangeCombatMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\Combat Music\\ChangeCombatMusic",
       "GUID": "{5AF51296-308A-4010-9202-B795026DEB90}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
@@ -342,7 +342,7 @@
      {
       "Id": "1462092269",
       "Name": "Play_CombatMusicPlaylist",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_CombatMusicPlaylist",
+      "ObjectPath": "\\Events\\Default Work Unit\\Combat Music\\Play_CombatMusicPlaylist",
       "GUID": "{61BDE7DF-AC28-4121-9C65-D064DD4B687B}",
       "DurationType": "Infinite",
       "MediaRefs": [
@@ -580,6 +580,6 @@
     ]
    }
   ],
-  "FileHash": "{7AED5E05-3CBB-9AD5-B209-0517BE0DB71E}"
+  "FileHash": "{E0182E4F-1C61-4ED8-D7FB-708E2BC92E0B}"
  }
 }
