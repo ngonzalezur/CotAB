@@ -1,6 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
 	104012431	Play_Grid_Druid			\Default Work Unit\Attack Druid\Play_Grid_Druid	
-	143413923	RestartCombatMusic			\Default Work Unit\RestartCombatMusic	
 	364273755	Play_Firewall_Druid			\Default Work Unit\Attack Druid\Play_Firewall_Druid	
 	394309612	PlayBossMusic01			\Default Work Unit\Boss Music\PlayBossMusic01	
 	394309615	PlayBossMusic02			\Default Work Unit\Boss Music\PlayBossMusic02	

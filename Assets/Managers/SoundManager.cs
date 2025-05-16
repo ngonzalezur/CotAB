@@ -10,18 +10,25 @@ namespace CotA.Sound
         // La música de los niveles emnpieza a sonar desde un componente en el SoundManager, aqui se controla el cambio de música
         // Los SFX si se les da play desde aca
         // La música del Boss solo suena en el ultimo nivel, de resto es Combat 01 y Combat 02
+
+        public void Awake()
+        {
+            // Reinicia toda la música al inicio del juego
+            AkUnitySoundEngine.StopAll();
+            
+        }
         
 
 
         // ----------------------- MÚSICA ----------------------------
-        public void ChangeSoundtrackToMidLifeMode ()
+        public void ChangeSoundtrackToMidLifeMode()
         {
-          /// Combat 01 to Combat 02
-          AkUnitySoundEngine.PostEvent("ChangeCombatMusic", gameObject); //Suena Combat 02, todos los cambios suceden desde aqui
-    
+            /// Combat 01 to Combat 02
+            AkUnitySoundEngine.PostEvent("ChangeCombatMusic", gameObject); //Suena Combat 02, todos los cambios suceden desde aqui
 
-          /// Boss Music --- Cambio de Boss Music 01 a Boss Music 02
-          AkUnitySoundEngine.PostEvent("PlayBossMusic02", gameObject); //Suena Boss Music 02
+
+            /// Boss Music --- Cambio de Boss Music 01 a Boss Music 02
+            AkUnitySoundEngine.PostEvent("PlayBossMusic02", gameObject); //Suena Boss Music 02
         }
 
 

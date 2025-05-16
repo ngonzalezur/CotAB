@@ -26,7 +26,6 @@ namespace AK
         static const AkUniqueID PLAY_SMITE_ROBOT = 1513174551U;
         static const AkUniqueID PLAYBOSSMUSIC01 = 394309612U;
         static const AkUniqueID PLAYBOSSMUSIC02 = 394309615U;
-        static const AkUniqueID RESTARTCOMBATMUSIC = 143413923U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{02612187-DD2D-4746-B156-5731E390E223}",
     "Language": "SFX",
-    "Hash": "{52E7479D-2C2A-9A8C-EF11-211A755872C9}",
+    "Hash": "{932BC9E7-DB3E-0BF9-A62D-6BED4C38DB7F}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SoundBank",
     "ShortName": "Combat_SoundBank",
     "Path": "Combat_SoundBank.bnk",
@@ -576,52 +576,10 @@
         "Id": "695065844"
        }
       ]
-     },
-     {
-      "Id": "143413923",
-      "Name": "RestartCombatMusic",
-      "ObjectPath": "\\Events\\Default Work Unit\\RestartCombatMusic",
-      "GUID": "{6826D0E2-89E6-47D8-AFA0-D67163E300BB}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "MediaRefs": [
-       {
-        "Id": "86543320"
-       },
-       {
-        "Id": "257841820"
-       },
-       {
-        "Id": "258161636"
-       },
-       {
-        "Id": "491861953"
-       },
-       {
-        "Id": "629815313"
-       },
-       {
-        "Id": "671985149"
-       },
-       {
-        "Id": "695065844"
-       },
-       {
-        "Id": "709076494"
-       },
-       {
-        "Id": "766028941"
-       },
-       {
-        "Id": "906392941"
-       }
-      ]
      }
     ]
    }
   ],
-  "FileHash": "{C2D51FD5-4CCB-5443-3BD4-C98F8C87D988}"
+  "FileHash": "{7AED5E05-3CBB-9AD5-B209-0517BE0DB71E}"
  }
 }

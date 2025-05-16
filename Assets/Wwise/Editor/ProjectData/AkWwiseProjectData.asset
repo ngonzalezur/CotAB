@@ -359,7 +359,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e162b17a710f2943908bc696d6471d61
     GuidInternal: 
-    m_lastTime: -8584542395397187025
+    m_lastTime: -8584541822855960926
     List:
     - name: Attack Druid
       guid: f4a86e17a16bd048a5c19e74981a767d
@@ -674,23 +674,6 @@ MonoBehaviour:
         ObjectType: 3
         guid: af7c996dc89e9b4c93c1a24aeca4f743
       Path: Events\Default Work Unit\Boss Music\PlayBossMusic02
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: RestartCombatMusic
-      guid: e2d02668e689d847afa0d67163e300bb
-      id: 143413923
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: RestartCombatMusic
-        ObjectType: 3
-        guid: e2d02668e689d847afa0d67163e300bb
-      Path: Events\Default Work Unit\RestartCombatMusic
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0

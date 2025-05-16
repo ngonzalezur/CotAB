@@ -14,6 +14,7 @@ using System.Linq;
 //using System;
 
 
+
 public class UnitManager : MonoBehaviour
 {
     public ConfigurationData configuration;
@@ -51,6 +52,9 @@ public class UnitManager : MonoBehaviour
     private Coroutine corrutinaInvocaciones;
     private Coroutine corrutinaInvocaciones2;
 
+
+    private bool hasChangedMusic = false; // Boolean para controlar el cambio de música
+
     public void SetHeroUnit(BaseUnit unit)
     {
         //Agrego una intancia y esa sera quien se modifique en escena
@@ -58,9 +62,9 @@ public class UnitManager : MonoBehaviour
         if (!hasPersist)
         {
             newUnit = Instantiate(unit, new Vector3(0, 0, -1), Quaternion.identity);
-        }       
-        
-        
+        }
+
+
         int cont = 0;
         foreach (BaseAttack attack in unit.Attacks)
         {
@@ -90,12 +94,13 @@ public class UnitManager : MonoBehaviour
 
     public void Awake()
     {
+        hasChangedMusic = false; //Reiniciar Música
         Instance = this;
 
         BaseUnit persistentHero = GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
                                      .FirstOrDefault(u => u.isPersistentHero);
-        
-        if(persistentHero != null)
+
+        if (persistentHero != null)
         {
             GameManager.character = persistentHero.UnitName;
             configuration.Heroes[0].prefab = persistentHero;
@@ -103,7 +108,7 @@ public class UnitManager : MonoBehaviour
             Heroes[0] = persistentHero;
             hasPersist = true;
         }
-        
+
         //Referencio los heroes del data maanger y los guardo en la Lista Heroes
         foreach (ConfigurationData.UnitData unit in configuration.Heroes)
         {
@@ -129,33 +134,33 @@ public class UnitManager : MonoBehaviour
     public void SpawnHeroes()
     {
         //Cantidad de personajes aliaos que voy a hacer spawn, si hay dos jugadores le agrega uno
-        
-            var heroCount = 1;
-            if (SecondPlayer)
-            {
-                heroCount++;
-            }
 
-            for (int i = 0; i < heroCount; i++)
-            {
-                var x = UnityEngine.Random.Range(0, 5);
-                var y = UnityEngine.Random.Range(0, 5);
-                var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(x, y));
-                var hero = Heroes[i];
-                hero.OccupiedTile = randomSpawnTile;
-                randomSpawnTile.SetUnit(hero);
-                hero.GetHighlightHero()._highlight.SetActive(true);
-            }
+        var heroCount = 1;
+        if (SecondPlayer)
+        {
+            heroCount++;
+        }
 
-            StartCoroutine(RestoreStamina(Heroes[0]));
-            StartCoroutine(RestoreMana(Heroes[0]));
-            //StartCoroutine(AtaqueInvocaciones());
-            if (SecondPlayer)
-            {
-                StartCoroutine(RestoreStamina(Heroes[1]));
-                StartCoroutine(RestoreMana(Heroes[1]));
-            }      
-        
+        for (int i = 0; i < heroCount; i++)
+        {
+            var x = UnityEngine.Random.Range(0, 5);
+            var y = UnityEngine.Random.Range(0, 5);
+            var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(x, y));
+            var hero = Heroes[i];
+            hero.OccupiedTile = randomSpawnTile;
+            randomSpawnTile.SetUnit(hero);
+            hero.GetHighlightHero()._highlight.SetActive(true);
+        }
+
+        StartCoroutine(RestoreStamina(Heroes[0]));
+        StartCoroutine(RestoreMana(Heroes[0]));
+        //StartCoroutine(AtaqueInvocaciones());
+        if (SecondPlayer)
+        {
+            StartCoroutine(RestoreStamina(Heroes[1]));
+            StartCoroutine(RestoreMana(Heroes[1]));
+        }
+
 
         GameManager.Instance.ChangeState(GameState.SpawnEnemies);
     }
@@ -181,9 +186,9 @@ public class UnitManager : MonoBehaviour
     void ContarKPIAtaque(BaseUnit unit, int i)
     {
         //si es druida
-        if(unit.UnitName == "Druid")
+        if (unit.UnitName == "Druid")
         {
-            if(i == 0)
+            if (i == 0)
             {
                 GameManager.AttDruid1++;
             }
@@ -258,7 +263,7 @@ public class UnitManager : MonoBehaviour
         {
             var checkInvo = false;
             if (unit.Attacks[i].type == BaseAttack.AttType.invocacion)
-            {                
+            {
                 foreach (BaseUnit invocacion in Invocaciones)
                 {
                     if (invocacion != null && invocacion.UnitName == unit.Attacks[i].invocacion.UnitName)
@@ -275,20 +280,20 @@ public class UnitManager : MonoBehaviour
             else
             {
                 ContarKPIInteracciones();
-                ContarKPIAtaque(unit,i);
+                ContarKPIAtaque(unit, i);
 
                 unit.CastMana -= unit.Attacks[i].ManaCost;
                 StartCoroutine(ui.HandleCooldown(i));
                 CastAttack(unit, unit.Attacks[i]);
                 unit.Attacks[i].LastCast1 = Time.time;
-            
 
-                if(unit.animator != null)
+
+                if (unit.animator != null)
                 {
                     unit.animator.SetTrigger("Attack");
                 }
                 //sound effects de cada ataque
-                if(unit.Attacks[i].type == BaseAttack.AttType.muro)
+                if (unit.Attacks[i].type == BaseAttack.AttType.muro)
                 {
                     SoundManager.PlayFirewallDruid();
                 }
@@ -298,7 +303,7 @@ public class UnitManager : MonoBehaviour
                 }
                 if (unit.Attacks[i].type == BaseAttack.AttType.area)
                 {
-                    if(unit.Attacks[i].DoVeneno > 0)
+                    if (unit.Attacks[i].DoVeneno > 0)
                     {
                         SoundManager.PlayPoisonDruid();
                     }
@@ -320,8 +325,8 @@ public class UnitManager : MonoBehaviour
                     SoundManager.PlayBroteRobot();
                 }
             }
-            
-            if(Invocaciones.Contains(unit))
+
+            if (Invocaciones.Contains(unit))
             {
                 unit.Health = 0;
                 Invocaciones.Remove(unit);
@@ -375,7 +380,7 @@ public class UnitManager : MonoBehaviour
         var rh = UnityEngine.Random.Range(0, Heroes.Count);
         var r = Heroes[rh].OccupiedTile.x;
         var dir = UnityEngine.Random.Range(0, 2);
-        if(dir == 0)
+        if (dir == 0)
         {
             for (int i = 0; i < GridManager.Instance._height; i++)
             {
@@ -392,7 +397,7 @@ public class UnitManager : MonoBehaviour
             }
         }
 
-        
+
         return target;
     }
     public List<Tile> BarridoFilaInverso(BaseUnit unit, BaseAttack attack)
@@ -401,7 +406,7 @@ public class UnitManager : MonoBehaviour
         var target = new List<Tile>();
         var rh = UnityEngine.Random.Range(0, Heroes.Count);
         var r = Heroes[rh].OccupiedTile.y;
-        for (int i = 0; i < GridManager.Instance._width/2; i++)
+        for (int i = 0; i < GridManager.Instance._width / 2; i++)
         {
             var tile = GridManager.Instance.GetTileAtPosition(new Vector2(i, r));
             AgregarSiNoNull(target, tile);
@@ -410,7 +415,7 @@ public class UnitManager : MonoBehaviour
     }
     public IEnumerator Barrer(List<Tile> target, BaseAttack attack)
     {
-        for(int i = 0; i < target.Count; i++)
+        for (int i = 0; i < target.Count; i++)
         {
             var auxTarget = new List<Tile>();
             auxTarget.Add(target[i]);
@@ -425,7 +430,7 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             var r = UnityEngine.Random.Range(0, Enemies.Count);
             var tile = Enemies[r].OccupiedTile;
@@ -441,7 +446,7 @@ public class UnitManager : MonoBehaviour
             AgregarSiNoNull(target, target[0].DownTile().LeftTile());
             AgregarSiNoNull(target, target[0].DownTile().RightTile());
         }
-        else if(unit.Faction == Faction.Enemy)
+        else if (unit.Faction == Faction.Enemy)
         {
             var r = UnityEngine.Random.Range(0, Heroes.Count);
             var tile = Heroes[r].OccupiedTile;
@@ -464,25 +469,26 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile());
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().UpTile());
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().DownTile());
-        }else if (unit.Faction == Faction.Enemy)
+        }
+        else if (unit.Faction == Faction.Enemy)
         {
             AgregarSiNoNull(target, unit.OccupiedTile.LeftTile());
             AgregarSiNoNull(target, unit.OccupiedTile.LeftTile().UpTile());
             AgregarSiNoNull(target, unit.OccupiedTile.LeftTile().DownTile());
         }
-        
+
         return target;
     }
     public List<Tile> AreaMelee2x3(BaseUnit unit, BaseAttack attack)
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile());
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().UpTile());
@@ -490,7 +496,8 @@ public class UnitManager : MonoBehaviour
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().RightTile());
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().RightTile().UpTile());
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().RightTile().DownTile());
-        }else if(unit.Faction == Faction.Enemy)
+        }
+        else if (unit.Faction == Faction.Enemy)
         {
             AgregarSiNoNull(target, unit.OccupiedTile.LeftTile());
             AgregarSiNoNull(target, unit.OccupiedTile.LeftTile().UpTile());
@@ -541,7 +548,7 @@ public class UnitManager : MonoBehaviour
             SetAttacksInTiles(newtarget, attack);
             if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction != unit.Faction)
             {
-                if(tile.OccupiedUnit.Faction == Faction.Hero)
+                if (tile.OccupiedUnit.Faction == Faction.Hero)
                 {
                     tile.OccupiedUnit.GetHighlightHero()._highlight?.SetActive(false);
                     tile.OccupiedUnit.MoveToXandY(5, tile.PositionYTile());
@@ -549,7 +556,7 @@ public class UnitManager : MonoBehaviour
                 if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Enemy)
                 {
                     tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
-                }                
+                }
                 break;
             }
             newtarget.Clear();
@@ -570,11 +577,11 @@ public class UnitManager : MonoBehaviour
         var target = new List<Tile>();
         var newtarget = new List<Tile>();
         target = AllXTiles(unit);
-        foreach(Tile tile in target)
+        foreach (Tile tile in target)
         {
             newtarget.Add(tile);
             SetAttacksInTiles(newtarget, attack);
-            if(tile.OccupiedUnit != null && tile.OccupiedUnit.Faction != unit.Faction)
+            if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction != unit.Faction)
             {
                 if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Hero)
                 {
@@ -587,7 +594,7 @@ public class UnitManager : MonoBehaviour
                     tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
                     unit.MoveToXandY(5, unit.OccupiedTile.PositionYTile());
                 }
-                
+
                 //tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
                 break;
             }
@@ -598,17 +605,17 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 1));
             target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 2));
         }
-        else if(unit.Faction == Faction.Enemy)
+        else if (unit.Faction == Faction.Enemy)
         {
             target.AddRange(AllYTilesInXColumn(0));
             target.AddRange(AllYTilesInXColumn(1));
         }
-        
+
         return target;
     }
 
@@ -632,27 +639,28 @@ public class UnitManager : MonoBehaviour
         //target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 1));
         //target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 2));
         SetAttacksInTiles(target, attack);
-        foreach(Tile tile in target)
+        foreach (Tile tile in target)
         {
-            if(tile.OccupiedUnit != null)
+            if (tile.OccupiedUnit != null)
             {
-                if(tile.OccupiedUnit.Faction != attack.Faction)
+                if (tile.OccupiedUnit.Faction != attack.Faction)
                 {
-                    if(tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Hero)
+                    if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Hero)
                     {
                         tile.OccupiedUnit.GetHighlightHero()._highlight?.SetActive(false);
-                    }                    
+                    }
                     attack.DoDamage(tile.OccupiedUnit);
                 }
                 units.Add(tile.OccupiedUnit);
             }
         }
-        foreach(BaseUnit unit in units)
+        foreach (BaseUnit unit in units)
         {
-            if(unit.Faction == Faction.Hero)
+            if (unit.Faction == Faction.Hero)
             {
-                unit.MoveToXandY(5,unit.OccupiedTile.y);
-            }else if (unit.Faction == Faction.Enemy)
+                unit.MoveToXandY(5, unit.OccupiedTile.y);
+            }
+            else if (unit.Faction == Faction.Enemy)
             {
                 unit.MoveToXandY(6, unit.OccupiedTile.y);
                 //Debug.Log("debi moverme wtf");
@@ -664,15 +672,15 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             AgregarSiNoNull(target, unit.GetHighlightHero());
         }
-        else if(unit.Faction == Faction.Enemy)
+        else if (unit.Faction == Faction.Enemy)
         {
             AgregarSiNoNull(target, unit.GetHighlightEnemy());
         }
-        
+
         return target;
     }
 
@@ -705,14 +713,14 @@ public class UnitManager : MonoBehaviour
         if (Ataque.TryGetValue((int)attack.type, out Ataques att))
         {
             var target = att(unit, attack);
-            if(target != null)
+            if (target != null)
             {
-                if(attack.type == BaseAttack.AttType.dashMelee)
+                if (attack.type == BaseAttack.AttType.dashMelee)
                 {
                     StartCoroutine(TeleportMeleeDash(unit, attack, unit.OccupiedTile));
                     PrecastDelete(target);
                 }
-                else if(attack.type == BaseAttack.AttType.parry)
+                else if (attack.type == BaseAttack.AttType.parry)
                 {
                     StartCoroutine(ActivateParry(unit));
                     PrecastDelete(target);
@@ -744,11 +752,11 @@ public class UnitManager : MonoBehaviour
                 }
                 else if (attack.type == BaseAttack.AttType.areadelay)
                 {
-                    SetAttacksInTiles(target,attack);
+                    SetAttacksInTiles(target, attack);
                     StartCoroutine(ExtraAttack(target, attack.ExtraAttack));
                     PrecastDelete(target);
                 }
-                else if(attack.type == BaseAttack.AttType.invocacion)
+                else if (attack.type == BaseAttack.AttType.invocacion)
                 {
                     if (Invocaciones.Count <= 1)
                     {
@@ -768,7 +776,7 @@ public class UnitManager : MonoBehaviour
                 {
                     SetAttacksInTiles(target, attack);
                     PrecastDelete(target);
-                }                              
+                }
             }
         }
         else
@@ -809,7 +817,7 @@ public class UnitManager : MonoBehaviour
             att.gameObject.SetActive(true);
             tile.SetAttack(att);
             StartCoroutine(Destruir(att));
-            if(attack.DoBurn > 0)
+            if (attack.DoBurn > 0)
             {
                 tile.StartCoroutineBurning(att.DoBurn);
             }
@@ -819,14 +827,14 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             target.Add(unit.GetHighlightHero());
         }
         else
         {
             target.Add(unit.GetHighlightEnemy());
-        }        
+        }
         //buscar vecinas
         AgregarSiNoNull(target, target[0].UpTile());
         AgregarSiNoNull(target, target[0].DownTile());
@@ -886,7 +894,7 @@ public class UnitManager : MonoBehaviour
         if (unit == null) return null;
         var tile = unit.OccupiedTile;
         if (tile == null) return null;
-        var target = new List<Tile>();        
+        var target = new List<Tile>();
         var Gmanager = GridManager.Instance;
         if (unit.Faction == Faction.Hero)
         {
@@ -895,7 +903,8 @@ public class UnitManager : MonoBehaviour
                 var tempTile = Gmanager.GetTileAtPosition(new Vector2(i, tile.y));
                 AgregarSiNoNull(target, tempTile);
             }
-        }else if(unit.Faction == Faction.Enemy)
+        }
+        else if (unit.Faction == Faction.Enemy)
         {
             for (int i = tile.x - 1; i >= 0; i--)
             {
@@ -903,7 +912,7 @@ public class UnitManager : MonoBehaviour
                 AgregarSiNoNull(target, tempTile);
             }
         }
-        
+
         return target;
     }
     public List<Tile> AllEnemiesDamage(BaseUnit unit, BaseAttack attack)
@@ -937,11 +946,11 @@ public class UnitManager : MonoBehaviour
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
         // no se definir cuantos randoms van a hacer, queda pendiente
-        if(unit.Faction == Faction.Enemy)
+        if (unit.Faction == Faction.Enemy)
         {
             for (int i = 0; i < attack.numRandomTiles; i++)
             {
-                var rx = UnityEngine.Random.Range(0, GridManager.Instance._width/2);
+                var rx = UnityEngine.Random.Range(0, GridManager.Instance._width / 2);
                 var ry = UnityEngine.Random.Range(0, GridManager.Instance._height);
                 var tile = GridManager.Instance.GetTileAtPosition(new Vector2(rx, ry));
                 if (!target.Contains(tile))
@@ -955,7 +964,7 @@ public class UnitManager : MonoBehaviour
 
             }
         }
-        else if(unit.Faction == Faction.Hero)
+        else if (unit.Faction == Faction.Hero)
         {
             for (int i = 0; i < attack.numRandomTiles; i++)
             {
@@ -973,7 +982,7 @@ public class UnitManager : MonoBehaviour
 
             }
         }
-        
+
         return target;
     }
     public List<Tile> Melee(BaseUnit unit, BaseAttack attack)
@@ -1002,7 +1011,7 @@ public class UnitManager : MonoBehaviour
         //    {
         //        InstanciarInvocacion(attack, target);
         //    }
-            
+
         //}
         return target;
     }
@@ -1022,16 +1031,16 @@ public class UnitManager : MonoBehaviour
     }
 
     public IEnumerator AtaqueInvocaciones(BaseUnit inovocaciones)
-    {        
-       if (inovocaciones == null || inovocaciones.Attacks[0] == null)
+    {
+        if (inovocaciones == null || inovocaciones.Attacks[0] == null)
         {
-             yield break;
+            yield break;
         }
-        while(!MayCastAttack(inovocaciones, inovocaciones.Attacks[0]))
+        while (!MayCastAttack(inovocaciones, inovocaciones.Attacks[0]))
         {
             yield return new WaitForSeconds(0.1f);
         }
-        CanCastAttack(inovocaciones, 0);       
+        CanCastAttack(inovocaciones, 0);
         yield return new WaitForSeconds(0.1f);
     }
 
@@ -1071,13 +1080,13 @@ public class UnitManager : MonoBehaviour
     public Tile DashThrouhTiles(BaseUnit unit, Tile tile)
     {
         var nextTile = tile.RightTile();
-        if(nextTile == null || nextTile.OccupiedUnit != null)
+        if (nextTile == null || nextTile.OccupiedUnit != null)
         {
             //StartCoroutine(DeOccupiedTile(tile));
             return tile;
         }
         //tile.OccupiedUnit = null;
-        
+
         nextTile.InstantSetUnit(unit);
         //nextTile.OccupiedUnit = unit;
         StartCoroutine(OccupiedTile(tile, unit));
@@ -1087,16 +1096,16 @@ public class UnitManager : MonoBehaviour
 
     public IEnumerator OccupiedTile(Tile tile, BaseUnit unit)
     {
-        if(tile != null)
+        if (tile != null)
         {
-           tile.OccupiedUnit = unit;
-            if(tile.OccupiedAttack != null)
+            tile.OccupiedUnit = unit;
+            if (tile.OccupiedAttack != null)
             {
                 tile.OccupiedAttack.DoDamage(unit);
                 tile.OccupiedAttack.Destroy();
             }
         }
-        
+
         yield return new WaitForSeconds(0.1f);
     }
     public IEnumerator DeOccupiedTile(Tile tile)
@@ -1120,7 +1129,7 @@ public class UnitManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         unit.parry = false;
     }
-    public  List<Tile> CambiarFaccion(BaseUnit unit, BaseAttack attack)
+    public List<Tile> CambiarFaccion(BaseUnit unit, BaseAttack attack)
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
@@ -1131,7 +1140,7 @@ public class UnitManager : MonoBehaviour
 
     public IEnumerator CambiarFactionToHero(List<Tile> target)
     {
-        foreach(Tile tile in target)
+        foreach (Tile tile in target)
         {
             tile.HeroTile.gameObject.SetActive(true);
             tile.EnemyTile.gameObject.SetActive(false);
@@ -1147,8 +1156,8 @@ public class UnitManager : MonoBehaviour
     }
 
     public List<Tile> PrimeraColumnaEnemiga(List<Tile> target)
-    {        
-        for(int i = 0; i < 6; i++)
+    {
+        for (int i = 0; i < 6; i++)
         {
             var tempTile = GridManager.Instance.GetTileAtPosition(new Vector2(GridManager.Instance._width / 2, i));
             AgregarSiNoNull(target, tempTile);
@@ -1160,13 +1169,13 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return false;
 
-        if(unit.CastMana - attack.ManaCost > 0 && Time.time - attack.LastCast1 >= attack.CoolDown)
+        if (unit.CastMana - attack.ManaCost > 0 && Time.time - attack.LastCast1 >= attack.CoolDown)
         {
-            if(attack.type == BaseAttack.AttType.invocacion)
+            if (attack.type == BaseAttack.AttType.invocacion)
             {
                 foreach (BaseUnit invocacion in Invocaciones)
                 {
-                    if(invocacion.UnitName ==  attack.invocacion.UnitName)
+                    if (invocacion.UnitName == attack.invocacion.UnitName)
                     {
                         return false;
                     }
@@ -1183,7 +1192,7 @@ public class UnitManager : MonoBehaviour
 
 
         if (player == 0)
-        {   
+        {
             if ((Input.GetKey(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[0]))
             {
                 //CanCastAttack(unit, 0);
@@ -1265,11 +1274,11 @@ public class UnitManager : MonoBehaviour
 
     public void PrecastAppear(List<Tile> target, int player)
     {
-        if(player > -1)
+        if (player > -1)
         {
             PrecastDelete(currentPrecasts[player]);
             currentPrecasts[player] = target;
-        }        
+        }
 
         foreach (Tile tile in target)
         {
@@ -1445,7 +1454,7 @@ public class UnitManager : MonoBehaviour
             //FalseHighlight(unit);
             //moverse
             MoveUnit(unit, unit.OccupiedTile.LeftTile());
-            if(unit.MoveCooldown > 0)
+            if (unit.MoveCooldown > 0)
             {
                 unit.animator.SetTrigger("MoveBack");
             }
@@ -1476,16 +1485,16 @@ public class UnitManager : MonoBehaviour
     public void MoveUnit(BaseUnit unit, Tile tile)
     {
         if (unit == null || tile == null) return;
-        if(unit.MoveCooldown > 0)
+        if (unit.MoveCooldown > 0)
         {
             ContarKPIInteracciones();
             FalseHighlight(unit);
             unit.MoveCooldown--;
             tile.SetUnit(unit);
             tile.OccupiedUnit.GetHighlightHero()._highlight.SetActive(true);
-        }        
+        }
     }
-   void ContarKPIInteracciones()
+    void ContarKPIInteracciones()
     {
         GameManager.interactionTotal++;
     }
@@ -1608,7 +1617,7 @@ public class UnitManager : MonoBehaviour
         }
     }
 
-    private bool hasChangedMusic = false; // Boolean para controlar el cambio de música
+
 
     public void Update()
     {
