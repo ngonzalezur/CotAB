@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public abstract class Tile : MonoBehaviour
 {
     [SerializeField] private Material _baseColor, _offsetColor;
     [SerializeField] private MeshRenderer _renderer;
     [SerializeField] public GameObject _highlight;
+    [SerializeField] public GameObject _precast;
     [SerializeField] private bool _isWalkable;
     public Faction Faction;
 

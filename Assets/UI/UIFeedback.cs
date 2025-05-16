@@ -30,7 +30,7 @@ public class UIFeedback : MonoBehaviour
         {
             if (Input.GetKey(abilities[i].key) && !abilities[i].isCooldown)
             {
-                StartCoroutine(HandleCooldown(i));
+                //StartCoroutine(HandleCooldown(i));
             }
         }
     }

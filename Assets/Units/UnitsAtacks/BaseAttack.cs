@@ -30,6 +30,8 @@ public class BaseAttack : MonoBehaviour
     public bool stun = false;
     public int attackType;
     public AttType type;
+    public BaseAttack ExtraAttack;
+    public int numRandomTiles = 0;
 
     SpriteRenderer sprite;
     ParticleSystem particle;
@@ -47,7 +49,17 @@ public class BaseAttack : MonoBehaviour
         dashMelee = 9,
         parry = 10,
         cambiarFaction = 11,
-        allHeros = 12
+        allHeros = 12,
+        areamelee2x3 = 13,
+        fila3x1 = 14,
+        gancho = 15,
+        areaLast2Columns = 16,
+        areadelay = 17,
+        areamelee1x3 = 18,
+        areaglobal = 19,
+        atractor = 20,
+        barridofilainverso = 21,
+        barridocolumnainverso = 22
     }
 
     public void ContadorKPIAciertoAttaque()
@@ -200,6 +212,9 @@ public class BaseAttack : MonoBehaviour
                 {
                     unit.animator?.SetTrigger("TakeDamage");
                 }
+            }else if (unit.parry)
+            {
+                UnitManager.Instance.CastAttack(unit, this);
             }
             
             

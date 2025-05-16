@@ -149,6 +149,19 @@ public class BaseUnit : MonoBehaviour
     {
         this.OccupiedTile.UpTile().SetUnit(this);
     }
+    public void MoveRight()
+    {
+        this.OccupiedTile.RightTile().SetUnit(this);
+    }
+    public void MoveLeft()
+    {
+        this.OccupiedTile.LeftTile().SetUnit(this);
+    }
+    public void MoveToXandY(int x, int y)
+    {
+        var tile = GridManager.Instance.GetTileAtPosition(new Vector2(x,y));
+        tile.SetUnit(this);
+    }
 
     public void Attack()
     {
@@ -160,6 +173,32 @@ public class BaseUnit : MonoBehaviour
             lastCastBA = Time.time;
         }
     }
+
+    public void CastAttack(int i)
+    {
+        UnitManager manager = UnitManager.Instance;
+        if (Attacks[i] != null)
+        {
+            manager.CastAttack(this, Attacks[i]);
+        }
+    }
+
+    public void AppearPreCast(List<Tile> target)
+    {
+        foreach (Tile tile in target)
+        {
+            tile._precast.SetActive(true);
+        }
+    }
+
+    public void DeletePreCast(List<Tile> target)
+    {
+        foreach (Tile tile in target)
+        {
+            tile._precast.SetActive(false);
+        }
+    }
+
     public void ComboBurnPoison()
     {
         if(burn > 0 && veneno > 0)
