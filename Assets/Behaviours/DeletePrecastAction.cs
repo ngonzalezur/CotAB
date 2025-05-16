@@ -3,13 +3,13 @@ using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
+using static UnitManager;
 using System.Collections;
 using System.Collections.Generic;
-using static UnitManager;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "PrecastEnemy", story: "[Enemy] precast attack [X] in [target]", category: "Action", id: "28e4ef42a6499a02f2fbe8be64f7b5d4")]
-public partial class PrecastEnemyAction : Action
+[NodeDescription(name: "DeletePrecast", story: "[Enemy] deletes precast attack [X] in [target]", category: "Action", id: "4b00a90cf844af129b90ad5bd86a36b0")]
+public partial class DeletePrecastAction : Action
 {
     [SerializeReference] public BlackboardVariable<BaseUnit> Enemy;
     [SerializeReference] public BlackboardVariable<int> X;
@@ -24,15 +24,15 @@ public partial class PrecastEnemyAction : Action
     protected override Status OnUpdate()
     {
         var target = Target.Value;
-        ShowPrecast(target);
+        DeletePrecast(target);
         return Status.Success;
     }
 
-    public void ShowPrecast(List<Tile> target)
+    public void DeletePrecast(List<Tile> target)
     {
         foreach (Tile tile in target)
         {
-            tile._precast.SetActive(true);
+            tile._precast.SetActive(false);
         }
     }
 
