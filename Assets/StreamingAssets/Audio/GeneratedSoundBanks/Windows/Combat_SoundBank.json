@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{02612187-DD2D-4746-B156-5731E390E223}",
     "Language": "SFX",
-    "Hash": "{83684FA6-B4C0-BDC5-1B45-C27647E7DEA9}",
+    "Hash": "{E62A9935-C750-B912-2DDA-8A45938A6C0A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SoundBank",
     "ShortName": "Combat_SoundBank",
     "Path": "Combat_SoundBank.bnk",
@@ -315,12 +315,6 @@
         "Id": "629815313"
        },
        {
-        "Id": "671985149"
-       },
-       {
-        "Id": "695065844"
-       },
-       {
         "Id": "709076494"
        },
        {
@@ -366,6 +360,12 @@
        },
        {
         "Id": "629815313"
+       },
+       {
+        "Id": "671985149"
+       },
+       {
+        "Id": "695065844"
        },
        {
         "Id": "709076494"
@@ -541,6 +541,12 @@
        },
        {
         "Id": "438758271"
+       },
+       {
+        "Id": "671985149"
+       },
+       {
+        "Id": "695065844"
        }
       ]
      },
@@ -610,6 +616,6 @@
     ]
    }
   ],
-  "FileHash": "{79AB21AC-0FD1-436B-9904-1DA919D7066A}"
+  "FileHash": "{B73F6EA3-4DF6-A8ED-25F9-B4F21660F816}"
  }
 }
