@@ -14,9 +14,11 @@ public partial class EnemyAttackXAction : Action
     [SerializeReference] public BlackboardVariable<int> X;
     [SerializeReference] public BlackboardVariable<List<Tile>> Target;
     UnitManager uManager;
+    Animator animator;
     protected override Status OnStart()
     {
         uManager = UnitManager.Instance;
+        animator = Enemy.Value.GetComponentInChildren<Animator>();
         return Status.Running;
     }
 
@@ -33,6 +35,14 @@ public partial class EnemyAttackXAction : Action
     {
         if (target != null)
         {
+            if(X % 2 == 0)
+            {
+                animator.SetTrigger("Attack1");
+            }
+            else if (X % 2 == 1)
+            {
+                animator.SetTrigger("Attack2");
+            }
             if (attack.type == BaseAttack.AttType.dashMelee)
             {
                 uManager.StartCoroutine(uManager.TeleportMeleeDash(unit, attack, unit.OccupiedTile));
