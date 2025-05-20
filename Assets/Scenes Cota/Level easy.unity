@@ -728,6 +728,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera facil
       objectReference: {fileID: 0}
+    - target: {fileID: 7450348874485090296, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
+        type: 3}
+      propertyPath: field of view
+      value: 60.000004
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1023844486277744394, guid: 1799ea7a4f2e84b46bef4263d8dcd04c, type: 3}
     m_RemovedGameObjects: []
