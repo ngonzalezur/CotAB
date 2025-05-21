@@ -110,7 +110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -600, y: 0}
+  m_AnchoredPosition: {x: -680, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2081468341622226197
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 703995a5c8d57804aadadcb698fe3203, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 42b086942f671f64d81e72f41f08fc90, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8de38fe875dbbe047a288b333747c065, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea1a01d20d8ce46428344dbf866b55d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 5022739890187246444}
   - component: {fileID: 3351196184834474414}
   m_Layer: 5
-  m_Name: Text Caballero 2-1
+  m_Name: Text vs hongo 2-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 62cbc22e01cdc914485da12f1e05bdbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a7a3aa16cb9f794fa884d741db71e74, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

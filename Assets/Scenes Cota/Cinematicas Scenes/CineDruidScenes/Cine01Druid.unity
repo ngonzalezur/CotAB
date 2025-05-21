@@ -383,7 +383,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SceneBindings.Array.data[5].value
       value: 
-      objectReference: {fileID: 6852535607550054982}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -716,12 +716,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c6155b8a55396459cb438a37f61387, type: 3}
---- !u!95 &6852535607550054982 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9061473065592130593, guid: 78c6155b8a55396459cb438a37f61387,
-    type: 3}
-  m_PrefabInstance: {fileID: 6852535607550054976}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &6852535607550054983 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8694363402669915845, guid: 78c6155b8a55396459cb438a37f61387,
