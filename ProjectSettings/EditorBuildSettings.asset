@@ -26,9 +26,54 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes Cota/Escenas viejas/Level medium.unity
     guid: 3ee5f237f16db9d478d1c840e0acce6e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes Cota/Cinematicas Scenes/Cine01.unity
     guid: 89824467e14bd33449d4b6e8b8162399
+  - enabled: 0
+    path: Assets/Scenes Cota/Cinematicas Scenes/CineRobotScenes/Cine04Robot.unity
+    guid: c2e3f248ef380d149a2bc0a4eb16aa16
+  - enabled: 1
+    path: Assets/Scenes Cota/Level 1.unity
+    guid: 5cf3bdae200c3744e82f4fa9edb25af0
+  - enabled: 1
+    path: Assets/Scenes Cota/Level 2.unity
+    guid: 14b028904e368304c98029858abb12fe
+  - enabled: 1
+    path: Assets/Scenes Cota/Level 3.unity
+    guid: e02faa7fd8c8d964797f56d0ff427e76
+  - enabled: 1
+    path: Assets/Scenes Cota/Level 4.unity
+    guid: 9a134a679d835ea4fb726af898ee39ce
+  - enabled: 1
+    path: Assets/Scenes Cota/Level 5.unity
+    guid: 523b17f26cf96414e9e8646cfc419324
+  - enabled: 1
+    path: Assets/Scenes Cota/Level 6.unity
+    guid: 9a6df60eeb6d8b44c9f05e164649a458
+  - enabled: 1
+    path: Assets/Scenes Cota/Level 7.unity
+    guid: ec496da62af064f49b0769f6e699d330
+  - enabled: 1
+    path: Assets/Scenes Cota/Cinematicas Scenes/CineDruidScenes/Cine01Druid.unity
+    guid: 20b7dcd9b4b91854aab90c258b060481
+  - enabled: 1
+    path: Assets/Scenes Cota/Cinematicas Scenes/CineDruidScenes/Cine02Druid.unity
+    guid: 2e076b530b27cd7488d7bc533b856a14
+  - enabled: 1
+    path: Assets/Scenes Cota/Cinematicas Scenes/CineDruidScenes/Cine03Druid.unity
+    guid: aafe93429bf8ef54188e195b042d4699
+  - enabled: 1
+    path: Assets/Scenes Cota/Cinematicas Scenes/CineDruidScenes/Cine04Druid.unity
+    guid: d2261df593feb2941bb16bc817e36b86
+  - enabled: 1
+    path: Assets/Scenes Cota/Cinematicas Scenes/CineRobotScenes/Cine01Robot.unity
+    guid: c1b4f7174aa36bf4dba710d46cec632d
+  - enabled: 1
+    path: Assets/Scenes Cota/Cinematicas Scenes/CineRobotScenes/Cine02Robot.unity
+    guid: 07281d770b9e7694e83c4d0d35da84bd
+  - enabled: 1
+    path: Assets/Scenes Cota/Cinematicas Scenes/CineRobotScenes/Cine03Robot.unity
+    guid: e9d01069e02d9c14e81bfda4d8f93ae6
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3,
       type: 2}
