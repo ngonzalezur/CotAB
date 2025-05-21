@@ -1091,7 +1091,7 @@ PrefabInstance:
     - target: {fileID: 355297724196370179, guid: 9d4cbe9919486b941bd968a8cb01a040,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.6
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 355297724196370179, guid: 9d4cbe9919486b941bd968a8cb01a040,
         type: 3}
@@ -1132,6 +1132,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera medio
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652635943149377989, guid: 9d4cbe9919486b941bd968a8cb01a040,
+        type: 3}
+      propertyPath: near clip plane
+      value: 3.9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4358842961131901623, guid: 9d4cbe9919486b941bd968a8cb01a040, type: 3}

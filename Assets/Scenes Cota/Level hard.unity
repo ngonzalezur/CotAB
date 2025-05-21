@@ -1234,7 +1234,7 @@ PrefabInstance:
     - target: {fileID: 1558609045065133080, guid: d0beb1c5d0552b94ab573eadf6167937,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.6
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 1558609045065133080, guid: d0beb1c5d0552b94ab573eadf6167937,
         type: 3}
@@ -1270,6 +1270,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642573784992537504, guid: d0beb1c5d0552b94ab573eadf6167937,
+        type: 3}
+      propertyPath: near clip plane
+      value: 3.9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6689733853533610832, guid: d0beb1c5d0552b94ab573eadf6167937, type: 3}
