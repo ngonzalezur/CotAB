@@ -5151,8 +5151,6 @@ MonoBehaviour:
   Attacks:
   - {fileID: 8091908140846267713, guid: aa58cd24642310d47a06a347f089fad1, type: 3}
   - {fileID: 8091908140846267713, guid: c71c73153cd25704b875b9b2a3001710, type: 3}
-  - {fileID: 8091908140846267713, guid: 37047dba4934bc24f836fa4da99116cb, type: 3}
-  - {fileID: 8091908140846267713, guid: d853294d1e637a54b9a1cefeff81a3d4, type: 3}
   veneno: 0
   burn: 0
   MaxStamina: 3

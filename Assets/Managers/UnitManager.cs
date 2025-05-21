@@ -11,6 +11,7 @@ using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.UI.CanvasScaler;
 using CotA.Sound;
 using System.Linq;
+using Unity.Behavior;
 //using System;
 
 
@@ -1704,13 +1705,17 @@ public class UnitManager : MonoBehaviour
             if (unit.Health <= 0 && unit.Faction == Faction.Enemy)
             {
                 Enemies.Remove(unit);
-                unit.Destroy();
-                if (Enemies.Count == 0)
-                {
-                    GameManager.Instance.ChangeState(GameState.EndFight);
-                }
+                var anim = unit.GetComponentInChildren<Animator>();
+                anim.SetTrigger("Death");
+                //unit.Destroy();
+                var ia = unit.GetComponent<BehaviorGraphAgent>();
+                ia.enabled = false;
             }
 
+        }
+        if (Enemies.Count == 0)
+        {
+            GameManager.Instance.ChangeState(GameState.EndFight);
         }
     }
 

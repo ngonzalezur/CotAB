@@ -213,7 +213,7 @@ public class BaseAttack : MonoBehaviour
                     {
                         var animatorE = unit.GetComponentInChildren<Animator>();
                         animatorE.SetTrigger("Hit");
-                    }else if(unit.Faction == Faction.Hero)
+                    }else if(unit.Faction == Faction.Hero && unit.animator != null)
                     {
                         unit.animator?.SetTrigger("TakeDamage");
                     }                    
