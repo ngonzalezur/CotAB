@@ -139,6 +139,8 @@ MonoBehaviour:
   stun: 1
   attackType: 0
   type: 2
+  ExtraAttack: {fileID: 0}
+  numRandomTiles: 0
 --- !u!1 &1636329195985070217
 GameObject:
   m_ObjectHideFlags: 0
@@ -14905,7 +14907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4279945721360116223
 Transform:
   m_ObjectHideFlags: 0
