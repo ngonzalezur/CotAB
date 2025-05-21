@@ -1699,10 +1699,11 @@ public class UnitManager : MonoBehaviour
             if (UnitManager.Instance.Invocaciones.Contains(unit) && unit.Health <= 0)
             {
                 Invocaciones.Remove(unit);
+                var anim = unit.GetComponentInChildren<Animator>();
+                anim.SetTrigger("Death");
                 StartCoroutine(KillInvo(unit));
                 //unit.Destroy();
-            }
-            if (unit.Health <= 0 && unit.Faction == Faction.Hero)
+            }else if (unit.Health <= 0 && unit.Faction == Faction.Hero && !Invocaciones.Contains(unit))
             {
                 Heroes.Remove(unit);
                 unit.Destroy();

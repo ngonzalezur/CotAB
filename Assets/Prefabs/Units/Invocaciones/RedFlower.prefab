@@ -305,8 +305,8 @@ MonoBehaviour:
   UnitName: RedFlower
   OccupiedTile: {fileID: 0}
   Faction: 0
-  MaxHealth: 10
-  Health: 10
+  MaxHealth: 2
+  Health: 2
   ActualHeath: {fileID: 2869813721422711052}
   EnemyType: {fileID: 0}
   HeroType: {fileID: 0}
