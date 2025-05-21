@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2915730715708171847
+--- !u!114 &-8108350677294293266
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,9 +15,9 @@ MonoBehaviour:
   m_Active: 1
   settings:
     crtMaterial: {fileID: 2100000, guid: 2bcb4ebf6ae0a8d479086272d8077ca4, type: 2}
-    scanlineIntensity: 0.526
-    scanlineFrequency: 410
-    distortionAmount: 0.0161
+    scanlineIntensity: 0.3
+    scanlineFrequency: 480
+    distortionAmount: 0.03
     renderPassEvent: 600
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
@@ -82,8 +82,8 @@ MonoBehaviour:
     probeVolumeBlendStatesCS: {fileID: 0}
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
-  - {fileID: -2915730715708171847}
-  m_RendererFeatureMap: adc0de57c6d2eee5b9d984bd5c3e89d7
+  - {fileID: -8108350677294293266}
+  m_RendererFeatureMap: adc0de57c6d2eee5ee5e93d5045a798f
   m_UseNativeRenderPass: 0
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
