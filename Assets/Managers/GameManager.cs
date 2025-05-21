@@ -101,6 +101,42 @@ public class GameManager : MonoBehaviour
                 {
                     SceneManager.LoadScene("Elegir");
                 }
+                else if (scene == "Level 1")
+                {
+                    if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
+                    {
+                        SceneManager.LoadScene("Cine02Druid");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("Cine02Robot");
+                    }
+                    
+                }
+                else if (scene == "Level 2")
+                {
+                    if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
+                    {
+                        SceneManager.LoadScene("Cine03Druid");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("Cine03Robot");
+                    }
+
+                }
+                else if (scene == "Level 3")
+                {
+                    if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
+                    {
+                        SceneManager.LoadScene("Cine04Druid");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("Cine04Robot");
+                    }
+
+                }
 
                 if (scene == "Level hard" || UnitManager.Instance.SecondPlayer)
                 {
