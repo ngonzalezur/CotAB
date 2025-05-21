@@ -15,9 +15,9 @@ MonoBehaviour:
   m_Active: 1
   settings:
     crtMaterial: {fileID: 2100000, guid: 2bcb4ebf6ae0a8d479086272d8077ca4, type: 2}
-    scanlineIntensity: 0.3
-    scanlineFrequency: 480
-    distortionAmount: 0.03
+    scanlineIntensity: 0.433
+    scanlineFrequency: 486
+    distortionAmount: 0
     renderPassEvent: 600
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
