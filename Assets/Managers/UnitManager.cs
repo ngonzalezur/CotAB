@@ -42,7 +42,8 @@ public class UnitManager : MonoBehaviour
 
     public bool SecondPlayer = false;
 
-    Gamepad Mando = null;
+    //Gamepad Mando = null;
+    //Gamepad Mando2 = null;
     bool hasPersist = false;
 
     private List<Tile>[] currentPrecasts = new List<Tile>[2] { new List<Tile>(), new List<Tile>() };
@@ -55,6 +56,73 @@ public class UnitManager : MonoBehaviour
 
 
     private bool hasChangedMusic = false; // Boolean para controlar el cambio de música
+
+    public Gamepad Mando;
+    public Gamepad Mando2;
+
+    void OnEnable()
+    {
+        // Escucha conexiones y desconexiones de dispositivos
+        InputSystem.onDeviceChange += OnDeviceChange;
+
+        // Asignar los controles que ya estén conectados al iniciar
+        foreach (var device in Gamepad.all)
+        {
+            AsignarGamepad(device);
+        }
+    }
+
+    void OnDisable()
+    {
+        InputSystem.onDeviceChange -= OnDeviceChange;
+    }
+
+    void OnDeviceChange(InputDevice device, InputDeviceChange change)
+    {
+        if (device is Gamepad gamepad)
+        {
+            switch (change)
+            {
+                case InputDeviceChange.Added:
+                case InputDeviceChange.Reconnected:
+                    AsignarGamepad(gamepad);
+                    break;
+
+                case InputDeviceChange.Removed:
+                case InputDeviceChange.Disconnected:
+                    RemoverGamepad(gamepad);
+                    break;
+            }
+        }
+    }
+
+    void AsignarGamepad(Gamepad gamepad)
+    {
+        if (Mando == null)
+        {
+            Mando = gamepad;
+            Debug.Log("Asignado a mando1: " + gamepad.deviceId);
+        }
+        else if (Mando2 == null && gamepad != Mando)
+        {
+            Mando2 = gamepad;
+            Debug.Log("Asignado a mando2: " + gamepad.deviceId);
+        }
+    }
+
+    void RemoverGamepad(Gamepad gamepad)
+    {
+        if (Mando == gamepad)
+        {
+            Debug.Log("mando1 desconectado");
+            Mando = null;
+        }
+        else if (Mando2 == gamepad)
+        {
+            Debug.Log("mando2 desconectado");
+            Mando2 = null;
+        }
+    }
 
     public void SetHeroUnit(BaseUnit unit)
     {
@@ -125,7 +193,7 @@ public class UnitManager : MonoBehaviour
         }
         SetAttackDictionary();
 
-        Mando = InputSystem.GetDevice<Gamepad>();
+        //Mando = InputSystem.GetDevice<Gamepad>();
 
         //emepzar corrutinas
         StartCoroutine(AttackMove());
