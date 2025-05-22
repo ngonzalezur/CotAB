@@ -119,6 +119,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &493870127 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1471827190892494882, guid: 6c23e725128f42347a0af2caae4ba4dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4010440656665588600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1629381718 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1841338164575123194, guid: 6c23e725128f42347a0af2caae4ba4dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4010440656665588600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1838309533 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4626005448051794487, guid: 6c23e725128f42347a0af2caae4ba4dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4010440656665588600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1949048763 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 426663814985665053, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+    type: 3}
+  m_PrefabInstance: {fileID: 632774759136936471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &632774759136936471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,12 +161,63 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2053035054520179548}
+    - target: {fileID: 426663814985665053, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 426663814985665053, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayCine02Druid
       objectReference: {fileID: 0}
     - target: {fileID: 4678095767970382466, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
         type: 3}
       propertyPath: m_Name
       value: Cinematicas
       objectReference: {fileID: 0}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b36f1e31cb6c4d498a652f60a9a4b09,
+        type: 2}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[12].key
+      value: 
+      objectReference: {fileID: 4022972584904801328, guid: 4b36f1e31cb6c4d498a652f60a9a4b09,
+        type: 2}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[13].key
+      value: 
+      objectReference: {fileID: 5584635828776979015, guid: 4b36f1e31cb6c4d498a652f60a9a4b09,
+        type: 2}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[14].key
+      value: 
+      objectReference: {fileID: -3417305297281777053, guid: 4b36f1e31cb6c4d498a652f60a9a4b09,
+        type: 2}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[15].key
+      value: 
+      objectReference: {fileID: 9146340097466914181, guid: 4b36f1e31cb6c4d498a652f60a9a4b09,
+        type: 2}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[16].key
+      value: 
+      objectReference: {fileID: -8724114909845147989, guid: 4b36f1e31cb6c4d498a652f60a9a4b09,
+        type: 2}
     - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
         type: 3}
       propertyPath: m_SceneBindings.Array.data[6].value
@@ -157,6 +238,31 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[11].value
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[12].value
+      value: 
+      objectReference: {fileID: 4115115025924894723}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[13].value
+      value: 
+      objectReference: {fileID: 493870127}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[14].value
+      value: 
+      objectReference: {fileID: 1629381718}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[15].value
+      value: 
+      objectReference: {fileID: 1838309533}
+    - target: {fileID: 8057897052032867647, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[16].value
+      value: 
+      objectReference: {fileID: 1949048763}
     - target: {fileID: 8333936319767724789, guid: 0bfcc50e9b86ff74b8988cb94bd5f05c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -348,6 +454,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b187d502534b5d4bae4808168489468, type: 3}
+--- !u!114 &2053035054520179548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6289841105483183468, guid: 7b187d502534b5d4bae4808168489468,
+    type: 3}
+  m_PrefabInstance: {fileID: 2053035054520179547}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21140f798d21a347ae77c046a50484a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3706593424346846889
 PrefabInstance:
   m_ObjectHideFlags: 0
