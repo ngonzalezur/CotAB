@@ -34,7 +34,6 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Timer1()
     {
         yield return new WaitForSeconds(20f);
-        Debug.Log("Se imaginan ser 5 en el equipo, una locura");
         timerCoroutine = null;
     }
 
