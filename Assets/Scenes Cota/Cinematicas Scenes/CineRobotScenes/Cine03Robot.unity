@@ -761,6 +761,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9120947361054259503, guid: c28f092c97927584e862710ed1ea0e94,
         type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9120947361054259503, guid: c28f092c97927584e862710ed1ea0e94,
+        type: 3}
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayCine03Caballero
       objectReference: {fileID: 0}
