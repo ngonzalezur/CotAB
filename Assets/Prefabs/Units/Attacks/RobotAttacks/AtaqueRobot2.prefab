@@ -138,8 +138,9 @@ MonoBehaviour:
   DoBurn: 0
   stun: 1
   attackType: 0
-  type: 2
-  ExtraAttack: {fileID: 0}
+  type: 17
+  ExtraAttack: {fileID: 8091908140846267713, guid: 490f25eb95e323740873672e62a8ee60,
+    type: 3}
   numRandomTiles: 0
 --- !u!1 &1636329195985070217
 GameObject:

@@ -139,7 +139,10 @@ MonoBehaviour:
   DoBurn: 0
   stun: 0
   attackType: 1
-  type: 11
+  type: 13
+  ExtraAttack: {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5,
+    type: 3}
+  numRandomTiles: 0
 --- !u!1001 &380312137099418520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -206,7 +209,7 @@ PrefabInstance:
     - target: {fileID: 8793510976239746625, guid: 8fa5143051527e949b0ae174c8430414,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

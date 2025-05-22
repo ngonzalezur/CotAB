@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6146967776998258608
+--- !u!1 &2302936747457682347
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8826979334542596435}
-  m_Layer: 0
-  m_Name: Cinematicas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8826979334542596435
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6146967776998258608}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6107187691757004691}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6745679746789439113
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6107187691757004691}
-  - component: {fileID: 1820825390810048660}
-  - component: {fileID: 7319781735096715626}
-  - component: {fileID: 8563079966372157338}
+  - component: {fileID: 523821312568883778}
+  - component: {fileID: 8057897052032867647}
+  - component: {fileID: 4582389792862971622}
+  - component: {fileID: 426663814985665053}
   m_Layer: 0
   m_Name: CineManager
   m_TagString: Untagged
@@ -51,28 +19,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6107187691757004691
+--- !u!4 &523821312568883778
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6745679746789439113}
+  m_GameObject: {fileID: 2302936747457682347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8826979334542596435}
+  m_Father: {fileID: 8333936319767724789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!320 &1820825390810048660
+--- !u!320 &8057897052032867647
 PlayableDirector:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6745679746789439113}
+  m_GameObject: {fileID: 2302936747457682347}
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
@@ -82,7 +50,17 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: -8724114909845147989, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
-    value: {fileID: 8563079966372157338}
+    value: {fileID: 426663814985665053}
+  - key: {fileID: -1071851229209063246, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4211510003520617213, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1312423875450237537, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4967730266360582259, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6030580761383337677, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
+    value: {fileID: 0}
   - key: {fileID: 4022972584904801328, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
     value: {fileID: 0}
   - key: {fileID: 2487433048808206703, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
@@ -91,6 +69,10 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 9146340097466914181, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 5493964644787553942, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5584635828776979015, guid: cd20d3504efc86342b3085f45c57e9db, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 79b9f5e8f6279d54480f4bc76451f364: {fileID: 0}
@@ -98,26 +80,26 @@ PlayableDirector:
     - 20d6ca55033feb44b9ba95532111db88: {fileID: 0}
     - 9aba53a3232d651468005f33c567be90: {fileID: 0}
     - 943a48103090b6f45adf6e0929cc0254: {fileID: 0}
---- !u!114 &7319781735096715626
+--- !u!114 &4582389792862971622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6745679746789439113}
+  m_GameObject: {fileID: 2302936747457682347}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 071c8ce5a4a84714b9d5548757d540d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeline: {fileID: 1820825390810048660}
---- !u!114 &8563079966372157338
+  timeline: {fileID: 8057897052032867647}
+--- !u!114 &426663814985665053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6745679746789439113}
+  m_GameObject: {fileID: 2302936747457682347}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
@@ -126,10 +108,11 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: fe4954919e0932344a2d7ffaa4a48494, type: 2}
+    - {fileID: 11400000, guid: a1b7fde4de3f58343b3a110c15d927fd, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7319781735096715626}
+        - m_Target: {fileID: 4582389792862971622}
           m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
           m_MethodName: LevelEasy
           m_Mode: 1
@@ -141,3 +124,49 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 1
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: CotA.Sound.SoundManager, Assembly-CSharp
+          m_MethodName: PlayCine01Druid
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1 &4678095767970382466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8333936319767724789}
+  m_Layer: 0
+  m_Name: Cinematicas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8333936319767724789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678095767970382466}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 523821312568883778}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
