@@ -5297,23 +5297,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Graph: {fileID: -217315073750517396, guid: 74f5a1325360c6e4c8f5e50db22d82c0, type: 2}
-  m_BlackboardVariableOverridesList:
-  - rid: 160817464568971552
+  m_Graph: {fileID: 0}
+  m_BlackboardVariableOverridesList: []
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
     version: 2
-    RefIds:
-    - rid: 160817464568971552
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
-        ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 1
-          m_Value1: 0
-        Name: Self
-        m_Value: {fileID: 5965117142991503595}
+    RefIds: []
 --- !u!1 &6690111647505926650
 GameObject:
   m_ObjectHideFlags: 0

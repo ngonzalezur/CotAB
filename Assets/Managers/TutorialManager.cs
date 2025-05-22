@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem.LowLevel;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+using static UnitManager;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 
 public class TutorialManager : MonoBehaviour
@@ -113,10 +116,24 @@ public class TutorialManager : MonoBehaviour
                 //DetectCharacterInTile(tile);
                 break;
             case TutoState.Tutorial3:
+                CheckDummyHealth();
+                StartCoroutine(CountDummyHits(ActualHealthDummy));
                 // Mostrar UI hechizos
                 break;
             case TutoState.Tutorial4:
+                StartCoroutine(DummyTriAttack());
                 // Dummy lanza proyectiles
+                break;
+            case TutoState.EndTutorial:
+                // Fin de tutorial
+                if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
+                {
+                    SceneManager.LoadScene("Cine01Druid");
+                }
+                else
+                {
+                    SceneManager.LoadScene("Cine01Robot");
+                }
                 break;
         }
     }
@@ -150,17 +167,21 @@ public class TutorialManager : MonoBehaviour
             {
                 break;
             }
+            else if (DetectCharacterInTile(tile))
+            {
+                break;
+            }
         }
         if (CheckStamina())
         {
             Debug.Log("Tacansao");
             TurnOfTile(tile);
-            TutoirallStates(TutoState.Tutorial2);
+            TutoirallStates(TutoState.Tutorial3);
             yield break;
         }
         else
         {
-            TutoirallStates(TutoState.Tutorial3);
+            TutoirallStates(TutoState.Tutorial2);
         }
     }
 
@@ -171,46 +192,83 @@ public class TutorialManager : MonoBehaviour
     // Si casilla del dummy != casilla hechizo: PLay sonido explicativo
     // Si Presiona tecla hechizo en CD: Play sonido explicativo y mostrar UI tachada
 
-    bool CheckDummyHit()
+    public int ActualHealthDummy;
+
+    void CheckDummyHealth()
     {
-        return UnitManager.Instance.Enemies[0].Health
+        ActualHealthDummy = UnitManager.Instance.Enemies[0].Health;
+    }
+    bool CheckDummyHit(int i)
+    {
+        return UnitManager.Instance.Enemies[0].Health !=  i;
     }
 
-    IEnumerable CheckDummyHit()
+    IEnumerator CountDummyHits(int i)
     {
-        while (!CheckDummyHit())
+        while (!CheckDummyHit(i))
         {
             //DetectCharacterInTile(tile);
             yield return new WaitForSeconds(1f);
-            if (CheckDummyHit())
-            {
-                break;
-            }
-            Counter++;
-            if (Counter < 3)
-            {
-                TutoirallStates(TutoState.Tutorial3);
-                yield break;
-            }
-            else
-            {
-                Counter = 0;
-                TutoirallStates(TutoState.Tutorial4);
-            }
+             
+        }
+        Counter++;
+        if (Counter < 3)
+        {
+            TutoirallStates(TutoState.Tutorial3);
+            yield break;
+        }
+        else
+        {
+            Counter = 0;
+            TutoirallStates(TutoState.Tutorial4);
         }
     }
 
     // Dummy lanza proyectiles
+    void DummyAttack()
+    {
+        var Dummy = UnitManager.Instance.Enemies[0];
+        Dummy.CastAttack(0);
+    }
     // Proyectil desaparece: Contador +1
     // Contador == 3: fin de tutorial
+
+    IEnumerator DummyTriAttack()
+    {
+        yield return new WaitForSeconds(2f);
+
+        var target = SetTarget(UnitManager.Instance.Enemies[0], UnitManager.Instance.Enemies[0].Attacks[0]);
+        ShowPrecast(target);
+        yield return new WaitForSeconds(1f);
+        DeletePrecast(target);
+        DoAttack(UnitManager.Instance.Enemies[0], UnitManager.Instance.Enemies[0].Attacks[0], target);
+        yield return new WaitForSeconds(2.5f);
+
+        target = SetTarget(UnitManager.Instance.Enemies[0], UnitManager.Instance.Enemies[0].Attacks[0]);
+        ShowPrecast(target);
+        yield return new WaitForSeconds(1f);
+        DeletePrecast(target);
+        DoAttack(UnitManager.Instance.Enemies[0], UnitManager.Instance.Enemies[0].Attacks[0], target);
+        yield return new WaitForSeconds(2.5f);
+
+        target = SetTarget(UnitManager.Instance.Enemies[0], UnitManager.Instance.Enemies[0].Attacks[0]);
+        ShowPrecast(target);
+        yield return new WaitForSeconds(1f);
+        DeletePrecast(target);
+        DoAttack(UnitManager.Instance.Enemies[0], UnitManager.Instance.Enemies[0].Attacks[0], target);
+        yield return new WaitForSeconds(1.5f);
+
+        TutoirallStates(TutoState.EndTutorial);
+    }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Invoke(nameof(StartTutorial), 0.1f); // Se ejecuta después de 0.1 segundo
+        uManager = UnitManager.Instance;
     }
-
+    public UnitManager uManager;
     void StartTutorial()
     {
         TutoirallStates(TutoState.Tutorial1);
@@ -220,5 +278,98 @@ public class TutorialManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    List<Tile> SetTarget(BaseUnit unit, BaseAttack attack)
+    {
+        var target = new List<Tile>();
+        if (uManager.Ataque.TryGetValue((int)attack.type, out Ataques att))
+        {
+            target = att(unit, attack);
+        }
+        return target;
+    }
+    public void ShowPrecast(List<Tile> target)
+    {
+        foreach (Tile tile in target)
+        {
+            tile._precast.SetActive(true);
+        }
+    }
+    public void DeletePrecast(List<Tile> target)
+    {
+        foreach (Tile tile in target)
+        {
+            tile._precast.SetActive(false);
+        }
+    }
+
+    void DoAttack(BaseUnit unit, BaseAttack attack, List<Tile> target)
+    {
+        if (target != null)
+        {
+            if (attack.type == BaseAttack.AttType.dashMelee)
+            {
+                uManager.StartCoroutine(uManager.TeleportMeleeDash(unit, attack, unit.OccupiedTile));
+                uManager.PrecastDelete(target);
+            }
+            else if (attack.type == BaseAttack.AttType.parry)
+            {
+                uManager.StartCoroutine(uManager.ActivateParry(unit));
+                uManager.PrecastDelete(target);
+            }
+            else if (attack.type == BaseAttack.AttType.gancho)
+            {
+                uManager.HabilidadGancho(unit, attack);
+                uManager.PrecastDelete(target);
+            }
+            else if (attack.type == BaseAttack.AttType.atractor)
+            {
+                uManager.HabilidadAtraer(unit, attack);
+                uManager.PrecastDelete(target);
+            }
+            else if (attack.type == BaseAttack.AttType.areaLast2Columns)
+            {
+                uManager.MoveFront(attack, target);
+                uManager.PrecastDelete(target);
+            }
+            else if (attack.type == BaseAttack.AttType.barridofilainverso)
+            {
+                uManager.StartCoroutine(uManager.Barrer(target, attack));
+                uManager.PrecastDelete(target);
+            }
+            else if (attack.type == BaseAttack.AttType.barridocolumnainverso)
+            {
+                uManager.StartCoroutine(uManager.Barrer(target, attack));
+                uManager.PrecastDelete(target);
+            }
+            else if (attack.type == BaseAttack.AttType.areadelay)
+            {
+                uManager.SetAttacksInTiles(target, attack);
+                uManager.StartCoroutine(uManager.ExtraAttack(target, attack.ExtraAttack));
+                uManager.PrecastDelete(target);
+            }
+            else if (attack.type == BaseAttack.AttType.invocacion)
+            {
+                if (uManager.Invocaciones.Count <= 1)
+                {
+                    if (uManager.Invocaciones.Count == 0)
+                    {
+                        uManager.InstanciarInvocacion(attack, target);
+                    }
+                    else if (uManager.Invocaciones[0] != null && uManager.Invocaciones[0].UnitName != attack.invocacion.UnitName)
+                    {
+                        uManager.InstanciarInvocacion(attack, target);
+                    }
+
+                }
+                uManager.PrecastDelete(target);
+            }
+            else
+            {
+                uManager.SetAttacksInTiles(target, attack);
+                uManager.PrecastDelete(target);
+            }
+        }
     }
 }
