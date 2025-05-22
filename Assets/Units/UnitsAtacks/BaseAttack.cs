@@ -222,9 +222,6 @@ public class BaseAttack : MonoBehaviour
             {
                 UnitManager.Instance.CastAttack(unit, this);
             }
-            
-            
-            
         }
     }
 
