@@ -13,24 +13,28 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID CHANGECOMBATMUSIC = 3740741074U;
         static const AkUniqueID PLAY_BROTE_ROBOT = 3671704113U;
+        static const AkUniqueID PLAY_CINE01CABALLERO = 865224105U;
+        static const AkUniqueID PLAY_CINE01DRUID = 1769257584U;
+        static const AkUniqueID PLAY_CINE02CABALLERO = 749673500U;
+        static const AkUniqueID PLAY_CINE02DRUID = 777406489U;
+        static const AkUniqueID PLAY_CINE03CABALLERO = 1300650495U;
+        static const AkUniqueID PLAY_CINE03DRUID = 1192924570U;
+        static const AkUniqueID PLAY_CINE04CABALLERO = 3696747394U;
+        static const AkUniqueID PLAY_CINE04DRUID = 3372602331U;
         static const AkUniqueID PLAY_COMBATMUSICPLAYLIST = 1462092269U;
         static const AkUniqueID PLAY_DAMAGE_DRUID = 3230461460U;
         static const AkUniqueID PLAY_DAMAGE_ROBOT = 1942325012U;
         static const AkUniqueID PLAY_FIREWALL_DRUID = 364273755U;
         static const AkUniqueID PLAY_GRID_DRUID = 104012431U;
         static const AkUniqueID PLAY_MELEE_DRUID = 2651910159U;
+        static const AkUniqueID PLAY_MUSICCINEPLAYLIST = 917750874U;
         static const AkUniqueID PLAY_PARRY_ROBOT = 3072108541U;
         static const AkUniqueID PLAY_POSION_DRUID = 1979277459U;
         static const AkUniqueID PLAY_SMITE_ROBOT = 1513174551U;
-        static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_LENTO = 2899002807U;
-        static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_LENTO02 = 2215044877U;
-        static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_PA02 = 422594956U;
-        static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_RAPIDO = 3312578390U;
-        static const AkUniqueID SET_VOICE_VOLUME_CONTRA_BAJO_RAPIDO02 = 3665169700U;
-        static const AkUniqueID SET_VOICE_VOLUME_DRUMS02 = 2484717745U;
-        static const AkUniqueID SET_VOICE_VOLUME_VIOLIN_LEAD = 266669932U;
-        static const AkUniqueID SET_VOICE_VOLUME_VIOLIN_LEAD02 = 86316782U;
+        static const AkUniqueID PLAYBOSSMUSIC01 = 394309612U;
+        static const AkUniqueID PLAYBOSSMUSIC02 = 394309615U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
@@ -50,7 +54,7 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID COMBAT_SBANK = 2264177337U;
+        static const AkUniqueID COMBAT_SOUNDBANK = 1637973687U;
     } // namespace BANKS
 
     namespace BUSSES

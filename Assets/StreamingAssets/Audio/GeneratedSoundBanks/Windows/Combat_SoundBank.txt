@@ -1,0 +1,69 @@
+Event	ID	Name			Wwise Object Path	Notes
+	104012431	Play_Grid_Druid			\Default Work Unit\Attack Druid\Play_Grid_Druid	
+	364273755	Play_Firewall_Druid			\Default Work Unit\Attack Druid\Play_Firewall_Druid	
+	394309612	PlayBossMusic01			\Default Work Unit\Boss Music\PlayBossMusic01	
+	394309615	PlayBossMusic02			\Default Work Unit\Boss Music\PlayBossMusic02	
+	749673500	Play_Cine02Caballero			\Default Work Unit\Dialogue\PlayCaballero\Play_Cine02Caballero	
+	777406489	Play_Cine02Druid			\Default Work Unit\Dialogue\PlayDruid\Play_Cine02Druid	
+	865224105	Play_Cine01Caballero			\Default Work Unit\Dialogue\PlayCaballero\Play_Cine01Caballero	
+	917750874	Play_MusicCinePlaylist			\Default Work Unit\Play_MusicCinePlaylist	
+	1192924570	Play_Cine03Druid			\Default Work Unit\Dialogue\PlayDruid\Play_Cine03Druid	
+	1300650495	Play_Cine03Caballero			\Default Work Unit\Dialogue\PlayCaballero\Play_Cine03Caballero	
+	1462092269	Play_CombatMusicPlaylist			\Default Work Unit\Combat Music\Play_CombatMusicPlaylist	
+	1513174551	Play_Smite_Robot			\Default Work Unit\Attack Robot\Play_Smite_Robot	
+	1769257584	Play_Cine01Druid			\Default Work Unit\Dialogue\PlayDruid\Play_Cine01Druid	
+	1942325012	Play_Damage_Robot			\Default Work Unit\Play_Damage_Robot	
+	1979277459	Play_Posion_Druid			\Default Work Unit\Attack Druid\Play_Posion_Druid	
+	2651910159	Play_Melee_Druid			\Default Work Unit\Attack Druid\Play_Melee_Druid	
+	3072108541	Play_Parry_Robot			\Default Work Unit\Attack Robot\Play_Parry_Robot	
+	3230461460	Play_Damage_Druid			\Default Work Unit\Play_Damage_Druid	
+	3372602331	Play_Cine04Druid			\Default Work Unit\Dialogue\PlayDruid\Play_Cine04Druid	
+	3671704113	Play_Brote_Robot			\Default Work Unit\Attack Robot\Play_Brote_Robot	
+	3696747394	Play_Cine04Caballero			\Default Work Unit\Dialogue\PlayCaballero\Play_Cine04Caballero	
+	3740741074	ChangeCombatMusic			\Default Work Unit\Combat Music\ChangeCombatMusic	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	8699969	Cine04Caballero	C:\COTA\Wwise Cota\CotaB\.cache\2F\{2FA7E128-8CA0-E7E5-755E-A7DFE1B06C56}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue Cine\Caballero Cine Dialogue\Cine04Caballero		1577968
+	53935823	Cine01Druid	C:\COTA\Wwise Cota\CotaB\.cache\A3\{A366DF8F-AF8B-1636-FA44-19A45957DC3C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue Cine\Druid Cine Dialogue\Cine01Druid		1462648
+	86543320	Drums02	C:\COTA\Wwise Cota\CotaB\.cache\48\{48DBA6D8-55E3-CC4D-0D5D-7512B943605E}.wem		\Interactive Music Hierarchy\Default Work Unit\CombatMusicPlaylist\CombatMusic01\Drums02		4515936
+	100220618	DamageDruid05	C:\COTA\Wwise Cota\CotaB\.cache\2D\{2D8285DB-E74D-217A-31C7-6255FBA462B5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Druid\DamageDruid05		60312
+	148199021	Cine02Caballero	C:\COTA\Wwise Cota\CotaB\.cache\E9\{E9FAF23B-A56A-BB23-098A-4AA7F73DA9E1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue Cine\Caballero Cine Dialogue\Cine02Caballero		1577968
+	180308863	Cine03Caballero	C:\COTA\Wwise Cota\CotaB\.cache\DB\{DB3E3CF7-B114-3E3B-4E5F-A47E6302D86D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue Cine\Caballero Cine Dialogue\Cine03Caballero		1577968
+	202317441	DamageDruid04	C:\COTA\Wwise Cota\CotaB\.cache\54\{5412A825-364C-59A0-FC1B-02FAAE2C2C9F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Druid\DamageDruid04		46432
+	229523050	Music Cinematicas	C:\COTA\Wwise Cota\CotaB\.cache\FD\{FD692E93-2465-5065-5F05-3CA84B7EB8A8}.wem		\Interactive Music Hierarchy\Default Work Unit\MusicCinePlaylist\MusicCine\Music Cinematicas		3386752
+	234338636	Parry Robot	C:\COTA\Wwise Cota\CotaB\.cache\0F\{0FA4427D-1D61-51F7-D927-AD327ED42134}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Attack Robot\Parry Robot		167276
+	237363396	DamageDruid02	C:\COTA\Wwise Cota\CotaB\.cache\D9\{D90255C2-87B5-D420-4D50-0E69A39D8AB4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Druid\DamageDruid02		128768
+	251311754	Music Boss INTRO	C:\COTA\Wwise Cota\CotaB\.cache\97\{97B3C7BB-0363-6354-F971-468EDE9A5059}.wem		\Interactive Music Hierarchy\Default Work Unit\BossMusicPlaylist01\Music Boss INTRO\Music Boss INTRO		2822496
+	257841820	Contra Bajo Pa02	C:\COTA\Wwise Cota\CotaB\.cache\47\{4730A93E-7CBC-BC4C-6B0C-BD6D33126D04}.wem		\Interactive Music Hierarchy\Default Work Unit\CombatMusicPlaylist\CombatMusic01\Contra Bajo Pa02		4515936
+	258161636	Violin lead02	C:\COTA\Wwise Cota\CotaB\.cache\5C\{5C086CD1-91FA-5ADA-BF4E-D671F3310733}.wem		\Interactive Music Hierarchy\Default Work Unit\CombatMusicPlaylist\CombatMusic01\Violin lead02		4515936
+	305939396	Damage Knight 01	C:\COTA\Wwise Cota\CotaB\.cache\B2\{B219498B-E812-7664-0089-53A84941717C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Robot\Damage Knight 01		144636
+	333461705	Damage Knight 07	C:\COTA\Wwise Cota\CotaB\.cache\FB\{FB66BFE4-0AC7-68F0-2B2F-0C37EE3F3A20}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Robot\Damage Knight 07		144636
+	336908074	Cine01Caballero	C:\COTA\Wwise Cota\CotaB\.cache\C4\{C4CA855D-ADC6-81CC-8667-F0EDCF4A1725}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue Cine\Caballero Cine Dialogue\Cine01Caballero		1577968
+	365070089	Damage Knight 06	C:\COTA\Wwise Cota\CotaB\.cache\E2\{E27DC8F0-44BA-7CA5-7079-4A38AF39226D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Robot\Damage Knight 06		144636
+	415200658	Cine04Druid	C:\COTA\Wwise Cota\CotaB\.cache\60\{608E7859-DD46-C2D8-A06F-4DF739A0D7A6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue Cine\Druid Cine Dialogue\Cine04Druid		1462648
+	438758271	Music Boss part 1 Loop	C:\COTA\Wwise Cota\CotaB\.cache\56\{569BE98B-C4CC-44EB-786F-912AE68223D1}.wem		\Interactive Music Hierarchy\Default Work Unit\BossMusicPlaylist01\Music Boss part 1 Loop\Music Boss part 1 Loop		8467296
+	471444188	Damage Knight 04	C:\COTA\Wwise Cota\CotaB\.cache\07\{07CDE174-FF08-4E5B-25EE-62C2CA0CF75E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Robot\Damage Knight 04		144636
+	478948819	DamageDruid03	C:\COTA\Wwise Cota\CotaB\.cache\1B\{1B6A5407-2333-BC3D-26BD-D6FECF9144FF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Druid\DamageDruid03		51624
+	491861953	Contra Bajo Rapido	C:\COTA\Wwise Cota\CotaB\.cache\85\{850C7F6E-6569-8C55-0E3A-4493D94A6771}.wem		\Interactive Music Hierarchy\Default Work Unit\CombatMusicPlaylist\CombatMusic01\Contra Bajo Rapido		4515936
+	509194038	Cine02Druid	C:\COTA\Wwise Cota\CotaB\.cache\0B\{0BF5FD1E-85A6-2EEB-BAAE-A8C34FC5D9FA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue Cine\Druid Cine Dialogue\Cine02Druid		1462648
+	529577813	Damage Knight 05	C:\COTA\Wwise Cota\CotaB\.cache\4B\{4BA3A251-1999-BC55-790A-AD04FEA3E38B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Robot\Damage Knight 05		144636
+	538168653	Damage Knight 09	C:\COTA\Wwise Cota\CotaB\.cache\DF\{DF2B2A74-01DB-A4E6-721F-858E7D3DAF90}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Robot\Damage Knight 09		144636
+	548955585	Damage Knight 03	C:\COTA\Wwise Cota\CotaB\.cache\06\{063384F3-947B-52EA-385D-8571AB38B5B0}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Robot\Damage Knight 03		144636
+	554354140	Damage Knight 08	C:\COTA\Wwise Cota\CotaB\.cache\5B\{5B124349-C20E-457D-3B76-A1E2C0B60E7D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Robot\Damage Knight 08		144636
+	555864172	Posion Druid	C:\COTA\Wwise Cota\CotaB\.cache\A0\{A0806440-F9A4-141F-4EE6-F3A7367F486D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Attack Druid\Posion Druid		167276
+	590006682	Cine03Druid	C:\COTA\Wwise Cota\CotaB\.cache\50\{501402CE-419B-C01F-64A1-7F4075FF572A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue Cine\Druid Cine Dialogue\Cine03Druid		1462648
+	629815313	Contra Bajo Rapido02	C:\COTA\Wwise Cota\CotaB\.cache\48\{48CD294D-31B6-FE68-D3E9-A1CCCFA3D8EF}.wem		\Interactive Music Hierarchy\Default Work Unit\CombatMusicPlaylist\CombatMusic01\Contra Bajo Rapido02		4515936
+	671985149	Music Boss part 2 Loop	C:\COTA\Wwise Cota\CotaB\.cache\9F\{9F5A2CA8-EADB-3E13-6985-35BEF542BE0C}.wem		\Interactive Music Hierarchy\Default Work Unit\BossMusicPlaylist02\Music Boss part 2 Loop\Music Boss part 2 Loop		2116896
+	674788976	Damage Knight 02	C:\COTA\Wwise Cota\CotaB\.cache\B8\{B8CDBF51-3F0A-62F8-9A00-1745EB8663D4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Robot\Damage Knight 02		144636
+	695065844	Music Boss INTRO part 2	C:\COTA\Wwise Cota\CotaB\.cache\31\{314C0D36-82E2-0229-E388-B1857115AB68}.wem		\Interactive Music Hierarchy\Default Work Unit\BossMusicPlaylist02\Music Boss INTRO part 2\Music Boss INTRO part 2		2469696
+	709076494	Contra Bajo Lento02	C:\COTA\Wwise Cota\CotaB\.cache\C3\{C3EA8E5B-B6FA-9BFF-D45C-AA8D2A9E4E9C}.wem		\Interactive Music Hierarchy\Default Work Unit\CombatMusicPlaylist\CombatMusic01\Contra Bajo Lento02		4515936
+	728003334	DamageDruid01	C:\COTA\Wwise Cota\CotaB\.cache\A0\{A0890B94-C6DA-8652-8879-6FABC188D530}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Druid\DamageDruid01		109868
+	766028941	Contra Bajo Lento	C:\COTA\Wwise Cota\CotaB\.cache\40\{40DEDAFA-5403-6976-DDB7-E92E00EDC74A}.wem		\Interactive Music Hierarchy\Default Work Unit\CombatMusicPlaylist\CombatMusic01\Contra Bajo Lento		4515936
+	775123153	Firewall Druid	C:\COTA\Wwise Cota\CotaB\.cache\E2\{E2B149BB-3106-93FC-91D1-490B114682F6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Attack Druid\Firewall Druid		167276
+	841096337	Smite Robot	C:\COTA\Wwise Cota\CotaB\.cache\11\{11BC932F-EC94-7008-BEB0-987F97D8A232}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Attack Robot\Smite Robot		381372
+	867981589	Brote Robot	C:\COTA\Wwise Cota\CotaB\.cache\A4\{A4A8EB90-101E-CB01-B226-CC320BE6DFDF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Attack Robot\Brote Robot		167276
+	906392941	Violin lead	C:\COTA\Wwise Cota\CotaB\.cache\8A\{8AA021F5-FFD8-636A-EE71-22DC994598A9}.wem		\Interactive Music Hierarchy\Default Work Unit\CombatMusicPlaylist\CombatMusic01\Violin lead		4515936
+	922971329	Grid Druid	C:\COTA\Wwise Cota\CotaB\.cache\CC\{CC7D021E-635C-8BD5-28DF-12827E58F149}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Attack Druid\Grid Druid		167276
+	951621927	DamageDruid06	C:\COTA\Wwise Cota\CotaB\.cache\11\{110F2D86-B4BD-8460-F19A-C616B66685A4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Damage Druid\DamageDruid06		57148
+	1017942417	Melee Druid	C:\COTA\Wwise Cota\CotaB\.cache\F1\{F1D6E841-341B-2BF2-F6AF-F4B84D5498EF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Combat\Attack Druid\Melee Druid		167276
+

@@ -331,11 +331,11 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 0ac5b1dff5e8cc47a658227402647446
     GuidInternal: 
-    m_lastTime: -8584573556854775808
+    m_lastTime: -8584542779633306438
     List:
-    - name: Combat_SBank
-      guid: c5053a4bcd79fa4980fc55624ebfe325
-      id: 2264177337
+    - name: Combat_SoundBank
+      guid: 872161022ddd4647b1565731e390e223
+      id: 1637973687
       PathAndIcons:
       - ElementName: SoundBanks
         ObjectType: 5
@@ -343,10 +343,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 0ac5b1dff5e8cc47a658227402647446
-      - ElementName: Combat_SBank
+      - ElementName: Combat_SoundBank
         ObjectType: 7
-        guid: c5053a4bcd79fa4980fc55624ebfe325
-      Path: SoundBanks\Default Work Unit\Combat_SBank
+        guid: 872161022ddd4647b1565731e390e223
+      Path: SoundBanks\Default Work Unit\Combat_SoundBank
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -359,7 +359,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e162b17a710f2943908bc696d6471d61
     GuidInternal: 
-    m_lastTime: -8584560513525802234
+    m_lastTime: -8584537338004565092
     List:
     - name: Attack Druid
       guid: f4a86e17a16bd048a5c19e74981a767d
@@ -395,9 +395,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Combat01_Voices
-      guid: fe96ea0872d60340962461a164d053a8
-      id: 3684908830
+    - name: Boss Music
+      guid: 136b5a634645a84b93bf60ce8b2d8f07
+      id: 982809915
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -405,16 +405,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
+      - ElementName: Boss Music
         ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      Path: Events\Default Work Unit\Combat01_Voices
+        guid: 136b5a634645a84b93bf60ce8b2d8f07
+      Path: Events\Default Work Unit\Boss Music
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Combate02_Voices
-      guid: 6b8cd6b04b663c49a8a3651dd6076188
-      id: 3527054834
+    - name: ChangeCombatMusic
+      guid: 9612f55a8a3010409202b795026deb90
+      id: 3740741074
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -422,10 +422,47 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
+      - ElementName: Combat Music
         ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      Path: Events\Default Work Unit\Combate02_Voices
+        guid: e7929771eb504b4cbe50390096e777de
+      - ElementName: ChangeCombatMusic
+        ObjectType: 3
+        guid: 9612f55a8a3010409202b795026deb90
+      Path: Events\Default Work Unit\Combat Music\ChangeCombatMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Combat Music
+      guid: e7929771eb504b4cbe50390096e777de
+      id: 4120977212
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Combat Music
+        ObjectType: 4
+        guid: e7929771eb504b4cbe50390096e777de
+      Path: Events\Default Work Unit\Combat Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Dialogue
+      guid: ac9dfcb554c3a64280751f4a3955e145
+      id: 3930136735
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      Path: Events\Default Work Unit\Dialogue
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -449,6 +486,190 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.94773245
       minDuration: 0.94773245
+    - name: Play_Cine01Caballero
+      guid: 5f9c354afdf7f2479555ae4108204d93
+      id: 865224105
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine01Caballero
+        ObjectType: 3
+        guid: 5f9c354afdf7f2479555ae4108204d93
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine01Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine01Druid
+      guid: e819dc1971489f418dfa770f9264308b
+      id: 1769257584
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine01Druid
+        ObjectType: 3
+        guid: e819dc1971489f418dfa770f9264308b
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine01Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
+    - name: Play_Cine02Caballero
+      guid: 83fc3cb7d9ba4942bfeed1edb6573a26
+      id: 749673500
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine02Caballero
+        ObjectType: 3
+        guid: 83fc3cb7d9ba4942bfeed1edb6573a26
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine02Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine02Druid
+      guid: b91ac118b8d1e649bebbb4069b39e795
+      id: 777406489
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine02Druid
+        ObjectType: 3
+        guid: b91ac118b8d1e649bebbb4069b39e795
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine02Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
+    - name: Play_Cine03Caballero
+      guid: e88b3498c5c349468f6e6769c8017155
+      id: 1300650495
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine03Caballero
+        ObjectType: 3
+        guid: e88b3498c5c349468f6e6769c8017155
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine03Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine03Druid
+      guid: f70f8715e19c70459fe8bb5c2db2bd7e
+      id: 1192924570
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine03Druid
+        ObjectType: 3
+        guid: f70f8715e19c70459fe8bb5c2db2bd7e
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine03Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
+    - name: Play_Cine04Caballero
+      guid: 3f8b2d5d2810bf4e9f35f17e2d0584e7
+      id: 3696747394
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine04Caballero
+        ObjectType: 3
+        guid: 3f8b2d5d2810bf4e9f35f17e2d0584e7
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine04Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine04Druid
+      guid: f3b4c72da71908439174479b236322c5
+      id: 3372602331
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine04Druid
+        ObjectType: 3
+        guid: f3b4c72da71908439174479b236322c5
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine04Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
     - name: Play_CombatMusicPlaylist
       guid: dfe7bd6128ac21419c65d064dd4b687b
       id: 1462092269
@@ -459,10 +680,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Combat Music
+        ObjectType: 4
+        guid: e7929771eb504b4cbe50390096e777de
       - ElementName: Play_CombatMusicPlaylist
         ObjectType: 3
         guid: dfe7bd6128ac21419c65d064dd4b687b
-      Path: Events\Default Work Unit\Play_CombatMusicPlaylist
+      Path: Events\Default Work Unit\Combat Music\Play_CombatMusicPlaylist
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -515,8 +739,8 @@ MonoBehaviour:
         guid: e926e6dcc9c62444b24c1b8fa1f394d8
       Path: Events\Default Work Unit\Play_Damage_Robot
       maxAttenuation: 0
-      maxDuration: 2.6892517
-      minDuration: 2.6892517
+      maxDuration: 0.81938773
+      minDuration: 0.81938773
     - name: Play_Firewall_Druid
       guid: 77a2c8741431074ea1b61ea63aca7e9b
       id: 364273755
@@ -577,6 +801,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.94773245
       minDuration: 0.94773245
+    - name: Play_MusicCinePlaylist
+      guid: 9836cf7484ddd443bd796103286691c1
+      id: 917750874
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Play_MusicCinePlaylist
+        ObjectType: 3
+        guid: 9836cf7484ddd443bd796103286691c1
+      Path: Events\Default Work Unit\Play_MusicCinePlaylist
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Parry_Robot
       guid: 2bd766a99b0c3f49a13e4a8abb6ebb89
       id: 3072108541
@@ -637,9 +878,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.1614287
       minDuration: 2.1614287
-    - name: Set_Voice_Volume_Contra_Bajo_Lento
-      guid: 7e20e76c0333164fb92d126b89b21498
-      id: 2899002807
+    - name: PlayBossMusic01
+      guid: cb6b067aa99fdc4580521491427ea90c
+      id: 394309612
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -647,19 +888,19 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
+      - ElementName: Boss Music
         ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Lento
+        guid: 136b5a634645a84b93bf60ce8b2d8f07
+      - ElementName: PlayBossMusic01
         ObjectType: 3
-        guid: 7e20e76c0333164fb92d126b89b21498
-      Path: Events\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Contra_Bajo_Lento
+        guid: cb6b067aa99fdc4580521491427ea90c
+      Path: Events\Default Work Unit\Boss Music\PlayBossMusic01
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Lento02
-      guid: 98b0adb314c1e040be012f57facc0314
-      id: 2215044877
+    - name: PlayBossMusic02
+      guid: af7c996dc89e9b4c93c1a24aeca4f743
+      id: 394309615
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -667,19 +908,19 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
+      - ElementName: Boss Music
         ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Lento02
+        guid: 136b5a634645a84b93bf60ce8b2d8f07
+      - ElementName: PlayBossMusic02
         ObjectType: 3
-        guid: 98b0adb314c1e040be012f57facc0314
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Lento02
+        guid: af7c996dc89e9b4c93c1a24aeca4f743
+      Path: Events\Default Work Unit\Boss Music\PlayBossMusic02
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Pa02
-      guid: f317b656a7a06a4cafa6454486b4699b
-      id: 422594956
+    - name: PlayCaballero
+      guid: 7b43a4aef98c7a4891dd8febd107eda7
+      id: 3374728840
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -687,19 +928,19 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
+      - ElementName: Dialogue
         ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Pa02
-        ObjectType: 3
-        guid: f317b656a7a06a4cafa6454486b4699b
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Pa02
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Rapido
-      guid: 3df83113ae35f841b2d0d70297808326
-      id: 3312578390
+      maxDuration: -1
+      minDuration: -1
+    - name: PlayDruid
+      guid: c4054e1264ad7e4c9d994800c095850c
+      id: 1288953949
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -707,96 +948,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
+      - ElementName: Dialogue
         ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Rapido
-        ObjectType: 3
-        guid: 3df83113ae35f841b2d0d70297808326
-      Path: Events\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Contra_Bajo_Rapido
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Rapido02
-      guid: 6eb628948d3d8d4381159a536e980e6b
-      id: 3665169700
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
         ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Rapido02
-        ObjectType: 3
-        guid: 6eb628948d3d8d4381159a536e980e6b
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Rapido02
+        guid: c4054e1264ad7e4c9d994800c095850c
+      Path: Events\Default Work Unit\Dialogue\PlayDruid
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Drums02
-      guid: fd3a3272558bee4590e302901b3a3e19
-      id: 2484717745
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
-        ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Drums02
-        ObjectType: 3
-        guid: fd3a3272558bee4590e302901b3a3e19
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Drums02
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Violin_lead
-      guid: 35871594b8142046a0cd4aabb2741aa0
-      id: 266669932
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
-        ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      - ElementName: Set_Voice_Volume_Violin_lead
-        ObjectType: 3
-        guid: 35871594b8142046a0cd4aabb2741aa0
-      Path: Events\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Violin_lead
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Violin_lead02
-      guid: f1331365acf696469c36350e2171450c
-      id: 86316782
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
-        ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Violin_lead02
-        ObjectType: 3
-        guid: f1331365acf696469c36350e2171450c
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Violin_lead02
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -1006,9 +1167,9 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8584586643634775808
     List: []
-  ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
-  AutoSyncSelection: 0
+  ExpandedFileSystemItemIds: 010000000200000003000000090000000a0000000d000000220000002300000024000000
+  ExpandedWaapiItemIds: 01000000020000000300000006000000070000000a000000
+  AutoSyncSelection: 1
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 

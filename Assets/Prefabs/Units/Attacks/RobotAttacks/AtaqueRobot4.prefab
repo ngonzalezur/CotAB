@@ -133,13 +133,15 @@ MonoBehaviour:
   LastCast1: 0
   LastCast2: -100
   ManaCost: 0.5
-  invocacion: {fileID: 7735570308767223746, guid: 69b3cdb8031e1594695517f134e838da,
+  invocacion: {fileID: 7735570308767223746, guid: 5917e2841c9892d48bedd92e68083fff,
     type: 3}
   DoVeneno: 0
   DoBurn: 0
   stun: 0
   attackType: 0
   type: 8
+  ExtraAttack: {fileID: 0}
+  numRandomTiles: 0
 --- !u!1 &1636329195985070217
 GameObject:
   m_ObjectHideFlags: 0
