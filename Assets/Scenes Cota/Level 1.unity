@@ -272,6 +272,11 @@ PrefabInstance:
       objectReference: {fileID: 691810129}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
+      propertyPath: SecondPlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
       propertyPath: SoundManager
       value: 
       objectReference: {fileID: 335785629}
@@ -337,6 +342,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
+      propertyPath: configuration.Heroes.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 7735570308767223746, guid: a0bf54fc03aa32f489bd82d9cd5d2180,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
       propertyPath: configuration.Enemies.Array.data[0].prefab
       value: 
       objectReference: {fileID: 5695376190236047481, guid: 841a32ecc27325241806628c0ac5b092,
@@ -386,6 +397,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
+      propertyPath: configuration.Heroes.Array.data[1].MaxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
       propertyPath: configuration.Enemies.Array.data[0].MaxHealth
       value: 50
       objectReference: {fileID: 0}
@@ -407,6 +423,11 @@ PrefabInstance:
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: configuration.Heroes.Array.data[0].Attacks.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: configuration.Heroes.Array.data[1].Attacks.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
@@ -450,6 +471,30 @@ PrefabInstance:
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[0].Attacks.Array.data[3]'
+      value: 
+      objectReference: {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: 'configuration.Heroes.Array.data[1].Attacks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: 'configuration.Heroes.Array.data[1].Attacks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: 'configuration.Heroes.Array.data[1].Attacks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5,
+        type: 3}
+    - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
+        type: 3}
+      propertyPath: 'configuration.Heroes.Array.data[1].Attacks.Array.data[3]'
       value: 
       objectReference: {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6,
         type: 3}
