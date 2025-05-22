@@ -359,7 +359,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e162b17a710f2943908bc696d6471d61
     GuidInternal: 
-    m_lastTime: -8584541707066294333
+    m_lastTime: -8584537338004565092
     List:
     - name: Attack Druid
       guid: f4a86e17a16bd048a5c19e74981a767d
@@ -449,6 +449,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Dialogue
+      guid: ac9dfcb554c3a64280751f4a3955e145
+      id: 3930136735
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      Path: Events\Default Work Unit\Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Brote_Robot
       guid: 2dcbff63150d844e9188f6fd74d2ece9
       id: 3671704113
@@ -469,6 +486,190 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.94773245
       minDuration: 0.94773245
+    - name: Play_Cine01Caballero
+      guid: 5f9c354afdf7f2479555ae4108204d93
+      id: 865224105
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine01Caballero
+        ObjectType: 3
+        guid: 5f9c354afdf7f2479555ae4108204d93
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine01Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine01Druid
+      guid: e819dc1971489f418dfa770f9264308b
+      id: 1769257584
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine01Druid
+        ObjectType: 3
+        guid: e819dc1971489f418dfa770f9264308b
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine01Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
+    - name: Play_Cine02Caballero
+      guid: 83fc3cb7d9ba4942bfeed1edb6573a26
+      id: 749673500
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine02Caballero
+        ObjectType: 3
+        guid: 83fc3cb7d9ba4942bfeed1edb6573a26
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine02Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine02Druid
+      guid: b91ac118b8d1e649bebbb4069b39e795
+      id: 777406489
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine02Druid
+        ObjectType: 3
+        guid: b91ac118b8d1e649bebbb4069b39e795
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine02Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
+    - name: Play_Cine03Caballero
+      guid: e88b3498c5c349468f6e6769c8017155
+      id: 1300650495
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine03Caballero
+        ObjectType: 3
+        guid: e88b3498c5c349468f6e6769c8017155
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine03Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine03Druid
+      guid: f70f8715e19c70459fe8bb5c2db2bd7e
+      id: 1192924570
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine03Druid
+        ObjectType: 3
+        guid: f70f8715e19c70459fe8bb5c2db2bd7e
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine03Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
+    - name: Play_Cine04Caballero
+      guid: 3f8b2d5d2810bf4e9f35f17e2d0584e7
+      id: 3696747394
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine04Caballero
+        ObjectType: 3
+        guid: 3f8b2d5d2810bf4e9f35f17e2d0584e7
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine04Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine04Druid
+      guid: f3b4c72da71908439174479b236322c5
+      id: 3372602331
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine04Druid
+        ObjectType: 3
+        guid: f3b4c72da71908439174479b236322c5
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine04Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
     - name: Play_CombatMusicPlaylist
       guid: dfe7bd6128ac21419c65d064dd4b687b
       id: 1462092269
@@ -600,6 +801,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.94773245
       minDuration: 0.94773245
+    - name: Play_MusicCinePlaylist
+      guid: 9836cf7484ddd443bd796103286691c1
+      id: 917750874
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Play_MusicCinePlaylist
+        ObjectType: 3
+        guid: 9836cf7484ddd443bd796103286691c1
+      Path: Events\Default Work Unit\Play_MusicCinePlaylist
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Parry_Robot
       guid: 2bd766a99b0c3f49a13e4a8abb6ebb89
       id: 3072108541
@@ -700,6 +918,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: PlayCaballero
+      guid: 7b43a4aef98c7a4891dd8febd107eda7
+      id: 3374728840
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: PlayDruid
+      guid: c4054e1264ad7e4c9d994800c095850c
+      id: 1288953949
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      Path: Events\Default Work Unit\Dialogue\PlayDruid
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -909,7 +1167,7 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8584586643634775808
     List: []
-  ExpandedFileSystemItemIds: 01000000020000000300000006000000070000000a000000220000002300000024000000
+  ExpandedFileSystemItemIds: 010000000200000003000000090000000a0000000d000000220000002300000024000000
   ExpandedWaapiItemIds: 01000000020000000300000006000000070000000a000000
   AutoSyncSelection: 1
   autoPopulateEnabled: 1

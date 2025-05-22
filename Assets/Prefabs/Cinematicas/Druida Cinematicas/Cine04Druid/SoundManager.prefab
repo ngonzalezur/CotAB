@@ -104,7 +104,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 2d2a039f38af4e944bfc5a3c763e82a0,
+    WwiseObjectReference: {fileID: 11400000, guid: 1c8a1b23220619e438ec846df5b9f216,
       type: 2}
   useCallbacks: 0
   stopSoundOnDestroy: 1
