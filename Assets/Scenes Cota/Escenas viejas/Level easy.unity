@@ -333,7 +333,7 @@ PrefabInstance:
         type: 3}
       propertyPath: configuration.Heroes.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+      objectReference: {fileID: 7735570308767223746, guid: a0bf54fc03aa32f489bd82d9cd5d2180,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
@@ -686,7 +686,7 @@ PrefabInstance:
     - target: {fileID: 1670733568900427392, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.6
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 1670733568900427392, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
         type: 3}
@@ -730,8 +730,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7450348874485090296, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
         type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450348874485090296, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
+        type: 3}
       propertyPath: field of view
       value: 60.000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450348874485090296, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
+        type: 3}
+      propertyPath: orthographic size
+      value: 3.9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1023844486277744394, guid: 1799ea7a4f2e84b46bef4263d8dcd04c, type: 3}
