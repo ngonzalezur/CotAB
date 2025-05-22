@@ -1326,25 +1326,58 @@ public class UnitManager : MonoBehaviour
         }
         if (player == 1)
         {
-            if (Input.GetKeyDown(KeyCode.G))
+            if ((Input.GetKey(KeyCode.I) || (Mando2 != null && Mando2.buttonSouth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[0]))
+            {
+                //CanCastAttack(unit, 0);
+                ShowPrecast(unit, 0, player);
+            }
+            if ((Input.GetKey(KeyCode.J) || (Mando2 != null && Mando2.buttonNorth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[1]))
+            {
+                //CanCastAttack(unit, 1);
+                ShowPrecast(unit, 1, player);
+            }
+            if ((Input.GetKey(KeyCode.K) || (Mando2 != null && Mando2.buttonEast.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[2]))
+            {
+                //CanCastAttack(unit, 2);
+                ShowPrecast(unit, 2, player);
+            }
+            if ((Input.GetKey(KeyCode.L) || (Mando2 != null && Mando2.buttonWest.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[3]))
+            {
+                //CanCastAttack(unit, 3);
+                ShowPrecast(unit, 3, player);
+            }
+            if ((Input.GetKey(KeyCode.O) || (Mando2 != null && Mando2.rightTrigger.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[4]))
+            {
+                //CanCastAttack(unit, 4);
+                ShowPrecast(unit, 4, player);
+            }
+
+            //lo de arriba sera le precast y este de abajo el cast
+
+            if ((Input.GetKeyUp(KeyCode.G) || (Mando2 != null && Mando2.buttonSouth.wasReleasedThisFrame)))
             {
                 CanCastAttack(unit, 0);
+                currentPrecastIndex[0] = -1;
             }
-            if (Input.GetKeyDown(KeyCode.V))
+            if ((Input.GetKeyUp(KeyCode.V) || (Mando2 != null && Mando2.buttonNorth.wasReleasedThisFrame)))
             {
                 CanCastAttack(unit, 1);
+                currentPrecastIndex[0] = -1;
             }
-            if (Input.GetKeyDown(KeyCode.B))
+            if ((Input.GetKeyUp(KeyCode.B) || (Mando2 != null && Mando2.buttonEast.wasReleasedThisFrame)))
             {
                 CanCastAttack(unit, 2);
+                currentPrecastIndex[0] = -1;
             }
-            if (Input.GetKeyDown(KeyCode.N))
+            if ((Input.GetKeyUp(KeyCode.N) || (Mando2 != null && Mando2.buttonWest.wasReleasedThisFrame)))
             {
                 CanCastAttack(unit, 3);
+                currentPrecastIndex[0] = -1;
             }
-            if (Input.GetKeyDown(KeyCode.G))
+            if ((Input.GetKeyUp(KeyCode.H) || (Mando2 != null && Mando2.rightTrigger.wasReleasedThisFrame)))
             {
-                CanCastAttack(unit, 3);
+                CanCastAttack(unit, 4);
+                currentPrecastIndex[0] = -1;
             }
         }
     }
@@ -1457,22 +1490,22 @@ public class UnitManager : MonoBehaviour
 
         if (player == 1)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow) || (Mando2 != null && Mando2.dpad.up.wasPressedThisFrame))
             {
                 CanMove(hero, 0);
                 moved = true;
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || (Mando2 != null && Mando2.dpad.left.wasPressedThisFrame))
             {
                 CanMove(hero, 1);
                 moved = true;
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow) || (Mando2 != null && Mando2.dpad.down.wasPressedThisFrame))
             {
                 CanMove(hero, 2);
                 moved = true;
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || (Mando2 != null && Mando2.dpad.right.wasPressedThisFrame))
             {
                 CanMove(hero, 3);
                 moved = true;
