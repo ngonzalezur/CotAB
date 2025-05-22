@@ -11,6 +11,7 @@ using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.UI.CanvasScaler;
 using CotA.Sound;
 using System.Linq;
+using Unity.Behavior;
 //using System;
 
 
@@ -330,8 +331,10 @@ public class UnitManager : MonoBehaviour
             {
                 unit.Health = 0;
                 Invocaciones.Remove(unit);
-                Debug.Log(Invocaciones.Count);
-                unit.Destroy();
+                //Debug.Log(Invocaciones.Count);
+                var anim = unit.GetComponentInChildren<Animator>();
+                anim.SetTrigger("Death");
+                StartCoroutine(KillInvo(unit));
             }
         }
         else if (Ataque.TryGetValue((int)unit.Attacks[i].type, out Ataques att))
@@ -339,6 +342,12 @@ public class UnitManager : MonoBehaviour
             var target = att(unit, unit.Attacks[i]);
             PrecastDelete(target);
         }
+    }
+
+    public IEnumerator KillInvo(BaseUnit unit)
+    {
+        yield return new WaitForSeconds(2f);
+        unit.Destroy();
     }
     public delegate List<Tile> Ataques(BaseUnit unit, BaseAttack attack);
 
@@ -1690,12 +1699,14 @@ public class UnitManager : MonoBehaviour
             if (UnitManager.Instance.Invocaciones.Contains(unit) && unit.Health <= 0)
             {
                 Invocaciones.Remove(unit);
-                unit.Destroy();
-            }
-            if (unit.Health <= 0 && unit.Faction == Faction.Hero)
+                var anim = unit.GetComponentInChildren<Animator>();
+                anim.SetTrigger("Death");
+                StartCoroutine(KillInvo(unit));
+                //unit.Destroy();
+            }else if (unit.Health <= 0 && unit.Faction == Faction.Hero && !Invocaciones.Contains(unit))
             {
                 Heroes.Remove(unit);
-                unit.Destroy();
+                //unit.Destroy();
                 if (Heroes.Count == 0)
                 {
                     GameManager.Instance.ChangeState(GameState.EndFight);
@@ -1704,13 +1715,17 @@ public class UnitManager : MonoBehaviour
             if (unit.Health <= 0 && unit.Faction == Faction.Enemy)
             {
                 Enemies.Remove(unit);
-                unit.Destroy();
-                if (Enemies.Count == 0)
-                {
-                    GameManager.Instance.ChangeState(GameState.EndFight);
-                }
+                var anim = unit.GetComponentInChildren<Animator>();
+                anim.SetTrigger("Death");
+                //unit.Destroy();
+                var ia = unit.GetComponent<BehaviorGraphAgent>();
+                ia.enabled = false;
             }
 
+        }
+        if (Enemies.Count == 0)
+        {
+            GameManager.Instance.ChangeState(GameState.EndFight);
         }
     }
 

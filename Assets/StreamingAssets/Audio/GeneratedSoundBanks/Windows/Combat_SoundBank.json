@@ -10,11 +10,27 @@
     "Type": "User",
     "GUID": "{02612187-DD2D-4746-B156-5731E390E223}",
     "Language": "SFX",
-    "Hash": "{932BC9E7-DB3E-0BF9-A62D-6BED4C38DB7F}",
+    "Hash": "{DAC3D07E-8DBF-4AA7-AE65-66AA7B5C3C3B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SoundBank",
     "ShortName": "Combat_SoundBank",
     "Path": "Combat_SoundBank.bnk",
     "Media": [
+     {
+      "Id": "8699969",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine04Caballero.wav",
+      "CachePath": "2F/{2FA7E128-8CA0-E7E5-755E-A7DFE1B06C56}.wem"
+     },
+     {
+      "Id": "53935823",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine01Druid.wav",
+      "CachePath": "A3/{A366DF8F-AF8B-1636-FA44-19A45957DC3C}.wem"
+     },
      {
       "Id": "86543320",
       "Language": "SFX",
@@ -32,12 +48,36 @@
       "CachePath": "2D/{2D8285DB-E74D-217A-31C7-6255FBA462B5}.wem"
      },
      {
+      "Id": "148199021",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine02Caballero.wav",
+      "CachePath": "E9/{E9FAF23B-A56A-BB23-098A-4AA7F73DA9E1}.wem"
+     },
+     {
+      "Id": "180308863",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine03Caballero.wav",
+      "CachePath": "DB/{DB3E3CF7-B114-3E3B-4E5F-A47E6302D86D}.wem"
+     },
+     {
       "Id": "202317441",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "DamageDruid04.wav",
       "CachePath": "54/{5412A825-364C-59A0-FC1B-02FAAE2C2C9F}.wem"
+     },
+     {
+      "Id": "229523050",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music Cinematicas.wav",
+      "CachePath": "FD/{FD692E93-2465-5065-5F05-3CA84B7EB8A8}.wem"
      },
      {
       "Id": "234338636",
@@ -96,12 +136,28 @@
       "CachePath": "FB/{FB66BFE4-0AC7-68F0-2B2F-0C37EE3F3A20}.wem"
      },
      {
+      "Id": "336908074",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine01Caballero.wav",
+      "CachePath": "C4/{C4CA855D-ADC6-81CC-8667-F0EDCF4A1725}.wem"
+     },
+     {
       "Id": "365070089",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Damage Knight 06.wav",
       "CachePath": "E2/{E27DC8F0-44BA-7CA5-7079-4A38AF39226D}.wem"
+     },
+     {
+      "Id": "415200658",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine04Druid.wav",
+      "CachePath": "60/{608E7859-DD46-C2D8-A06F-4DF739A0D7A6}.wem"
      },
      {
       "Id": "438758271",
@@ -134,6 +190,14 @@
       "Location": "Memory",
       "ShortName": "Contra Bajo Rapido.wav",
       "CachePath": "85/{850C7F6E-6569-8C55-0E3A-4493D94A6771}.wem"
+     },
+     {
+      "Id": "509194038",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine02Druid.wav",
+      "CachePath": "0B/{0BF5FD1E-85A6-2EEB-BAAE-A8C34FC5D9FA}.wem"
      },
      {
       "Id": "529577813",
@@ -174,6 +238,14 @@
       "Location": "Memory",
       "ShortName": "Posion Druid.wav",
       "CachePath": "A0/{A0806440-F9A4-141F-4EE6-F3A7367F486D}.wem"
+     },
+     {
+      "Id": "590006682",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine03Druid.wav",
+      "CachePath": "50/{501402CE-419B-C01F-64A1-7F4075FF572A}.wem"
      },
      {
       "Id": "629815313",
@@ -340,6 +412,118 @@
       ]
      },
      {
+      "Id": "865224105",
+      "Name": "Play_Cine01Caballero",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayCaballero\\Play_Cine01Caballero",
+      "GUID": "{4A359C5F-F7FD-47F2-9555-AE4108204D93}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.944853",
+      "DurationMax": "8.944853",
+      "MediaRefs": [
+       {
+        "Id": "336908074"
+       }
+      ]
+     },
+     {
+      "Id": "1769257584",
+      "Name": "Play_Cine01Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayDruid\\Play_Cine01Druid",
+      "GUID": "{19DC19E8-4871-419F-8DFA-770F9264308B}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.291111",
+      "DurationMax": "8.291111",
+      "MediaRefs": [
+       {
+        "Id": "53935823"
+       }
+      ]
+     },
+     {
+      "Id": "749673500",
+      "Name": "Play_Cine02Caballero",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayCaballero\\Play_Cine02Caballero",
+      "GUID": "{B73CFC83-BAD9-4249-BFEE-D1EDB6573A26}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.944853",
+      "DurationMax": "8.944853",
+      "MediaRefs": [
+       {
+        "Id": "148199021"
+       }
+      ]
+     },
+     {
+      "Id": "777406489",
+      "Name": "Play_Cine02Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayDruid\\Play_Cine02Druid",
+      "GUID": "{18C11AB9-D1B8-49E6-BEBB-B4069B39E795}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.291111",
+      "DurationMax": "8.291111",
+      "MediaRefs": [
+       {
+        "Id": "509194038"
+       }
+      ]
+     },
+     {
+      "Id": "1300650495",
+      "Name": "Play_Cine03Caballero",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayCaballero\\Play_Cine03Caballero",
+      "GUID": "{98348BE8-C3C5-4649-8F6E-6769C8017155}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.944853",
+      "DurationMax": "8.944853",
+      "MediaRefs": [
+       {
+        "Id": "180308863"
+       }
+      ]
+     },
+     {
+      "Id": "1192924570",
+      "Name": "Play_Cine03Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayDruid\\Play_Cine03Druid",
+      "GUID": "{15870FF7-9CE1-4570-9FE8-BB5C2DB2BD7E}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.291111",
+      "DurationMax": "8.291111",
+      "MediaRefs": [
+       {
+        "Id": "590006682"
+       }
+      ]
+     },
+     {
+      "Id": "3696747394",
+      "Name": "Play_Cine04Caballero",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayCaballero\\Play_Cine04Caballero",
+      "GUID": "{5D2D8B3F-1028-4EBF-9F35-F17E2D0584E7}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.944853",
+      "DurationMax": "8.944853",
+      "MediaRefs": [
+       {
+        "Id": "8699969"
+       }
+      ]
+     },
+     {
+      "Id": "3372602331",
+      "Name": "Play_Cine04Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayDruid\\Play_Cine04Druid",
+      "GUID": "{2DC7B4F3-19A7-4308-9174-479B236322C5}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.291111",
+      "DurationMax": "8.291111",
+      "MediaRefs": [
+       {
+        "Id": "415200658"
+       }
+      ]
+     },
+     {
       "Id": "1462092269",
       "Name": "Play_CombatMusicPlaylist",
       "ObjectPath": "\\Events\\Default Work Unit\\Combat Music\\Play_CombatMusicPlaylist",
@@ -494,6 +678,18 @@
       ]
      },
      {
+      "Id": "917750874",
+      "Name": "Play_MusicCinePlaylist",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_MusicCinePlaylist",
+      "GUID": "{74CF3698-DD84-43D4-BD79-6103286691C1}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "229523050"
+       }
+      ]
+     },
+     {
       "Id": "3072108541",
       "Name": "Play_Parry_Robot",
       "ObjectPath": "\\Events\\Default Work Unit\\Attack Robot\\Play_Parry_Robot",
@@ -580,6 +776,6 @@
     ]
    }
   ],
-  "FileHash": "{E0182E4F-1C61-4ED8-D7FB-708E2BC92E0B}"
+  "FileHash": "{9E0497EF-4563-9BB1-ED9C-1A9241D81973}"
  }
 }
