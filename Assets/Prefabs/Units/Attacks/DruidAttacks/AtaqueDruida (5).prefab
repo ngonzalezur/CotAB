@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2363128397629682204}
   - component: {fileID: 8091908140846267713}
   m_Layer: 0
-  m_Name: AtaqueRobot2
+  m_Name: AtaqueDruida (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,25 +122,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526bb499f705fa84eab5a631b0eb3e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: ar2
+  UnitName: amd
   OccupiedTile: {fileID: 0}
-  Damage: 6
+  Damage: 5
   Heal: 0
   Stamina: 0
   Faction: 0
   AreaOfEffect: 1
-  CoolDown: 3.5
+  CoolDown: 1
   LastCast1: 0
   LastCast2: -100
-  ManaCost: 5.9
+  ManaCost: 5
   invocacion: {fileID: 0}
   DoVeneno: 0
   DoBurn: 0
-  stun: 1
+  stun: 0
   attackType: 0
-  type: 17
-  ExtraAttack: {fileID: 8091908140846267713, guid: 490f25eb95e323740873672e62a8ee60,
-    type: 3}
+  type: 16
+  ExtraAttack: {fileID: 0}
   numRandomTiles: 0
 --- !u!1 &1636329195985070217
 GameObject:
@@ -14908,7 +14907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4279945721360116223
 Transform:
   m_ObjectHideFlags: 0

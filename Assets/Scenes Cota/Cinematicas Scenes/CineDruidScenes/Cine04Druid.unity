@@ -652,6 +652,11 @@ PrefabInstance:
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 76735990646682991, guid: 70bc1717070279f4c8856998e92432e5,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Level6
+      objectReference: {fileID: 0}
     - target: {fileID: 1579527966898423514, guid: 70bc1717070279f4c8856998e92432e5,
         type: 3}
       propertyPath: m_LocalPosition.x

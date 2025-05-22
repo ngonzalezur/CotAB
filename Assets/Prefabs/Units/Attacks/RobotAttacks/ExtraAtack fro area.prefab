@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2363128397629682204}
   - component: {fileID: 8091908140846267713}
   m_Layer: 0
-  m_Name: AtaqueRobot2
+  m_Name: ExtraAtack fro area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,8 +139,7 @@ MonoBehaviour:
   stun: 1
   attackType: 0
   type: 17
-  ExtraAttack: {fileID: 8091908140846267713, guid: 490f25eb95e323740873672e62a8ee60,
-    type: 3}
+  ExtraAttack: {fileID: 0}
   numRandomTiles: 0
 --- !u!1 &1636329195985070217
 GameObject:

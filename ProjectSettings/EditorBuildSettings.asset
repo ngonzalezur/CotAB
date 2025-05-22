@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes Cota/Cinematicas Scenes/Cine01.unity
     guid: 89824467e14bd33449d4b6e8b8162399
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes Cota/Cinematicas Scenes/CineRobotScenes/Cine04Robot.unity
     guid: c2e3f248ef380d149a2bc0a4eb16aa16
   - enabled: 1

@@ -314,7 +314,7 @@ MonoBehaviour:
   stun: 0
   efecto: {fileID: 3534751925261361500}
   Attacks:
-  - {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6, type: 3}
+  - {fileID: 8091908140846267713, guid: dde99e07a045eea4ab780e399f675caa, type: 3}
   veneno: 0
   burn: 0
   MaxStamina: 5

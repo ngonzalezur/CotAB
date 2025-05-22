@@ -139,7 +139,7 @@ MonoBehaviour:
   DoBurn: 0
   stun: 0
   attackType: 1
-  type: 17
+  type: 13
   ExtraAttack: {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5,
     type: 3}
   numRandomTiles: 0

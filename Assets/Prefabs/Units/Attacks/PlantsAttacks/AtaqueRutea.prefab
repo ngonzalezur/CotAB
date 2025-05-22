@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2363128397629682204}
   - component: {fileID: 8091908140846267713}
   m_Layer: 0
-  m_Name: BasicMeleeDruid
+  m_Name: AtaqueRutea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,23 +122,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526bb499f705fa84eab5a631b0eb3e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: amd
+  UnitName: ar4
   OccupiedTile: {fileID: 0}
   Damage: 5
   Heal: 0
   Stamina: 0
   Faction: 0
   AreaOfEffect: 1
-  CoolDown: 1
-  LastCast1: 0
+  CoolDown: 5
+  LastCast1: 5
   LastCast2: -100
-  ManaCost: 5
+  ManaCost: 0
   invocacion: {fileID: 0}
-  DoVeneno: 0
+  DoVeneno: 10
   DoBurn: 0
-  stun: 0
+  stun: 1
   attackType: 0
-  type: 7
+  type: 5
+  ExtraAttack: {fileID: 0}
+  numRandomTiles: 0
 --- !u!1 &1636329195985070217
 GameObject:
   m_ObjectHideFlags: 0

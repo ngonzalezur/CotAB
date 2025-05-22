@@ -126,6 +126,14 @@ public class GameManager : MonoBehaviour
 
                 }
                 else if (scene == "Level 3")
+                {                    
+                    SceneManager.LoadScene("Level 4");
+                }
+                else if (scene == "Level 4")
+                {
+                    SceneManager.LoadScene("Level 5");
+                }
+                else if (scene == "Level 5")
                 {
                     if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
                     {

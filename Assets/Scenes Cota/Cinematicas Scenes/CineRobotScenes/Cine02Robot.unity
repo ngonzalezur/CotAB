@@ -520,6 +520,11 @@ PrefabInstance:
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1410988653259969296, guid: d66eba8f9f5a4164c947e0924b9cdd10,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Level2
+      objectReference: {fileID: 0}
     - target: {fileID: 2521231613924675903, guid: d66eba8f9f5a4164c947e0924b9cdd10,
         type: 3}
       propertyPath: m_SceneBindings.Array.size
