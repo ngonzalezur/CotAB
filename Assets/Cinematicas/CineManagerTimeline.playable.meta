@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Behaviours/SkeletonBehavior.asset.meta
+guid: 5835ab8d09aa429488b1c5d054003d5a
+========
 guid: cd20d3504efc86342b3085f45c57e9db
+>>>>>>>> feature/puente-para-unir-shader:Assets/Cinematicas/CineManagerTimeline.playable.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

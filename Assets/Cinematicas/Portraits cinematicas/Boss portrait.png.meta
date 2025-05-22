@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Images/barraVida.png.meta
+guid: ea80f244c2f5d2346b78857eb58d94d3
+========
 guid: 3161f910cb8c7134b873d0c6999aef36
+>>>>>>>> feature/puente-para-unir-shader:Assets/Cinematicas/Portraits cinematicas/Boss portrait.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +38,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
