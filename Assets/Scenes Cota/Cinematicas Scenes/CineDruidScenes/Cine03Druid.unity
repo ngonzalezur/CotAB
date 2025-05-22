@@ -305,6 +305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 848349022104498928, guid: 72e6cfdb0c2b9df4c8de4637841d3168,
         type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 848349022104498928, guid: 72e6cfdb0c2b9df4c8de4637841d3168,
+        type: 3}
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayCine03Druid
       objectReference: {fileID: 0}
