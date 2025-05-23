@@ -276,7 +276,7 @@ public class UnitManager : MonoBehaviour
         }
 
 
-        GameManager.Instance.ChangeState(GameState.SpawnEnemies);
+        GameManager.Instance.ChangeState(TutoState.SpawnEnemies);
     }
 
     //codigo que hace aparecer los enemigos
@@ -294,7 +294,7 @@ public class UnitManager : MonoBehaviour
             randomSpawnTile.SetUnit(Enemies[i]);
         }
 
-        GameManager.Instance.ChangeState(GameState.GenerateUI);
+        GameManager.Instance.ChangeState(TutoState.GenerateUI);
     }
 
     void ContarKPIAtaque(BaseUnit unit, int i)
@@ -1855,7 +1855,7 @@ public class UnitManager : MonoBehaviour
                 //unit.Destroy();
                 if (Heroes.Count == 0)
                 {
-                    GameManager.Instance.ChangeState(GameState.EndFight);
+                    GameManager.Instance.ChangeState(TutoState.EndFight);
                 }
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Enemy)
@@ -1871,7 +1871,7 @@ public class UnitManager : MonoBehaviour
         }
         if (Enemies.Count == 0)
         {
-            GameManager.Instance.ChangeState(GameState.EndFight);
+            GameManager.Instance.ChangeState(TutoState.EndFight);
         }
     }
 
