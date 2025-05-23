@@ -5139,8 +5139,8 @@ MonoBehaviour:
   UnitName: Enemigo facil
   OccupiedTile: {fileID: 0}
   Faction: 1
-  MaxHealth: 1
-  Health: 1
+  MaxHealth: 60
+  Health: 60
   ActualHeath: {fileID: 1570463510335372378}
   EnemyType: {fileID: 1128217994411323301, guid: 39b651769be7cd847a5b4f71953170f8,
     type: 3}
