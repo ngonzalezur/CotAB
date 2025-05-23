@@ -7,7 +7,7 @@ public class PlayerSelect : MonoBehaviour
 {
     public BaseUnit druidaPrefabUnit;
     public BaseUnit robotPrefabUnit;
-    public BaseUnit artificePrefabUnit;
+    public BaseUnit artificePrefabUnit; // Este lo dejaremos sin asignar en el Inspector si no hay prefab.
 
     // --- Bordes de Selección Jugador 1 (Rojo) ---
     [Header("Bordes de Selección Jugador 1 (Rojo)")]
@@ -28,6 +28,10 @@ public class PlayerSelect : MonoBehaviour
     public BaseUnit currentSelectedUnitPlayer2 = null;
     public bool isPlayer2Ready = false;
 
+    // --- Referencia al botón del Artífice para deshabilitarlo ---
+    [Header("Botones de Personaje")] // Podrías tener todos aquí si necesitas deshabilitar otros dinámicamente
+    public Button artificeButton; // ¡Asignar en el Inspector!
+
     // Singleton para fácil acceso
     public static PlayerSelect Instance { get; private set; }
 
@@ -46,6 +50,22 @@ public class PlayerSelect : MonoBehaviour
     void Start()
     {
         ResetUIState();
+
+        // --- Deshabilitar el botón de Artífice si su prefab no está asignado ---
+        if (artificePrefabUnit == null && artificeButton != null)
+        {
+            artificeButton.interactable = false; // Deshabilita la interacción con el botón
+            // Opcional: podrías cambiar la apariencia del botón aquí (color, texto)
+            Debug.LogWarning("[PlayerSelect] El prefab de Artífice no está asignado. El botón de Artífice ha sido deshabilitado.");
+        }
+        else if (artificePrefabUnit != null && artificeButton != null)
+        {
+            artificeButton.interactable = true; // Asegurarse de que esté habilitado si el prefab existe
+        }
+        else if (artificeButton == null)
+        {
+            Debug.LogError("[PlayerSelect] artificeButton no está asignado en el Inspector. No se puede deshabilitar el botón del Artífice automáticamente.");
+        }
     }
 
     // Método para resetear la UI de selección (llamado al inicio o al volver al menú)
@@ -59,17 +79,6 @@ public class PlayerSelect : MonoBehaviour
         Debug.Log("[PlayerSelect] UI de selección reseteada para ambos jugadores.");
     }
 
-    // El Update() ya no necesita la lógica de EventSystem para J2,
-    // ya que ambos seleccionan con el mouse a través de OnClick.
-    // Puedes eliminar el método Update() si no lo necesitas para nada más.
-    /*
-    void Update()
-    {
-        // ... (lógica anterior de J2 con EventSystem eliminada) ...
-    }
-    */
-
-
     // ===============================================
     //  MÉTODOS PARA SELECCIONAR Y VISUALIZAR (J1 Y J2 - Clic de Ratón)
     // ===============================================
@@ -78,11 +87,18 @@ public class PlayerSelect : MonoBehaviour
 
     public void SelectDruida() { HandleSelectionAndBorders(druidaPrefabUnit); }
     public void SelectRobot() { HandleSelectionAndBorders(robotPrefabUnit); }
-    public void SelectArtifice() { HandleSelectionAndBorders(artificePrefabUnit); }
+    public void SelectArtifice() { HandleSelectionAndBorders(artificePrefabUnit); } // Este se llamará pero el HandleSelectionAndBorders lo gestionará.
 
     // --- Método genérico que maneja la selección y los bordes para el jugador actual ---
     private void HandleSelectionAndBorders(BaseUnit selectedUnit)
     {
+        // Si el prefab de la unidad seleccionada es nulo (como el Artífice sin asignar), no hacer nada.
+        if (selectedUnit == null)
+        {
+            Debug.LogWarning("[PlayerSelect] Se intentó seleccionar un personaje sin prefab asignado (ej. Artífice).");
+            return;
+        }
+
         // Si J1 aún no ha seleccionado, este click es para J1
         if (!isPlayer1Ready)
         {
@@ -120,34 +136,30 @@ public class PlayerSelect : MonoBehaviour
         }
     }
 
-
     // ===============================================
     //  MÉTODOS PRIVADOS PARA GESTIONAR LA VISUALIZACIÓN DE LOS BORDES
     // ===============================================
-    // Estos métodos son llamados internamente por HandleSelectionAndBorders()
 
     private void ActivateSpecificRedBorder(BaseUnit unitToActivate)
     {
-        // Desactivar todos los bordes rojos primero
-        DeactivateAllRedBorders();
+        DeactivateAllRedBorders(); // Desactivar todos los bordes rojos primero
 
         // Activar el borde rojo del personaje seleccionado
         if (unitToActivate == druidaPrefabUnit && bordeRojoDruida != null) bordeRojoDruida.SetActive(true);
         else if (unitToActivate == robotPrefabUnit && bordeRojoRobot != null) bordeRojoRobot.SetActive(true);
         else if (unitToActivate == artificePrefabUnit && bordeRojoArtifice != null) bordeRojoArtifice.SetActive(true);
-        else Debug.LogError($"[PlayerSelect] Borde rojo no asignado o personaje no reconocido para {unitToActivate.name}.");
+        else Debug.LogError($"[PlayerSelect] Borde rojo no asignado o personaje no reconocido para {unitToActivate?.name ?? "Nulo"}.");
     }
 
     private void ActivateSpecificBlueBorder(BaseUnit unitToActivate)
     {
-        // Desactivar todos los bordes azules primero
-        DeactivateAllBlueBorders();
+        DeactivateAllBlueBorders(); // Desactivar todos los bordes azules primero
 
         // Activar el borde azul del personaje seleccionado
         if (unitToActivate == druidaPrefabUnit && bordeAzulDruida != null) bordeAzulDruida.SetActive(true);
         else if (unitToActivate == robotPrefabUnit && bordeAzulRobot != null) bordeAzulRobot.SetActive(true);
         else if (unitToActivate == artificePrefabUnit && bordeAzulArtifice != null) bordeAzulArtifice.SetActive(true);
-        else Debug.LogError($"[PlayerSelect] Borde azul no asignado o personaje no reconocido para {unitToActivate.name}.");
+        else Debug.LogError($"[PlayerSelect] Borde azul no asignado o personaje no reconocido para {unitToActivate?.name ?? "Nulo"}.");
     }
 
     // --- Métodos Auxiliares para desactivar bordes ---
@@ -155,7 +167,7 @@ public class PlayerSelect : MonoBehaviour
     {
         DeactivateAllRedBorders();
         DeactivateAllBlueBorders();
-        Debug.Log("[PlayerSelect] Todos los bordes (rojos y azules) desactivados.");
+        // Debug.Log("[PlayerSelect] Todos los bordes (rojos y azules) desactivados."); // Menos verboso
     }
 
     private void DeactivateAllRedBorders()
