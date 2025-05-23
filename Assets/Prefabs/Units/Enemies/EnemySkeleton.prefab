@@ -5327,8 +5327,8 @@ MonoBehaviour:
   stun: 0
   efecto: {fileID: 1005906517160525336}
   Attacks:
-  - {fileID: 8091908140846267713, guid: 0cb74b38b12ccc348826f2d1c6f0cade, type: 3}
   - {fileID: 8091908140846267713, guid: 9e6e1e0b0cae0b547b2a1917e605cb1a, type: 3}
+  - {fileID: 8091908140846267713, guid: 0cb74b38b12ccc348826f2d1c6f0cade, type: 3}
   - {fileID: 8091908140846267713, guid: 2f231dc5ec5f7f74389bed61081f92bf, type: 3}
   veneno: 0
   burn: 0
@@ -5474,7 +5474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Graph: {fileID: -217315073750517396, guid: 74f5a1325360c6e4c8f5e50db22d82c0, type: 2}
+  m_Graph: {fileID: -7943367460941294676, guid: 5835ab8d09aa429488b1c5d054003d5a,
+    type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 160817464568971552
   m_IsInitialised: 0

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameState GameState;
+    public TutoState GameState;
 
     //las 21 cosas que leen los kpis
 
@@ -48,60 +48,84 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        ChangeState(GameState.GenerateGrid);        
+        ChangeState(TutoState.GenerateGrid);        
+    }
+    public void ResetAndLoadScene()
+    {
+        StartCoroutine(DestroyDontDestroyOnLoadObjectsAndLoadScene());
     }
 
-    public void ChangeState(GameState newState)
+    private System.Collections.IEnumerator DestroyDontDestroyOnLoadObjectsAndLoadScene()
+    {
+        // Creamos un objeto temporal para acceder a la escena DontDestroyOnLoad
+        GameObject temp = new GameObject("TempDDOL");
+        DontDestroyOnLoad(temp);
+        Scene ddolScene = temp.scene;
+
+        // Buscamos todos los GameObjects que viven en esa escena especial
+        List<GameObject> dontDestroyObjects = new List<GameObject>();
+        foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>(true))
+        {
+            if (go.scene == ddolScene && go != temp)
+            {
+                dontDestroyObjects.Add(go);
+            }
+        }
+
+        // Destruimos únicamente esos objetos
+        foreach (GameObject go in dontDestroyObjects)
+        {
+            Destroy(go);
+        }
+
+        // Destruimos el temporal
+        Destroy(temp);
+
+        // Esperamos 1 frame para que Unity termine de destruir
+        yield return null;
+
+        // Cargamos la escena deseada
+
+
+        // Cargar la nueva escena
+        SceneManager.LoadScene("Menus");
+    }
+
+    public void ChangeState(TutoState newState)
     {
         GameState = newState;
         switch (newState)
         {
-            case GameState.GenerateGrid:
+            case TutoState.GenerateGrid:
                 GridManager.Instance.GenerateGrid();
                 break;
-            case GameState.SpawnHeroes:
+            case TutoState.SpawnHeroes:
                 UnitManager.Instance.SpawnHeroes();
                 //MauriManager.Instance.SpawnHeroes();
                 break;
-            case GameState.SpawnEnemies:
+            case TutoState.SpawnEnemies:
                 UnitManager.Instance.SpawnEnemies();
                 //MauriManager.Instance.SpawnEnemies();
                 break;
-            case GameState.GenerateUI:
+            case TutoState.GenerateUI:
                 //CanvaManager.Instance.AssignAttack();
                 CanvaManager.Instance.PutSprites();
-                this.ChangeState(GameState.HeroesTurn);
+                this.ChangeState(TutoState.HeroesTurn);
                 CanvaManager.Instance.CanSprites = true;
                 break;
-            case GameState.HeroesTurn:
+            case TutoState.HeroesTurn:
                 UnitManager.Instance.CanPlay = true;
                 //MauriManager.Instance.CanPlay = true;
                 break;
-            case GameState.EndFight:
+            case TutoState.EndFight:
                 UnitManager.Instance.CanPlay = false;
                 CanvaManager.Instance.CanSprites = false;
                 Debug.Log("GG");
-                this.ChangeState(GameState.End);
+                this.ChangeState(TutoState.End);
                 break;
-            case GameState.End:
+            case TutoState.End:
                 var scene = SceneManager.GetActiveScene().name;
-                if (scene == "Tutorial")
-                {
-                    SceneManager.LoadScene("Level easy");
-                }
-                else if (scene == "Level easy")
-                {
-                    SceneManager.LoadScene("Level medium");
-                }
-                else if (scene == "Level medium")
-                {
-                    SceneManager.LoadScene("Level hard");
-                }
-                else if (scene == "SecondPlayer")
-                {
-                    SceneManager.LoadScene("Elegir");
-                }
-                else if (scene == "Level 1")
+                if (scene == "Level 1")
                 {
                     if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
                     {
@@ -145,8 +169,13 @@ public class GameManager : MonoBehaviour
                     }
 
                 }
+                else if (scene == "Level 6")
+                {
 
-                if (scene == "Level hard" || UnitManager.Instance.SecondPlayer)
+                    ResetAndLoadScene();
+                }
+
+                if (scene == "Level hard")
                 {
                     //llamar la funcion que manda los datos
                     if(AttDruid1 == 0)
@@ -194,8 +223,8 @@ public class GameManager : MonoBehaviour
                     Debug.Log(HitAttDruid4);                    
                     var persist = (GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
                                      .FirstOrDefault(u => u.isPersistentHero));
-                    Destroy(persist.gameObject);
-                    SceneManager.LoadScene("Elegir");
+                    //Destroy(persist.gameObject);
+                    //SceneManager.LoadScene("Elegir");
                 }
                 break;
             default:
@@ -206,7 +235,8 @@ public class GameManager : MonoBehaviour
 
 
 
-public enum GameState
+
+public enum TutoState
 {
     GenerateGrid = 0,
     SpawnHeroes = 1,
