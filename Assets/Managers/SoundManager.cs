@@ -15,14 +15,15 @@ namespace CotA.Sound
 
         public void Awake()
         {
-            // Reinicia toda la música al inicio del juego
+            // Reinicia toda la música al inicio de cada escena
             AkUnitySoundEngine.StopAll();
 
         }
 
 
 
-        // ----------------------- MÚSICA ----------------------------
+// ----------------------------------------- M Ú S I C A -----------------------------------------------------------------------------
+    // ------------------- CAMBIO DE MÚSICA -------------------
         public void ChangeSoundtrackToMidLifeMode()
         {
             /// Combat 01 to Combat 02
@@ -33,8 +34,8 @@ namespace CotA.Sound
             AkUnitySoundEngine.PostEvent("PlayBossMusic02", gameObject); //Suena Boss Music 02
         }
 
-
-        // ----------------------- DAÑO A HEROES ---------------------------
+// ---------------------------------------- H E R O E S -------------------------------------------------------------------------------------------
+    // ----------------------- DAÑO A HEROES ---------------------------
         public void PlayDruidDamage() //Le hacen daño a la Druida
         {
             AkUnitySoundEngine.PostEvent("Play_Damage_Druid", gameObject);
@@ -45,7 +46,7 @@ namespace CotA.Sound
             AkUnitySoundEngine.PostEvent("Play_Damage_Robot", gameObject);
         }
 
-        // ------------------- Ataques y Habilidades Heroes ---------------
+    // ------------------- Ataques y Habilidades Heroes ---------------
         //                   ---- DRUIDA ----
         public void PlayFirewallDruid() //Druida hace el ataque muro de fuego
         {
@@ -63,6 +64,11 @@ namespace CotA.Sound
         {
             AkUnitySoundEngine.PostEvent("Play_Posion_Druid", gameObject);  //se que esta escrito mal posion, asi quedo el event en wwise despues lo corrijo
         }
+        public void PlayGanchoDruid() //Druida lanza ataque de gancho
+        {
+            AkUnitySoundEngine.PostEvent("Play_Gancho_Druid", gameObject);
+        }
+      
 
         //                   ---- ROBOT ----
         public void PlayBroteRobot() //Robot invoca cualquiera de las 2 flores
@@ -76,6 +82,70 @@ namespace CotA.Sound
         public void PlaySmiteRobot() //Robot hace ataque de area
         {
             AkUnitySoundEngine.PostEvent("Play_Smite_Robot", gameObject);
+        }
+        public void PlayFlorAttackRobot() //La flor del robot hace ataque
+        {
+            AkUnitySoundEngine.PostEvent("Play_Flor_attack_Robot", gameObject);
+        }
+  
+
+// ------------------------------------------------------- E N E M I G O S ------------------------------------------------------------------------------
+        // ------------------- Ataques y Habilidades Enemigos ---------------
+
+        //                   ---- ENEMIGOS ----
+        public void PlayAreaDistanceEnemy() //Area a distancia
+        {
+            AkUnitySoundEngine.PostEvent("Play_Area_distance_Enemy", gameObject);
+        }
+        public void PlayAreaFrontEnemy() //Area de frente
+        {
+            AkUnitySoundEngine.PostEvent("Play_Area_front_Enemy", gameObject);
+        }
+        public void PlayAtractEnemy() //Atraer Heroe, NO es gancho
+        {
+            AkUnitySoundEngine.PostEvent("Play_Atract_Enemy", gameObject);
+        }
+        public void PlayGanchoEnemy() //Gancho enemigo
+        {
+            AkUnitySoundEngine.PostEvent("Play_Gancho_Enemy", gameObject);
+        }
+      public void PlayEnemy() //Grid Teleport enemigo
+        {
+            AkUnitySoundEngine.PostEvent("Play_Grid_Teleport_Enemy", gameObject);
+        }
+
+        //                   ---- BOSS ----
+        public void PlayBarridoColumnaBoss() //Boss hace ataque de barrido en columna
+        {
+            AkUnitySoundEngine.PostEvent("Play_Barrido_Columna_Boss", gameObject);
+        }
+        public void PlayBarridoFilaBoss() //Boss hace ataque de barrido en columna
+        {
+            AkUnitySoundEngine.PostEvent("Play_Barrido_Columna_Boss", gameObject);
+        }
+        public void PlayCasillaBoss() //Boss hace ataque en una casilla aleatoria
+        {
+            AkUnitySoundEngine.PostEvent("Play_Casilla_X_Boss", gameObject);
+        }
+
+
+
+    // ------------------- DAÑO A ENEMIGOS ---------------------------
+        public void PlayDamageHongo() //Le hacen daño al hongo
+        {
+            AkUnitySoundEngine.PostEvent("Play_Damage_Hongo", gameObject);
+        }
+        public void PlayDamageMurcielago() //Le hacen daño al murcielago
+        {
+            AkUnitySoundEngine.PostEvent("Play_Damage_Murcielago", gameObject);
+        }
+        public void PlayDamageEsqueleto() //Le hacen daño al esqueleto
+        {
+            AkUnitySoundEngine.PostEvent("Play_Damage_Skeleton", gameObject);
+        }
+        public void PlayDamageBoss() //Le hacen daño al boss
+        {
+            AkUnitySoundEngine.PostEvent("Play_Damage_Boss", gameObject);
         }
 
         // ------------------- Dialogos Cinematicas ---------------

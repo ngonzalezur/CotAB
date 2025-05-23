@@ -138,6 +138,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fill: {fileID: 886489825}
+--- !u!1 &4655394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7785747789798043118, guid: b25b38aac39646a4f8f742e63d655d9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1293487191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4655397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fcdde81b9c44394ca38526ded10453d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameState: 0
+  ActualHealthDummy: 0
+  uManager: {fileID: 0}
 --- !u!1001 &67263667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -294,13 +315,13 @@ PrefabInstance:
         type: 3}
       propertyPath: 'Heroes.Array.data[0]'
       value: 
-      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+      objectReference: {fileID: 7735570308767223746, guid: a0bf54fc03aa32f489bd82d9cd5d2180,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: 'Enemies.Array.data[0]'
       value: 
-      objectReference: {fileID: 5695376190236047481, guid: 9a17851b516091345af1271df4df2ca7,
+      objectReference: {fileID: 5695376190236047481, guid: 54746c424d331c340abfcb519835af1b,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
@@ -322,7 +343,7 @@ PrefabInstance:
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: configuration.Enemies.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
@@ -333,25 +354,25 @@ PrefabInstance:
         type: 3}
       propertyPath: configuration.Heroes.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+      objectReference: {fileID: 7735570308767223746, guid: a0bf54fc03aa32f489bd82d9cd5d2180,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: configuration.Heroes.Array.data[1].prefab
       value: 
-      objectReference: {fileID: 7735570308767223746, guid: a0bf54fc03aa32f489bd82d9cd5d2180,
+      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: configuration.Enemies.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 5695376190236047481, guid: b30d070884b526f41acb461f4c51ecf0,
+      objectReference: {fileID: 5695376190236047481, guid: 54746c424d331c340abfcb519835af1b,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: configuration.Enemies.Array.data[1].prefab
       value: 
-      objectReference: {fileID: 5695376190236047481, guid: dd8cea8c9d71e1e498db22fefd807199,
+      objectReference: {fileID: 5695376190236047481, guid: 682f29a464133c44194e2816581f4db0,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
@@ -418,12 +439,12 @@ PrefabInstance:
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: configuration.Heroes.Array.data[0].Attacks.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: configuration.Heroes.Array.data[1].Attacks.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
@@ -449,19 +470,19 @@ PrefabInstance:
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[0].Attacks.Array.data[0]'
       value: 
-      objectReference: {fileID: 8091908140846267713, guid: 7ed337ab9ab6c2e48a167a70b64fa683,
+      objectReference: {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[0].Attacks.Array.data[1]'
       value: 
-      objectReference: {fileID: 8091908140846267713, guid: 72a42869778c4864f828a6fea56fe7fb,
+      objectReference: {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[0].Attacks.Array.data[2]'
       value: 
-      objectReference: {fileID: 8091908140846267713, guid: 3c845a59af75783418b716bba8af711b,
+      objectReference: {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
@@ -473,19 +494,19 @@ PrefabInstance:
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[1].Attacks.Array.data[0]'
       value: 
-      objectReference: {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6,
+      objectReference: {fileID: 8091908140846267713, guid: 7ed337ab9ab6c2e48a167a70b64fa683,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[1].Attacks.Array.data[1]'
       value: 
-      objectReference: {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5,
+      objectReference: {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[1].Attacks.Array.data[2]'
       value: 
-      objectReference: {fileID: 5304695499732205837, guid: bf72198bfab4d334b853942f7a4bdf6d,
+      objectReference: {fileID: 6855183743824962309, guid: 1d592f278f7b2ae40838941759286bb5,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
@@ -726,7 +747,7 @@ PrefabInstance:
     - target: {fileID: 1670733568900427392, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.6
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 1670733568900427392, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
         type: 3}
@@ -767,6 +788,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera facil
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450348874485090296, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450348874485090296, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
+        type: 3}
+      propertyPath: field of view
+      value: 60.000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450348874485090296, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
+        type: 3}
+      propertyPath: orthographic size
+      value: 3.9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1023844486277744394, guid: 1799ea7a4f2e84b46bef4263d8dcd04c, type: 3}
@@ -1014,7 +1050,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7785747789798043118, guid: b25b38aac39646a4f8f742e63d655d9b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4655397}
   m_SourcePrefab: {fileID: 100100000, guid: b25b38aac39646a4f8f742e63d655d9b, type: 3}
 --- !u!1001 &1379958621
 PrefabInstance:
