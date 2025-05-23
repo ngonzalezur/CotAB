@@ -31,7 +31,7 @@ public class PlayerStorage : MonoBehaviour
         if (PlayerSelect.Instance != null)
         {
             player1Prefab = PlayerSelect.Instance.currentSelectedUnitPlayer1;
-            player2Prefab = PlayerSelect.Instance.currentSelectedUnitPlayer2; // ¡Obtenemos la selección de J2!
+            player2Prefab = PlayerSelect.Instance.currentSelectedUnitPlayer2; // Obtenemos la selección de J2
 
             Debug.Log($"[PlayerStorage] Selecciones obtenidas de UI. " +
                       $"J1: {(player1Prefab != null ? player1Prefab.name : "Ninguno")}. " +
