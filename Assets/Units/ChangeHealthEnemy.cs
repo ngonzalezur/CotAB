@@ -1,14 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class ChangeHealthEnemy : MonoBehaviour
 {
-    public TMP_InputField input;
-    public void Activar()
+    public Image fill;
+    [SerializeField] private BaseUnit unit;
+    
+    void Start()
     {
-        if (int.TryParse(input.text, out var hel))
-            CanvaManager.Instance.CambiarVidaEnemigo(hel);
+        // unit = GetComponent<BaseUnit>();
+        //unit = GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
+                                      //.FirstOrDefault(u => u.isPersistentHero);
+    }
+
+    void Update()
+    {
+        if (unit != null && fill != null)
+        {
+            fill.fillAmount = (float)unit.Health / unit.MaxHealth;
+        }
     }
 }
