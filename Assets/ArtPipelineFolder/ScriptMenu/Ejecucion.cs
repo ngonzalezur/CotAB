@@ -8,53 +8,57 @@ public class Ejecucion : MonoBehaviour
 
     public void Regresar()
     {
-        Debug.Log("Botón 'Regresar' presionado. Volviendo al Menú Inicial.");
+        
 
         if (panelDeSeleccionPersonaje != null) panelDeSeleccionPersonaje.SetActive(false);
-        else Debug.LogError("¡ERROR! 'Panel De Seleccion Personaje' no asignado en Ejecucion.");
+        
 
         if (panelDelMenuInicial != null) panelDelMenuInicial.SetActive(true);
-        else Debug.LogError("¡ERROR! 'Panel Del Menu Inicial' no asignado en Ejecucion.");
+        
 
-        if (PlayerSelect.Instance != null) // Usa PlayerSelect.Instance
+        if (PlayerSelect.Instance != null)
         {
-            PlayerSelect.Instance.ResetUIState();
+            PlayerSelect.Instance.ResetUIState(); // Resetea la UI de selección (bordes y variables)
         }
-        else
-        {
-            Debug.LogError("¡ERROR! No se encontró una instancia de PlayerSelect. No se puede resetear la UI de selección.");
-        }
+        
 
         if (PlayerStorage.Instance != null)
         {
-            PlayerStorage.Instance.ResetPlayerSelections();
+            PlayerStorage.Instance.ResetPlayerSelections(); // Resetea las selecciones guardadas
         }
-        else
-        {
-            Debug.LogError("¡ERROR! No se encontró una instancia de PlayerStorage.");
-        }
+        
     }
 
     public void Confirmar()
     {
-        Debug.Log("Botón 'Confirmar' presionado. Intentando iniciar el juego...");
+        
 
-        if (PlayerStorage.Instance != null && PlayerSelect.Instance != null) // Usa PlayerSelect.Instance
+        if (PlayerStorage.Instance != null && PlayerSelect.Instance != null)
         {
-            PlayerStorage.Instance.ObtainSelectedCharactersFromUI();
-
+            PlayerStorage.Instance.ObtainSelectedCharactersFromUI(); // Asegura que PlayerStorage tiene las últimas selecciones
+            /*
+            // Validar que ambos jugadores hayan seleccionado un personaje
             if (PlayerSelect.Instance.currentSelectedUnitPlayer1 == null)
             {
-                Debug.LogWarning("¡Error! El Jugador 1 debe seleccionar un personaje para poder iniciar el juego.");
-                return;
+                
+                return; // Detiene la ejecución aquí
             }
+            if (PlayerSelect.Instance.currentSelectedUnitPlayer2 == null)
+            {
+                
+                return; // Detiene la ejecución aquí
+            }
+
+            Debug.Log($"[Ejecucion] Ambos jugadores han seleccionado personajes. J1: {PlayerSelect.Instance.currentSelectedUnitPlayer1.name}, J2: {PlayerSelect.Instance.currentSelectedUnitPlayer2.name}.");
+            */
         }
         else
         {
-            Debug.LogError("¡ERROR! No se pudo acceder a PlayerStorage o PlayerSelect. Asegúrate de que estén configurados correctamente en la escena.");
-            return;
+            
+            return; // Detiene la ejecución aquí
         }
 
-        SceneManager.LoadScene("Tutorial");
+        
+        SceneManager.LoadScene("Tutorial"); 
     }
 }

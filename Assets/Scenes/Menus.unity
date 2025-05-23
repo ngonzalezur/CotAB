@@ -353,6 +353,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 239012417}
+        m_TargetAssemblyTypeName: PlayerSelect, Assembly-CSharp
+        m_MethodName: HandleArtificeBorderForPlayer2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 239012417}
+        m_TargetAssemblyTypeName: PlayerSelect, Assembly-CSharp
+        m_MethodName: SaveArtificeForPlayer2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &95149696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,8 +474,16 @@ MonoBehaviour:
   bordeRojoDruida: {fileID: 247057780}
   bordeRojoRobot: {fileID: 458975722}
   bordeRojoArtifice: {fileID: 871387672}
+  bordeAzulDruida: {fileID: 561226355}
+  bordeAzulRobot: {fileID: 1722293929}
+  bordeAzulArtifice: {fileID: 1306663347}
   currentSelectedUnitPlayer1: {fileID: 0}
   isPlayer1Ready: 0
+  currentSelectedUnitPlayer2: {fileID: 0}
+  isPlayer2Ready: 0
+  druidaButton: {fileID: 537298628}
+  robotButton: {fileID: 429392478}
+  artificeButton: {fileID: 95149695}
 --- !u!1 &247057780
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +751,30 @@ MonoBehaviour:
       - m_Target: {fileID: 239012417}
         m_TargetAssemblyTypeName: PlayerSelect, Assembly-CSharp
         m_MethodName: SaveRobotForPlayer1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 239012417}
+        m_TargetAssemblyTypeName: PlayerSelect, Assembly-CSharp
+        m_MethodName: HandleRobotBorderForPlayer2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 239012417}
+        m_TargetAssemblyTypeName: PlayerSelect, Assembly-CSharp
+        m_MethodName: SaveRobotForPlayer2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1261,6 +1317,30 @@ MonoBehaviour:
       - m_Target: {fileID: 239012417}
         m_TargetAssemblyTypeName: PlayerSelect, Assembly-CSharp
         m_MethodName: SaveDruidaForPlayer1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 239012417}
+        m_TargetAssemblyTypeName: PlayerSelect, Assembly-CSharp
+        m_MethodName: HandleDruidaBorderForPlayer2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 239012417}
+        m_TargetAssemblyTypeName: PlayerSelect, Assembly-CSharp
+        m_MethodName: SaveDruidaForPlayer2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
