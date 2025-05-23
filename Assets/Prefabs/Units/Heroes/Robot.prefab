@@ -305,7 +305,7 @@ MonoBehaviour:
   UnitName: Robot
   OccupiedTile: {fileID: 0}
   Faction: 0
-  MaxHealth: 10
+  MaxHealth: 30
   Health: 10
   ActualHeath: {fileID: 2869813721422711052}
   EnemyType: {fileID: 0}
@@ -318,10 +318,10 @@ MonoBehaviour:
   - {fileID: 0}
   veneno: 0
   burn: 0
-  MaxStamina: 5
-  MoveCooldown: 3
+  MaxStamina: 2
+  MoveCooldown: 2
   regenStamina: 2
-  MaxMana: 6
+  MaxMana: 10
   CastMana: 4
   regenMana: 1
   lastCastBA: 0

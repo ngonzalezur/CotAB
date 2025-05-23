@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: ef1
   OccupiedTile: {fileID: 0}
-  Damage: 0
+  Damage: 5
   Heal: 0
   Stamina: 0
   Faction: 1

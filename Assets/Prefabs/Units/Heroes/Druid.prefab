@@ -319,8 +319,8 @@ MonoBehaviour:
   - {fileID: -3697817405935798582, guid: d0592a8ba0239f34397648a8370726c6, type: 3}
   veneno: 0
   burn: 0
-  MaxStamina: 3
-  MoveCooldown: 0
+  MaxStamina: 2
+  MoveCooldown: 2
   regenStamina: 0
   MaxMana: 6
   CastMana: 0
