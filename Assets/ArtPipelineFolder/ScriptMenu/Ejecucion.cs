@@ -64,6 +64,14 @@ public class Ejecucion : MonoBehaviour
         //}
 
         Debug.Log("¡Validación exitosa! Cargando escena 'Tutorial'.");
+        if(PlayerSelect.Instance.currentSelectedUnitPlayer1 != null && PlayerSelect.Instance.currentSelectedUnitPlayer1.UnitName == "Druid")
+        {
+            SceneManager.LoadScene("Level easy");
+        }
+        if (PlayerSelect.Instance.currentSelectedUnitPlayer1 != null && PlayerSelect.Instance.currentSelectedUnitPlayer1.UnitName == "Robot")
+        {
+            SceneManager.LoadScene("Level easy");
+        }
         SceneManager.LoadScene("Level easy"); // Asegúrate de que la escena "Tutorial" esté añadida en File -> Build Settings.
     }
 }
