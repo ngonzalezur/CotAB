@@ -133,17 +133,53 @@ public class UnitManager : MonoBehaviour
             newUnit = Instantiate(unit, new Vector3(0, 0, -1), Quaternion.identity);
         }
 
+        SetAttacks(unit);
+        //int cont = 0;
+        //foreach (BaseAttack attack in unit.Attacks)
+        //{
+        //    newUnit.Attacks[cont] = Instantiate(unit.Attacks[cont], new Vector3(0, 0, -1), Quaternion.identity);
+        //    newUnit.Attacks[cont].gameObject.SetActive(false);
+        //    //ui.abilities[cont].cooldown = newUnit.Attacks[cont].CoolDown;
+        //    DontDestroyOnLoad(newUnit.Attacks[cont]);
+        //    cont++;
+        //}
+        Heroes.Add(newUnit);
+    }
 
-        int cont = 0;
-        foreach (BaseAttack attack in unit.Attacks)
+    public void SetAttacks(BaseUnit unit)
+    {
+        var pref1 = configuration.Heroes[0].prefab;
+        var pref2 = configuration.Heroes[1].prefab;
+        var i = 0;
+        var reference = new BaseAttack[0];
+        Debug.Log(pref1.UnitName);
+        Debug.Log(pref2.UnitName);
+        Debug.Log(unit.UnitName);
+        if (unit.UnitName == pref1.UnitName)
         {
-            newUnit.Attacks[cont] = Instantiate(unit.Attacks[cont], new Vector3(0, 0, -1), Quaternion.identity);
-            newUnit.Attacks[cont].gameObject.SetActive(false);
+            i = configuration.Heroes[0].Attacks.Length;
+            reference = configuration.Heroes[0].Attacks;
+            Debug.Log(configuration.Heroes[0].Attacks[0]);
+            Debug.Log("entre");
+        }
+        else
+        {
+            i = configuration.Heroes[1].Attacks.Length;
+            reference = configuration.Heroes[1].Attacks;
+        }
+        int cont = 0;
+        var newAtts = new BaseAttack[i];
+        Debug.Log(reference);
+        foreach (BaseAttack attack in reference)
+        {
+            newAtts[cont] = Instantiate(reference[cont], new Vector3(0, 0, -1), Quaternion.identity);
+            newAtts[cont].gameObject.SetActive(false);
             //ui.abilities[cont].cooldown = newUnit.Attacks[cont].CoolDown;
-            DontDestroyOnLoad(newUnit.Attacks[cont]);
+            DontDestroyOnLoad(newAtts[cont]);
             cont++;
         }
-        Heroes.Add(newUnit);
+        unit.Attacks = newAtts;
+        Debug.Log(unit.Attacks[0]);
     }
 
     public void SetEnemyUnit(BaseUnit unit)
@@ -172,17 +208,25 @@ public class UnitManager : MonoBehaviour
         if (persistentHero != null)
         {
             GameManager.character = persistentHero.UnitName;
-            configuration.Heroes[0].prefab = persistentHero;
+            //configuration.Heroes[0].prefab = persistentHero;
             Heroes.Add(persistentHero);
             Heroes[0] = persistentHero;
             hasPersist = true;
         }
-
+        var c = 0;
+        if (SecondPlayer)
+        {
+            c++;
+        }
         //Referencio los heroes del data maanger y los guardo en la Lista Heroes
         foreach (ConfigurationData.UnitData unit in configuration.Heroes)
         {
             BaseUnit hero = unit.prefab;
             SetHeroUnit(hero);
+            if(c == 0)
+            {
+                break;
+            }
         }
 
         //Referencio los enemigos del data maanger y los guardo en la Lista Enemies
@@ -217,8 +261,9 @@ public class UnitManager : MonoBehaviour
             var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(x, y));
             var hero = Heroes[i];
             hero.OccupiedTile = randomSpawnTile;
-            randomSpawnTile.SetUnit(hero);
+            randomSpawnTile.SetUnit(hero);            
             hero.GetHighlightHero()._highlight.SetActive(true);
+            SetAttacks(hero);
         }
 
         StartCoroutine(RestoreStamina(Heroes[0]));
@@ -231,7 +276,7 @@ public class UnitManager : MonoBehaviour
         }
 
 
-        GameManager.Instance.ChangeState(GameState.SpawnEnemies);
+        GameManager.Instance.ChangeState(TutoState.SpawnEnemies);
     }
 
     //codigo que hace aparecer los enemigos
@@ -249,7 +294,7 @@ public class UnitManager : MonoBehaviour
             randomSpawnTile.SetUnit(Enemies[i]);
         }
 
-        GameManager.Instance.ChangeState(GameState.GenerateUI);
+        GameManager.Instance.ChangeState(TutoState.GenerateUI);
     }
 
     void ContarKPIAtaque(BaseUnit unit, int i)
@@ -1270,27 +1315,27 @@ public class UnitManager : MonoBehaviour
 
         if (player == 0)
         {
-            if ((Input.GetKey(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[0]))
+            if ((Input.GetKey(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && unit.Attacks.Length > 0 && MayCastAttack(unit, unit.Attacks[0]))
             {
                 //CanCastAttack(unit, 0);
                 ShowPrecast(unit, 0, player);
             }
-            if ((Input.GetKey(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[1]))
+            if ((Input.GetKey(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && unit.Attacks.Length > 1 && MayCastAttack(unit, unit.Attacks[1]))
             {
                 //CanCastAttack(unit, 1);
                 ShowPrecast(unit, 1, player);
             }
-            if ((Input.GetKey(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[2]))
+            if ((Input.GetKey(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && unit.Attacks.Length > 2 && MayCastAttack(unit, unit.Attacks[2]))
             {
                 //CanCastAttack(unit, 2);
                 ShowPrecast(unit, 2, player);
             }
-            if ((Input.GetKey(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[3]))
+            if ((Input.GetKey(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && unit.Attacks.Length > 3 && MayCastAttack(unit, unit.Attacks[3]))
             {
                 //CanCastAttack(unit, 3);
                 ShowPrecast(unit, 3, player);
             }
-            if ((Input.GetKey(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[4]))
+            if ((Input.GetKey(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasPressedThisFrame)) && unit.Attacks.Length > 4 && MayCastAttack(unit, unit.Attacks[4]))
             {
                 //CanCastAttack(unit, 4);
                 ShowPrecast(unit, 4, player);
@@ -1298,27 +1343,27 @@ public class UnitManager : MonoBehaviour
 
             //lo de arriba sera le precast y este de abajo el cast
 
-            if ((Input.GetKeyUp(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasReleasedThisFrame)) && unit.Attacks.Length > 0)
             {
                 CanCastAttack(unit, 0);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasReleasedThisFrame)) && unit.Attacks.Length > 1)
             {
                 CanCastAttack(unit, 1);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.K) || (Mando != null && Mando.buttonEast.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.K) || (Mando != null && Mando.buttonEast.wasReleasedThisFrame)) && unit.Attacks.Length > 2)
             {
                 CanCastAttack(unit, 2);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.L) || (Mando != null && Mando.buttonWest.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.L) || (Mando != null && Mando.buttonWest.wasReleasedThisFrame)) && unit.Attacks.Length > 3)
             {
                 CanCastAttack(unit, 3);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasReleasedThisFrame)) && unit.Attacks.Length > 4)
             {
                 CanCastAttack(unit, 4);
                 currentPrecastIndex[0] = -1;
@@ -1326,27 +1371,27 @@ public class UnitManager : MonoBehaviour
         }
         if (player == 1)
         {
-            if ((Input.GetKey(KeyCode.I) || (Mando2 != null && Mando2.buttonSouth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[0]))
+            if ((Input.GetKey(KeyCode.I) || (Mando2 != null && Mando2.buttonSouth.wasPressedThisFrame)) && unit.Attacks.Length > 0 && MayCastAttack(unit, unit.Attacks[0]))
             {
                 //CanCastAttack(unit, 0);
                 ShowPrecast(unit, 0, player);
             }
-            if ((Input.GetKey(KeyCode.J) || (Mando2 != null && Mando2.buttonNorth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[1]))
+            if ((Input.GetKey(KeyCode.J) || (Mando2 != null && Mando2.buttonNorth.wasPressedThisFrame)) && unit.Attacks.Length > 1 && MayCastAttack(unit, unit.Attacks[1]))
             {
                 //CanCastAttack(unit, 1);
                 ShowPrecast(unit, 1, player);
             }
-            if ((Input.GetKey(KeyCode.K) || (Mando2 != null && Mando2.buttonEast.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[2]))
+            if ((Input.GetKey(KeyCode.K) || (Mando2 != null && Mando2.buttonEast.wasPressedThisFrame)) && unit.Attacks.Length > 2 && MayCastAttack(unit, unit.Attacks[2]))
             {
                 //CanCastAttack(unit, 2);
                 ShowPrecast(unit, 2, player);
             }
-            if ((Input.GetKey(KeyCode.L) || (Mando2 != null && Mando2.buttonWest.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[3]))
+            if ((Input.GetKey(KeyCode.L) || (Mando2 != null && Mando2.buttonWest.wasPressedThisFrame)) && unit.Attacks.Length > 3 && MayCastAttack(unit, unit.Attacks[3]))
             {
                 //CanCastAttack(unit, 3);
                 ShowPrecast(unit, 3, player);
             }
-            if ((Input.GetKey(KeyCode.O) || (Mando2 != null && Mando2.rightTrigger.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[4]))
+            if ((Input.GetKey(KeyCode.O) || (Mando2 != null && Mando2.rightTrigger.wasPressedThisFrame)) && unit.Attacks.Length > 4 && MayCastAttack(unit, unit.Attacks[4]))
             {
                 //CanCastAttack(unit, 4);
                 ShowPrecast(unit, 4, player);
@@ -1354,27 +1399,27 @@ public class UnitManager : MonoBehaviour
 
             //lo de arriba sera le precast y este de abajo el cast
 
-            if ((Input.GetKeyUp(KeyCode.G) || (Mando2 != null && Mando2.buttonSouth.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.G) || (Mando2 != null && Mando2.buttonSouth.wasReleasedThisFrame)) && unit.Attacks.Length > 0)
             {
                 CanCastAttack(unit, 0);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.V) || (Mando2 != null && Mando2.buttonNorth.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.V) || (Mando2 != null && Mando2.buttonNorth.wasReleasedThisFrame)) && unit.Attacks.Length > 1)
             {
                 CanCastAttack(unit, 1);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.B) || (Mando2 != null && Mando2.buttonEast.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.B) || (Mando2 != null && Mando2.buttonEast.wasReleasedThisFrame)) && unit.Attacks.Length > 2)
             {
                 CanCastAttack(unit, 2);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.N) || (Mando2 != null && Mando2.buttonWest.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.N) || (Mando2 != null && Mando2.buttonWest.wasReleasedThisFrame)) && unit.Attacks.Length > 3)
             {
                 CanCastAttack(unit, 3);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.H) || (Mando2 != null && Mando2.rightTrigger.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.H) || (Mando2 != null && Mando2.rightTrigger.wasReleasedThisFrame)) && unit.Attacks.Length > 4)
             {
                 CanCastAttack(unit, 4);
                 currentPrecastIndex[0] = -1;
@@ -1810,7 +1855,7 @@ public class UnitManager : MonoBehaviour
                 //unit.Destroy();
                 if (Heroes.Count == 0)
                 {
-                    GameManager.Instance.ChangeState(GameState.EndFight);
+                    GameManager.Instance.ChangeState(TutoState.EndFight);
                 }
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Enemy)
@@ -1826,7 +1871,7 @@ public class UnitManager : MonoBehaviour
         }
         if (Enemies.Count == 0)
         {
-            GameManager.Instance.ChangeState(GameState.EndFight);
+            GameManager.Instance.ChangeState(TutoState.EndFight);
         }
     }
 
