@@ -338,13 +338,13 @@ PrefabInstance:
         type: 3}
       propertyPath: configuration.Heroes.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
+      objectReference: {fileID: 7735570308767223746, guid: a0bf54fc03aa32f489bd82d9cd5d2180,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
       propertyPath: configuration.Heroes.Array.data[1].prefab
       value: 
-      objectReference: {fileID: 7735570308767223746, guid: a0bf54fc03aa32f489bd82d9cd5d2180,
+      objectReference: {fileID: 7735570308767223746, guid: a2ad9b083ea6d554cb92b49f35fd26c4,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
@@ -454,7 +454,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[0].Attacks.Array.data[0]'
       value: 
-      objectReference: {fileID: 8091908140846267713, guid: 7ed337ab9ab6c2e48a167a70b64fa683,
+      objectReference: {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
@@ -478,7 +478,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'configuration.Heroes.Array.data[1].Attacks.Array.data[0]'
       value: 
-      objectReference: {fileID: 8091908140846267713, guid: 0ee59317c53f3d040bdca67fa535c1a6,
+      objectReference: {fileID: 8091908140846267713, guid: 7ed337ab9ab6c2e48a167a70b64fa683,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
