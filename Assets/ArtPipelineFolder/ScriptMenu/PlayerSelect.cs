@@ -41,6 +41,7 @@ public class PlayerSelect : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(this);
     }
 
     void Start()
