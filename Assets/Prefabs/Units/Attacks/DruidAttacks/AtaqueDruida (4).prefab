@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: at4
   OccupiedTile: {fileID: 0}
-  Damage: 2
+  Damage: 10
   Heal: 0
   Stamina: 0
   Faction: 0

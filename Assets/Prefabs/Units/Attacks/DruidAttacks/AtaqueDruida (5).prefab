@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: amd
   OccupiedTile: {fileID: 0}
-  Damage: 5
+  Damage: 6
   Heal: 0
   Stamina: 0
   Faction: 0
