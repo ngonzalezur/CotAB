@@ -315,8 +315,6 @@ MonoBehaviour:
   Attacks:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   veneno: 0
   burn: 0
   MaxStamina: 5
@@ -328,7 +326,7 @@ MonoBehaviour:
   lastCastBA: 0
   animator: {fileID: 2885529330961643097}
   parry: 0
-  isPersistentHero: 1
+  isPersistentHero: 0
 --- !u!54 &-2926728650241075384
 Rigidbody:
   m_ObjectHideFlags: 0

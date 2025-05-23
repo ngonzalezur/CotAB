@@ -202,17 +202,32 @@ public class UnitManager : MonoBehaviour
         hasChangedMusic = false; //Reiniciar Música
         Instance = this;
 
-        BaseUnit persistentHero = GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
-                                     .FirstOrDefault(u => u.isPersistentHero);
-
-        if (persistentHero != null)
+        if(PlayerSelect.Instance != null)
         {
-            GameManager.character = persistentHero.UnitName;
-            //configuration.Heroes[0].prefab = persistentHero;
-            Heroes.Add(persistentHero);
-            Heroes[0] = persistentHero;
-            hasPersist = true;
+            ConfigurationData.UnitData aux1 = configuration.Heroes[0];
+            ConfigurationData.UnitData aux2 = configuration.Heroes[1];
+            if(aux1.prefab.UnitName == PlayerSelect.Instance.currentSelectedUnitPlayer1.UnitName)
+            {
+
+            }else if (aux2.prefab.UnitName == PlayerSelect.Instance.currentSelectedUnitPlayer1.UnitName)
+            {
+                configuration.Heroes[0] = aux2;
+                configuration.Heroes[1] = aux1;
+            }
+            SecondPlayer = PlayerSelect.Instance.isPlayer2Ready;
         }
+
+        //BaseUnit persistentHero = GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
+        //                             .FirstOrDefault(u => u.isPersistentHero);
+
+        //if (persistentHero != null)
+        //{
+        //    GameManager.character = persistentHero.UnitName;
+        //    //configuration.Heroes[0].prefab = persistentHero;
+        //    Heroes.Add(persistentHero);
+        //    Heroes[0] = persistentHero;
+        //    hasPersist = true;
+        //}
         var c = 0;
         if (SecondPlayer)
         {
