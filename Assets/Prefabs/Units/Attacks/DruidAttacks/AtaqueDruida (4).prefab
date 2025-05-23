@@ -138,7 +138,9 @@ MonoBehaviour:
   DoBurn: 10
   stun: 0
   attackType: 0
-  type: 3
+  type: 14
+  ExtraAttack: {fileID: 0}
+  numRandomTiles: 0
 --- !u!1001 &4949956366182042691
 PrefabInstance:
   m_ObjectHideFlags: 0

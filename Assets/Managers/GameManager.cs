@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameState GameState;
+    public TutoState GameState;
 
     //las 21 cosas que leen los kpis
 
@@ -48,42 +48,42 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        ChangeState(GameState.GenerateGrid);        
+        ChangeState(TutoState.GenerateGrid);        
     }
 
-    public void ChangeState(GameState newState)
+    public void ChangeState(TutoState newState)
     {
         GameState = newState;
         switch (newState)
         {
-            case GameState.GenerateGrid:
+            case TutoState.GenerateGrid:
                 GridManager.Instance.GenerateGrid();
                 break;
-            case GameState.SpawnHeroes:
+            case TutoState.SpawnHeroes:
                 UnitManager.Instance.SpawnHeroes();
                 //MauriManager.Instance.SpawnHeroes();
                 break;
-            case GameState.SpawnEnemies:
+            case TutoState.SpawnEnemies:
                 UnitManager.Instance.SpawnEnemies();
                 //MauriManager.Instance.SpawnEnemies();
                 break;
-            case GameState.GenerateUI:
+            case TutoState.GenerateUI:
                 //CanvaManager.Instance.AssignAttack();
                 CanvaManager.Instance.PutSprites();
-                this.ChangeState(GameState.HeroesTurn);
+                this.ChangeState(TutoState.HeroesTurn);
                 CanvaManager.Instance.CanSprites = true;
                 break;
-            case GameState.HeroesTurn:
+            case TutoState.HeroesTurn:
                 UnitManager.Instance.CanPlay = true;
                 //MauriManager.Instance.CanPlay = true;
                 break;
-            case GameState.EndFight:
+            case TutoState.EndFight:
                 UnitManager.Instance.CanPlay = false;
                 CanvaManager.Instance.CanSprites = false;
                 Debug.Log("GG");
-                this.ChangeState(GameState.End);
+                this.ChangeState(TutoState.End);
                 break;
-            case GameState.End:
+            case TutoState.End:
                 var scene = SceneManager.GetActiveScene().name;
                 if (scene == "Tutorial")
                 {
@@ -100,6 +100,50 @@ public class GameManager : MonoBehaviour
                 else if (scene == "SecondPlayer")
                 {
                     SceneManager.LoadScene("Elegir");
+                }
+                else if (scene == "Level 1")
+                {
+                    if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
+                    {
+                        SceneManager.LoadScene("Cine02Druid");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("Cine02Robot");
+                    }
+                    
+                }
+                else if (scene == "Level 2")
+                {
+                    if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
+                    {
+                        SceneManager.LoadScene("Cine03Druid");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("Cine03Robot");
+                    }
+
+                }
+                else if (scene == "Level 3")
+                {                    
+                    SceneManager.LoadScene("Level 4");
+                }
+                else if (scene == "Level 4")
+                {
+                    SceneManager.LoadScene("Level 5");
+                }
+                else if (scene == "Level 5")
+                {
+                    if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
+                    {
+                        SceneManager.LoadScene("Cine04Druid");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("Cine04Robot");
+                    }
+
                 }
 
                 if (scene == "Level hard" || UnitManager.Instance.SecondPlayer)
@@ -162,7 +206,7 @@ public class GameManager : MonoBehaviour
 
 
 
-public enum GameState
+public enum TutoState
 {
     GenerateGrid = 0,
     SpawnHeroes = 1,

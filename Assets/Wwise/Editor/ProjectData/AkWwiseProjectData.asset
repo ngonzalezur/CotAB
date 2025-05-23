@@ -331,11 +331,11 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 0ac5b1dff5e8cc47a658227402647446
     GuidInternal: 
-    m_lastTime: -8584573556854775808
+    m_lastTime: -8584542779633306438
     List:
-    - name: Combat_SBank
-      guid: c5053a4bcd79fa4980fc55624ebfe325
-      id: 2264177337
+    - name: Combat_SoundBank
+      guid: 872161022ddd4647b1565731e390e223
+      id: 1637973687
       PathAndIcons:
       - ElementName: SoundBanks
         ObjectType: 5
@@ -343,10 +343,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 0ac5b1dff5e8cc47a658227402647446
-      - ElementName: Combat_SBank
+      - ElementName: Combat_SoundBank
         ObjectType: 7
-        guid: c5053a4bcd79fa4980fc55624ebfe325
-      Path: SoundBanks\Default Work Unit\Combat_SBank
+        guid: 872161022ddd4647b1565731e390e223
+      Path: SoundBanks\Default Work Unit\Combat_SoundBank
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -359,8 +359,25 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e162b17a710f2943908bc696d6471d61
     GuidInternal: 
-    m_lastTime: -8584560513525802234
+    m_lastTime: -8584536377533632153
     List:
+    - name: Attack Boss
+      guid: 032e349202deda4589d723ea15403405
+      id: 2978314996
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Boss
+        ObjectType: 4
+        guid: 032e349202deda4589d723ea15403405
+      Path: Events\Default Work Unit\Attack Boss
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Attack Druid
       guid: f4a86e17a16bd048a5c19e74981a767d
       id: 2559603093
@@ -375,6 +392,23 @@ MonoBehaviour:
         ObjectType: 4
         guid: f4a86e17a16bd048a5c19e74981a767d
       Path: Events\Default Work Unit\Attack Druid
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Attack Enemies
+      guid: 5998de0d793449449b0def90c7949a80
+      id: 1506265753
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Enemies
+        ObjectType: 4
+        guid: 5998de0d793449449b0def90c7949a80
+      Path: Events\Default Work Unit\Attack Enemies
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -395,9 +429,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Combat01_Voices
-      guid: fe96ea0872d60340962461a164d053a8
-      id: 3684908830
+    - name: Boss Music
+      guid: 136b5a634645a84b93bf60ce8b2d8f07
+      id: 982809915
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -405,16 +439,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
+      - ElementName: Boss Music
         ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      Path: Events\Default Work Unit\Combat01_Voices
+        guid: 136b5a634645a84b93bf60ce8b2d8f07
+      Path: Events\Default Work Unit\Boss Music
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Combate02_Voices
-      guid: 6b8cd6b04b663c49a8a3651dd6076188
-      id: 3527054834
+    - name: ChangeCombatMusic
+      guid: 9612f55a8a3010409202b795026deb90
+      id: 3740741074
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -422,13 +456,167 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
+      - ElementName: Combat Music
         ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      Path: Events\Default Work Unit\Combate02_Voices
+        guid: e7929771eb504b4cbe50390096e777de
+      - ElementName: ChangeCombatMusic
+        ObjectType: 3
+        guid: 9612f55a8a3010409202b795026deb90
+      Path: Events\Default Work Unit\Combat Music\ChangeCombatMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Combat Music
+      guid: e7929771eb504b4cbe50390096e777de
+      id: 4120977212
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Combat Music
+        ObjectType: 4
+        guid: e7929771eb504b4cbe50390096e777de
+      Path: Events\Default Work Unit\Combat Music
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Damage Enemies
+      guid: faf6fa7e2d041d41920776fbc547699a
+      id: 1071424714
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Damage Enemies
+        ObjectType: 4
+        guid: faf6fa7e2d041d41920776fbc547699a
+      Path: Events\Default Work Unit\Damage Enemies
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Dialogue
+      guid: ac9dfcb554c3a64280751f4a3955e145
+      id: 3930136735
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      Path: Events\Default Work Unit\Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Area_distance_Enemy
+      guid: 6f99479a34e8cd4ebbaa034dbc28fb78
+      id: 45490180
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Enemies
+        ObjectType: 4
+        guid: 5998de0d793449449b0def90c7949a80
+      - ElementName: Play_Area_distance_Enemy
+        ObjectType: 3
+        guid: 6f99479a34e8cd4ebbaa034dbc28fb78
+      Path: Events\Default Work Unit\Attack Enemies\Play_Area_distance_Enemy
+      maxAttenuation: 0
+      maxDuration: 0.94900227
+      minDuration: 0.94900227
+    - name: Play_Area_front_Enemy
+      guid: 3222def09c72e5458e156270b540196d
+      id: 553071288
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Enemies
+        ObjectType: 4
+        guid: 5998de0d793449449b0def90c7949a80
+      - ElementName: Play_Area_front_Enemy
+        ObjectType: 3
+        guid: 3222def09c72e5458e156270b540196d
+      Path: Events\Default Work Unit\Attack Enemies\Play_Area_front_Enemy
+      maxAttenuation: 0
+      maxDuration: 0.94900227
+      minDuration: 0.94900227
+    - name: Play_Atract_Enemy
+      guid: bf5988998725b440ba94756e8ec614fa
+      id: 3136587618
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Enemies
+        ObjectType: 4
+        guid: 5998de0d793449449b0def90c7949a80
+      - ElementName: Play_Atract_Enemy
+        ObjectType: 3
+        guid: bf5988998725b440ba94756e8ec614fa
+      Path: Events\Default Work Unit\Attack Enemies\Play_Atract_Enemy
+      maxAttenuation: 0
+      maxDuration: 0.94900227
+      minDuration: 0.94900227
+    - name: Play_Barrido_Columna_Boss
+      guid: 862722eb9fe8314193e6e92f9315b5e9
+      id: 1359721473
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Boss
+        ObjectType: 4
+        guid: 032e349202deda4589d723ea15403405
+      - ElementName: Play_Barrido_Columna_Boss
+        ObjectType: 3
+        guid: 862722eb9fe8314193e6e92f9315b5e9
+      Path: Events\Default Work Unit\Attack Boss\Play_Barrido_Columna_Boss
+      maxAttenuation: 0
+      maxDuration: 2.1310203
+      minDuration: 2.1310203
+    - name: Play_Barrido_Fila_Boss
+      guid: 93460c0d66af33459a7fcc039f097056
+      id: 342642858
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Boss
+        ObjectType: 4
+        guid: 032e349202deda4589d723ea15403405
+      - ElementName: Play_Barrido_Fila_Boss
+        ObjectType: 3
+        guid: 93460c0d66af33459a7fcc039f097056
+      Path: Events\Default Work Unit\Attack Boss\Play_Barrido_Fila_Boss
+      maxAttenuation: 0
+      maxDuration: 2.1310203
+      minDuration: 2.1310203
     - name: Play_Brote_Robot
       guid: 2dcbff63150d844e9188f6fd74d2ece9
       id: 3671704113
@@ -449,6 +637,210 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.94773245
       minDuration: 0.94773245
+    - name: Play_Casilla_X_Boss
+      guid: 85cdf6cf1b3a2747ae7946e8e1e183b9
+      id: 2362712266
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Boss
+        ObjectType: 4
+        guid: 032e349202deda4589d723ea15403405
+      - ElementName: Play_Casilla_X_Boss
+        ObjectType: 3
+        guid: 85cdf6cf1b3a2747ae7946e8e1e183b9
+      Path: Events\Default Work Unit\Attack Boss\Play_Casilla_X_Boss
+      maxAttenuation: 0
+      maxDuration: 2.1310203
+      minDuration: 2.1310203
+    - name: Play_Cine01Caballero
+      guid: 5f9c354afdf7f2479555ae4108204d93
+      id: 865224105
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine01Caballero
+        ObjectType: 3
+        guid: 5f9c354afdf7f2479555ae4108204d93
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine01Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine01Druid
+      guid: e819dc1971489f418dfa770f9264308b
+      id: 1769257584
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine01Druid
+        ObjectType: 3
+        guid: e819dc1971489f418dfa770f9264308b
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine01Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
+    - name: Play_Cine02Caballero
+      guid: 83fc3cb7d9ba4942bfeed1edb6573a26
+      id: 749673500
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine02Caballero
+        ObjectType: 3
+        guid: 83fc3cb7d9ba4942bfeed1edb6573a26
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine02Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine02Druid
+      guid: b91ac118b8d1e649bebbb4069b39e795
+      id: 777406489
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine02Druid
+        ObjectType: 3
+        guid: b91ac118b8d1e649bebbb4069b39e795
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine02Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
+    - name: Play_Cine03Caballero
+      guid: e88b3498c5c349468f6e6769c8017155
+      id: 1300650495
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine03Caballero
+        ObjectType: 3
+        guid: e88b3498c5c349468f6e6769c8017155
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine03Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine03Druid
+      guid: f70f8715e19c70459fe8bb5c2db2bd7e
+      id: 1192924570
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine03Druid
+        ObjectType: 3
+        guid: f70f8715e19c70459fe8bb5c2db2bd7e
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine03Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
+    - name: Play_Cine04Caballero
+      guid: 3f8b2d5d2810bf4e9f35f17e2d0584e7
+      id: 3696747394
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      - ElementName: Play_Cine04Caballero
+        ObjectType: 3
+        guid: 3f8b2d5d2810bf4e9f35f17e2d0584e7
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero\Play_Cine04Caballero
+      maxAttenuation: 0
+      maxDuration: 8.944853
+      minDuration: 8.944853
+    - name: Play_Cine04Druid
+      guid: f3b4c72da71908439174479b236322c5
+      id: 3372602331
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
+        ObjectType: 4
+        guid: c4054e1264ad7e4c9d994800c095850c
+      - ElementName: Play_Cine04Druid
+        ObjectType: 3
+        guid: f3b4c72da71908439174479b236322c5
+      Path: Events\Default Work Unit\Dialogue\PlayDruid\Play_Cine04Druid
+      maxAttenuation: 0
+      maxDuration: 8.291111
+      minDuration: 8.291111
     - name: Play_CombatMusicPlaylist
       guid: dfe7bd6128ac21419c65d064dd4b687b
       id: 1462092269
@@ -459,13 +851,33 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Combat Music
+        ObjectType: 4
+        guid: e7929771eb504b4cbe50390096e777de
       - ElementName: Play_CombatMusicPlaylist
         ObjectType: 3
         guid: dfe7bd6128ac21419c65d064dd4b687b
-      Path: Events\Default Work Unit\Play_CombatMusicPlaylist
+      Path: Events\Default Work Unit\Combat Music\Play_CombatMusicPlaylist
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Play_Damage_Boss
+      guid: 93bfc30f0873b8418f5bba93154b9378
+      id: 241575375
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Play_Damage_Boss
+        ObjectType: 3
+        guid: 93bfc30f0873b8418f5bba93154b9378
+      Path: Events\Default Work Unit\Play_Damage_Boss
+      maxAttenuation: 0
+      maxDuration: 0.9469841
+      minDuration: 0.9469841
     - name: Play_Damage_Druid
       guid: 038956611317d048bbe30bbbf57f1601
       id: 3230461460
@@ -481,11 +893,11 @@ MonoBehaviour:
         guid: 038956611317d048bbe30bbbf57f1601
       Path: Events\Default Work Unit\Play_Damage_Druid
       maxAttenuation: 0
-      maxDuration: 0.72942215
-      minDuration: 0.26268423
-    - name: Play_Damage_Hero_Randomizer
-      guid: 06198edccef6144cb04fb9a981e605fd
-      id: 3446409770
+      maxDuration: 0.39812103
+      minDuration: 0.2632068
+    - name: Play_Damage_Hongo
+      guid: 34120e020f065d42b5c74b58d41ff0fa
+      id: 245375377
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -493,13 +905,36 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Play_Damage_Hero_Randomizer
+      - ElementName: Damage Enemies
+        ObjectType: 4
+        guid: faf6fa7e2d041d41920776fbc547699a
+      - ElementName: Play_Damage_Hongo
         ObjectType: 3
-        guid: 06198edccef6144cb04fb9a981e605fd
-      Path: Events\Default Work Unit\Play_Damage_Hero_Randomizer
+        guid: 34120e020f065d42b5c74b58d41ff0fa
+      Path: Events\Default Work Unit\Damage Enemies\Play_Damage_Hongo
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.9469841
+      minDuration: 0.9469841
+    - name: Play_Damage_Murcielago
+      guid: 4d3c4f97521e7f49985617c2029fe7b4
+      id: 3690804762
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Damage Enemies
+        ObjectType: 4
+        guid: faf6fa7e2d041d41920776fbc547699a
+      - ElementName: Play_Damage_Murcielago
+        ObjectType: 3
+        guid: 4d3c4f97521e7f49985617c2029fe7b4
+      Path: Events\Default Work Unit\Damage Enemies\Play_Damage_Murcielago
+      maxAttenuation: 0
+      maxDuration: 0.9469841
+      minDuration: 0.9469841
     - name: Play_Damage_Robot
       guid: e926e6dcc9c62444b24c1b8fa1f394d8
       id: 1942325012
@@ -515,8 +950,28 @@ MonoBehaviour:
         guid: e926e6dcc9c62444b24c1b8fa1f394d8
       Path: Events\Default Work Unit\Play_Damage_Robot
       maxAttenuation: 0
-      maxDuration: 2.6892517
-      minDuration: 2.6892517
+      maxDuration: 0.9469841
+      minDuration: 0.9469841
+    - name: Play_Damage_Skeleton
+      guid: dfe78ac68b7e7a4189dba669df697f97
+      id: 966081817
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Damage Enemies
+        ObjectType: 4
+        guid: faf6fa7e2d041d41920776fbc547699a
+      - ElementName: Play_Damage_Skeleton
+        ObjectType: 3
+        guid: dfe78ac68b7e7a4189dba669df697f97
+      Path: Events\Default Work Unit\Damage Enemies\Play_Damage_Skeleton
+      maxAttenuation: 0
+      maxDuration: 0.9469841
+      minDuration: 0.9469841
     - name: Play_Firewall_Druid
       guid: 77a2c8741431074ea1b61ea63aca7e9b
       id: 364273755
@@ -535,8 +990,68 @@ MonoBehaviour:
         guid: 77a2c8741431074ea1b61ea63aca7e9b
       Path: Events\Default Work Unit\Attack Druid\Play_Firewall_Druid
       maxAttenuation: 0
-      maxDuration: 0.94773245
-      minDuration: 0.94773245
+      maxDuration: 0.9469841
+      minDuration: 0.9469841
+    - name: Play_Flor_attack_Robot
+      guid: c5f1e6a1d5c3d54493655d93aae75c53
+      id: 2956068371
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Robot
+        ObjectType: 4
+        guid: 502839aa97a45d4a96ea7f435191df6a
+      - ElementName: Play_Flor_attack_Robot
+        ObjectType: 3
+        guid: c5f1e6a1d5c3d54493655d93aae75c53
+      Path: Events\Default Work Unit\Attack Robot\Play_Flor_attack_Robot
+      maxAttenuation: 0
+      maxDuration: 1.1692196
+      minDuration: 1.1692196
+    - name: Play_Gancho_Druid
+      guid: 05d48b13b75efa488d3e280017e71afc
+      id: 1159642833
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Druid
+        ObjectType: 4
+        guid: f4a86e17a16bd048a5c19e74981a767d
+      - ElementName: Play_Gancho_Druid
+        ObjectType: 3
+        guid: 05d48b13b75efa488d3e280017e71afc
+      Path: Events\Default Work Unit\Attack Druid\Play_Gancho_Druid
+      maxAttenuation: 0
+      maxDuration: 0.9469841
+      minDuration: 0.9469841
+    - name: Play_Gancho_Enemy
+      guid: 6aef04eec85cca49a232b81c438f7d05
+      id: 2573167197
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Enemies
+        ObjectType: 4
+        guid: 5998de0d793449449b0def90c7949a80
+      - ElementName: Play_Gancho_Enemy
+        ObjectType: 3
+        guid: 6aef04eec85cca49a232b81c438f7d05
+      Path: Events\Default Work Unit\Attack Enemies\Play_Gancho_Enemy
+      maxAttenuation: 0
+      maxDuration: 0.94900227
+      minDuration: 0.94900227
     - name: Play_Grid_Druid
       guid: 6a5167c9572fca43991b7cb486e97d5b
       id: 104012431
@@ -555,8 +1070,28 @@ MonoBehaviour:
         guid: 6a5167c9572fca43991b7cb486e97d5b
       Path: Events\Default Work Unit\Attack Druid\Play_Grid_Druid
       maxAttenuation: 0
-      maxDuration: 0.94773245
-      minDuration: 0.94773245
+      maxDuration: 0.9469841
+      minDuration: 0.9469841
+    - name: Play_Grid_Teleport_Enemy
+      guid: b692d608a75ec64198b569351b01279a
+      id: 1041240749
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Attack Enemies
+        ObjectType: 4
+        guid: 5998de0d793449449b0def90c7949a80
+      - ElementName: Play_Grid_Teleport_Enemy
+        ObjectType: 3
+        guid: b692d608a75ec64198b569351b01279a
+      Path: Events\Default Work Unit\Attack Enemies\Play_Grid_Teleport_Enemy
+      maxAttenuation: 0
+      maxDuration: 0.94900227
+      minDuration: 0.94900227
     - name: Play_Melee_Druid
       guid: b390a38add9f3e44950c09d23092cf30
       id: 2651910159
@@ -575,8 +1110,25 @@ MonoBehaviour:
         guid: b390a38add9f3e44950c09d23092cf30
       Path: Events\Default Work Unit\Attack Druid\Play_Melee_Druid
       maxAttenuation: 0
-      maxDuration: 0.94773245
-      minDuration: 0.94773245
+      maxDuration: 0.9469841
+      minDuration: 0.9469841
+    - name: Play_MusicCinePlaylist
+      guid: 9836cf7484ddd443bd796103286691c1
+      id: 917750874
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Play_MusicCinePlaylist
+        ObjectType: 3
+        guid: 9836cf7484ddd443bd796103286691c1
+      Path: Events\Default Work Unit\Play_MusicCinePlaylist
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Parry_Robot
       guid: 2bd766a99b0c3f49a13e4a8abb6ebb89
       id: 3072108541
@@ -615,8 +1167,8 @@ MonoBehaviour:
         guid: 8efe516523aa804796bee6fe0c2d4a43
       Path: Events\Default Work Unit\Attack Druid\Play_Posion_Druid
       maxAttenuation: 0
-      maxDuration: 0.94773245
-      minDuration: 0.94773245
+      maxDuration: 0.9469841
+      minDuration: 0.9469841
     - name: Play_Smite_Robot
       guid: c2530bcac82e084984c8d8d4a98b6c4e
       id: 1513174551
@@ -635,11 +1187,11 @@ MonoBehaviour:
         guid: c2530bcac82e084984c8d8d4a98b6c4e
       Path: Events\Default Work Unit\Attack Robot\Play_Smite_Robot
       maxAttenuation: 0
-      maxDuration: 2.1614287
-      minDuration: 2.1614287
-    - name: Set_Voice_Volume_Contra_Bajo_Lento
-      guid: 7e20e76c0333164fb92d126b89b21498
-      id: 2899002807
+      maxDuration: 1.6310431
+      minDuration: 1.6310431
+    - name: PlayBossMusic01
+      guid: cb6b067aa99fdc4580521491427ea90c
+      id: 394309612
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -647,19 +1199,19 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
+      - ElementName: Boss Music
         ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Lento
+        guid: 136b5a634645a84b93bf60ce8b2d8f07
+      - ElementName: PlayBossMusic01
         ObjectType: 3
-        guid: 7e20e76c0333164fb92d126b89b21498
-      Path: Events\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Contra_Bajo_Lento
+        guid: cb6b067aa99fdc4580521491427ea90c
+      Path: Events\Default Work Unit\Boss Music\PlayBossMusic01
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Lento02
-      guid: 98b0adb314c1e040be012f57facc0314
-      id: 2215044877
+    - name: PlayBossMusic02
+      guid: af7c996dc89e9b4c93c1a24aeca4f743
+      id: 394309615
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -667,19 +1219,19 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
+      - ElementName: Boss Music
         ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Lento02
+        guid: 136b5a634645a84b93bf60ce8b2d8f07
+      - ElementName: PlayBossMusic02
         ObjectType: 3
-        guid: 98b0adb314c1e040be012f57facc0314
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Lento02
+        guid: af7c996dc89e9b4c93c1a24aeca4f743
+      Path: Events\Default Work Unit\Boss Music\PlayBossMusic02
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Pa02
-      guid: f317b656a7a06a4cafa6454486b4699b
-      id: 422594956
+    - name: PlayCaballero
+      guid: 7b43a4aef98c7a4891dd8febd107eda7
+      id: 3374728840
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -687,19 +1239,19 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
+      - ElementName: Dialogue
         ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Pa02
-        ObjectType: 3
-        guid: f317b656a7a06a4cafa6454486b4699b
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Pa02
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayCaballero
+        ObjectType: 4
+        guid: 7b43a4aef98c7a4891dd8febd107eda7
+      Path: Events\Default Work Unit\Dialogue\PlayCaballero
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Rapido
-      guid: 3df83113ae35f841b2d0d70297808326
-      id: 3312578390
+      maxDuration: -1
+      minDuration: -1
+    - name: PlayDruid
+      guid: c4054e1264ad7e4c9d994800c095850c
+      id: 1288953949
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -707,96 +1259,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
+      - ElementName: Dialogue
         ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Rapido
-        ObjectType: 3
-        guid: 3df83113ae35f841b2d0d70297808326
-      Path: Events\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Contra_Bajo_Rapido
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Contra_Bajo_Rapido02
-      guid: 6eb628948d3d8d4381159a536e980e6b
-      id: 3665169700
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
+        guid: ac9dfcb554c3a64280751f4a3955e145
+      - ElementName: PlayDruid
         ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Contra_Bajo_Rapido02
-        ObjectType: 3
-        guid: 6eb628948d3d8d4381159a536e980e6b
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Contra_Bajo_Rapido02
+        guid: c4054e1264ad7e4c9d994800c095850c
+      Path: Events\Default Work Unit\Dialogue\PlayDruid
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Drums02
-      guid: fd3a3272558bee4590e302901b3a3e19
-      id: 2484717745
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
-        ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Drums02
-        ObjectType: 3
-        guid: fd3a3272558bee4590e302901b3a3e19
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Drums02
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Violin_lead
-      guid: 35871594b8142046a0cd4aabb2741aa0
-      id: 266669932
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combat01_Voices
-        ObjectType: 4
-        guid: fe96ea0872d60340962461a164d053a8
-      - ElementName: Set_Voice_Volume_Violin_lead
-        ObjectType: 3
-        guid: 35871594b8142046a0cd4aabb2741aa0
-      Path: Events\Default Work Unit\Combat01_Voices\Set_Voice_Volume_Violin_lead
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_Voice_Volume_Violin_lead02
-      guid: f1331365acf696469c36350e2171450c
-      id: 86316782
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e162b17a710f2943908bc696d6471d61
-      - ElementName: Combate02_Voices
-        ObjectType: 4
-        guid: 6b8cd6b04b663c49a8a3651dd6076188
-      - ElementName: Set_Voice_Volume_Violin_lead02
-        ObjectType: 3
-        guid: f1331365acf696469c36350e2171450c
-      Path: Events\Default Work Unit\Combate02_Voices\Set_Voice_Volume_Violin_lead02
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -1006,9 +1478,9 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8584586643634775808
     List: []
-  ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
-  AutoSyncSelection: 0
+  ExpandedFileSystemItemIds: 010000000200000003000000090000000a0000000d000000220000002300000024000000
+  ExpandedWaapiItemIds: 01000000020000000300000006000000070000000a000000
+  AutoSyncSelection: 1
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 

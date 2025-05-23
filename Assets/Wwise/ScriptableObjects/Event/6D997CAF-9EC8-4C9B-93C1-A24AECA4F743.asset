@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbf5ad33edc6cb4d91f60e07cd9dcf3, type: 3}
+  m_Name: 6D997CAF-9EC8-4C9B-93C1-A24AECA4F743
+  m_EditorClassIdentifier: 
+  objectName: PlayBossMusic02
+  id: 394309615
+  guid: 6D997CAF-9EC8-4C9B-93C1-A24AECA4F743
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

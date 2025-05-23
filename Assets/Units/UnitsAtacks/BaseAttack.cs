@@ -208,17 +208,20 @@ public class BaseAttack : MonoBehaviour
                         sound.PlayRobotDamage();
                     }
                 }                
-                if (unit.animator != null)
-                {
-                    unit.animator?.SetTrigger("TakeDamage");
-                }
+                
+                    if(unit.Faction == Faction.Enemy)
+                    {
+                        var animatorE = unit.GetComponentInChildren<Animator>();
+                        animatorE.SetTrigger("Hit");
+                    }else if(unit.Faction == Faction.Hero && unit.animator != null)
+                    {
+                        unit.animator?.SetTrigger("TakeDamage");
+                    }                    
+                
             }else if (unit.parry)
             {
                 UnitManager.Instance.CastAttack(unit, this);
             }
-            
-            
-            
         }
     }
 

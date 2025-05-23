@@ -1,0 +1,1265 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1637973687",
+    "Type": "User",
+    "GUID": "{02612187-DD2D-4746-B156-5731E390E223}",
+    "Language": "SFX",
+    "Hash": "{A36B64ED-079A-C2F0-569F-0CEE82D1046D}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SoundBank",
+    "ShortName": "Combat_SoundBank",
+    "Path": "Combat_SoundBank.bnk",
+    "Media": [
+     {
+      "Id": "8699969",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine04Caballero.wav",
+      "CachePath": "2F/{2FA7E128-8CA0-E7E5-755E-A7DFE1B06C56}.wem"
+     },
+     {
+      "Id": "17165352",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Casilla X Boss.wav",
+      "CachePath": "DD/{DDC2F006-CEA7-87C7-EC67-6EC418F159C9}.wem"
+     },
+     {
+      "Id": "21024630",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Skeleton 04.wav",
+      "CachePath": "10/{1034F648-0EAA-E051-B831-322FAAAA2BE3}.wem"
+     },
+     {
+      "Id": "52660661",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Skeleton 02.wav",
+      "CachePath": "CA/{CAA47048-675F-E150-3063-3F33A3248E53}.wem"
+     },
+     {
+      "Id": "53935823",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine01Druid.wav",
+      "CachePath": "A3/{A366DF8F-AF8B-1636-FA44-19A45957DC3C}.wem"
+     },
+     {
+      "Id": "86543320",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Drums02.wav",
+      "CachePath": "48/{48DBA6D8-55E3-CC4D-0D5D-7512B943605E}.wem"
+     },
+     {
+      "Id": "100220618",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageDruid05.wav",
+      "CachePath": "F9/{F93FD617-F3B8-800F-7B26-88E33E5079DD}.wem"
+     },
+     {
+      "Id": "148199021",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine02Caballero.wav",
+      "CachePath": "E9/{E9FAF23B-A56A-BB23-098A-4AA7F73DA9E1}.wem"
+     },
+     {
+      "Id": "180308863",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine03Caballero.wav",
+      "CachePath": "DB/{DB3E3CF7-B114-3E3B-4E5F-A47E6302D86D}.wem"
+     },
+     {
+      "Id": "193108215",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Hongo 04.wav",
+      "CachePath": "95/{9500AB58-E2DF-CE36-DDCE-DF1D295E098E}.wem"
+     },
+     {
+      "Id": "202317441",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageDruid04.wav",
+      "CachePath": "FD/{FD15ED57-2864-AB04-00FF-43E212711086}.wem"
+     },
+     {
+      "Id": "205009597",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Grid Teleport Druid.wav",
+      "CachePath": "5C/{5C8098EB-FD31-97B9-E9E8-8AB75B72CC3A}.wem"
+     },
+     {
+      "Id": "218928787",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Murcielago 04.wav",
+      "CachePath": "EF/{EF12447E-75A8-A58E-5517-FB31550C7431}.wem"
+     },
+     {
+      "Id": "224207583",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Boss 04.wav",
+      "CachePath": "31/{31F5EFFB-DCB4-7E26-89D5-C145C7E9B898}.wem"
+     },
+     {
+      "Id": "229523050",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music Cinematicas.wav",
+      "CachePath": "FD/{FD692E93-2465-5065-5F05-3CA84B7EB8A8}.wem"
+     },
+     {
+      "Id": "234338636",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Parry Robot.wav",
+      "CachePath": "0F/{0FA4427D-1D61-51F7-D927-AD327ED42134}.wem"
+     },
+     {
+      "Id": "237363396",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageDruid02.wav",
+      "CachePath": "00/{00F36417-43A0-7C94-551D-45CEFFC49F60}.wem"
+     },
+     {
+      "Id": "251311754",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music Boss INTRO.wav",
+      "CachePath": "97/{97B3C7BB-0363-6354-F971-468EDE9A5059}.wem"
+     },
+     {
+      "Id": "257841820",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Contra Bajo Pa02.wav",
+      "CachePath": "47/{4730A93E-7CBC-BC4C-6B0C-BD6D33126D04}.wem"
+     },
+     {
+      "Id": "258161636",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Violin lead02.wav",
+      "CachePath": "5C/{5C086CD1-91FA-5ADA-BF4E-D671F3310733}.wem"
+     },
+     {
+      "Id": "266193777",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Area front Enemy.wav",
+      "CachePath": "BF/{BF7C59DD-FB80-EFD3-A6AF-CC25F0EDD6D4}.wem"
+     },
+     {
+      "Id": "269172532",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Area distance Enemy.wav",
+      "CachePath": "28/{2804EDF9-19B2-5A5D-B252-5912F678A335}.wem"
+     },
+     {
+      "Id": "283829974",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Skeleton 01.wav",
+      "CachePath": "4C/{4C929CE8-1EBE-F637-B78C-C3889A7ABB20}.wem"
+     },
+     {
+      "Id": "305879183",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Gancho Druid.wav",
+      "CachePath": "6E/{6EEEED36-8C2E-8CA7-C848-1BF4DFB756B4}.wem"
+     },
+     {
+      "Id": "305939396",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 01.wav",
+      "CachePath": "A5/{A590F3C9-7CDF-38BD-CEE4-0337F945F277}.wem"
+     },
+     {
+      "Id": "331084390",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Hongo 01.wav",
+      "CachePath": "9A/{9A482E49-28AC-748C-E35D-23A25D8C2308}.wem"
+     },
+     {
+      "Id": "332390349",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Hongo 03.wav",
+      "CachePath": "53/{53F8987E-BB04-B8D1-84A2-5401ECDAF885}.wem"
+     },
+     {
+      "Id": "333461705",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 07.wav",
+      "CachePath": "11/{117BDDD4-2224-1B46-756E-9AFE5CCBC6B3}.wem"
+     },
+     {
+      "Id": "336908074",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine01Caballero.wav",
+      "CachePath": "C4/{C4CA855D-ADC6-81CC-8667-F0EDCF4A1725}.wem"
+     },
+     {
+      "Id": "365070089",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 06.wav",
+      "CachePath": "6D/{6D58E9F8-3573-017C-4907-B0AC7CC293BF}.wem"
+     },
+     {
+      "Id": "415200658",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine04Druid.wav",
+      "CachePath": "60/{608E7859-DD46-C2D8-A06F-4DF739A0D7A6}.wem"
+     },
+     {
+      "Id": "438758271",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music Boss part 1 Loop.wav",
+      "CachePath": "56/{569BE98B-C4CC-44EB-786F-912AE68223D1}.wem"
+     },
+     {
+      "Id": "439861674",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Boss 05.wav",
+      "CachePath": "B2/{B2DBD585-074A-0A48-AC4D-5E737DEC80F7}.wem"
+     },
+     {
+      "Id": "441325094",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Murcielago 03.wav",
+      "CachePath": "79/{79EAEA4A-A0F0-8D1C-2342-17DC6DEC5446}.wem"
+     },
+     {
+      "Id": "471444188",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 04.wav",
+      "CachePath": "D9/{D9C41046-D9FC-C07C-0272-2CE242B63BE2}.wem"
+     },
+     {
+      "Id": "478948819",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageDruid03.wav",
+      "CachePath": "FC/{FCF04F8C-7CEB-5C16-C9CA-BA004CDAAF8A}.wem"
+     },
+     {
+      "Id": "481458899",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Boss 01.wav",
+      "CachePath": "12/{12085D43-4E87-8D79-1DBF-920EE3FE4A89}.wem"
+     },
+     {
+      "Id": "491861953",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Contra Bajo Rapido.wav",
+      "CachePath": "85/{850C7F6E-6569-8C55-0E3A-4493D94A6771}.wem"
+     },
+     {
+      "Id": "506761455",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Skeleton 03.wav",
+      "CachePath": "82/{8260BEC9-3CE3-CF4A-E698-51FACC0CC55E}.wem"
+     },
+     {
+      "Id": "509194038",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine02Druid.wav",
+      "CachePath": "0B/{0BF5FD1E-85A6-2EEB-BAAE-A8C34FC5D9FA}.wem"
+     },
+     {
+      "Id": "529577813",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 05.wav",
+      "CachePath": "22/{22D9244D-74C4-6EE4-E530-8AF649171D2D}.wem"
+     },
+     {
+      "Id": "538168653",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 09.wav",
+      "CachePath": "5E/{5EEFF893-7CF6-23CC-742D-6BD2B4E06EEE}.wem"
+     },
+     {
+      "Id": "548955585",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 03.wav",
+      "CachePath": "21/{213E41E7-69C2-7D88-CAB5-99816634B422}.wem"
+     },
+     {
+      "Id": "554354140",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 08.wav",
+      "CachePath": "80/{80B99436-D544-3463-F801-2A3AB6751144}.wem"
+     },
+     {
+      "Id": "555864172",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Posion Druid.wav",
+      "CachePath": "A8/{A8BEE8DF-27F3-0B43-7061-7F7643AC10C3}.wem"
+     },
+     {
+      "Id": "590006682",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cine03Druid.wav",
+      "CachePath": "50/{501402CE-419B-C01F-64A1-7F4075FF572A}.wem"
+     },
+     {
+      "Id": "629815313",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Contra Bajo Rapido02.wav",
+      "CachePath": "48/{48CD294D-31B6-FE68-D3E9-A1CCCFA3D8EF}.wem"
+     },
+     {
+      "Id": "659584141",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Barrido Fila Boss.wav",
+      "CachePath": "EE/{EE2DB13E-54A2-BE00-B82F-557FF2E9B671}.wem"
+     },
+     {
+      "Id": "671985149",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music Boss part 2 Loop.wav",
+      "CachePath": "9F/{9F5A2CA8-EADB-3E13-6985-35BEF542BE0C}.wem"
+     },
+     {
+      "Id": "674788976",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Knight 02.wav",
+      "CachePath": "15/{15E4C63C-CB53-C06C-4F5F-29A8EEBD2438}.wem"
+     },
+     {
+      "Id": "682810455",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Hongo 05.wav",
+      "CachePath": "51/{51CA2FCB-13E7-96DA-BB90-C865CEE9B258}.wem"
+     },
+     {
+      "Id": "695065844",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music Boss INTRO part 2.wav",
+      "CachePath": "31/{314C0D36-82E2-0229-E388-B1857115AB68}.wem"
+     },
+     {
+      "Id": "709076494",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Contra Bajo Lento02.wav",
+      "CachePath": "C3/{C3EA8E5B-B6FA-9BFF-D45C-AA8D2A9E4E9C}.wem"
+     },
+     {
+      "Id": "728003334",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageDruid01.wav",
+      "CachePath": "1B/{1BB9F064-6C29-69EB-6267-DEF182ED1EE8}.wem"
+     },
+     {
+      "Id": "743211468",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Atract Enemy.wav",
+      "CachePath": "9F/{9FBEF378-2C47-86E3-AFBB-217C8BD1FC25}.wem"
+     },
+     {
+      "Id": "766028941",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Contra Bajo Lento.wav",
+      "CachePath": "40/{40DEDAFA-5403-6976-DDB7-E92E00EDC74A}.wem"
+     },
+     {
+      "Id": "775123153",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Firewall Druid.wav",
+      "CachePath": "D2/{D2E61E83-C008-45E4-E64A-02558A5F1CCD}.wem"
+     },
+     {
+      "Id": "802104881",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Gancho Enemy.wav",
+      "CachePath": "6D/{6DC24B7D-69F3-9A4F-26FB-EB0F1E5C408C}.wem"
+     },
+     {
+      "Id": "824259341",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Dash Melee Druid.wav",
+      "CachePath": "69/{69FBE583-2801-0D9F-9900-5C39EF2A664F}.wem"
+     },
+     {
+      "Id": "841096337",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Smite Robot.wav",
+      "CachePath": "3B/{3B80E497-07C8-A699-FA5F-CF396B0EC543}.wem"
+     },
+     {
+      "Id": "854523859",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Flor attack Robot.wav",
+      "CachePath": "34/{34A81A9B-BD38-C6C4-C343-F3041B0F6A1C}.wem"
+     },
+     {
+      "Id": "867981589",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Brote Robot.wav",
+      "CachePath": "A4/{A4A8EB90-101E-CB01-B226-CC320BE6DFDF}.wem"
+     },
+     {
+      "Id": "903276585",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Skeleton 05.wav",
+      "CachePath": "68/{68499F4B-0E17-5EF8-3512-83ED5C56FB15}.wem"
+     },
+     {
+      "Id": "906392941",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Violin lead.wav",
+      "CachePath": "8A/{8AA021F5-FFD8-636A-EE71-22DC994598A9}.wem"
+     },
+     {
+      "Id": "912681093",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Hongo 02.wav",
+      "CachePath": "8B/{8B49D1A2-3F97-7986-022E-34D2E4539F35}.wem"
+     },
+     {
+      "Id": "919319605",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Murcielago 02.wav",
+      "CachePath": "68/{68D27AD6-1EF9-14E6-3971-774013A60CCB}.wem"
+     },
+     {
+      "Id": "951621927",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DamageDruid06.wav",
+      "CachePath": "81/{81FABF53-4CD6-8BA6-4915-E95905932338}.wem"
+     },
+     {
+      "Id": "954088900",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Murcielago 05.wav",
+      "CachePath": "20/{203C82DE-9EFA-B798-4BF8-EBC6F0064D1F}.wem"
+     },
+     {
+      "Id": "976526258",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Barrido Columna Boss.wav",
+      "CachePath": "1D/{1D697F88-AD7A-A267-F8A0-F6B5F491751B}.wem"
+     },
+     {
+      "Id": "986889226",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Boss 03.wav",
+      "CachePath": "84/{84DF85B6-B730-E74E-8314-8B8A8B5276A1}.wem"
+     },
+     {
+      "Id": "996078880",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Boss 02.wav",
+      "CachePath": "31/{313122BE-EAF4-09B6-05DA-425CB3613371}.wem"
+     },
+     {
+      "Id": "1046191039",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Damage Murcielago 01.wav",
+      "CachePath": "21/{210AFF29-9945-EBCF-C126-DED3DC928029}.wem"
+     },
+     {
+      "Id": "1072835852",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Grid Teleport Enemy.wav",
+      "CachePath": "C5/{C5B0B7C7-8A16-9A91-69BC-06487F4AD402}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3740741074",
+      "Name": "ChangeCombatMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\Combat Music\\ChangeCombatMusic",
+      "GUID": "{5AF51296-308A-4010-9202-B795026DEB90}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "MediaRefs": [
+       {
+        "Id": "86543320"
+       },
+       {
+        "Id": "257841820"
+       },
+       {
+        "Id": "258161636"
+       },
+       {
+        "Id": "491861953"
+       },
+       {
+        "Id": "629815313"
+       },
+       {
+        "Id": "709076494"
+       },
+       {
+        "Id": "766028941"
+       },
+       {
+        "Id": "906392941"
+       }
+      ]
+     },
+     {
+      "Id": "45490180",
+      "Name": "Play_Area_distance_Enemy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Enemies\\Play_Area_distance_Enemy",
+      "GUID": "{9A47996F-E834-4ECD-BBAA-034DBC28FB78}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94900227",
+      "DurationMax": "0.94900227",
+      "MediaRefs": [
+       {
+        "Id": "269172532"
+       }
+      ]
+     },
+     {
+      "Id": "553071288",
+      "Name": "Play_Area_front_Enemy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Enemies\\Play_Area_front_Enemy",
+      "GUID": "{F0DE2232-729C-45E5-8E15-6270B540196D}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94900227",
+      "DurationMax": "0.94900227",
+      "MediaRefs": [
+       {
+        "Id": "266193777"
+       }
+      ]
+     },
+     {
+      "Id": "3136587618",
+      "Name": "Play_Atract_Enemy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Enemies\\Play_Atract_Enemy",
+      "GUID": "{998859BF-2587-40B4-BA94-756E8EC614FA}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94900227",
+      "DurationMax": "0.94900227",
+      "MediaRefs": [
+       {
+        "Id": "743211468"
+       }
+      ]
+     },
+     {
+      "Id": "1359721473",
+      "Name": "Play_Barrido_Columna_Boss",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Boss\\Play_Barrido_Columna_Boss",
+      "GUID": "{EB222786-E89F-4131-93E6-E92F9315B5E9}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.1310203",
+      "DurationMax": "2.1310203",
+      "MediaRefs": [
+       {
+        "Id": "976526258"
+       }
+      ]
+     },
+     {
+      "Id": "342642858",
+      "Name": "Play_Barrido_Fila_Boss",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Boss\\Play_Barrido_Fila_Boss",
+      "GUID": "{0D0C4693-AF66-4533-9A7F-CC039F097056}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.1310203",
+      "DurationMax": "2.1310203",
+      "MediaRefs": [
+       {
+        "Id": "659584141"
+       }
+      ]
+     },
+     {
+      "Id": "3671704113",
+      "Name": "Play_Brote_Robot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Robot\\Play_Brote_Robot",
+      "GUID": "{63FFCB2D-0D15-4E84-9188-F6FD74D2ECE9}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94773245",
+      "DurationMax": "0.94773245",
+      "MediaRefs": [
+       {
+        "Id": "867981589"
+       }
+      ]
+     },
+     {
+      "Id": "2362712266",
+      "Name": "Play_Casilla_X_Boss",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Boss\\Play_Casilla_X_Boss",
+      "GUID": "{CFF6CD85-3A1B-4727-AE79-46E8E1E183B9}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.1310203",
+      "DurationMax": "2.1310203",
+      "MediaRefs": [
+       {
+        "Id": "17165352"
+       }
+      ]
+     },
+     {
+      "Id": "865224105",
+      "Name": "Play_Cine01Caballero",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayCaballero\\Play_Cine01Caballero",
+      "GUID": "{4A359C5F-F7FD-47F2-9555-AE4108204D93}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.944853",
+      "DurationMax": "8.944853",
+      "MediaRefs": [
+       {
+        "Id": "336908074"
+       }
+      ]
+     },
+     {
+      "Id": "1769257584",
+      "Name": "Play_Cine01Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayDruid\\Play_Cine01Druid",
+      "GUID": "{19DC19E8-4871-419F-8DFA-770F9264308B}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.291111",
+      "DurationMax": "8.291111",
+      "MediaRefs": [
+       {
+        "Id": "53935823"
+       }
+      ]
+     },
+     {
+      "Id": "749673500",
+      "Name": "Play_Cine02Caballero",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayCaballero\\Play_Cine02Caballero",
+      "GUID": "{B73CFC83-BAD9-4249-BFEE-D1EDB6573A26}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.944853",
+      "DurationMax": "8.944853",
+      "MediaRefs": [
+       {
+        "Id": "148199021"
+       }
+      ]
+     },
+     {
+      "Id": "777406489",
+      "Name": "Play_Cine02Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayDruid\\Play_Cine02Druid",
+      "GUID": "{18C11AB9-D1B8-49E6-BEBB-B4069B39E795}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.291111",
+      "DurationMax": "8.291111",
+      "MediaRefs": [
+       {
+        "Id": "509194038"
+       }
+      ]
+     },
+     {
+      "Id": "1300650495",
+      "Name": "Play_Cine03Caballero",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayCaballero\\Play_Cine03Caballero",
+      "GUID": "{98348BE8-C3C5-4649-8F6E-6769C8017155}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.944853",
+      "DurationMax": "8.944853",
+      "MediaRefs": [
+       {
+        "Id": "180308863"
+       }
+      ]
+     },
+     {
+      "Id": "1192924570",
+      "Name": "Play_Cine03Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayDruid\\Play_Cine03Druid",
+      "GUID": "{15870FF7-9CE1-4570-9FE8-BB5C2DB2BD7E}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.291111",
+      "DurationMax": "8.291111",
+      "MediaRefs": [
+       {
+        "Id": "590006682"
+       }
+      ]
+     },
+     {
+      "Id": "3696747394",
+      "Name": "Play_Cine04Caballero",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayCaballero\\Play_Cine04Caballero",
+      "GUID": "{5D2D8B3F-1028-4EBF-9F35-F17E2D0584E7}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.944853",
+      "DurationMax": "8.944853",
+      "MediaRefs": [
+       {
+        "Id": "8699969"
+       }
+      ]
+     },
+     {
+      "Id": "3372602331",
+      "Name": "Play_Cine04Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogue\\PlayDruid\\Play_Cine04Druid",
+      "GUID": "{2DC7B4F3-19A7-4308-9174-479B236322C5}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.291111",
+      "DurationMax": "8.291111",
+      "MediaRefs": [
+       {
+        "Id": "415200658"
+       }
+      ]
+     },
+     {
+      "Id": "1462092269",
+      "Name": "Play_CombatMusicPlaylist",
+      "ObjectPath": "\\Events\\Default Work Unit\\Combat Music\\Play_CombatMusicPlaylist",
+      "GUID": "{61BDE7DF-AC28-4121-9C65-D064DD4B687B}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "86543320"
+       },
+       {
+        "Id": "251311754"
+       },
+       {
+        "Id": "257841820"
+       },
+       {
+        "Id": "258161636"
+       },
+       {
+        "Id": "438758271"
+       },
+       {
+        "Id": "491861953"
+       },
+       {
+        "Id": "629815313"
+       },
+       {
+        "Id": "671985149"
+       },
+       {
+        "Id": "695065844"
+       },
+       {
+        "Id": "709076494"
+       },
+       {
+        "Id": "766028941"
+       },
+       {
+        "Id": "906392941"
+       }
+      ]
+     },
+     {
+      "Id": "241575375",
+      "Name": "Play_Damage_Boss",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Damage_Boss",
+      "GUID": "{0FC3BF93-7308-41B8-8F5B-BA93154B9378}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9469841",
+      "DurationMax": "0.9469841",
+      "MediaRefs": [
+       {
+        "Id": "224207583"
+       },
+       {
+        "Id": "439861674"
+       },
+       {
+        "Id": "481458899"
+       },
+       {
+        "Id": "986889226"
+       },
+       {
+        "Id": "996078880"
+       }
+      ]
+     },
+     {
+      "Id": "3230461460",
+      "Name": "Play_Damage_Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Damage_Druid",
+      "GUID": "{61568903-1713-48D0-BBE3-0BBBF57F1601}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.2632068",
+      "DurationMax": "0.39812103",
+      "MediaRefs": [
+       {
+        "Id": "100220618"
+       },
+       {
+        "Id": "202317441"
+       },
+       {
+        "Id": "237363396"
+       },
+       {
+        "Id": "478948819"
+       },
+       {
+        "Id": "728003334"
+       },
+       {
+        "Id": "951621927"
+       }
+      ]
+     },
+     {
+      "Id": "245375377",
+      "Name": "Play_Damage_Hongo",
+      "ObjectPath": "\\Events\\Default Work Unit\\Damage Enemies\\Play_Damage_Hongo",
+      "GUID": "{020E1234-060F-425D-B5C7-4B58D41FF0FA}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9469841",
+      "DurationMax": "0.9469841",
+      "MediaRefs": [
+       {
+        "Id": "193108215"
+       },
+       {
+        "Id": "331084390"
+       },
+       {
+        "Id": "332390349"
+       },
+       {
+        "Id": "682810455"
+       },
+       {
+        "Id": "912681093"
+       }
+      ]
+     },
+     {
+      "Id": "3690804762",
+      "Name": "Play_Damage_Murcielago",
+      "ObjectPath": "\\Events\\Default Work Unit\\Damage Enemies\\Play_Damage_Murcielago",
+      "GUID": "{974F3C4D-1E52-497F-9856-17C2029FE7B4}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9469841",
+      "DurationMax": "0.9469841",
+      "MediaRefs": [
+       {
+        "Id": "218928787"
+       },
+       {
+        "Id": "441325094"
+       },
+       {
+        "Id": "919319605"
+       },
+       {
+        "Id": "954088900"
+       },
+       {
+        "Id": "1046191039"
+       }
+      ]
+     },
+     {
+      "Id": "1942325012",
+      "Name": "Play_Damage_Robot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Damage_Robot",
+      "GUID": "{DCE626E9-C6C9-4424-B24C-1B8FA1F394D8}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9469841",
+      "DurationMax": "0.9469841",
+      "MediaRefs": [
+       {
+        "Id": "305939396"
+       },
+       {
+        "Id": "333461705"
+       },
+       {
+        "Id": "365070089"
+       },
+       {
+        "Id": "471444188"
+       },
+       {
+        "Id": "529577813"
+       },
+       {
+        "Id": "538168653"
+       },
+       {
+        "Id": "548955585"
+       },
+       {
+        "Id": "554354140"
+       },
+       {
+        "Id": "674788976"
+       }
+      ]
+     },
+     {
+      "Id": "966081817",
+      "Name": "Play_Damage_Skeleton",
+      "ObjectPath": "\\Events\\Default Work Unit\\Damage Enemies\\Play_Damage_Skeleton",
+      "GUID": "{C68AE7DF-7E8B-417A-89DB-A669DF697F97}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9469841",
+      "DurationMax": "0.9469841",
+      "MediaRefs": [
+       {
+        "Id": "21024630"
+       },
+       {
+        "Id": "52660661"
+       },
+       {
+        "Id": "283829974"
+       },
+       {
+        "Id": "506761455"
+       },
+       {
+        "Id": "903276585"
+       }
+      ]
+     },
+     {
+      "Id": "364273755",
+      "Name": "Play_Firewall_Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Druid\\Play_Firewall_Druid",
+      "GUID": "{74C8A277-3114-4E07-A1B6-1EA63ACA7E9B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9469841",
+      "DurationMax": "0.9469841",
+      "MediaRefs": [
+       {
+        "Id": "775123153"
+       }
+      ]
+     },
+     {
+      "Id": "2956068371",
+      "Name": "Play_Flor_attack_Robot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Robot\\Play_Flor_attack_Robot",
+      "GUID": "{A1E6F1C5-C3D5-44D5-9365-5D93AAE75C53}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1692196",
+      "DurationMax": "1.1692196",
+      "MediaRefs": [
+       {
+        "Id": "854523859"
+       }
+      ]
+     },
+     {
+      "Id": "1159642833",
+      "Name": "Play_Gancho_Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Druid\\Play_Gancho_Druid",
+      "GUID": "{138BD405-5EB7-48FA-8D3E-280017E71AFC}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9469841",
+      "DurationMax": "0.9469841",
+      "MediaRefs": [
+       {
+        "Id": "305879183"
+       }
+      ]
+     },
+     {
+      "Id": "2573167197",
+      "Name": "Play_Gancho_Enemy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Enemies\\Play_Gancho_Enemy",
+      "GUID": "{EE04EF6A-5CC8-49CA-A232-B81C438F7D05}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94900227",
+      "DurationMax": "0.94900227",
+      "MediaRefs": [
+       {
+        "Id": "802104881"
+       }
+      ]
+     },
+     {
+      "Id": "104012431",
+      "Name": "Play_Grid_Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Druid\\Play_Grid_Druid",
+      "GUID": "{C967516A-2F57-43CA-991B-7CB486E97D5B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9469841",
+      "DurationMax": "0.9469841",
+      "MediaRefs": [
+       {
+        "Id": "205009597"
+       }
+      ]
+     },
+     {
+      "Id": "1041240749",
+      "Name": "Play_Grid_Teleport_Enemy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Enemies\\Play_Grid_Teleport_Enemy",
+      "GUID": "{08D692B6-5EA7-41C6-98B5-69351B01279A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94900227",
+      "DurationMax": "0.94900227",
+      "MediaRefs": [
+       {
+        "Id": "1072835852"
+       }
+      ]
+     },
+     {
+      "Id": "2651910159",
+      "Name": "Play_Melee_Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Druid\\Play_Melee_Druid",
+      "GUID": "{8AA390B3-9FDD-443E-950C-09D23092CF30}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9469841",
+      "DurationMax": "0.9469841",
+      "MediaRefs": [
+       {
+        "Id": "824259341"
+       }
+      ]
+     },
+     {
+      "Id": "917750874",
+      "Name": "Play_MusicCinePlaylist",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_MusicCinePlaylist",
+      "GUID": "{74CF3698-DD84-43D4-BD79-6103286691C1}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "229523050"
+       }
+      ]
+     },
+     {
+      "Id": "3072108541",
+      "Name": "Play_Parry_Robot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Robot\\Play_Parry_Robot",
+      "GUID": "{A966D72B-0C9B-493F-A13E-4A8ABB6EBB89}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.94773245",
+      "DurationMax": "0.94773245",
+      "MediaRefs": [
+       {
+        "Id": "234338636"
+       }
+      ]
+     },
+     {
+      "Id": "1979277459",
+      "Name": "Play_Posion_Druid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Druid\\Play_Posion_Druid",
+      "GUID": "{6551FE8E-AA23-4780-96BE-E6FE0C2D4A43}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9469841",
+      "DurationMax": "0.9469841",
+      "MediaRefs": [
+       {
+        "Id": "555864172"
+       }
+      ]
+     },
+     {
+      "Id": "1513174551",
+      "Name": "Play_Smite_Robot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Attack Robot\\Play_Smite_Robot",
+      "GUID": "{CA0B53C2-2EC8-4908-84C8-D8D4A98B6C4E}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.6310431",
+      "DurationMax": "1.6310431",
+      "MediaRefs": [
+       {
+        "Id": "841096337"
+       }
+      ]
+     },
+     {
+      "Id": "394309612",
+      "Name": "PlayBossMusic01",
+      "ObjectPath": "\\Events\\Default Work Unit\\Boss Music\\PlayBossMusic01",
+      "GUID": "{7A066BCB-9FA9-45DC-8052-1491427EA90C}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "251311754"
+       },
+       {
+        "Id": "438758271"
+       },
+       {
+        "Id": "671985149"
+       },
+       {
+        "Id": "695065844"
+       }
+      ]
+     },
+     {
+      "Id": "394309615",
+      "Name": "PlayBossMusic02",
+      "ObjectPath": "\\Events\\Default Work Unit\\Boss Music\\PlayBossMusic02",
+      "GUID": "{6D997CAF-9EC8-4C9B-93C1-A24AECA4F743}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "251311754"
+       },
+       {
+        "Id": "438758271"
+       },
+       {
+        "Id": "671985149"
+       },
+       {
+        "Id": "695065844"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{32B6328F-27D5-321E-D258-129988E33154}"
+ }
+}

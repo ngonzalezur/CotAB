@@ -11,7 +11,9 @@ using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.UI.CanvasScaler;
 using CotA.Sound;
 using System.Linq;
+using Unity.Behavior;
 //using System;
+
 
 
 public class UnitManager : MonoBehaviour
@@ -40,16 +42,87 @@ public class UnitManager : MonoBehaviour
 
     public bool SecondPlayer = false;
 
-    Gamepad Mando = null;
+    //Gamepad Mando = null;
+    //Gamepad Mando2 = null;
     bool hasPersist = false;
 
     private List<Tile>[] currentPrecasts = new List<Tile>[2] { new List<Tile>(), new List<Tile>() };
-    private int[] currentPrecastIndex = new int[2] { -1, -1 }; // -1 = ningún precast activo
+    private int[] currentPrecastIndex = new int[2] { -1, -1 }; // -1 = ningï¿½n precast activo
 
 
 
     private Coroutine corrutinaInvocaciones;
     private Coroutine corrutinaInvocaciones2;
+
+
+    private bool hasChangedMusic = false; // Boolean para controlar el cambio de mÃºsica
+
+    public Gamepad Mando;
+    public Gamepad Mando2;
+
+    void OnEnable()
+    {
+        // Escucha conexiones y desconexiones de dispositivos
+        InputSystem.onDeviceChange += OnDeviceChange;
+
+        // Asignar los controles que ya estÃ©n conectados al iniciar
+        foreach (var device in Gamepad.all)
+        {
+            AsignarGamepad(device);
+        }
+    }
+
+    void OnDisable()
+    {
+        InputSystem.onDeviceChange -= OnDeviceChange;
+    }
+
+    void OnDeviceChange(InputDevice device, InputDeviceChange change)
+    {
+        if (device is Gamepad gamepad)
+        {
+            switch (change)
+            {
+                case InputDeviceChange.Added:
+                case InputDeviceChange.Reconnected:
+                    AsignarGamepad(gamepad);
+                    break;
+
+                case InputDeviceChange.Removed:
+                case InputDeviceChange.Disconnected:
+                    RemoverGamepad(gamepad);
+                    break;
+            }
+        }
+    }
+
+    void AsignarGamepad(Gamepad gamepad)
+    {
+        if (Mando == null)
+        {
+            Mando = gamepad;
+            Debug.Log("Asignado a mando1: " + gamepad.deviceId);
+        }
+        else if (Mando2 == null && gamepad != Mando)
+        {
+            Mando2 = gamepad;
+            Debug.Log("Asignado a mando2: " + gamepad.deviceId);
+        }
+    }
+
+    void RemoverGamepad(Gamepad gamepad)
+    {
+        if (Mando == gamepad)
+        {
+            Debug.Log("mando1 desconectado");
+            Mando = null;
+        }
+        else if (Mando2 == gamepad)
+        {
+            Debug.Log("mando2 desconectado");
+            Mando2 = null;
+        }
+    }
 
     public void SetHeroUnit(BaseUnit unit)
     {
@@ -58,19 +131,55 @@ public class UnitManager : MonoBehaviour
         if (!hasPersist)
         {
             newUnit = Instantiate(unit, new Vector3(0, 0, -1), Quaternion.identity);
-        }       
-        
-        
-        int cont = 0;
-        foreach (BaseAttack attack in unit.Attacks)
+        }
+
+        SetAttacks(unit);
+        //int cont = 0;
+        //foreach (BaseAttack attack in unit.Attacks)
+        //{
+        //    newUnit.Attacks[cont] = Instantiate(unit.Attacks[cont], new Vector3(0, 0, -1), Quaternion.identity);
+        //    newUnit.Attacks[cont].gameObject.SetActive(false);
+        //    //ui.abilities[cont].cooldown = newUnit.Attacks[cont].CoolDown;
+        //    DontDestroyOnLoad(newUnit.Attacks[cont]);
+        //    cont++;
+        //}
+        Heroes.Add(newUnit);
+    }
+
+    public void SetAttacks(BaseUnit unit)
+    {
+        var pref1 = configuration.Heroes[0].prefab;
+        var pref2 = configuration.Heroes[1].prefab;
+        var i = 0;
+        var reference = new BaseAttack[0];
+        Debug.Log(pref1.UnitName);
+        Debug.Log(pref2.UnitName);
+        Debug.Log(unit.UnitName);
+        if (unit.UnitName == pref1.UnitName)
         {
-            newUnit.Attacks[cont] = Instantiate(unit.Attacks[cont], new Vector3(0, 0, -1), Quaternion.identity);
-            newUnit.Attacks[cont].gameObject.SetActive(false);
+            i = configuration.Heroes[0].Attacks.Length;
+            reference = configuration.Heroes[0].Attacks;
+            Debug.Log(configuration.Heroes[0].Attacks[0]);
+            Debug.Log("entre");
+        }
+        else
+        {
+            i = configuration.Heroes[1].Attacks.Length;
+            reference = configuration.Heroes[1].Attacks;
+        }
+        int cont = 0;
+        var newAtts = new BaseAttack[i];
+        Debug.Log(reference);
+        foreach (BaseAttack attack in reference)
+        {
+            newAtts[cont] = Instantiate(reference[cont], new Vector3(0, 0, -1), Quaternion.identity);
+            newAtts[cont].gameObject.SetActive(false);
             //ui.abilities[cont].cooldown = newUnit.Attacks[cont].CoolDown;
-            DontDestroyOnLoad(newUnit.Attacks[cont]);
+            DontDestroyOnLoad(newAtts[cont]);
             cont++;
         }
-        Heroes.Add(newUnit);
+        unit.Attacks = newAtts;
+        Debug.Log(unit.Attacks[0]);
     }
 
     public void SetEnemyUnit(BaseUnit unit)
@@ -90,25 +199,34 @@ public class UnitManager : MonoBehaviour
 
     public void Awake()
     {
+        hasChangedMusic = false; //Reiniciar MÃºsica
         Instance = this;
 
         BaseUnit persistentHero = GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
                                      .FirstOrDefault(u => u.isPersistentHero);
-        
-        if(persistentHero != null)
+
+        if (persistentHero != null)
         {
             GameManager.character = persistentHero.UnitName;
-            configuration.Heroes[0].prefab = persistentHero;
+            //configuration.Heroes[0].prefab = persistentHero;
             Heroes.Add(persistentHero);
             Heroes[0] = persistentHero;
             hasPersist = true;
         }
-        
+        var c = 0;
+        if (SecondPlayer)
+        {
+            c++;
+        }
         //Referencio los heroes del data maanger y los guardo en la Lista Heroes
         foreach (ConfigurationData.UnitData unit in configuration.Heroes)
         {
             BaseUnit hero = unit.prefab;
             SetHeroUnit(hero);
+            if(c == 0)
+            {
+                break;
+            }
         }
 
         //Referencio los enemigos del data maanger y los guardo en la Lista Enemies
@@ -119,7 +237,7 @@ public class UnitManager : MonoBehaviour
         }
         SetAttackDictionary();
 
-        Mando = InputSystem.GetDevice<Gamepad>();
+        //Mando = InputSystem.GetDevice<Gamepad>();
 
         //emepzar corrutinas
         StartCoroutine(AttackMove());
@@ -129,35 +247,36 @@ public class UnitManager : MonoBehaviour
     public void SpawnHeroes()
     {
         //Cantidad de personajes aliaos que voy a hacer spawn, si hay dos jugadores le agrega uno
-        
-            var heroCount = 1;
-            if (SecondPlayer)
-            {
-                heroCount++;
-            }
 
-            for (int i = 0; i < heroCount; i++)
-            {
-                var x = UnityEngine.Random.Range(0, 5);
-                var y = UnityEngine.Random.Range(0, 5);
-                var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(x, y));
-                var hero = Heroes[i];
-                hero.OccupiedTile = randomSpawnTile;
-                randomSpawnTile.SetUnit(hero);
-                hero.GetHighlightHero()._highlight.SetActive(true);
-            }
+        var heroCount = 1;
+        if (SecondPlayer)
+        {
+            heroCount++;
+        }
 
-            StartCoroutine(RestoreStamina(Heroes[0]));
-            StartCoroutine(RestoreMana(Heroes[0]));
-            //StartCoroutine(AtaqueInvocaciones());
-            if (SecondPlayer)
-            {
-                StartCoroutine(RestoreStamina(Heroes[1]));
-                StartCoroutine(RestoreMana(Heroes[1]));
-            }      
-        
+        for (int i = 0; i < heroCount; i++)
+        {
+            var x = UnityEngine.Random.Range(0, 5);
+            var y = UnityEngine.Random.Range(0, 5);
+            var randomSpawnTile = GridManager.Instance.GetTileAtPosition(new Vector2(x, y));
+            var hero = Heroes[i];
+            hero.OccupiedTile = randomSpawnTile;
+            randomSpawnTile.SetUnit(hero);            
+            hero.GetHighlightHero()._highlight.SetActive(true);
+            SetAttacks(hero);
+        }
 
-        GameManager.Instance.ChangeState(GameState.SpawnEnemies);
+        StartCoroutine(RestoreStamina(Heroes[0]));
+        StartCoroutine(RestoreMana(Heroes[0]));
+        //StartCoroutine(AtaqueInvocaciones());
+        if (SecondPlayer)
+        {
+            StartCoroutine(RestoreStamina(Heroes[1]));
+            StartCoroutine(RestoreMana(Heroes[1]));
+        }
+
+
+        GameManager.Instance.ChangeState(TutoState.SpawnEnemies);
     }
 
     //codigo que hace aparecer los enemigos
@@ -175,15 +294,15 @@ public class UnitManager : MonoBehaviour
             randomSpawnTile.SetUnit(Enemies[i]);
         }
 
-        GameManager.Instance.ChangeState(GameState.GenerateUI);
+        GameManager.Instance.ChangeState(TutoState.GenerateUI);
     }
 
     void ContarKPIAtaque(BaseUnit unit, int i)
     {
         //si es druida
-        if(unit.UnitName == "Druid")
+        if (unit.UnitName == "Druid")
         {
-            if(i == 0)
+            if (i == 0)
             {
                 GameManager.AttDruid1++;
             }
@@ -245,7 +364,7 @@ public class UnitManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Acción no encontrada");
+            Debug.Log("Acciï¿½n no encontrada");
         }
     }
 
@@ -258,7 +377,7 @@ public class UnitManager : MonoBehaviour
         {
             var checkInvo = false;
             if (unit.Attacks[i].type == BaseAttack.AttType.invocacion)
-            {                
+            {
                 foreach (BaseUnit invocacion in Invocaciones)
                 {
                     if (invocacion != null && invocacion.UnitName == unit.Attacks[i].invocacion.UnitName)
@@ -275,20 +394,20 @@ public class UnitManager : MonoBehaviour
             else
             {
                 ContarKPIInteracciones();
-                ContarKPIAtaque(unit,i);
+                ContarKPIAtaque(unit, i);
 
                 unit.CastMana -= unit.Attacks[i].ManaCost;
                 StartCoroutine(ui.HandleCooldown(i));
                 CastAttack(unit, unit.Attacks[i]);
                 unit.Attacks[i].LastCast1 = Time.time;
-            
 
-                if(unit.animator != null)
+
+                if (unit.animator != null)
                 {
                     unit.animator.SetTrigger("Attack");
                 }
                 //sound effects de cada ataque
-                if(unit.Attacks[i].type == BaseAttack.AttType.muro)
+                if (unit.Attacks[i].type == BaseAttack.AttType.muro)
                 {
                     SoundManager.PlayFirewallDruid();
                 }
@@ -298,7 +417,7 @@ public class UnitManager : MonoBehaviour
                 }
                 if (unit.Attacks[i].type == BaseAttack.AttType.area)
                 {
-                    if(unit.Attacks[i].DoVeneno > 0)
+                    if (unit.Attacks[i].DoVeneno > 0)
                     {
                         SoundManager.PlayPoisonDruid();
                     }
@@ -320,13 +439,15 @@ public class UnitManager : MonoBehaviour
                     SoundManager.PlayBroteRobot();
                 }
             }
-            
-            if(Invocaciones.Contains(unit))
+
+            if (Invocaciones.Contains(unit))
             {
                 unit.Health = 0;
                 Invocaciones.Remove(unit);
-                Debug.Log(Invocaciones.Count);
-                unit.Destroy();
+                //Debug.Log(Invocaciones.Count);
+                var anim = unit.GetComponentInChildren<Animator>();
+                anim.SetTrigger("Death");
+                StartCoroutine(KillInvo(unit));
             }
         }
         else if (Ataque.TryGetValue((int)unit.Attacks[i].type, out Ataques att))
@@ -334,6 +455,12 @@ public class UnitManager : MonoBehaviour
             var target = att(unit, unit.Attacks[i]);
             PrecastDelete(target);
         }
+    }
+
+    public IEnumerator KillInvo(BaseUnit unit)
+    {
+        yield return new WaitForSeconds(2f);
+        unit.Destroy();
     }
     public delegate List<Tile> Ataques(BaseUnit unit, BaseAttack attack);
 
@@ -375,7 +502,7 @@ public class UnitManager : MonoBehaviour
         var rh = UnityEngine.Random.Range(0, Heroes.Count);
         var r = Heroes[rh].OccupiedTile.x;
         var dir = UnityEngine.Random.Range(0, 2);
-        if(dir == 0)
+        if (dir == 0)
         {
             for (int i = 0; i < GridManager.Instance._height; i++)
             {
@@ -392,7 +519,7 @@ public class UnitManager : MonoBehaviour
             }
         }
 
-        
+
         return target;
     }
     public List<Tile> BarridoFilaInverso(BaseUnit unit, BaseAttack attack)
@@ -401,7 +528,7 @@ public class UnitManager : MonoBehaviour
         var target = new List<Tile>();
         var rh = UnityEngine.Random.Range(0, Heroes.Count);
         var r = Heroes[rh].OccupiedTile.y;
-        for (int i = 0; i < GridManager.Instance._width/2; i++)
+        for (int i = 0; i < GridManager.Instance._width / 2; i++)
         {
             var tile = GridManager.Instance.GetTileAtPosition(new Vector2(i, r));
             AgregarSiNoNull(target, tile);
@@ -410,7 +537,7 @@ public class UnitManager : MonoBehaviour
     }
     public IEnumerator Barrer(List<Tile> target, BaseAttack attack)
     {
-        for(int i = 0; i < target.Count; i++)
+        for (int i = 0; i < target.Count; i++)
         {
             var auxTarget = new List<Tile>();
             auxTarget.Add(target[i]);
@@ -425,7 +552,7 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             var r = UnityEngine.Random.Range(0, Enemies.Count);
             var tile = Enemies[r].OccupiedTile;
@@ -441,7 +568,7 @@ public class UnitManager : MonoBehaviour
             AgregarSiNoNull(target, target[0].DownTile().LeftTile());
             AgregarSiNoNull(target, target[0].DownTile().RightTile());
         }
-        else if(unit.Faction == Faction.Enemy)
+        else if (unit.Faction == Faction.Enemy)
         {
             var r = UnityEngine.Random.Range(0, Heroes.Count);
             var tile = Heroes[r].OccupiedTile;
@@ -464,25 +591,26 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile());
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().UpTile());
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().DownTile());
-        }else if (unit.Faction == Faction.Enemy)
+        }
+        else if (unit.Faction == Faction.Enemy)
         {
             AgregarSiNoNull(target, unit.OccupiedTile.LeftTile());
             AgregarSiNoNull(target, unit.OccupiedTile.LeftTile().UpTile());
             AgregarSiNoNull(target, unit.OccupiedTile.LeftTile().DownTile());
         }
-        
+
         return target;
     }
     public List<Tile> AreaMelee2x3(BaseUnit unit, BaseAttack attack)
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile());
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().UpTile());
@@ -490,7 +618,8 @@ public class UnitManager : MonoBehaviour
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().RightTile());
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().RightTile().UpTile());
             AgregarSiNoNull(target, unit.OccupiedTile.RightTile().RightTile().DownTile());
-        }else if(unit.Faction == Faction.Enemy)
+        }
+        else if (unit.Faction == Faction.Enemy)
         {
             AgregarSiNoNull(target, unit.OccupiedTile.LeftTile());
             AgregarSiNoNull(target, unit.OccupiedTile.LeftTile().UpTile());
@@ -541,7 +670,7 @@ public class UnitManager : MonoBehaviour
             SetAttacksInTiles(newtarget, attack);
             if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction != unit.Faction)
             {
-                if(tile.OccupiedUnit.Faction == Faction.Hero)
+                if (tile.OccupiedUnit.Faction == Faction.Hero)
                 {
                     tile.OccupiedUnit.GetHighlightHero()._highlight?.SetActive(false);
                     tile.OccupiedUnit.MoveToXandY(5, tile.PositionYTile());
@@ -549,7 +678,7 @@ public class UnitManager : MonoBehaviour
                 if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Enemy)
                 {
                     tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
-                }                
+                }
                 break;
             }
             newtarget.Clear();
@@ -570,11 +699,11 @@ public class UnitManager : MonoBehaviour
         var target = new List<Tile>();
         var newtarget = new List<Tile>();
         target = AllXTiles(unit);
-        foreach(Tile tile in target)
+        foreach (Tile tile in target)
         {
             newtarget.Add(tile);
             SetAttacksInTiles(newtarget, attack);
-            if(tile.OccupiedUnit != null && tile.OccupiedUnit.Faction != unit.Faction)
+            if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction != unit.Faction)
             {
                 if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Hero)
                 {
@@ -587,7 +716,7 @@ public class UnitManager : MonoBehaviour
                     tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
                     unit.MoveToXandY(5, unit.OccupiedTile.PositionYTile());
                 }
-                
+
                 //tile.OccupiedUnit.MoveToXandY(6, tile.PositionYTile());
                 break;
             }
@@ -598,17 +727,17 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 1));
             target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 2));
         }
-        else if(unit.Faction == Faction.Enemy)
+        else if (unit.Faction == Faction.Enemy)
         {
             target.AddRange(AllYTilesInXColumn(0));
             target.AddRange(AllYTilesInXColumn(1));
         }
-        
+
         return target;
     }
 
@@ -632,27 +761,28 @@ public class UnitManager : MonoBehaviour
         //target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 1));
         //target.AddRange(AllYTilesInXColumn(GridManager.Instance._width - 2));
         SetAttacksInTiles(target, attack);
-        foreach(Tile tile in target)
+        foreach (Tile tile in target)
         {
-            if(tile.OccupiedUnit != null)
+            if (tile.OccupiedUnit != null)
             {
-                if(tile.OccupiedUnit.Faction != attack.Faction)
+                if (tile.OccupiedUnit.Faction != attack.Faction)
                 {
-                    if(tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Hero)
+                    if (tile.OccupiedUnit != null && tile.OccupiedUnit.Faction == Faction.Hero)
                     {
                         tile.OccupiedUnit.GetHighlightHero()._highlight?.SetActive(false);
-                    }                    
+                    }
                     attack.DoDamage(tile.OccupiedUnit);
                 }
                 units.Add(tile.OccupiedUnit);
             }
         }
-        foreach(BaseUnit unit in units)
+        foreach (BaseUnit unit in units)
         {
-            if(unit.Faction == Faction.Hero)
+            if (unit.Faction == Faction.Hero)
             {
-                unit.MoveToXandY(5,unit.OccupiedTile.y);
-            }else if (unit.Faction == Faction.Enemy)
+                unit.MoveToXandY(5, unit.OccupiedTile.y);
+            }
+            else if (unit.Faction == Faction.Enemy)
             {
                 unit.MoveToXandY(6, unit.OccupiedTile.y);
                 //Debug.Log("debi moverme wtf");
@@ -664,15 +794,15 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             AgregarSiNoNull(target, unit.GetHighlightHero());
         }
-        else if(unit.Faction == Faction.Enemy)
+        else if (unit.Faction == Faction.Enemy)
         {
             AgregarSiNoNull(target, unit.GetHighlightEnemy());
         }
-        
+
         return target;
     }
 
@@ -705,14 +835,14 @@ public class UnitManager : MonoBehaviour
         if (Ataque.TryGetValue((int)attack.type, out Ataques att))
         {
             var target = att(unit, attack);
-            if(target != null)
+            if (target != null)
             {
-                if(attack.type == BaseAttack.AttType.dashMelee)
+                if (attack.type == BaseAttack.AttType.dashMelee)
                 {
                     StartCoroutine(TeleportMeleeDash(unit, attack, unit.OccupiedTile));
                     PrecastDelete(target);
                 }
-                else if(attack.type == BaseAttack.AttType.parry)
+                else if (attack.type == BaseAttack.AttType.parry)
                 {
                     StartCoroutine(ActivateParry(unit));
                     PrecastDelete(target);
@@ -744,11 +874,11 @@ public class UnitManager : MonoBehaviour
                 }
                 else if (attack.type == BaseAttack.AttType.areadelay)
                 {
-                    SetAttacksInTiles(target,attack);
+                    SetAttacksInTiles(target, attack);
                     StartCoroutine(ExtraAttack(target, attack.ExtraAttack));
                     PrecastDelete(target);
                 }
-                else if(attack.type == BaseAttack.AttType.invocacion)
+                else if (attack.type == BaseAttack.AttType.invocacion)
                 {
                     if (Invocaciones.Count <= 1)
                     {
@@ -768,12 +898,12 @@ public class UnitManager : MonoBehaviour
                 {
                     SetAttacksInTiles(target, attack);
                     PrecastDelete(target);
-                }                              
+                }
             }
         }
         else
         {
-            Debug.Log("Acción no encontrada");
+            Debug.Log("Acciï¿½n no encontrada");
         }
     }
 
@@ -809,7 +939,7 @@ public class UnitManager : MonoBehaviour
             att.gameObject.SetActive(true);
             tile.SetAttack(att);
             StartCoroutine(Destruir(att));
-            if(attack.DoBurn > 0)
+            if (attack.DoBurn > 0)
             {
                 tile.StartCoroutineBurning(att.DoBurn);
             }
@@ -819,14 +949,14 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
-        if(unit.Faction == Faction.Hero)
+        if (unit.Faction == Faction.Hero)
         {
             target.Add(unit.GetHighlightHero());
         }
         else
         {
             target.Add(unit.GetHighlightEnemy());
-        }        
+        }
         //buscar vecinas
         AgregarSiNoNull(target, target[0].UpTile());
         AgregarSiNoNull(target, target[0].DownTile());
@@ -886,7 +1016,7 @@ public class UnitManager : MonoBehaviour
         if (unit == null) return null;
         var tile = unit.OccupiedTile;
         if (tile == null) return null;
-        var target = new List<Tile>();        
+        var target = new List<Tile>();
         var Gmanager = GridManager.Instance;
         if (unit.Faction == Faction.Hero)
         {
@@ -895,7 +1025,8 @@ public class UnitManager : MonoBehaviour
                 var tempTile = Gmanager.GetTileAtPosition(new Vector2(i, tile.y));
                 AgregarSiNoNull(target, tempTile);
             }
-        }else if(unit.Faction == Faction.Enemy)
+        }
+        else if (unit.Faction == Faction.Enemy)
         {
             for (int i = tile.x - 1; i >= 0; i--)
             {
@@ -903,7 +1034,7 @@ public class UnitManager : MonoBehaviour
                 AgregarSiNoNull(target, tempTile);
             }
         }
-        
+
         return target;
     }
     public List<Tile> AllEnemiesDamage(BaseUnit unit, BaseAttack attack)
@@ -937,11 +1068,11 @@ public class UnitManager : MonoBehaviour
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
         // no se definir cuantos randoms van a hacer, queda pendiente
-        if(unit.Faction == Faction.Enemy)
+        if (unit.Faction == Faction.Enemy)
         {
             for (int i = 0; i < attack.numRandomTiles; i++)
             {
-                var rx = UnityEngine.Random.Range(0, GridManager.Instance._width/2);
+                var rx = UnityEngine.Random.Range(0, GridManager.Instance._width / 2);
                 var ry = UnityEngine.Random.Range(0, GridManager.Instance._height);
                 var tile = GridManager.Instance.GetTileAtPosition(new Vector2(rx, ry));
                 if (!target.Contains(tile))
@@ -955,7 +1086,7 @@ public class UnitManager : MonoBehaviour
 
             }
         }
-        else if(unit.Faction == Faction.Hero)
+        else if (unit.Faction == Faction.Hero)
         {
             for (int i = 0; i < attack.numRandomTiles; i++)
             {
@@ -973,7 +1104,7 @@ public class UnitManager : MonoBehaviour
 
             }
         }
-        
+
         return target;
     }
     public List<Tile> Melee(BaseUnit unit, BaseAttack attack)
@@ -1002,7 +1133,7 @@ public class UnitManager : MonoBehaviour
         //    {
         //        InstanciarInvocacion(attack, target);
         //    }
-            
+
         //}
         return target;
     }
@@ -1022,16 +1153,16 @@ public class UnitManager : MonoBehaviour
     }
 
     public IEnumerator AtaqueInvocaciones(BaseUnit inovocaciones)
-    {        
-       if (inovocaciones == null || inovocaciones.Attacks[0] == null)
+    {
+        if (inovocaciones == null || inovocaciones.Attacks[0] == null)
         {
-             yield break;
+            yield break;
         }
-        while(!MayCastAttack(inovocaciones, inovocaciones.Attacks[0]))
+        while (!MayCastAttack(inovocaciones, inovocaciones.Attacks[0]))
         {
             yield return new WaitForSeconds(0.1f);
         }
-        CanCastAttack(inovocaciones, 0);       
+        CanCastAttack(inovocaciones, 0);
         yield return new WaitForSeconds(0.1f);
     }
 
@@ -1071,13 +1202,13 @@ public class UnitManager : MonoBehaviour
     public Tile DashThrouhTiles(BaseUnit unit, Tile tile)
     {
         var nextTile = tile.RightTile();
-        if(nextTile == null || nextTile.OccupiedUnit != null)
+        if (nextTile == null || nextTile.OccupiedUnit != null)
         {
             //StartCoroutine(DeOccupiedTile(tile));
             return tile;
         }
         //tile.OccupiedUnit = null;
-        
+
         nextTile.InstantSetUnit(unit);
         //nextTile.OccupiedUnit = unit;
         StartCoroutine(OccupiedTile(tile, unit));
@@ -1087,16 +1218,16 @@ public class UnitManager : MonoBehaviour
 
     public IEnumerator OccupiedTile(Tile tile, BaseUnit unit)
     {
-        if(tile != null)
+        if (tile != null)
         {
-           tile.OccupiedUnit = unit;
-            if(tile.OccupiedAttack != null)
+            tile.OccupiedUnit = unit;
+            if (tile.OccupiedAttack != null)
             {
                 tile.OccupiedAttack.DoDamage(unit);
                 tile.OccupiedAttack.Destroy();
             }
         }
-        
+
         yield return new WaitForSeconds(0.1f);
     }
     public IEnumerator DeOccupiedTile(Tile tile)
@@ -1120,7 +1251,7 @@ public class UnitManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         unit.parry = false;
     }
-    public  List<Tile> CambiarFaccion(BaseUnit unit, BaseAttack attack)
+    public List<Tile> CambiarFaccion(BaseUnit unit, BaseAttack attack)
     {
         if (unit == null || attack == null) return null;
         var target = new List<Tile>();
@@ -1131,7 +1262,7 @@ public class UnitManager : MonoBehaviour
 
     public IEnumerator CambiarFactionToHero(List<Tile> target)
     {
-        foreach(Tile tile in target)
+        foreach (Tile tile in target)
         {
             tile.HeroTile.gameObject.SetActive(true);
             tile.EnemyTile.gameObject.SetActive(false);
@@ -1147,8 +1278,8 @@ public class UnitManager : MonoBehaviour
     }
 
     public List<Tile> PrimeraColumnaEnemiga(List<Tile> target)
-    {        
-        for(int i = 0; i < 6; i++)
+    {
+        for (int i = 0; i < 6; i++)
         {
             var tempTile = GridManager.Instance.GetTileAtPosition(new Vector2(GridManager.Instance._width / 2, i));
             AgregarSiNoNull(target, tempTile);
@@ -1160,13 +1291,13 @@ public class UnitManager : MonoBehaviour
     {
         if (unit == null || attack == null) return false;
 
-        if(unit.CastMana - attack.ManaCost > 0 && Time.time - attack.LastCast1 >= attack.CoolDown)
+        if (unit.CastMana - attack.ManaCost > 0 && Time.time - attack.LastCast1 >= attack.CoolDown)
         {
-            if(attack.type == BaseAttack.AttType.invocacion)
+            if (attack.type == BaseAttack.AttType.invocacion)
             {
                 foreach (BaseUnit invocacion in Invocaciones)
                 {
-                    if(invocacion.UnitName ==  attack.invocacion.UnitName)
+                    if (invocacion.UnitName == attack.invocacion.UnitName)
                     {
                         return false;
                     }
@@ -1183,28 +1314,28 @@ public class UnitManager : MonoBehaviour
 
 
         if (player == 0)
-        {   
-            if ((Input.GetKey(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[0]))
+        {
+            if ((Input.GetKey(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasPressedThisFrame)) && unit.Attacks.Length > 0 && MayCastAttack(unit, unit.Attacks[0]))
             {
                 //CanCastAttack(unit, 0);
                 ShowPrecast(unit, 0, player);
             }
-            if ((Input.GetKey(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[1]))
+            if ((Input.GetKey(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasPressedThisFrame)) && unit.Attacks.Length > 1 && MayCastAttack(unit, unit.Attacks[1]))
             {
                 //CanCastAttack(unit, 1);
                 ShowPrecast(unit, 1, player);
             }
-            if ((Input.GetKey(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[2]))
+            if ((Input.GetKey(KeyCode.K) || (Mando != null && Mando.buttonEast.wasPressedThisFrame)) && unit.Attacks.Length > 2 && MayCastAttack(unit, unit.Attacks[2]))
             {
                 //CanCastAttack(unit, 2);
                 ShowPrecast(unit, 2, player);
             }
-            if ((Input.GetKey(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[3]))
+            if ((Input.GetKey(KeyCode.L) || (Mando != null && Mando.buttonWest.wasPressedThisFrame)) && unit.Attacks.Length > 3 && MayCastAttack(unit, unit.Attacks[3]))
             {
                 //CanCastAttack(unit, 3);
                 ShowPrecast(unit, 3, player);
             }
-            if ((Input.GetKey(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasPressedThisFrame)) && MayCastAttack(unit, unit.Attacks[4]))
+            if ((Input.GetKey(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasPressedThisFrame)) && unit.Attacks.Length > 4 && MayCastAttack(unit, unit.Attacks[4]))
             {
                 //CanCastAttack(unit, 4);
                 ShowPrecast(unit, 4, player);
@@ -1212,27 +1343,27 @@ public class UnitManager : MonoBehaviour
 
             //lo de arriba sera le precast y este de abajo el cast
 
-            if ((Input.GetKeyUp(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.I) || (Mando != null && Mando.buttonSouth.wasReleasedThisFrame)) && unit.Attacks.Length > 0)
             {
                 CanCastAttack(unit, 0);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.J) || (Mando != null && Mando.buttonNorth.wasReleasedThisFrame)) && unit.Attacks.Length > 1)
             {
                 CanCastAttack(unit, 1);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.K) || (Mando != null && Mando.buttonEast.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.K) || (Mando != null && Mando.buttonEast.wasReleasedThisFrame)) && unit.Attacks.Length > 2)
             {
                 CanCastAttack(unit, 2);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.L) || (Mando != null && Mando.buttonWest.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.L) || (Mando != null && Mando.buttonWest.wasReleasedThisFrame)) && unit.Attacks.Length > 3)
             {
                 CanCastAttack(unit, 3);
                 currentPrecastIndex[0] = -1;
             }
-            if ((Input.GetKeyUp(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasReleasedThisFrame)))
+            if ((Input.GetKeyUp(KeyCode.O) || (Mando != null && Mando.rightTrigger.wasReleasedThisFrame)) && unit.Attacks.Length > 4)
             {
                 CanCastAttack(unit, 4);
                 currentPrecastIndex[0] = -1;
@@ -1240,36 +1371,69 @@ public class UnitManager : MonoBehaviour
         }
         if (player == 1)
         {
-            if (Input.GetKeyDown(KeyCode.G))
+            if ((Input.GetKey(KeyCode.I) || (Mando2 != null && Mando2.buttonSouth.wasPressedThisFrame)) && unit.Attacks.Length > 0 && MayCastAttack(unit, unit.Attacks[0]))
+            {
+                //CanCastAttack(unit, 0);
+                ShowPrecast(unit, 0, player);
+            }
+            if ((Input.GetKey(KeyCode.J) || (Mando2 != null && Mando2.buttonNorth.wasPressedThisFrame)) && unit.Attacks.Length > 1 && MayCastAttack(unit, unit.Attacks[1]))
+            {
+                //CanCastAttack(unit, 1);
+                ShowPrecast(unit, 1, player);
+            }
+            if ((Input.GetKey(KeyCode.K) || (Mando2 != null && Mando2.buttonEast.wasPressedThisFrame)) && unit.Attacks.Length > 2 && MayCastAttack(unit, unit.Attacks[2]))
+            {
+                //CanCastAttack(unit, 2);
+                ShowPrecast(unit, 2, player);
+            }
+            if ((Input.GetKey(KeyCode.L) || (Mando2 != null && Mando2.buttonWest.wasPressedThisFrame)) && unit.Attacks.Length > 3 && MayCastAttack(unit, unit.Attacks[3]))
+            {
+                //CanCastAttack(unit, 3);
+                ShowPrecast(unit, 3, player);
+            }
+            if ((Input.GetKey(KeyCode.O) || (Mando2 != null && Mando2.rightTrigger.wasPressedThisFrame)) && unit.Attacks.Length > 4 && MayCastAttack(unit, unit.Attacks[4]))
+            {
+                //CanCastAttack(unit, 4);
+                ShowPrecast(unit, 4, player);
+            }
+
+            //lo de arriba sera le precast y este de abajo el cast
+
+            if ((Input.GetKeyUp(KeyCode.G) || (Mando2 != null && Mando2.buttonSouth.wasReleasedThisFrame)) && unit.Attacks.Length > 0)
             {
                 CanCastAttack(unit, 0);
+                currentPrecastIndex[0] = -1;
             }
-            if (Input.GetKeyDown(KeyCode.V))
+            if ((Input.GetKeyUp(KeyCode.V) || (Mando2 != null && Mando2.buttonNorth.wasReleasedThisFrame)) && unit.Attacks.Length > 1)
             {
                 CanCastAttack(unit, 1);
+                currentPrecastIndex[0] = -1;
             }
-            if (Input.GetKeyDown(KeyCode.B))
+            if ((Input.GetKeyUp(KeyCode.B) || (Mando2 != null && Mando2.buttonEast.wasReleasedThisFrame)) && unit.Attacks.Length > 2)
             {
                 CanCastAttack(unit, 2);
+                currentPrecastIndex[0] = -1;
             }
-            if (Input.GetKeyDown(KeyCode.N))
+            if ((Input.GetKeyUp(KeyCode.N) || (Mando2 != null && Mando2.buttonWest.wasReleasedThisFrame)) && unit.Attacks.Length > 3)
             {
                 CanCastAttack(unit, 3);
+                currentPrecastIndex[0] = -1;
             }
-            if (Input.GetKeyDown(KeyCode.G))
+            if ((Input.GetKeyUp(KeyCode.H) || (Mando2 != null && Mando2.rightTrigger.wasReleasedThisFrame)) && unit.Attacks.Length > 4)
             {
-                CanCastAttack(unit, 3);
+                CanCastAttack(unit, 4);
+                currentPrecastIndex[0] = -1;
             }
         }
     }
 
     public void PrecastAppear(List<Tile> target, int player)
     {
-        if(player > -1)
+        if (player > -1)
         {
             PrecastDelete(currentPrecasts[player]);
             currentPrecasts[player] = target;
-        }        
+        }
 
         foreach (Tile tile in target)
         {
@@ -1371,22 +1535,22 @@ public class UnitManager : MonoBehaviour
 
         if (player == 1)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow) || (Mando2 != null && Mando2.dpad.up.wasPressedThisFrame))
             {
                 CanMove(hero, 0);
                 moved = true;
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || (Mando2 != null && Mando2.dpad.left.wasPressedThisFrame))
             {
                 CanMove(hero, 1);
                 moved = true;
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow) || (Mando2 != null && Mando2.dpad.down.wasPressedThisFrame))
             {
                 CanMove(hero, 2);
                 moved = true;
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || (Mando2 != null && Mando2.dpad.right.wasPressedThisFrame))
             {
                 CanMove(hero, 3);
                 moved = true;
@@ -1397,7 +1561,7 @@ public class UnitManager : MonoBehaviour
         {
             PrecastDelete(currentPrecasts[player]);
 
-            // Si había un ataque precasteado, lo volvemos a mostrar
+            // Si habï¿½a un ataque precasteado, lo volvemos a mostrar
             if (currentPrecastIndex[player] != -1)
             {
                 ShowPrecast(hero, currentPrecastIndex[player], player);
@@ -1445,7 +1609,7 @@ public class UnitManager : MonoBehaviour
             //FalseHighlight(unit);
             //moverse
             MoveUnit(unit, unit.OccupiedTile.LeftTile());
-            if(unit.MoveCooldown > 0)
+            if (unit.MoveCooldown > 0)
             {
                 unit.animator.SetTrigger("MoveBack");
             }
@@ -1476,16 +1640,16 @@ public class UnitManager : MonoBehaviour
     public void MoveUnit(BaseUnit unit, Tile tile)
     {
         if (unit == null || tile == null) return;
-        if(unit.MoveCooldown > 0)
+        if (unit.MoveCooldown > 0)
         {
             ContarKPIInteracciones();
             FalseHighlight(unit);
             unit.MoveCooldown--;
             tile.SetUnit(unit);
             tile.OccupiedUnit.GetHighlightHero()._highlight.SetActive(true);
-        }        
+        }
     }
-   void ContarKPIInteracciones()
+    void ContarKPIInteracciones()
     {
         GameManager.interactionTotal++;
     }
@@ -1608,6 +1772,8 @@ public class UnitManager : MonoBehaviour
         }
     }
 
+
+
     public void Update()
     {
         //Debug.Log(CanPlay);
@@ -1615,7 +1781,7 @@ public class UnitManager : MonoBehaviour
         {
             MoveHero(Heroes[0], 0);
             AttackHero2(Heroes[0], 0);
-            if(SecondPlayer && Heroes[1] != null)
+            if (SecondPlayer && Heroes[1] != null)
             {
                 MoveHero(Heroes[1], 1);
                 AttackHero2(Heroes[1], 1);
@@ -1624,9 +1790,12 @@ public class UnitManager : MonoBehaviour
             //StartCoroutine(AttackMove());
             TakeDamage();
             AtaqueInvoacion();
-            if (SoundManager != null && Heroes[0] != null && Heroes[0].Health < Heroes[0].MaxHealth / 2)
+
+            //Agregue el hasChangedMusic porque me llamaba los eventos de wwise cada frame y me generaba distorsiÃ³n
+            if (SoundManager != null && Heroes[0] != null && Heroes[0].Health < Heroes[0].MaxHealth / 2 && !hasChangedMusic)
             {
                 SoundManager.ChangeSoundtrackToMidLifeMode();
+                hasChangedMusic = true; // Marcamos que ya hicimos el cambio
             }
         }
 
@@ -1676,27 +1845,33 @@ public class UnitManager : MonoBehaviour
             if (UnitManager.Instance.Invocaciones.Contains(unit) && unit.Health <= 0)
             {
                 Invocaciones.Remove(unit);
-                unit.Destroy();
-            }
-            if (unit.Health <= 0 && unit.Faction == Faction.Hero)
+                var anim = unit.GetComponentInChildren<Animator>();
+                anim.SetTrigger("Death");
+                StartCoroutine(KillInvo(unit));
+                //unit.Destroy();
+            }else if (unit.Health <= 0 && unit.Faction == Faction.Hero && !Invocaciones.Contains(unit))
             {
                 Heroes.Remove(unit);
-                unit.Destroy();
+                //unit.Destroy();
                 if (Heroes.Count == 0)
                 {
-                    GameManager.Instance.ChangeState(GameState.EndFight);
+                    GameManager.Instance.ChangeState(TutoState.EndFight);
                 }
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Enemy)
             {
                 Enemies.Remove(unit);
-                unit.Destroy();
-                if (Enemies.Count == 0)
-                {
-                    GameManager.Instance.ChangeState(GameState.EndFight);
-                }
+                var anim = unit.GetComponentInChildren<Animator>();
+                anim.SetTrigger("Death");
+                //unit.Destroy();
+                var ia = unit.GetComponent<BehaviorGraphAgent>();
+                ia.enabled = false;
             }
 
+        }
+        if (Enemies.Count == 0)
+        {
+            GameManager.Instance.ChangeState(TutoState.EndFight);
         }
     }
 
