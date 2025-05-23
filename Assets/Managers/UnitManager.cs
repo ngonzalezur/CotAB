@@ -1867,7 +1867,7 @@ public class UnitManager : MonoBehaviour
             }else if (unit.Health <= 0 && unit.Faction == Faction.Hero && !Invocaciones.Contains(unit))
             {
                 Heroes.Remove(unit);
-                //unit.Destroy();
+                unit.Destroy();
                 if (Heroes.Count == 0)
                 {
                     GameManager.Instance.ChangeState(TutoState.EndFight);

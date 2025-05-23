@@ -25,6 +25,10 @@ public partial class DetectarHeroeCondition : Condition
                 return true;
             }
         }
+        if (posxH + X == posxE)
+        {
+            return true;
+        }
         return false;
     }
 
