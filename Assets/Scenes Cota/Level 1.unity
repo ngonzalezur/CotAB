@@ -731,7 +731,7 @@ PrefabInstance:
     - target: {fileID: 1670733568900427392, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.6
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 1670733568900427392, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
         type: 3}
@@ -772,6 +772,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera facil
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450348874485090296, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450348874485090296, guid: 1799ea7a4f2e84b46bef4263d8dcd04c,
+        type: 3}
+      propertyPath: orthographic size
+      value: 3.9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1023844486277744394, guid: 1799ea7a4f2e84b46bef4263d8dcd04c, type: 3}
