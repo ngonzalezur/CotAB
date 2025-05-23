@@ -4849,6 +4849,7 @@ GameObject:
   - component: {fileID: 5653083602591302278}
   - component: {fileID: 5815935350131301778}
   - component: {fileID: 5624694123657003747}
+  - component: {fileID: -4271388828502966125}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -4966,7 +4967,7 @@ MonoBehaviour:
   Faction: 1
   MaxHealth: 1
   Health: 1
-  ActualHeath: {fileID: 0}
+  ActualHeath: {fileID: 8778360780485718181}
   EnemyType: {fileID: 1128217994411323301, guid: 39b651769be7cd847a5b4f71953170f8,
     type: 3}
   HeroType: {fileID: 0}
@@ -5138,6 +5139,20 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 5965117142991503595}
+--- !u!114 &-4271388828502966125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5965117142991503595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f361603aa58a34bb2bd52030d0b977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fill: {fileID: 2491472399508010471}
+  unit: {fileID: 5695376190236047481}
 --- !u!1 &6690111647505926650
 GameObject:
   m_ObjectHideFlags: 0

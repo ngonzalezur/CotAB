@@ -5220,7 +5220,7 @@ MonoBehaviour:
   Faction: 1
   MaxHealth: 1
   Health: 1
-  ActualHeath: {fileID: 0}
+  ActualHeath: {fileID: 6734727921215947163}
   EnemyType: {fileID: 1128217994411323301, guid: 39b651769be7cd847a5b4f71953170f8,
     type: 3}
   HeroType: {fileID: 0}

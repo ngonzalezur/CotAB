@@ -134,7 +134,7 @@ MonoBehaviour:
   Faction: 0
   MaxHealth: 10
   Health: 10
-  ActualHeath: {fileID: 0}
+  ActualHeath: {fileID: 3073336723653301151}
   EnemyType: {fileID: 0}
   HeroType: {fileID: 0}
   dmgBurn: 2
