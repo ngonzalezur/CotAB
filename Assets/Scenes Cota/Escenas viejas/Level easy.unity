@@ -339,7 +339,7 @@ PrefabInstance:
         type: 3}
       propertyPath: configuration.Enemies.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 5695376190236047481, guid: e7fcaf4249a894f4da2556a790ed6593,
+      objectReference: {fileID: 5695376190236047481, guid: dd8cea8c9d71e1e498db22fefd807199,
         type: 3}
     - target: {fileID: 1529386913894835813, guid: ad07d1f5afc349742b57b5200b3289d0,
         type: 3}
