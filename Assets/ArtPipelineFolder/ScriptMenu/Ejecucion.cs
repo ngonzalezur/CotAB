@@ -64,14 +64,18 @@ public class Ejecucion : MonoBehaviour
         //}
 
         Debug.Log("¡Validación exitosa! Cargando escena 'Tutorial'.");
-        if(PlayerSelect.Instance.currentSelectedUnitPlayer1 != null && PlayerSelect.Instance.currentSelectedUnitPlayer1.UnitName == "Druid")
+        Debug.Log(PlayerSelect.Instance.tutorial);
+        if(PlayerSelect.Instance.tutorial)
         {
-            SceneManager.LoadScene("Level easy");
-        }
-        if (PlayerSelect.Instance.currentSelectedUnitPlayer1 != null && PlayerSelect.Instance.currentSelectedUnitPlayer1.UnitName == "Robot")
+            SceneManager.LoadScene("TutorialBien");
+        }else if(PlayerSelect.Instance.currentSelectedUnitPlayer1 != null && PlayerSelect.Instance.currentSelectedUnitPlayer1.UnitName == "Druid")
         {
-            SceneManager.LoadScene("Level easy");
+            SceneManager.LoadScene("Cine01Druid");
         }
-        SceneManager.LoadScene("Level easy"); // Asegúrate de que la escena "Tutorial" esté añadida en File -> Build Settings.
+        else if (PlayerSelect.Instance.currentSelectedUnitPlayer1 != null && PlayerSelect.Instance.currentSelectedUnitPlayer1.UnitName == "Robot")
+        {
+            SceneManager.LoadScene("Cine01Robot");
+        }
+        //SceneManager.LoadScene("Level easy"); // Asegúrate de que la escena "Tutorial" esté añadida en File -> Build Settings.
     }
 }

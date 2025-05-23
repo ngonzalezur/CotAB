@@ -50,6 +50,46 @@ public class GameManager : MonoBehaviour
     {
         ChangeState(TutoState.GenerateGrid);        
     }
+    public void ResetAndLoadScene()
+    {
+        StartCoroutine(DestroyDontDestroyOnLoadObjectsAndLoadScene());
+    }
+
+    private System.Collections.IEnumerator DestroyDontDestroyOnLoadObjectsAndLoadScene()
+    {
+        // Creamos un objeto temporal para acceder a la escena DontDestroyOnLoad
+        GameObject temp = new GameObject("TempDDOL");
+        DontDestroyOnLoad(temp);
+        Scene ddolScene = temp.scene;
+
+        // Buscamos todos los GameObjects que viven en esa escena especial
+        List<GameObject> dontDestroyObjects = new List<GameObject>();
+        foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>(true))
+        {
+            if (go.scene == ddolScene && go != temp)
+            {
+                dontDestroyObjects.Add(go);
+            }
+        }
+
+        // Destruimos únicamente esos objetos
+        foreach (GameObject go in dontDestroyObjects)
+        {
+            Destroy(go);
+        }
+
+        // Destruimos el temporal
+        Destroy(temp);
+
+        // Esperamos 1 frame para que Unity termine de destruir
+        yield return null;
+
+        // Cargamos la escena deseada
+
+
+        // Cargar la nueva escena
+        SceneManager.LoadScene("Menus");
+    }
 
     public void ChangeState(TutoState newState)
     {
@@ -85,23 +125,7 @@ public class GameManager : MonoBehaviour
                 break;
             case TutoState.End:
                 var scene = SceneManager.GetActiveScene().name;
-                if (scene == "Tutorial")
-                {
-                    SceneManager.LoadScene("Level easy");
-                }
-                else if (scene == "Level easy")
-                {
-                    SceneManager.LoadScene("Level medium");
-                }
-                else if (scene == "Level medium")
-                {
-                    SceneManager.LoadScene("Level hard");
-                }
-                else if (scene == "SecondPlayer")
-                {
-                    SceneManager.LoadScene("Elegir");
-                }
-                else if (scene == "Level 1")
+                if (scene == "Level 1")
                 {
                     if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
                     {
@@ -145,8 +169,13 @@ public class GameManager : MonoBehaviour
                     }
 
                 }
+                else if (scene == "Level 6")
+                {
 
-                if (scene == "Level hard" || UnitManager.Instance.SecondPlayer)
+                    ResetAndLoadScene();
+                }
+
+                if (scene == "Level hard")
                 {
                     //llamar la funcion que manda los datos
                     if(AttDruid1 == 0)
@@ -194,8 +223,8 @@ public class GameManager : MonoBehaviour
                     Debug.Log(HitAttDruid4);                    
                     var persist = (GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
                                      .FirstOrDefault(u => u.isPersistentHero));
-                    Destroy(persist.gameObject);
-                    SceneManager.LoadScene("Elegir");
+                    //Destroy(persist.gameObject);
+                    //SceneManager.LoadScene("Elegir");
                 }
                 break;
             default:
@@ -203,6 +232,7 @@ public class GameManager : MonoBehaviour
         }
     }
 }
+
 
 
 

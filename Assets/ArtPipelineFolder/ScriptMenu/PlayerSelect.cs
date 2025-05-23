@@ -27,6 +27,7 @@ public class PlayerSelect : MonoBehaviour
     public bool isPlayer1Ready = false;
     public BaseUnit currentSelectedUnitPlayer2 = null;
     public bool isPlayer2Ready = false;
+    public bool tutorial = false;
 
     // Singleton para fácil acceso
     public static PlayerSelect Instance { get; private set; }
