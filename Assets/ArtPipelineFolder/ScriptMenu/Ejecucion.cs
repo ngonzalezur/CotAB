@@ -3,49 +3,58 @@ using UnityEngine.SceneManagement;
 
 public class Ejecucion : MonoBehaviour
 {
-    public GameObject panelDeSeleccionPersonaje; 
-    public GameObject panelDelMenuInicial;       
+    public GameObject panelDeSeleccionPersonaje;
+    public GameObject panelDelMenuInicial;
 
-    // IMPORTANTE: referencia al script PlayerSelect para poder resetearlo.
-    public PlayerSelect playerSelectScript; //  aquí va el GameObject que tiene el script PlayerSelect
-
-    
     public void Regresar()
     {
         Debug.Log("Botón 'Regresar' presionado. Volviendo al Menú Inicial.");
 
-        
-        if (panelDeSeleccionPersonaje != null)
-        {
-            panelDeSeleccionPersonaje.SetActive(false); // 'false' lo desactiva
-        }
-        
+        if (panelDeSeleccionPersonaje != null) panelDeSeleccionPersonaje.SetActive(false);
+        else Debug.LogError("¡ERROR! 'Panel De Seleccion Personaje' no asignado en Ejecucion.");
 
-        
-        if (panelDelMenuInicial != null)
+        if (panelDelMenuInicial != null) panelDelMenuInicial.SetActive(true);
+        else Debug.LogError("¡ERROR! 'Panel Del Menu Inicial' no asignado en Ejecucion.");
+
+        if (PlayerSelect.Instance != null) // Usa PlayerSelect.Instance
         {
-            panelDelMenuInicial.SetActive(true); // 'true' lo activa
-        }
-        
-        //este es para el reset de los personajes
-        /*
-        // 3. ¡RESET DE PLAYERSELECT!
-        // Ahora sí, cuando regresamos al menú principal, reseteamos el estado de selección de personajes.
-        if (playerSelectScript != null)
-        {
-            playerSelectScript.ResetUIStatePublic();
+            PlayerSelect.Instance.ResetUIState();
         }
         else
         {
-            Debug.LogError("¡ERROR! 'Player Select Script' no asignado en el Inspector de Ejecutar. El reseteo no se realizará.");
+            Debug.LogError("¡ERROR! No se encontró una instancia de PlayerSelect. No se puede resetear la UI de selección.");
         }
-        */
+
+        if (PlayerStorage.Instance != null)
+        {
+            PlayerStorage.Instance.ResetPlayerSelections();
+        }
+        else
+        {
+            Debug.LogError("¡ERROR! No se encontró una instancia de PlayerStorage.");
+        }
     }
 
-    // Este método es para el botón "Confirmar" (o "Comenzar Juego", etc.)
-    // Por ahora estará vacío, esperando la lógica de inicio del juego.
     public void Confirmar()
     {
+        Debug.Log("Botón 'Confirmar' presionado. Intentando iniciar el juego...");
+
+        if (PlayerStorage.Instance != null && PlayerSelect.Instance != null) // Usa PlayerSelect.Instance
+        {
+            PlayerStorage.Instance.ObtainSelectedCharactersFromUI();
+
+            if (PlayerSelect.Instance.currentSelectedUnitPlayer1 == null)
+            {
+                Debug.LogWarning("¡Error! El Jugador 1 debe seleccionar un personaje para poder iniciar el juego.");
+                return;
+            }
+        }
+        else
+        {
+            Debug.LogError("¡ERROR! No se pudo acceder a PlayerStorage o PlayerSelect. Asegúrate de que estén configurados correctamente en la escena.");
+            return;
+        }
+
         SceneManager.LoadScene("Tutorial");
     }
 }

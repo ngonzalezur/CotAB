@@ -4,244 +4,167 @@ using UnityEngine.UI;
 
 public class PlayerSelect : MonoBehaviour
 {
-    
-    public GameObject bordeRojoDruida;
-    public GameObject bordeRojoRobot;
-    public GameObject bordeRojoArtifice;
-
-    
-    public GameObject bordeAzulDruida;
-    public GameObject bordeAzulRobot;
-    public GameObject bordeAzulArtifice;
-
-    
     public BaseUnit druidaPrefabUnit;
     public BaseUnit robotPrefabUnit;
     public BaseUnit artificePrefabUnit;
 
-    
-    // PlayerStorage leerá directamente estas variables.
+    // --- Bordes de Selección (Asignar en el Inspector) ---
+    [Header("Bordes de Selección Jugador 1 (Rojo)")]
+    public GameObject bordeRojoDruida;
+    public GameObject bordeRojoRobot;
+    public GameObject bordeRojoArtifice;
+
+    // --- VARIABLES PÚBLICAS CON LA SELECCIÓN FINAL DEL JUGADOR 1 ---
     public BaseUnit currentSelectedUnitPlayer1 = null;
-    public BaseUnit currentSelectedUnitPlayer2 = null;
+    public bool isPlayer1Ready = false; // Indica si J1 ha hecho una selección válida
 
-    // Booleano para saber si el Jugador 2 ha hecho una selección
-    public bool secondPlayerSelected = false;
-
-    // --- Referencias a los botones de personaje (compartidos por J1 y J2) 
-    // este hay que asignarlo ya que no se cuales seran los botones, esta fue la unica forma que vi sin el joystick ya que habria que agregar un recuadro mas o cambiar las condiciones del recuadro del segundo jugador en cada personaje
-    public Button druidaButton;
-    public Button robotButton;
-    public Button artificeButton;
-
-    // Mapeo interno para gestionar la interactividad de botones
-    private Dictionary<BaseUnit, Button> _unitToButtonMap;
-
-    // Arrays y Dictionaries para la gestión eficiente de bordes
-    private GameObject[] _allRedBorders;
-    private GameObject[] _allBlueBorders;
-    private Dictionary<BaseUnit, GameObject> _unitToRedBorderMap;
-    private Dictionary<BaseUnit, GameObject> _unitToBlueBorderMap;
+    // Singleton para fácil acceso desde otros scripts (Ejecucion, PlayerStorage)
+    public static PlayerSelect Instance { get; private set; }
 
 
     void Awake()
     {
-        _allRedBorders = new GameObject[] { bordeRojoDruida, bordeRojoRobot, bordeRojoArtifice };
-        _allBlueBorders = new GameObject[] { bordeAzulDruida, bordeAzulRobot, bordeAzulArtifice };
-
-        _unitToRedBorderMap = new Dictionary<BaseUnit, GameObject>
+        // Implementación del Singleton
+        if (Instance == null)
         {
-            { druidaPrefabUnit, bordeRojoDruida },
-            { robotPrefabUnit, bordeRojoRobot },
-            { artificePrefabUnit, bordeRojoArtifice }
-        };
-        _unitToBlueBorderMap = new Dictionary<BaseUnit, GameObject>
+            Instance = this;
+        }
+        else
         {
-            { druidaPrefabUnit, bordeAzulDruida },
-            { robotPrefabUnit, bordeAzulRobot },
-            { artificePrefabUnit, bordeAzulArtifice }
-        };
-
-        _unitToButtonMap = new Dictionary<BaseUnit, Button>
-        {
-            { druidaPrefabUnit, druidaButton },
-            { robotPrefabUnit, robotButton },
-            { artificePrefabUnit, artificeButton }
-        };
+            Destroy(gameObject);
+        }
     }
 
     void Start()
     {
-        DeactivateAllBorders();
+        ResetUIState(); // Asegura un estado limpio al iniciar la escena.
+    }
+
+    // Método para resetear la UI de selección (llamado al inicio o al volver al menú)
+    public void ResetUIState()
+    {
+        DeactivateAllBorders(); // Desactiva todos los bordes (útil al iniciar o al regresar al menú)
         currentSelectedUnitPlayer1 = null;
-        currentSelectedUnitPlayer2 = null;
-        secondPlayerSelected = false;
-
-        // Deshabilita los botones para el Jugador 2 al inicio. J1 debe seleccionar primero.
-        SetPlayerButtonsInteractable(false);
+        isPlayer1Ready = false;
+        Debug.Log("[PlayerSelect] UI de selección reseteada para Jugador 1.");
     }
 
-    
-    public void SelectDruidaPlayer1()
+    // ===============================================
+    //  MÉTODOS PARA GUARDAR EL PERSONAJE SELECCIONADO (J1)
+    // ===============================================
+    // Estos métodos SÓLO actualizan la variable interna 'currentSelectedUnitPlayer1'.
+    // Son llamados por el PRIMER evento OnClick de cada botón.
+
+    public void SaveDruidaForPlayer1()
     {
-        if (currentSelectedUnitPlayer1 == druidaPrefabUnit && currentSelectedUnitPlayer1 != null) { return; }
-
-        if (druidaPrefabUnit == currentSelectedUnitPlayer2 && currentSelectedUnitPlayer2 != null)
+        if (currentSelectedUnitPlayer1 != druidaPrefabUnit) // Solo si es una selección nueva
         {
-            Debug.LogWarning("Druida está bloqueado por el Jugador 2 (ya lo ha seleccionado).");
-            return;
+            currentSelectedUnitPlayer1 = druidaPrefabUnit;
+            isPlayer1Ready = true;
+            Debug.Log($"[PlayerSelect] Jugador 1 HA GUARDADO a {druidaPrefabUnit.name}.");
         }
-
-        Debug.Log("Druida seleccionado para Jugador 1.");
-        DeactivateRedBorders();
-        if (bordeRojoDruida != null) bordeRojoDruida.SetActive(true);
-        currentSelectedUnitPlayer1 = druidaPrefabUnit;
-
-        
-        SetPlayerButtonsInteractable(true);
+        else
+        {
+            Debug.Log($"[PlayerSelect] Jugador 1 ya tenía a {druidaPrefabUnit.name} guardado.");
+        }
     }
 
-    public void SelectRobotPlayer1()
+    public void SaveRobotForPlayer1()
     {
-        if (currentSelectedUnitPlayer1 == robotPrefabUnit && currentSelectedUnitPlayer1 != null) { return; }
-        if (robotPrefabUnit == currentSelectedUnitPlayer2 && currentSelectedUnitPlayer2 != null)
+        if (currentSelectedUnitPlayer1 != robotPrefabUnit)
         {
-            Debug.LogWarning("Robot está bloqueado por el Jugador 2 (ya lo ha seleccionado).");
-            return;
+            currentSelectedUnitPlayer1 = robotPrefabUnit;
+            isPlayer1Ready = true;
+            Debug.Log($"[PlayerSelect] Jugador 1 HA GUARDADO a {robotPrefabUnit.name}.");
         }
-
-        Debug.Log("Robot seleccionado para Jugador 1.");
-        DeactivateRedBorders();
-        if (bordeRojoRobot != null) bordeRojoRobot.SetActive(true);
-        currentSelectedUnitPlayer1 = robotPrefabUnit;
-        SetPlayerButtonsInteractable(true);
+        else
+        {
+            Debug.Log($"[PlayerSelect] Jugador 1 ya tenía a {robotPrefabUnit.name} guardado.");
+        }
     }
 
-    public void SelectArtificePlayer1()
+    public void SaveArtificeForPlayer1()
     {
-        if (currentSelectedUnitPlayer1 == artificePrefabUnit && currentSelectedUnitPlayer1 != null) { return; }
-        if (artificePrefabUnit == currentSelectedUnitPlayer2 && currentSelectedUnitPlayer2 != null)
+        if (currentSelectedUnitPlayer1 != artificePrefabUnit)
         {
-            Debug.LogWarning("Artífice está bloqueado por el Jugador 2 (ya lo ha seleccionado).");
-            return;
+            currentSelectedUnitPlayer1 = artificePrefabUnit;
+            isPlayer1Ready = true;
+            Debug.Log($"[PlayerSelect] Jugador 1 HA GUARDADO a {artificePrefabUnit.name}.");
         }
-
-        Debug.Log("Artífice seleccionado para Jugador 1.");
-        DeactivateRedBorders();
-        if (bordeRojoArtifice != null) bordeRojoArtifice.SetActive(true);
-        currentSelectedUnitPlayer1 = artificePrefabUnit;
-        SetPlayerButtonsInteractable(true);
+        else
+        {
+            Debug.Log($"[PlayerSelect] Jugador 1 ya tenía a {artificePrefabUnit.name} guardado.");
+        }
     }
 
-    // --- MÉTODOS PARA LOS BOTONES DE SELECCIÓN DE PERSONAJES (JUGADOR 2) ---
-    public void SelectDruidaPlayer2()
+    // ===============================================
+    //  MÉTODOS PARA GESTIONAR LA VISUALIZACIÓN DE LOS BORDES (J1)
+    // ===============================================
+    // Estos métodos serán llamados por el SEGUNDO evento OnClick de cada botón.
+    // Cada método maneja la activación de SU propio borde y la desactivación de los OTROS dos.
+
+    public void HandleDruidaBorderForPlayer1()
     {
-        if (currentSelectedUnitPlayer2 == druidaPrefabUnit && currentSelectedUnitPlayer2 != null) { return; }
+        // 1. Desactivar los otros bordes
+        if (bordeRojoRobot != null) bordeRojoRobot.SetActive(false);
+        if (bordeRojoArtifice != null) bordeRojoArtifice.SetActive(false);
 
-        if (druidaPrefabUnit == currentSelectedUnitPlayer1 && currentSelectedUnitPlayer1 != null)
+        // 2. Activar el borde de este personaje
+        if (bordeRojoDruida != null)
         {
-            Debug.LogWarning("Druida está bloqueado por el Jugador 1 (ya lo ha seleccionado).");
-            return;
+            bordeRojoDruida.SetActive(true);
+            Debug.Log($"[PlayerSelect] Borde ROJO de Druida ACTIVADO. Otros desactivados.");
         }
-
-        Debug.Log("Druida seleccionado para Jugador 2.");
-        DeactivateBlueBorders();
-        if (bordeAzulDruida != null) bordeAzulDruida.SetActive(true);
-        currentSelectedUnitPlayer2 = druidaPrefabUnit;
-        UpdateSecondPlayerSelectedStatus();
-        SetPlayerButtonsInteractable(true); // Re-evalúa los bloqueos después de la selección de J2
+        else
+        {
+            Debug.LogError("[PlayerSelect] bordeRojoDruida no asignado en el Inspector.");
+        }
     }
 
-    public void SelectRobotPlayer2()
+    public void HandleRobotBorderForPlayer1()
     {
-        if (currentSelectedUnitPlayer2 == robotPrefabUnit && currentSelectedUnitPlayer2 != null) { return; }
-        if (robotPrefabUnit == currentSelectedUnitPlayer1 && currentSelectedUnitPlayer1 != null)
-        {
-            Debug.LogWarning("Robot está bloqueado por el Jugador 1 (ya lo ha seleccionado).");
-            return;
-        }
+        // 1. Desactivar los otros bordes
+        if (bordeRojoDruida != null) bordeRojoDruida.SetActive(false);
+        if (bordeRojoArtifice != null) bordeRojoArtifice.SetActive(false);
 
-        Debug.Log("Robot seleccionado para Jugador 2.");
-        DeactivateBlueBorders();
-        if (bordeAzulRobot != null) bordeAzulRobot.SetActive(true);
-        currentSelectedUnitPlayer2 = robotPrefabUnit;
-        UpdateSecondPlayerSelectedStatus();
-        SetPlayerButtonsInteractable(true);
+        // 2. Activar el borde de este personaje
+        if (bordeRojoRobot != null)
+        {
+            bordeRojoRobot.SetActive(true);
+            Debug.Log($"[PlayerSelect] Borde ROJO de Robot ACTIVADO. Otros desactivados.");
+        }
+        else
+        {
+            Debug.LogError("[PlayerSelect] bordeRojoRobot no asignado en el Inspector.");
+        }
     }
 
-    public void SelectArtificePlayer2()
+    public void HandleArtificeBorderForPlayer1()
     {
-        if (currentSelectedUnitPlayer2 == artificePrefabUnit && currentSelectedUnitPlayer2 != null) { return; }
-        if (artificePrefabUnit == currentSelectedUnitPlayer1 && currentSelectedUnitPlayer1 != null)
-        {
-            Debug.LogWarning("Artífice está bloqueado por el Jugador 1 (ya lo ha seleccionado).");
-            return;
-        }
+        // 1. Desactivar los otros bordes
+        if (bordeRojoDruida != null) bordeRojoDruida.SetActive(false);
+        if (bordeRojoRobot != null) bordeRojoRobot.SetActive(false);
 
-        Debug.Log("Artífice seleccionado para Jugador 2.");
-        DeactivateBlueBorders();
-        if (bordeAzulArtifice != null) bordeAzulArtifice.SetActive(true);
-        currentSelectedUnitPlayer2 = artificePrefabUnit;
-        UpdateSecondPlayerSelectedStatus();
-        SetPlayerButtonsInteractable(true);
+        // 2. Activar el borde de este personaje
+        if (bordeRojoArtifice != null)
+        {
+            bordeRojoArtifice.SetActive(true);
+            Debug.Log($"[PlayerSelect] Borde ROJO de Artifice ACTIVADO. Otros desactivados.");
+        }
+        else
+        {
+            Debug.LogError("[PlayerSelect] bordeRojoArtifice no asignado en el Inspector.");
+        }
     }
 
-    
-
+    // --- Método Auxiliar para desactivar TODOS los bordes (solo para ResetUIState) ---
     private void DeactivateAllBorders()
     {
-        DeactivateRedBorders();
-        DeactivateBlueBorders();
+        if (bordeRojoDruida != null) bordeRojoDruida.SetActive(false);
+        if (bordeRojoRobot != null) bordeRojoRobot.SetActive(false);
+        if (bordeRojoArtifice != null) bordeRojoArtifice.SetActive(false);
+        // No es necesario un Debug.Log aquí cada vez que se llama, ya lo hacen los Handle...
     }
 
-    private void DeactivateRedBorders()
-    {
-        foreach (GameObject border in _allRedBorders)
-        {
-            if (border != null) border.SetActive(false);
-        }
-    }
-
-    private void DeactivateBlueBorders()
-    {
-        foreach (GameObject border in _allBlueBorders)
-        {
-            if (border != null) border.SetActive(false);
-        }
-    }
-
-    private void UpdateSecondPlayerSelectedStatus()
-    {
-        secondPlayerSelected = (currentSelectedUnitPlayer2 != null);
-        Debug.Log($"Estado de secondPlayerSelected: {secondPlayerSelected}");
-    }
-
-    // Controla la interactividad de los botones para AMBOS jugadores
-    // 'canPlayer2Interact' es true una vez que J1 ha hecho una selección.
-    private void SetPlayerButtonsInteractable(bool canPlayer2Interact)
-    {
-        //Aqui hay que poner los botones (no se cuales son)
-        // Primero, establece la interactividad de todos los botones según si están seleccionados o no.
-        if (druidaButton != null) druidaButton.interactable = !((currentSelectedUnitPlayer1 == druidaPrefabUnit) || (currentSelectedUnitPlayer2 == druidaPrefabUnit));
-        if (robotButton != null) robotButton.interactable = !((currentSelectedUnitPlayer1 == robotPrefabUnit) || (currentSelectedUnitPlayer2 == robotPrefabUnit));
-        if (artificeButton != null) artificeButton.interactable = !((currentSelectedUnitPlayer1 == artificePrefabUnit) || (currentSelectedUnitPlayer2 == artificePrefabUnit));
-
-        // Si el Jugador 2 aún no puede interactuar (es decir, J1 no ha seleccionado nada todavía)
-        if (!canPlayer2Interact)
-        {
-            // Deshabilita todos los botones para J2.
-            // Para J1, los botones deben estar siempre activos al inicio (o gestionados por un sistema de turnos más complejo).
-            // Pero como esta función se llama en Start(false), simplemente desactiva todos.
-            // Los métodos SelectXPlayer1() los volverán a activar y deshabilitarán correctamente después.
-            if (druidaButton != null) druidaButton.interactable = false;
-            if (robotButton != null) robotButton.interactable = false;
-            if (artificeButton != null) artificeButton.interactable = false;
-        }
-
-        // Caso especial: después de que J1 selecciona (canPlayer2Interact = true),
-        // queremos que el botón que J1 eligió quede deshabilitado para J2.
-        // Y los botones restantes habilitados para J2.
-        // Esto ya lo maneja la primera parte de la función:
-        // si un personaje es currentSelectedUnitPlayer1, su interactable será false.
-        // Los demás, si no son currentSelectedUnitPlayer2, serán true.
-    }
 }
+
