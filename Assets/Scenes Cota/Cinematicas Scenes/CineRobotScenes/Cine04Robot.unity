@@ -823,6 +823,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 686129440745694802, guid: f075561af00fbc04e9318b2c06382027,
+        type: 3}
+      propertyPath: data.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c8a1b23220619e438ec846df5b9f216,
+        type: 2}
     - target: {fileID: 5387559236739332415, guid: f075561af00fbc04e9318b2c06382027,
         type: 3}
       propertyPath: m_Name
