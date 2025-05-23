@@ -161,7 +161,7 @@ public class TutorialManager : MonoBehaviour
         while (!DetectCharacterInTile(tile) || !CheckStamina())
         {
             //DetectCharacterInTile(tile);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.1f);
             if(CheckStamina())
             {
                 break;
