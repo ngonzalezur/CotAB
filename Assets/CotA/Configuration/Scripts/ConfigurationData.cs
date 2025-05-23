@@ -24,7 +24,7 @@ namespace CotA.Configuration
             //public float movementCoolDown = 1f;
             public int MaxHealth = 10;
             public Faction Faction = 0;
-            public BaseAttack[] Attacks = {null,null,null,null};
+            public BaseAttack[] Attacks;
         }
 
 
