@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
                 var scene = SceneManager.GetActiveScene().name;
                 if (scene == "Level 1")
                 {
-                    if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
+                    if (PlayerSelect.Instance.currentSelectedUnitPlayer1.UnitName == "Druid")
                     {
                         SceneManager.LoadScene("Cine02Druid");
                     }
@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (scene == "Level 2")
                 {
-                    if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
+                    if (PlayerSelect.Instance.currentSelectedUnitPlayer1.UnitName == "Druid")
                     {
                         SceneManager.LoadScene("Cine03Druid");
                     }
@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (scene == "Level 5")
                 {
-                    if (UnitManager.Instance.Heroes[0].UnitName == "Druid")
+                    if (PlayerSelect.Instance.currentSelectedUnitPlayer1.UnitName == "Druid")
                     {
                         SceneManager.LoadScene("Cine04Druid");
                     }

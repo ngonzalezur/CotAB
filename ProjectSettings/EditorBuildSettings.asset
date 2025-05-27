@@ -6,24 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menus.unity
+    guid: d5221a0f7fa9b9044b62575da4bf2360
+  - enabled: 0
     path: Assets/Scenes Cota/Escenas viejas/Elegir.unity
     guid: 49a44cff087fb93418ec2a720eee292d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes Cota/Escenas viejas/SecondPlayer.unity
     guid: 6ff79e6f0b6078c468903c0576f015f8
   - enabled: 0
     path: Assets/Scenes Cota/Escenas viejas/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes Cota/Escenas viejas/Level hard.unity
     guid: 222f94f9724fe814899ae0c3dfe77106
   - enabled: 0
     path: Assets/Scenes Cota/Escenas viejas/Tutorial.unity
     guid: 1aa0effe6871c9c4a8399b2a3e5985c6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes Cota/Escenas viejas/Level easy.unity
     guid: f2bde690a4ae00e4e9809aebf53c386b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes Cota/Escenas viejas/Level medium.unity
     guid: 3ee5f237f16db9d478d1c840e0acce6e
   - enabled: 0
@@ -47,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes Cota/Level 5.unity
     guid: 523b17f26cf96414e9e8646cfc419324
+  - enabled: 1
+    path: Assets/Scenes Cota/SceneLimpia.unity
+    guid: 0dd03782a1da2824da3ea9ccf0caef87
   - enabled: 1
     path: Assets/Scenes Cota/Level 6.unity
     guid: 9a6df60eeb6d8b44c9f05e164649a458

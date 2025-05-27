@@ -1791,12 +1791,21 @@ public class UnitManager : MonoBehaviour
 
     public void Update()
     {
+        if ((Heroes.Count < 2 && Heroes[0] == null) || (Heroes.Count > 1 && Heroes[1] == null && Heroes[0] == null))
+        {
+            //GameManager.Instance.ChangeState(TutoState.EndFight);
+            GameManager.Instance.ResetAndLoadScene();
+        }
         //Debug.Log(CanPlay);
         if (CanPlay)
         {
-            MoveHero(Heroes[0], 0);
-            AttackHero2(Heroes[0], 0);
-            if (SecondPlayer && Heroes[1] != null)
+            if (Heroes.Count > 0 && Heroes[0] != null)
+            {
+                MoveHero(Heroes[0], 0);
+                AttackHero2(Heroes[0], 0);
+            }
+
+            if (Heroes.Count > 1 && Heroes[1] != null)
             {
                 MoveHero(Heroes[1], 1);
                 AttackHero2(Heroes[1], 1);
@@ -1866,11 +1875,18 @@ public class UnitManager : MonoBehaviour
                 //unit.Destroy();
             }else if (unit.Health <= 0 && unit.Faction == Faction.Hero && !Invocaciones.Contains(unit))
             {
-                Heroes.Remove(unit);
-                unit.Destroy();
+                int index = Heroes.IndexOf(unit);
+                if (index != -1)
+                {
+                    Destroy(unit.gameObject);
+                    Heroes[index] = null;
+                }
+                //Heroes.Remove(unit);
+                //unit.Destroy();
                 if (Heroes.Count == 0)
                 {
-                    GameManager.Instance.ChangeState(TutoState.EndFight);
+                    //GameManager.Instance.ChangeState(TutoState.EndFight);
+                    GameManager.Instance.ResetAndLoadScene();
                 }
             }
             if (unit.Health <= 0 && unit.Faction == Faction.Enemy)
