@@ -359,7 +359,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e162b17a710f2943908bc696d6471d61
     GuidInternal: 
-    m_lastTime: -8584536377533632153
+    m_lastTime: -8584532910921207542
     List:
     - name: Attack Boss
       guid: 032e349202deda4589d723ea15403405
@@ -1189,6 +1189,86 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.6310431
       minDuration: 1.6310431
+    - name: Play_Tutorial_1
+      guid: 27f5d93a8e01014ea4490241440bf2d2
+      id: 1387552812
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Tutoriales
+        ObjectType: 4
+        guid: a535fbe2e977d740bf4033f364468e19
+      - ElementName: Play_Tutorial_1
+        ObjectType: 3
+        guid: 27f5d93a8e01014ea4490241440bf2d2
+      Path: Events\Default Work Unit\Tutoriales\Play_Tutorial_1
+      maxAttenuation: 0
+      maxDuration: 10.877029
+      minDuration: 10.877029
+    - name: Play_Tutorial_2
+      guid: 760cb8eaf3c8f047b1d2d7f574a10f4f
+      id: 1387552815
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Tutoriales
+        ObjectType: 4
+        guid: a535fbe2e977d740bf4033f364468e19
+      - ElementName: Play_Tutorial_2
+        ObjectType: 3
+        guid: 760cb8eaf3c8f047b1d2d7f574a10f4f
+      Path: Events\Default Work Unit\Tutoriales\Play_Tutorial_2
+      maxAttenuation: 0
+      maxDuration: 10.877029
+      minDuration: 10.877029
+    - name: Play_Tutorial_3
+      guid: fc08cb326b60f44b9d0f6e40b42d7e78
+      id: 1387552814
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Tutoriales
+        ObjectType: 4
+        guid: a535fbe2e977d740bf4033f364468e19
+      - ElementName: Play_Tutorial_3
+        ObjectType: 3
+        guid: fc08cb326b60f44b9d0f6e40b42d7e78
+      Path: Events\Default Work Unit\Tutoriales\Play_Tutorial_3
+      maxAttenuation: 0
+      maxDuration: 10.877029
+      minDuration: 10.877029
+    - name: Play_Tutorial_4
+      guid: 36321f8fb3a52240b5220eec659129d7
+      id: 1387552809
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Tutoriales
+        ObjectType: 4
+        guid: a535fbe2e977d740bf4033f364468e19
+      - ElementName: Play_Tutorial_4
+        ObjectType: 3
+        guid: 36321f8fb3a52240b5220eec659129d7
+      Path: Events\Default Work Unit\Tutoriales\Play_Tutorial_4
+      maxAttenuation: 0
+      maxDuration: 10.877029
+      minDuration: 10.877029
     - name: PlayBossMusic01
       guid: cb6b067aa99fdc4580521491427ea90c
       id: 394309612
@@ -1266,6 +1346,23 @@ MonoBehaviour:
         ObjectType: 4
         guid: c4054e1264ad7e4c9d994800c095850c
       Path: Events\Default Work Unit\Dialogue\PlayDruid
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Tutoriales
+      guid: a535fbe2e977d740bf4033f364468e19
+      id: 841306311
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e162b17a710f2943908bc696d6471d61
+      - ElementName: Tutoriales
+        ObjectType: 4
+        guid: a535fbe2e977d740bf4033f364468e19
+      Path: Events\Default Work Unit\Tutoriales
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1478,7 +1575,7 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8584586643634775808
     List: []
-  ExpandedFileSystemItemIds: 010000000200000003000000090000000a0000000d000000220000002300000024000000
+  ExpandedFileSystemItemIds: 010000000200000003000000080000000a0000000d000000220000002300000024000000
   ExpandedWaapiItemIds: 01000000020000000300000006000000070000000a000000
   AutoSyncSelection: 1
   autoPopulateEnabled: 1

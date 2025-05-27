@@ -20,6 +20,27 @@ namespace CotA.Sound
 
         }
 
+// ------------------------------------------------ T U T O R I A L E S ------------------------------------------------------------------------------
+        public void PlayTutorial1()
+        {
+            /// Tutorial 01
+            AkUnitySoundEngine.PostEvent("Play_Tutorial_1", gameObject); 
+        }
+        public void PlayTutorial2()
+        {
+            /// Tutorial 02
+            AkUnitySoundEngine.PostEvent("Play_Tutorial_2", gameObject); 
+        }
+        public void PlayTutorial3()
+        {
+            /// Tutorial 03
+            AkUnitySoundEngine.PostEvent("Play_Tutorial_3", gameObject); 
+        }
+        public void PlayTutorial4()
+        {
+            /// Tutorial 04 
+            AkUnitySoundEngine.PostEvent("Play_Tutorial_4", gameObject); 
+        }
 
 
 // ----------------------------------------- M Ú S I C A -----------------------------------------------------------------------------
