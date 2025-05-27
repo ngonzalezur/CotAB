@@ -47,6 +47,10 @@ namespace AK
         static const AkUniqueID PLAY_PARRY_ROBOT = 3072108541U;
         static const AkUniqueID PLAY_POSION_DRUID = 1979277459U;
         static const AkUniqueID PLAY_SMITE_ROBOT = 1513174551U;
+        static const AkUniqueID PLAY_TUTORIAL_1 = 1387552812U;
+        static const AkUniqueID PLAY_TUTORIAL_2 = 1387552815U;
+        static const AkUniqueID PLAY_TUTORIAL_3 = 1387552814U;
+        static const AkUniqueID PLAY_TUTORIAL_4 = 1387552809U;
         static const AkUniqueID PLAYBOSSMUSIC01 = 394309612U;
         static const AkUniqueID PLAYBOSSMUSIC02 = 394309615U;
     } // namespace EVENTS

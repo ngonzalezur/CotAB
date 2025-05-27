@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{02612187-DD2D-4746-B156-5731E390E223}",
     "Language": "SFX",
-    "Hash": "{A36B64ED-079A-C2F0-569F-0CEE82D1046D}",
+    "Hash": "{96FB3B75-6E8B-6689-149F-ECD9BCF7B2DE}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Combat_SoundBank",
     "ShortName": "Combat_SoundBank",
     "Path": "Combat_SoundBank.bnk",
@@ -248,6 +248,14 @@
       "CachePath": "C4/{C4CA855D-ADC6-81CC-8667-F0EDCF4A1725}.wem"
      },
      {
+      "Id": "345302595",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Tutorial 3.wav",
+      "CachePath": "DE/{DE50EA8B-F454-6564-3D50-6AF2797047CF}.wem"
+     },
+     {
       "Id": "365070089",
       "Language": "SFX",
       "Streaming": "false",
@@ -360,6 +368,14 @@
       "CachePath": "21/{213E41E7-69C2-7D88-CAB5-99816634B422}.wem"
      },
      {
+      "Id": "553684679",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Tutorial 4.wav",
+      "CachePath": "3C/{3C1BFC67-E717-4B44-6E4F-7C68FAC0EDA5}.wem"
+     },
+     {
       "Id": "554354140",
       "Language": "SFX",
       "Streaming": "false",
@@ -446,6 +462,14 @@
       "Location": "Memory",
       "ShortName": "DamageDruid01.wav",
       "CachePath": "1B/{1BB9F064-6C29-69EB-6267-DEF182ED1EE8}.wem"
+     },
+     {
+      "Id": "736484878",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Tutorial 2.wav",
+      "CachePath": "BC/{BCBADCF4-4561-D297-B9BF-D502F722FDF1}.wem"
      },
      {
       "Id": "743211468",
@@ -558,6 +582,14 @@
       "Location": "Memory",
       "ShortName": "Damage Murcielago 05.wav",
       "CachePath": "20/{203C82DE-9EFA-B798-4BF8-EBC6F0064D1F}.wem"
+     },
+     {
+      "Id": "954332773",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Tutorial 1.wav",
+      "CachePath": "18/{180371E0-ED69-7CA9-D323-862823920616}.wem"
      },
      {
       "Id": "976526258",
@@ -1216,6 +1248,62 @@
       ]
      },
      {
+      "Id": "1387552812",
+      "Name": "Play_Tutorial_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Tutoriales\\Play_Tutorial_1",
+      "GUID": "{3AD9F527-018E-4E01-A449-0241440BF2D2}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.877029",
+      "DurationMax": "10.877029",
+      "MediaRefs": [
+       {
+        "Id": "954332773"
+       }
+      ]
+     },
+     {
+      "Id": "1387552815",
+      "Name": "Play_Tutorial_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Tutoriales\\Play_Tutorial_2",
+      "GUID": "{EAB80C76-C8F3-47F0-B1D2-D7F574A10F4F}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.877029",
+      "DurationMax": "10.877029",
+      "MediaRefs": [
+       {
+        "Id": "736484878"
+       }
+      ]
+     },
+     {
+      "Id": "1387552814",
+      "Name": "Play_Tutorial_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Tutoriales\\Play_Tutorial_3",
+      "GUID": "{32CB08FC-606B-4BF4-9D0F-6E40B42D7E78}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.877029",
+      "DurationMax": "10.877029",
+      "MediaRefs": [
+       {
+        "Id": "345302595"
+       }
+      ]
+     },
+     {
+      "Id": "1387552809",
+      "Name": "Play_Tutorial_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Tutoriales\\Play_Tutorial_4",
+      "GUID": "{8F1F3236-A5B3-4022-B522-0EEC659129D7}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.877029",
+      "DurationMax": "10.877029",
+      "MediaRefs": [
+       {
+        "Id": "553684679"
+       }
+      ]
+     },
+     {
       "Id": "394309612",
       "Name": "PlayBossMusic01",
       "ObjectPath": "\\Events\\Default Work Unit\\Boss Music\\PlayBossMusic01",
@@ -1260,6 +1348,6 @@
     ]
    }
   ],
-  "FileHash": "{32B6328F-27D5-321E-D258-129988E33154}"
+  "FileHash": "{FEC6E39F-2731-8576-F26D-5E18137FDCB9}"
  }
 }
