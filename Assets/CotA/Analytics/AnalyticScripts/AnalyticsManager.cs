@@ -139,4 +139,20 @@ public class AnalyticsManager : MonoBehaviour
         AnalyticsService.Instance.RecordEvent(myEvent);
         Debug.Log($"Evento 'Playtest2Event' registrado con los valores proporcionados.");
     }
+    public void SendCustomEvent2(
+   string movementParameter2)
+    {
+        if (!_isInitialized)
+        {
+            return;
+        }
+
+        CustomEvent myEvent = new CustomEvent("Playtest2Event")
+    {
+        { "movementParameter", movementParameter2 }, //Enviar numero de perosnaje, casillas y tiempo en ella
+    };
+
+        AnalyticsService.Instance.RecordEvent(myEvent);
+        Debug.Log($"Evento 'Playtest2Event' registrado con los valores proporcionados.");
+    }
 }
