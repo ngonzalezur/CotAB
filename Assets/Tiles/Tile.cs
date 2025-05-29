@@ -59,6 +59,26 @@ public abstract class Tile : MonoBehaviour
     {
         if (unit == null || unit.Faction != Faction || this.OccupiedUnit != null) return;
         // Asegurar que la casilla anterior detenga su animación
+
+        if (unit != null && unit.Faction == Faction.Hero)
+        {
+            int pj = 0;
+            if (unit.UnitName == "Druid")
+            {
+                pj = 1;
+            }
+            else if (unit.UnitName == "robot")
+            {
+                pj = 0;
+            }
+            //string msj = "" + pj + "," + x + "," + y + "," + Time.time;
+            AnalyticsManager.Instance.SendCustomEvent2("" + pj + "," + x + "," + y + "," + Time.time);
+            if (unit.OccupiedTile != null)
+            {
+                unit.OccupiedTile.StopMovingCoroutine();
+            }
+        }
+
         if (unit.OccupiedTile != null)
         {
             unit.OccupiedTile.StopMovingCoroutine();

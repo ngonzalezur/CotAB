@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     }
     public void ResetAndLoadScene()
     {
+        AnaliticSender();
         StartCoroutine(DestroyDontDestroyOnLoadObjectsAndLoadScene());
     }
 
@@ -89,6 +90,54 @@ public class GameManager : MonoBehaviour
 
         // Cargar la nueva escena
         SceneManager.LoadScene("Menus");
+    }
+
+    public void AnaliticSender()
+    {
+        //llamar la funcion que manda los datos
+        if (AttDruid1 == 0)
+        {
+            AttDruid1 = 1;
+        }
+        if (AttDruid2 == 0)
+        {
+            AttDruid2 = 1;
+        }
+        if (AttDruid3 == 0)
+        {
+            AttDruid3 = 1;
+        }
+        if (AttDruid4 == 0)
+        {
+            AttDruid4 = 1;
+        }
+        if (MeleeDruid == 0)
+        {
+            MeleeDruid = 1;
+        }
+
+        if (AttRobot1 == 0)
+        {
+            AttRobot1 = 1;
+        }
+        if (AttRobot2 == 0)
+        {
+            AttRobot2 = 1;
+        }
+        if (AttRobot3 == 0)
+        {
+            AttRobot3 = 1;
+        }
+        if (AttRobot4 == 0)
+        {
+            AttRobot4 = 1;
+        }
+        if (MeleeRobot == 0)
+        {
+            MeleeRobot = 1;
+        }
+
+        AnalyticsManager.Instance.SendCustomEvent(MeleeDruid / HitMeleeDruid, MeleeRobot / HitMeleeRobot, AttDruid1 / HitAttDruid1, AttDruid2 / HitAttDruid2, AttDruid3 / HitAttDruid3, AttDruid4 / HitAttDruid4, interactionTotal / Time.time, AttRobot1 / HitAttRobot1, AttRobot2 / HitAttRobot2, AttRobot3 / HitAttRobot3, AttRobot4 / HitAttRobot4, (int)MeleeDruid, (int)MeleeRobot, (int)combo, (int)AttDruid1, (int)AttDruid2, (int)AttDruid3, (int)AttDruid4, (int)AttRobot1, (int)AttRobot2, (int)AttRobot4, (int)AttRobot3, character);
     }
 
     public void ChangeState(TutoState newState)
@@ -171,7 +220,6 @@ public class GameManager : MonoBehaviour
                 }
                 else if (scene == "Level 6")
                 {
-
                     ResetAndLoadScene();
                 }
 

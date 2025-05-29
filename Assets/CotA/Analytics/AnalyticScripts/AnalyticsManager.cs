@@ -147,12 +147,12 @@ public class AnalyticsManager : MonoBehaviour
             return;
         }
 
-        CustomEvent myEvent = new CustomEvent("Playtest2Event")
+        CustomEvent myEvent = new CustomEvent("Playtest4Event")
     {
         { "movementParameter", movementParameter2 }, //Enviar numero de perosnaje, casillas y tiempo en ella
     };
 
         AnalyticsService.Instance.RecordEvent(myEvent);
-        Debug.Log($"Evento 'Playtest2Event' registrado con los valores proporcionados.");
+        Debug.Log($"Evento 'Playtest4Event' registrado con los valores proporcionados.");
     }
 }
