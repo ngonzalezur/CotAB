@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     }
     public void ResetAndLoadScene()
     {
+        AnaliticSender();
         StartCoroutine(DestroyDontDestroyOnLoadObjectsAndLoadScene());
     }
 
@@ -91,6 +92,53 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Menus");
     }
 
+    public void AnaliticSender()
+    {
+        //llamar la funcion que manda los datos
+        if (AttDruid1 == 0)
+        {
+            AttDruid1 = 1;
+        }
+        if (AttDruid2 == 0)
+        {
+            AttDruid2 = 1;
+        }
+        if (AttDruid3 == 0)
+        {
+            AttDruid3 = 1;
+        }
+        if (AttDruid4 == 0)
+        {
+            AttDruid4 = 1;
+        }
+        if (MeleeDruid == 0)
+        {
+            MeleeDruid = 1;
+        }
+
+        if (AttRobot1 == 0)
+        {
+            AttRobot1 = 1;
+        }
+        if (AttRobot2 == 0)
+        {
+            AttRobot2 = 1;
+        }
+        if (AttRobot3 == 0)
+        {
+            AttRobot3 = 1;
+        }
+        if (AttRobot4 == 0)
+        {
+            AttRobot4 = 1;
+        }
+        if (MeleeRobot == 0)
+        {
+            MeleeRobot = 1;
+        }
+
+        AnalyticsManager.Instance.SendCustomEventEndGame(AttDruid1/HitAttDruid1,AttDruid2/HitAttDruid2,AttDruid3/HitAttDruid3,AttDruid4/HitAttDruid4,MeleeDruid/HitMeleeDruid,interactionTotal/Time.time,AttRobot1/HitAttRobot1, AttRobot2/HitAttRobot2, AttRobot3/HitAttRobot3, AttRobot4/HitAttRobot4, MeleeRobot/HitMeleeRobot, (int)AttDruid1, (int)AttDruid2, (int)AttDruid3, (int)AttDruid4, (int)MeleeDruid, (int)AttRobot1, (int)AttRobot2, (int)AttRobot3, (int)AttRobot4, (int)MeleeRobot,character);
+    }
     public void ChangeState(TutoState newState)
     {
         GameState = newState;
@@ -219,7 +267,7 @@ public class GameManager : MonoBehaviour
                     {
                         MeleeRobot = 1;
                     }
-                    AnalyticsManager.Instance.SendCustomEvent(HitMeleeDruid/MeleeDruid,HitMeleeRobot/MeleeRobot,HitAttDruid1/ AttDruid1, HitAttDruid2/AttDruid2,HitAttDruid3/AttDruid3, HitAttDruid4/AttDruid4,interactionTotal/Time.time,HitAttRobot1/AttRobot1,HitAttRobot2/AttRobot2,HitAttRobot3/AttRobot3,HitAttRobot4/AttRobot4,(int)MeleeDruid,(int)MeleeRobot,(int)combo,(int)AttDruid1,(int)AttDruid2,(int)AttDruid3,(int)AttDruid4,(int)AttRobot2,(int)AttRobot3,(int)AttRobot4,(int)AttRobot1,character);
+                    //AnalyticsManager.Instance.SendCustomEvent(HitMeleeDruid/MeleeDruid,HitMeleeRobot/MeleeRobot,HitAttDruid1/ AttDruid1, HitAttDruid2/AttDruid2,HitAttDruid3/AttDruid3, HitAttDruid4/AttDruid4,interactionTotal/Time.time,HitAttRobot1/AttRobot1,HitAttRobot2/AttRobot2,HitAttRobot3/AttRobot3,HitAttRobot4/AttRobot4,(int)MeleeDruid,(int)MeleeRobot,(int)combo,(int)AttDruid1,(int)AttDruid2,(int)AttDruid3,(int)AttDruid4,(int)AttRobot2,(int)AttRobot3,(int)AttRobot4,(int)AttRobot1,character);
                     Debug.Log(HitAttDruid4);                    
                     var persist = (GameObject.FindObjectsByType<BaseUnit>(FindObjectsSortMode.None)
                                      .FirstOrDefault(u => u.isPersistentHero));
@@ -232,8 +280,6 @@ public class GameManager : MonoBehaviour
         }
     }
 }
-
-
 
 
 public enum TutoState
