@@ -59,6 +59,13 @@ public abstract class Tile : MonoBehaviour
     {
         if (unit == null || unit.Faction != Faction || this.OccupiedUnit != null) return;
         // Asegurar que la casilla anterior detenga su animación
+        int pj = 0;
+        if(unit.UnitName == "Druid")
+        {
+            pj = 1;
+        }
+        //string msj = "" + pj + "," + x + "," + y + "," + Time.time;
+        AnalyticsManager.Instance.SendCustomEventMovement("" + pj + "," + x + "," + y + "," + Time.time);
         if (unit.OccupiedTile != null)
         {
             unit.OccupiedTile.StopMovingCoroutine();
