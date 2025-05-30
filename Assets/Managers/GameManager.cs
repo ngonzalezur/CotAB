@@ -26,17 +26,17 @@ public class GameManager : MonoBehaviour
 
     public static float interactionTotal = 0;
 
-    public static float HitAttDruid1 = 1;
-    public static float HitAttDruid2 = 1;
-    public static float HitAttDruid3 = 1;
-    public static float HitAttDruid4 = 1;
-    public static float HitMeleeDruid = 1;
+    public static float HitAttDruid1 = 0;
+    public static float HitAttDruid2 = 0;
+    public static float HitAttDruid3 = 0;
+    public static float HitAttDruid4 = 0;
+    public static float HitMeleeDruid = 0;
 
-    public static float HitAttRobot1 = 1;
-    public static float HitAttRobot2 = 1;
-    public static float HitAttRobot3 = 1;
-    public static float HitAttRobot4 = 1;
-    public static float HitMeleeRobot = 1;
+    public static float HitAttRobot1 = 0;
+    public static float HitAttRobot2 = 0;
+    public static float HitAttRobot3 = 0;
+    public static float HitAttRobot4 = 0;
+    public static float HitMeleeRobot = 0;
 
     public static float combo = 0;
     public static string character = "";
@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
 
 
         Debug.Log(MeleeDruid / HitMeleeDruid +"//"+ MeleeRobot / HitMeleeRobot + "//" + AttDruid1 / HitAttDruid1 + "//" + AttDruid2 / HitAttDruid2 + "//" + AttDruid3 / HitAttDruid3 + "//" + AttDruid4 / HitAttDruid4 + "//" + interactionTotal / Time.time + "//" + AttRobot1 / HitAttRobot1 + "//" + AttRobot2 / HitAttRobot2 + "//" + AttRobot3 / HitAttRobot3 + "//" + AttRobot4 / HitAttRobot4 + "//" + (int)MeleeDruid + "//" + (int)MeleeRobot + "//" + (int)combo + "//" + (int)AttDruid1 + "//" + (int)AttDruid2 + "//" + (int)AttDruid3 + "//" + (int)AttDruid4 + "//" + (int)AttRobot1 + "//" + (int)AttRobot2 + "//" + (int)AttRobot4 + "//" + (int)AttRobot3 + "//" + character);
-        AnalyticsManager.Instance.SendCustomEvent(MeleeDruid / HitMeleeDruid, MeleeRobot / HitMeleeRobot, AttDruid1 / HitAttDruid1, AttDruid2 / HitAttDruid2, AttDruid3 / HitAttDruid3, AttDruid4 / HitAttDruid4, interactionTotal / Time.time, AttRobot1 / HitAttRobot1, AttRobot2 / HitAttRobot2, AttRobot3 / HitAttRobot3, AttRobot4 / HitAttRobot4, (int)MeleeDruid, (int)MeleeRobot, (int)combo, (int)AttDruid1, (int)AttDruid2, (int)AttDruid3, (int)AttDruid4, (int)AttRobot1, (int)AttRobot2, (int)AttRobot4, (int)AttRobot3, character);
+        AnalyticsManager.Instance.SendCustomEvent( HitMeleeDruid/ MeleeDruid,  HitMeleeRobot/ MeleeRobot , HitAttDruid1 / AttDruid1, HitAttDruid2/ AttDruid2, HitAttDruid3/ AttDruid3 , HitAttDruid4/ AttDruid4, interactionTotal / Time.time,  HitAttRobot1/ AttRobot1, HitAttRobot2/AttRobot2, HitAttRobot3/AttRobot3, HitAttRobot4/AttRobot4, (int)MeleeDruid, (int)MeleeRobot, (int)combo, (int)AttDruid1, (int)AttDruid2, (int)AttDruid3, (int)AttDruid4, (int)AttRobot1, (int)AttRobot2, (int)AttRobot4, (int)AttRobot3, character);
     }
 
     public void ChangeState(TutoState newState)
