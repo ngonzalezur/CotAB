@@ -323,7 +323,11 @@ public class UnitManager : MonoBehaviour
             }
             if (i == 1)
             {
-                GameManager.AttDruid2++;
+                if (unit.Attacks[1] != null && (unit.Attacks[1].UnitName == "ad2" || unit.Attacks[1].UnitName == "ar2"))
+                {
+                    GameManager.AttDruid2++;
+                }
+                GameManager.MeleeDruid++;
             }
             if (i == 2)
             {
@@ -335,7 +339,7 @@ public class UnitManager : MonoBehaviour
             }
             if (i == 4)
             {
-                GameManager.MeleeDruid++;
+                //GameManager.MeleeDruid++;
             }
         }
 
@@ -349,7 +353,11 @@ public class UnitManager : MonoBehaviour
             }
             if (i == 1)
             {
-                GameManager.AttRobot2++;
+                if (unit.Attacks[1] != null && (unit.Attacks[1].UnitName == "ad2" || unit.Attacks[1].UnitName == "ar2"))
+                {
+                    GameManager.AttRobot2++;
+                }
+                GameManager.MeleeRobot++;
             }
             if (i == 2)
             {
